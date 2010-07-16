@@ -8,7 +8,7 @@
  *            copyright : (C) Brehar Mihai-Tudor
  *            email     : mihai@secure-hosting.ro
  *
- *    $Id: dispatcher.php 278 2007-07-19 21:28:01Z mihai $
+ *    $Id$
  *
  ***************************************************************************/
 

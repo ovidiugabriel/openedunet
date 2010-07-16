@@ -6,7 +6,7 @@
  *            copyright : (C) Ovidiu Farauanu
  *            email     : ovidiugabriel@gmail.com
  *
- *    $Id: config.php 278 2007-07-19 21:28:01Z mihai $
+ *    $Id$
  *
  ***************************************************************************/
  
