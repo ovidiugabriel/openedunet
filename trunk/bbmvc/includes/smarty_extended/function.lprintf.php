@@ -7,7 +7,7 @@
  *            copyright : (C) Ovidiu Farauanu
  *            email     : ovidiugabriel@gmail.com
  *
- *    $Id: constdef.php,v 1.1 2007/05/13 12:43:30 ovidiugabriel Exp $
+ *    $Id$
  *
  ***************************************************************************/
  

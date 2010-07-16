@@ -7,7 +7,7 @@
  *            copyright : (C) 2006 Ovidiu Farauanu
  *            email     : ovidiugabriel@gmail.com
  *
- *    $Id: config_ovidiu.php,v 1.1 2007/05/13 13:51:12 ovidiugabriel Exp $
+ *    $Id$
  *
  ***************************************************************************/
 
@@ -31,7 +31,7 @@
 
 /**
  * @package com.bmrweb.dispatcher
- * @version SVN: $Id: config_ovidiu.php,v 1.1 2007/05/13 13:51:12 ovidiugabriel Exp $
+ * @version SVN: $Id$
  * @author Ovidiu Farauanu <ovidiugabriel@gmail.com>
  */
 
