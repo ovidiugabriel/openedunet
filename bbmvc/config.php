@@ -29,28 +29,49 @@
  *
  * ************************************************************************* */
 
+/**
+ * 
+ */
 if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
 
 /*
- * This is intended to provide a simple configuration for a project with multiple developers. 
- * Each developer should create a file called "profile" in the root of this project.
- * The contents of the file should be used to identify the developer. Eg: john
+ * This is intended to provide a simple configuration for a project with 
+ * multiple developers. Each developer should create a file called "profile" 
+ * in the root of this project. The contents of the file should be used to 
+ * identify the developer. 
+ * Eg: john 
  * Then, a "config_john.php" file should be created in the config folder.
  */
-$file = realpath(dirname(__FILE__)) . '/profile';
-if (file_exists($file)) {
-    $profile = file_get_contents($file);
 
-    $profile_path = realpath(dirname(__FILE__)) . '/config/config_' . $profile . '.php';
-    if (file_exists($profile_path)) {
-        require_once $profile_path;
-    } else {
-        
-    }
-} else {
-    
+if (!is_file($file = realpath(dirname(__FILE__)) . '/profile')) {
+    die("[$file] No configuration profile defined!");
 }
+
+$profile = trim(file_get_contents($file));
+if ('' == $profile) {
+    die('Configuration profile is empty!');
+}
+list ($developer, $environment) = explode('-', $profile);
+
+if (!is_file($file = realpath(dirname(__FILE__)) .
+                "/../config/$developer/$environment.php")) {
+    die("[$file] Defined configuration profile does not exists! ");
+}
+
+/**
+ * Current developer constant
+ */
+define('_CURRENT_DEVELOPER', $developer);
+
+/**
+ * Current environment constant: development, production, testing, windows, linux, etc
+ */
+define('_CURRENT_ENVIRONMENT', $environment);
+
+unset($developer, $environment);
+
+require_once $file;
 
 // EOF

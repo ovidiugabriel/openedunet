@@ -4,7 +4,7 @@
  *
  *            copyright : (C) Brehar Mihai-Tudor
  *            email     : mihai@secure-hosting.ro
- *  *
+ *  $Id$
  * ************************************************************************* */
 
 /* * *************************************************************************
@@ -25,7 +25,18 @@
  *
  * ************************************************************************* */
 
-define('_VALID_ACCESS', 1);
+/*
+ * Cronometrez in cat timp se genereaza fiecare pagina
+ * @since Tuesday, June 13, 2006
+ */
+$start_microtime = microtime(true);
+
+/*
+ * Fisierele nu pot fi accesate decat prin intermediul acestuia
+ */
+if (!defined('_VALID_ACCESS')) {
+    define('_VALID_ACCESS', 1);
+}
 
 require_once realpath(dirname(__FILE__)) . '/includes/constdef.php';
 
@@ -46,16 +57,26 @@ try {
 } catch (Exception $exception) {
     if (_DEBUG == _DEBUG_BROWSER) {
         if (isset($_smarty)) {
+            $message = $exception->getMessage();
             // using smarty to display the error
-            $_smarty->assign('error', $exception->getMessage());
+            if ("" != $message) {
+                $_smarty->assign('error', $exception->getMessage());
+            }
             $_smarty->display('error.tpl');
         } else {
             // no smarty
             echo $exception->getMessage();
         }
     } else if (_DEBUG == _DEBUG_LOG) {
+        /*
+         * activez, pe bune, scrierea erorilor in fisier
+         * @since index.php,v 1.8 2007/08/03 06:49:42
+         */
+        ini_set('log_errors', 1);
+        ini_set('error_log', 'error_log');
+
         error_log('ERROR: ' . $exception->getMessage(), 0);
-    } else {
+    } else { // _DEBUG_OFF
         // this point should never be reached
         die('Access denied!');
     }
