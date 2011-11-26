@@ -74,3 +74,4 @@ define('_DB_USER', 'root');
 define('_DB_PASS', '');
 define('_DB_NAME', 'cdcol');
 
+// EOF

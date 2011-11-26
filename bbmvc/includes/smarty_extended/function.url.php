@@ -1,5 +1,6 @@
 <?php
-/* **************************************************************************
+
+/* * *************************************************************************
  *                            function.url.php
  *                    ------------------------------------
  *            begin     : Jun 4, 2007
@@ -8,9 +9,9 @@
  *
  *    $Id$
  *
- ***************************************************************************/
- 
-/* **************************************************************************
+ * ************************************************************************* */
+
+/* * *************************************************************************
  *
  *    This program is Free Software; you can redistribute it and/or
  *    modify it under the terms of the GNU General Public License
@@ -26,20 +27,25 @@
  *    Foundation, Inc., 59 Temple Place - Suite 330,
  *    Boston, MA  02111-1307, USA.
  *
- ***************************************************************************/
- 
+ * ************************************************************************* */
+
 if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
 
-function smarty_function_url($params, &$smarty){
+/**
+ *
+ * @param type $params
+ * @param type $smarty
+ * @return type 
+ */
+function smarty_function_url($params, &$smarty) {
 
-	if (!empty($params["href"])){
-		return _URL_MAIN . "/$params[href]";
-	}
-	
-	return getSeoUrl($params);
-					
+    if (!empty($params["href"])) {
+        return _URL_MAIN . "/$params[href]";
+    }
+
+    return getSeoUrl($params);
 }
 
-?>
+// EOF

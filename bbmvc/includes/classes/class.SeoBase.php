@@ -1,5 +1,6 @@
 <?php
-/* **************************************************************************
+
+/* * *************************************************************************
  *                            class.SeoBase.php
  *                    ------------------------------------
  *            begin     : Jun 4, 2007
@@ -8,9 +9,9 @@
  *
  *    $Id$
  *
- ***************************************************************************/
- 
-/* **************************************************************************
+ * ************************************************************************* */
+
+/* * *************************************************************************
  *
  *    This program is Free Software; you can redistribute it and/or
  *    modify it under the terms of the GNU General Public License
@@ -26,37 +27,27 @@
  *    Foundation, Inc., 59 Temple Place - Suite 330,
  *    Boston, MA  02111-1307, USA.
  *
- ***************************************************************************/
+ * ************************************************************************* */
 
-class SeoBase{
-	
-	public function getSeoName($string){
-		
-		$string = strtolower($string);
-		
-		$string = ereg_replace("[^[:alnum:] ]"," ",$string);
-		$string = preg_replace("/\s\s+/", " ", $string);
-		$string = trim($string);
-		
-		$string = str_replace(" ", "-", $string); 
-		
-		//return $this->replaceGermanChars($string);  
-		return $string;
-	}
-	
-	protected function replaceGermanChars($text){
-	
-		$text = str_replace("ä", "ae", $text);
-		$text = str_replace("Ä", "Ae", $text);
-		$text = str_replace("ü", "ue", $text);
-		$text = str_replace("Ü", "Ue", $text);
-		$text = str_replace("ö", "oe", $text);
-		$text = str_replace("Ö", "Oe", $text);
-		$text = str_replace("ß", "ss", $text);
-		
-		return $text;
-	}
-		
+/**
+ * @access public
+ */
+class SeoBase {
+
+    /**
+     *
+     * @param type $string
+     * @return type 
+     */
+    public function getSeoName($string) {
+        $string = strtolower($string);
+        $string = ereg_replace("[^[:alnum:] ]", " ", $string);
+        $string = preg_replace("/\s\s+/", " ", $string);
+        $string = trim($string);
+        $string = str_replace(" ", "-", $string);
+        return $string;
+    }
+
 }
- 
-?>
+
+// EOF
