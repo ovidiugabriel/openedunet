@@ -1,6 +1,6 @@
 <?php
 
-/* **************************************************************************
+/* * *************************************************************************
  *                            class_loader.php
  *                    ------------------------------------
  *            begin     : Apr 10, 2007
@@ -9,9 +9,9 @@
  *
  *    $Id$
  *
- ***************************************************************************/
- 
-/* **************************************************************************
+ * ************************************************************************* */
+
+/* * *************************************************************************
  *
  *    This program is Free Software; you can redistribute it and/or
  *    modify it under the terms of the GNU General Public License
@@ -27,29 +27,34 @@
  *    Foundation, Inc., 59 Temple Place - Suite 330,
  *    Boston, MA  02111-1307, USA.
  *
- ***************************************************************************/
- 
+ * ************************************************************************* */
+
 if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
 
+/**
+ *
+ * @param string $class_name
+ * @return null
+ */
 function __autoload($class_name) {
-	
-	switch ($class_name){
-			
-		case 'Smarty':
-			if (is_file($file = (_DIR_LIBRARIES . '/Smarty-' . _SMARTY_VERSION . '/libs/Smarty.class.php'))) {
-	    	    // smarty is bundled in bbmvc package
-		    	require_once $file;
-			} else {
-		    	// smarty is not bundled in bbmvc package, maybe it is bundled in php distro
-		    	require_once 'Smarty.class.php';
-			}
-			return;
-    					
-    	default:
-			require_once _DIR_PROJECT . '/includes/classes/class.' . $class_name . '.php';
+
+    switch ($class_name) {
+
+        case 'Smarty':
+            if (is_file($file = (_DIR_LIBRARIES . '/Smarty-' . _SMARTY_VERSION . '/libs/Smarty.class.php'))) {
+                // smarty is bundled in bbmvc package
+                require_once $file;
+            } else {
+                // smarty is not bundled in bbmvc package, maybe it is bundled in php distro
+                require_once 'Smarty.class.php';
+            }
+            return;
+
+        default:
+            require_once _DIR_PROJECT . '/includes/classes/class.' . $class_name . '.php';
     }
 }
 
-?>
+// EOF
