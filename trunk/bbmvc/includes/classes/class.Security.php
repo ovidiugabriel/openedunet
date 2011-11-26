@@ -1,6 +1,6 @@
 <?php
 
-/* **************************************************************************
+/* * *************************************************************************
  *                               class.SecurityClass.php
  *                    ------------------------------------
  *            begin     : 04.04.2007
@@ -9,9 +9,9 @@
  *
  *    $Id:class.Security.php 262 2007-06-07 18:38:47Z mihai $
  *
- ***************************************************************************/
+ * ************************************************************************* */
 
-/* **************************************************************************
+/* * *************************************************************************
  *
  *    This program is Free Software; you can redistribute it and/or
  *    modify it under the terms of the GNU General Public License
@@ -27,36 +27,48 @@
  *    Foundation, Inc., 59 Temple Place - Suite 330,
  *    Boston, MA  02111-1307, USA.
  *
- ***************************************************************************/
+ * ************************************************************************* */
 
 /**
  * @package	com.bmrweb.dispatcher
  * @version SVN: $Id:class.Security.php 262 2007-06-07 18:38:47Z mihai $
  * @author Ovidiu Farauanu <ovidiugabriel@gmail.com>
  */
- 
 if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
 
-
+/**
+ * @access public
+ */
 class Security {
-	protected function isInt($string){
-		if (ereg("^\-{0,1}[0-9]+$", $string)){
-			return true;
-		}
-		
-		return false;		
-	}
-	
-	protected function isNatural($string){
-		if (ereg("^[0-9]+$", $string)){
-			return true;
-		}
-		
-		return false;
-	}
-	
+
+    /**
+     *
+     * @param string $string
+     * @return boolean
+     */
+    protected function isInt($string) {
+        if (ereg("^\-{0,1}[0-9]+$", $string)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     *
+     * @param string $string
+     * @return boolean
+     */
+    protected function isNatural($string) {
+        if (ereg("^[0-9]+$", $string)) {
+            return true;
+        }
+
+        return false;
+    }
+
 }
 
-?>
+// EOF

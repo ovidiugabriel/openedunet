@@ -1,5 +1,6 @@
 <?php
-/* **************************************************************************
+
+/* * *************************************************************************
  *                            class.CdCollectionSeo.php
  *                    ------------------------------------
  *            begin     : Jun 4, 2007
@@ -8,9 +9,9 @@
  *
  *    $Id$
  *
- ***************************************************************************/
- 
-/* **************************************************************************
+ * ************************************************************************* */
+
+/* * *************************************************************************
  *
  *    This program is Free Software; you can redistribute it and/or
  *    modify it under the terms of the GNU General Public License
@@ -26,14 +27,21 @@
  *    Foundation, Inc., 59 Temple Place - Suite 330,
  *    Boston, MA  02111-1307, USA.
  *
- ***************************************************************************/
- 
- 
- class CdCollectionSeo extends SeoBase{
- 	
- 	public function seo_cdEdit($params){
- 		return $params["seo_cd_title"] . "--id" . $params["cd_id"]. ".html";
- 	}
- }
- 
-?>
+ * ************************************************************************* */
+
+/**
+ * @access public
+ */
+class CdCollectionSeo extends SeoBase {
+    /**
+     *
+     * @param array $params
+     * @return string
+     */
+    public function seo_cdEdit(array $params) {
+        return $params["seo_cd_title"] . "--id" . $params["cd_id"] . ".html";
+    }
+
+}
+
+// EOF

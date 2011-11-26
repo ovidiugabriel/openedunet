@@ -1,5 +1,6 @@
 <?php
-/* **************************************************************************
+
+/* * *************************************************************************
  *                            class.CdCollectionSecurity.php
  *                    ------------------------------------
  *            begin     : May 27, 2007
@@ -8,9 +9,9 @@
  *
  *    $Id$
  *
- ***************************************************************************/
- 
-/* **************************************************************************
+ * ************************************************************************* */
+
+/* * *************************************************************************
  *
  *    This program is Free Software; you can redistribute it and/or
  *    modify it under the terms of the GNU General Public License
@@ -26,61 +27,92 @@
  *    Foundation, Inc., 59 Temple Place - Suite 330,
  *    Boston, MA  02111-1307, USA.
  *
- ***************************************************************************/
+ * ************************************************************************* */
 
-class CdCollectionSecurity extends Security{
-	
-	public function check_GET_cd_id($string){
-		
-		if (!parent::isNatural($string)){
-			throw new Exception("wrong param _GET[cd_id]");
-		}
-	}
-	
-	public function check_POST_cd_id($string){
-		if (!parent::isNatural($string)){
-			throw new Exception("wrong param _POST[cd_id]");
-		}
-	}
-	
-	public function check_POST_cd($array){
-		
-	}
-	
-	public function check_POST_cd_title($string){
-		/*
-		if (!eregi("^[a-z0-9\ \-]*$", $string)){
-			throw new Exception("wrong param _POST[cd_title]");
-		}
-		*/
-	}
-	
-	public function check_POST_cd_artist($string){
-		if (!eregi("^[a-z0-9\ \-]*$", $string)){
-			throw new Exception("wrong param _POST[cd_artist]");
-		}		
-	}
-	
-	public function check_POST_cd_year($string){
-		if (!parent::isNatural($string)){
-			throw new Exception("wrong param _POST[cd_year]");
-		}		
-	}
+/**
+ * @access public
+ */
+class CdCollectionSecurity extends Security {
 
-	public function check_GET_status($string){
-		
-		if (!parent::isNatural($string)){
-			throw new Exception("wrong param _GET[status]");
-		}
-	}
+    /**
+     *
+     * @param type $string 
+     */
+    public function check_GET_cd_id($string) {
 
-	public function check_GET_error($string){
-		
-		if (!parent::isNatural($string)){
-			throw new Exception("wrong param _GET[error]");
-		}
-	}
+        if (!parent::isNatural($string)) {
+            throw new Exception("wrong param _GET[cd_id]");
+        }
+    }
 
-} 
+    /**
+     *
+     * @param type $string 
+     */
+    public function check_POST_cd_id($string) {
+        if (!parent::isNatural($string)) {
+            throw new Exception("wrong param _POST[cd_id]");
+        }
+    }
 
-?>
+    /**
+     *
+     * @param type $array 
+     */
+    public function check_POST_cd($array) {
+        
+    }
+
+    /**
+     *
+     * @param type $string 
+     */
+    public function check_POST_cd_title($string) {
+        /*
+          if (!eregi("^[a-z0-9\ \-]*$", $string)){
+          throw new Exception("wrong param _POST[cd_title]");
+          }
+         */
+    }
+
+    /**
+     *
+     * @param type $string 
+     */
+    public function check_POST_cd_artist($string) {
+        if (!eregi("^[a-z0-9\ \-]*$", $string)) {
+            throw new Exception("wrong param _POST[cd_artist]");
+        }
+    }
+
+    /**
+     *
+     * @param type $string 
+     */
+    public function check_POST_cd_year($string) {
+        if (!parent::isNatural($string)) {
+            throw new Exception("wrong param _POST[cd_year]");
+        }
+    }
+
+    /**
+     *
+     * @param type $string 
+     */
+    public function check_GET_status($string) {
+        if (!parent::isNatural($string)) {
+            throw new Exception("wrong param _GET[status]");
+        }
+    }
+
+    /**
+     *
+     * @param type $string 
+     */
+    public function check_GET_error($string) {
+        if (!parent::isNatural($string)) {
+            throw new Exception("wrong param _GET[error]");
+        }
+    }
+
+}

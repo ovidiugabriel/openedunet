@@ -1,6 +1,6 @@
 <?php
 
-/* **************************************************************************
+/* * *************************************************************************
  *                              function.lprintf.php
  *                    ------------------------------------
  *            begin     : May 13, 2007
@@ -9,9 +9,9 @@
  *
  *    $Id$
  *
- ***************************************************************************/
- 
-/* **************************************************************************
+ * ************************************************************************* */
+
+/* * *************************************************************************
  *
  *    This program is Free Software; you can redistribute it and/or
  *    modify it under the terms of the GNU General Public License
@@ -27,21 +27,27 @@
  *    Foundation, Inc., 59 Temple Place - Suite 330,
  *    Boston, MA  02111-1307, USA.
  *
- ***************************************************************************/
+ * ************************************************************************* */
 
+/**
+ *
+ * @global type $_lang
+ * @param type $params
+ * @param type $smarty
+ * @return type 
+ */
+function smarty_function_lprintf($params, &$smarty) {
+    global $_lang;
 
-function smarty_function_lprintf($params, &$smarty){
-	global $_lang;
-	
     $format = $params["string"];
-    
-    if (array_key_exists($format, $_lang)){
-    	$format = $_lang[$format];
-	}
-    
+
+    if (array_key_exists($format, $_lang)) {
+        $format = $_lang[$format];
+    }
+
     unset($params["string"]);
-    
+
     return vsprintf($format, $params);
 }
 
-?>
+// EOF
