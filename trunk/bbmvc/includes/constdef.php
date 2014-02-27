@@ -37,12 +37,4 @@ define('_DEBUG_OFF', 0);
 define('_DEBUG_BROWSER', 1);
 define('_DEBUG_LOG', 2);
 
-define('_STATUS_INSERT', 1);
-define('_STATUS_UPDATE', 2);
-define('_STATUS_DELETE', 3);
-
-define('_ERROR_INSERT', 1);
-define('_ERROR_UPDATE', 2);
-define('_ERROR_DELETE', 3);
-
 // EOF
