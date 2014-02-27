@@ -11,23 +11,48 @@
  *
  * ************************************************************************* */
 
-/* * *************************************************************************
- *
- *    This program is Free Software; you can redistribute it and/or
- *    modify it under the terms of the GNU General Public License
- *    as published by the Free Software Foundation; either version 2
- *    of the License, or (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *    GNU General Public License for more details.
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 59 Temple Place - Suite 330,
- *    Boston, MA  02111-1307, USA.
+/*
+   Copyright (c) 2006, BMR Soft srl, ICE Control srl
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+        * Redistributions of source code must retain the above copyright
+          notice, this list of conditions and the following disclaimer.
+        * Redistributions in binary form must reproduce the above copyright
+          notice, this list of conditions and the following disclaimer in the
+          documentation and/or other materials provided with the distribution.
+        * Neither the name of the <organization> nor the
+          names of its contributors may be used to endorse or promote products
+          derived from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
  *
  * ************************************************************************* */
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* History (Start).                                                          */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*                                                                           */
+/* Date         Name    Reason                                               */
+/* ------------------------------------------------------------------------- */
+/* 28.02.2014           Guarded multilanguage support.                       */
+/*                      Removed useless variables.                           */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* History (END).                                                            */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
 
 if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
@@ -36,11 +61,11 @@ if (!defined('_VALID_ACCESS')) {
 /*
  * Smarty setup
  */
-$_smarty = new Smarty;
-$_smarty->caching = _SMARTY_CACHING;
-$_smarty->template_dir = _DIR_TEMPLATES;
-$_smarty->compile_dir = _DIR_CACHE;
-$_smarty->cache_dir = _DIR_CACHE;
+$_smarty                = new Smarty();
+$_smarty->caching       = _SMARTY_CACHING;
+$_smarty->template_dir  = _DIR_TEMPLATES;
+$_smarty->compile_dir   = _DIR_CACHE;
+$_smarty->cache_dir     = _DIR_CACHE;
 
 
 require _DIR_PROJECT . '/includes/smarty_extended/function.lprintf.php';
@@ -50,20 +75,6 @@ require _DIR_PROJECT . '/includes/smarty_extended/block.a.php';
 $_smarty->register_function('lprintf', 'smarty_function_lprintf');
 $_smarty->register_function('url', 'smarty_function_url');
 $_smarty->register_block('a', 'smarty_block_a');
-
-/*
- * "exporting" some variables into smarty
- */
-
-$_smarty->assign("_errorMsg", $_errorMsg);
-$_smarty->assign("_statusMsg", $_statusMsg);
-
-if (isset($_GET["status"])) {
-    $_smarty->assign("status", $_GET["status"]);
-}
-if (isset($_GET["error"])) {
-    $_smarty->assign("error", $_GET["error"]);
-}
 
 /*
  * Now the dispatcher stuff comes
@@ -88,7 +99,7 @@ if (!@ereg('^[a-zA-Z_0-9]+$', $module)) {
 $_module_path = str_replace('_', '/', $module);
 $module_classname = explode('_', $module); // eg. module = Module_SubModule_SubSubModule
 $module_classname = $module_classname[count($module_classname) - 1]; // then module_classname = SubSubModule
-//module folder check 
+//module folder check
 if (!is_dir($folder = (_DIR_MODULES . '/' . $_module_path))) {
     throw new Exception('Invalid module: Folder ' . $folder . ' doesn\'t exists!');
 }
@@ -100,13 +111,16 @@ if (!is_file($file = (_DIR_MODULES . '/' . $_module_path . '/class.' . $module_c
 
 require_once _DIR_MODULES . '/' . $_module_path . '/class.' . $module_classname . '.php';
 
-//enabling multilanguage support 
-if (is_file($file = (_DIR_LANGUAGES . '/' . $_module_path . '/' . _LANGUAGE_DEFAULT . '.php'))) {
-    $_lang = array();
-    require_once $file;
-    $_smarty->assign('_lang', $_lang);
-} else
-    throw new Exception($file);
+if (_ENABLE_MULTILANGUAGE) {
+    //enabling multilanguage support
+    if (is_file($file = (_DIR_LANGUAGES . '/' . $_module_path . '/' . _LANGUAGE_DEFAULT . '.php'))) {
+        $_lang = array();
+        require_once $file;
+        $_smarty->assign('_lang', $_lang);
+    } else {
+        throw new Exception($file);
+    }
+}
 
 $class = new ReflectionClass($module_classname); // throws exception if the class is not existing
 
