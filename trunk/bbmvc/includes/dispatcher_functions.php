@@ -158,7 +158,7 @@ function getSeoUrl(array $params) {
         return _URL_MAIN . '/' . $href;
     }
 
-    if (empty($params['action')) {
+    if (empty($params['action'])) {
         $params['action'] = 'defaultAction';
     }
 

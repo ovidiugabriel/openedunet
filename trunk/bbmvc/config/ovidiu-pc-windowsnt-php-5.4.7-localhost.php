@@ -7,7 +7,7 @@
  *            copyright : (C) 2006 Ovidiu Farauanu
  *            email     : ovidiugabriel@gmail.com
  *
- *    $Id$
+ *    $Id: config_ovidiu-windows7.php 6 2011-11-26 00:40:12Z ovidiugabriel@gmail.com $
  *
  * ************************************************************************* */
 
@@ -31,7 +31,7 @@
 
 /**
  * @package com.bmrweb.dispatcher
- * @version SVN: $Id$
+ * @version SVN: $Id: config_ovidiu-windows7.php 6 2011-11-26 00:40:12Z ovidiugabriel@gmail.com $
  * @author Ovidiu Farauanu <ovidiugabriel@gmail.com>
  */
 if (!defined('_VALID_ACCESS')) {
@@ -52,7 +52,7 @@ define('_SECURITY_ENFORCE_GET', 1);
 define('_SECURITY_ENFORCE_POST', 1);
 define('_SECURITY_ENFORCE_COOKIE', 1);
 
-define('_DIR_PROJECT', 'D:/My Online Works/htdocs');
+define('_DIR_PROJECT', dirname(__FILE__) . '/..');
 define('_DIR_MODULES', _DIR_PROJECT . '/modules');
 define('_DIR_LIBRARIES', _DIR_PROJECT . '/includes/libraries');
 define('_DIR_TEMPLATES', _DIR_PROJECT . '/templates');
@@ -60,11 +60,12 @@ define('_DIR_LANGUAGES', _DIR_PROJECT . '/languages');
 define('_DIR_CACHE', _DIR_PROJECT . '/tmp');
 define('_DIR_STYLES', _DIR_PROJECT . '/styles');
 
+define ('_ENABLE_MULTILANGUAGE', 0);
 define('_LANGUAGE_DEFAULT', 'english');
 
 define('_FILE_MAIN', 'index.php');
 
-define('_URL_MAIN', 'http://localhost');
+define('_URL_MAIN', 'http://localhost/openedunet/bbmvc/');
 
 define('_USE_SEO_LINKS', 0);
 
