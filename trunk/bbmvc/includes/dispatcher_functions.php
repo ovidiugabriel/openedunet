@@ -64,9 +64,46 @@ function construct($name, $singleton = false) {
     $class = str_replace('.', '_', $name);
     if (!$singleton) {
         return new $class;
+    }   
+
+    // otherwise is singleton and we are searching for Class()
+
+    if (function_exists($class)) {
+        return $class();    
     }
-    return $class();
+
+    // search for Class::instance()
+
+    if (method_exists($class, 'instance')) {
+        return call_user_func(array($class, 'getInstance'));
+    }
+
+    // search for Class::getInstance()
+
+    if (method_exists($class, 'getInstance')) {
+        return call_user_func(array($class, 'getInstance'));    
+    }
+    return null;   
 }
+
+function require_object($name, $fn = null) {
+    import($name);
+    $object = construct($name, true);
+    if (null == $fn) {
+        return $object;
+    }
+    return $fn($object);
+}
+
+function require_class($name, $fn = null) {
+    import($name);
+    $object = construct($name, false);
+    if (null == $fn) {
+        return $object;
+    }
+    return $fn($object);
+}
+
 
 /**
  * @param ReflectionClass $class
