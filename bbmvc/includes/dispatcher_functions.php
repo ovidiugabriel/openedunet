@@ -43,6 +43,8 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 11.03.2014           Added require_object(), require_class()              */
+/*                      and improved construct().                            */
 /* 26.02.2014           Added import() and create() functions                */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* History (END).                                                            */
