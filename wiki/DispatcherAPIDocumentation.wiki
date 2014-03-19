@@ -27,6 +27,8 @@ Given type is required to:
     * OR implement *ISingleton* interface with *getInstance()* method
   # Define a private constructor
 
+If you request to create a singleton for a class that has public constructor an exception shall be thrown.
+
 ==== _object singleton(string name)_ ====
 
 It is the singleton formal factory method provided by the framework.
