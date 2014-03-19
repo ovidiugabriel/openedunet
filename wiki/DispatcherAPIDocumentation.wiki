@@ -6,11 +6,13 @@ Imports a given class using its fully qualified name (but using dot syntax inste
 
 It has been introduced, to improve bytecode cache performances, as a replacement of the initial Barebone MVC class autoloader. 
 
-==== _object construct(string name[, boolean singleton])_ ====
+==== _object construct(string name)_ ====
 
 Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using *import()* before calling *construct()*. 
 
-To create a singleton you have to pass *true* as second argument.
+==== _object singleton(string name)_ ====
+
+It is a singleton factory method.
 
 ====  _require_object(string name[, callable callback])_ ====
 
