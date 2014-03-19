@@ -14,7 +14,9 @@ object construct(string name[, false])
 
 Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using *import()* before calling *construct()*. 
 
-==== _object construct(string name, true)_ ====
+{{{
+object construct(string name, true)
+}}}
 
 To use a _single instance of the type_ you have to pass *true* as second argument to the function. 
 
