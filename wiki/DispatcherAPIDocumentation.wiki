@@ -2,10 +2,14 @@
 
 === nulltype import(string name) ===
 
-Imports a given class.
+Imports a given class using its fully qualified name. This mechanism is an alternative to namespaces on older versions of PHP where namespace feature were not provided.
 
-=== object construct(string name, boolean singleton = false) ===
+=== object construct(string name[, boolean singleton]) ===
 
-Creates a new instance of the give class.
+Creates a new instance of the given class.
 
-===  require_object(string name, callable callback) ===
+===  require_object(string name[, callable callback]) ===
+
+Creates 
+
+=== require_class(string name[, callable callback]) ===
