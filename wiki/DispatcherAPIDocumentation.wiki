@@ -18,8 +18,9 @@ Given type is required to:
   # Implement a *getInstance()* method either:
     * implement *Singleton* interface with *instance()* method
     * OR implement *ISingleton* interface with *getInstance()* method
+  # Define a private constructor;
 
-But it is still your responsibility to make the constructor private. You can override this behaviour by implementing a function with the same name as the class.
+This behaviour can be overrided by implementing a function with the same name as the class.
 
 ==== _object singleton(string name)_ ====
 
