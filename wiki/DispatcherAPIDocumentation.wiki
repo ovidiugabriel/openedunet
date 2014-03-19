@@ -29,6 +29,8 @@ Given type is required to:
 
 *Not implemented yet:* If you request a singleton for a type whose constructor is not private then an *InstantiationException* shall be thrown.
 
+    ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchFieldException, NoSuchMethodException
+
 {{{
 object singleton(string name)
 }}}
