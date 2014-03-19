@@ -1,6 +1,6 @@
 = Introduction =
 
-==== _nulltype import(string name)_ ====
+==== _nulltype import(string name[, false])_ ====
 
 Imports a given class using its fully qualified name (but using dot syntax instead of backslash). This mechanism is emulating namespaces on PHP < 5.3.0 - because namespace feature was not provided by the language prior to PHP 5.3.0. In newer version of PHP it is still recommended to use this in order to keep your code  portable.
 
