@@ -27,7 +27,7 @@ Given type is required to:
     * OR implement *ISingleton* interface with *getInstance()* method
   # Define a private constructor
 
-*Not implemented yet:* If you request to get a singleton for a type whose constructor is not private then an exception shall be thrown.
+*Not implemented yet:* If you request a singleton for a type whose constructor is not private then an exception shall be thrown.
 
 ==== _object singleton(string name)_ ====
 
