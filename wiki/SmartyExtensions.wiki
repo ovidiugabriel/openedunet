@@ -5,7 +5,7 @@ Generally speaking Smarty extensions are integrated using Smarty Plugins (more i
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Barebone MVC is using a thin module of smarty plugins to allow: 
+
+* human language translations (e.g. from English to German)
+* conversions between Query Strings and Search Engine Friend URLs
