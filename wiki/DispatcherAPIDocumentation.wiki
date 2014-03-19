@@ -8,7 +8,9 @@ Imports a given class using its fully qualified name (but using dot syntax inste
 
 It has been introduced, to improve bytecode cache performances, as a replacement of the initial Barebone MVC class autoloader. 
 
-==== _object construct(string name[, false])_ ====
+{{{
+object construct(string name[, false])
+}}}
 
 Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using *import()* before calling *construct()*. 
 
