@@ -8,4 +8,4 @@ Generally speaking Smarty extensions are integrated using Smarty Plugins (more i
 Barebone MVC is using a thin module of smarty plugins to allow: 
 
   * human language translations (e.g. from English to German)
-  * conversions between Query Strings and Search Engine Friend URLs
+  * conversions between _Query Strings_ and _Search Engine Friend URLs_
