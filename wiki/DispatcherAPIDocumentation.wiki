@@ -14,7 +14,12 @@ Creates a new instance of the given class using its fully qualified name (but us
 
 To use a _single instance of the type_ you have to pass *true* as second argument to the function. 
 
-Given type is required to implement *Singleton* or *ISingleton* interfaces with *Singleton::instance()* or *ISingleton::getInstance()* methods. But it is still your responsibility to make the constructor private. You can override this behaviour by implementing a function with the same name as the class.
+Given type is required to:
+  # Implement a *getInstance()* method either:
+    * implement *Singleton* interface with *instance()* method
+    * OR implement *ISingleton* interface with *getInstance()* method
+
+But it is still your responsibility to make the constructor private. You can override this behaviour by implementing a function with the same name as the class.
 
 ==== _object singleton(string name)_ ====
 
