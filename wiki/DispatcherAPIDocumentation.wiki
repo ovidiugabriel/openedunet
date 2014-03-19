@@ -2,11 +2,13 @@
 
 === nulltype import(string name) ===
 
-Imports a given class using its fully qualified name. This mechanism is an alternative to namespaces on older versions of PHP where namespace feature were not provided.
+Imports a given class using its fully qualified name (using dot syntax). This mechanism is an alternative to namespaces on older versions of PHP where namespace feature has not been provided.
 
 === object construct(string name[, boolean singleton]) ===
 
-Creates a new instance of the given class.
+Creates a new instance of the given class using its fully qualified name (using dot syntax). You have to import the class prior calling *construct()*. This function is used to create instances in a more elegant way. 
+
+To create a singleton you have to pass *true* as second argument.
 
 ===  require_object(string name[, callable callback]) ===
 
