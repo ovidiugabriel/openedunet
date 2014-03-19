@@ -8,7 +8,7 @@ It has been introduced, to improve bytecode cache performances, as a replacement
 
 ==== _object construct(string name[, boolean singleton])_ ====
 
-Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class prior calling *construct()*. 
+Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using *import()* before calling *construct()*. 
 
 To create a singleton you have to pass *true* as second argument.
 
