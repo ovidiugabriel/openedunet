@@ -4,7 +4,7 @@
 
 Imports a given class using its fully qualified name (using dot syntax instead of backslash). This mechanism is emulating namespaces on PHP < 5.3.0 - because namespace feature was not provided by the language prior to PHP 5.3.0. In newer version of PHP it is still recommended to use this in order to keep your code  portable.
 
-It has been introduced, to improve cache performances, as a replacement of the initial Barebone MVC class autoloader. 
+It has been introduced, to improve bytecode cache performances, as a replacement of the initial Barebone MVC class autoloader. 
 
 ==== _object construct(string name[, boolean singleton])_ ====
 
