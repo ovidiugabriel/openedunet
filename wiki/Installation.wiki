@@ -2,7 +2,11 @@
 
 = Installation of base framework =
 
-  # Download Barebone MVC from here
+  # Check out a read-only working copy anonymously over HTTP.
+{{{
+svn checkout http://openedunet.googlecode.com/svn/trunk/ openedunet-read-only 
+}}}
+
   # Extract the archive in your working directory.
   # Move the contents of *bbmvc-0.2.0* to your *DOCUMENT_ROOT* (usually, but not necessarily, this folder is called htdocs )
   # Now open the file named *profile* and type your name instead of _mihai_.
