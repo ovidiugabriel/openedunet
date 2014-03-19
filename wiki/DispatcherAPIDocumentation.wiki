@@ -2,7 +2,9 @@
 
 === nulltype import(string name) ===
 
-Imports a given class using its fully qualified name (using dot syntax). This mechanism is an alternative to namespaces on older versions of PHP where namespace feature has not been provided.
+Imports a given class using its fully qualified name (using dot syntax). This mechanism is an alternative to namespaces on older versions of PHP where namespace feature was not provided. In newer version of PHP it is still recommended to keep portability to older versions.
+
+It has been introduced to improve cache performances over the initial Barebone MVC class autoloader. 
 
 === object construct(string name[, boolean singleton]) ===
 
