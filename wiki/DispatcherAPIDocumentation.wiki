@@ -3,3 +3,5 @@
 === nulltype import(string name) ===
 
 Imports a given class.
+
+=== object construct(string name, boolean singleton = false) ===
