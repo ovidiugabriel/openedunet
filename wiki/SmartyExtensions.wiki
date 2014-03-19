@@ -1,6 +1,6 @@
 = Introduction =
 
-Generally speaking Smarty extensions :
+Generally speaking Smarty extensions are integrated using Smarty Plugins (more info at http://www.smarty.net/docs/en/plugins.tpl)
 
 
 = Details =
