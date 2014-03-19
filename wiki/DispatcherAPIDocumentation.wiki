@@ -5,3 +5,7 @@
 Imports a given class.
 
 === object construct(string name, boolean singleton = false) ===
+
+Creates a new instance of the give class.
+
+===  require_object(string name, callable callback) ===
