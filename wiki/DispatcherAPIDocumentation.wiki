@@ -10,9 +10,7 @@ It has been introduced, to improve bytecode cache performances, as a replacement
 
 Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using *import()* before calling *construct()*. 
 
-To use a _single instance of the type_ you have to pass *true* as second argument to the function.
-
-Given type is required to implement *Singleton* or *ISingleton* interfaces with *Singleton::instance()* or *ISingleton::getInstance()* methods.
+To use a _single instance of the type_ you have to pass *true* as second argument to the function. Given type is required to implement *Singleton* or *ISingleton* interfaces with *Singleton::instance()* or *ISingleton::getInstance()* methods.
 
 ==== _object singleton(string name)_ ====
 
