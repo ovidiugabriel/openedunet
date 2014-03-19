@@ -2,9 +2,9 @@
 
 = Installation of base framework =
 
-  * Download Barebone MVC from here
-  * Extract the archive in your working directory.
-  * Move the contents of bbmvc-0.2.0 to your DOCUMENT_ROOT (usually, but not necessarily, this folder is called htdocs )
+  # Download Barebone MVC from here
+  # Extract the archive in your working directory.
+  # Move the contents of *bbmvc-0.2.0* to your _DOCUMENT_ROOT_ (usually, but not necessarily, this folder is called htdocs )
   * Now open the file named profile and type your name instead of mihai.   
   * If you are working on different configurations (different operating systems on the same machine, different web servers on the same operating system or just different machines, or the same machine and different network connections) it is strongly recommended to include environment into your configuration. For example: yourname-windows and yourname-ubuntu or yourname-work and yourname-home (*)
 Create a copy of config/config_mihai.php and rename it to config/config_yourname.php. Make the following changes to this new file: 
