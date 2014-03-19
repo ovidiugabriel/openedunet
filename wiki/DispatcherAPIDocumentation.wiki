@@ -15,7 +15,7 @@ Creates a new instance of the given class using its fully qualified name (but us
 To use a _single instance of the type_ you have to pass *true* as second argument to the function. 
 
 Given type is required to:
-  # Implement a *getInstance()* method either:
+  # Implement a mechanism to create and return the instance, either:
     * implement *Singleton* interface with *instance()* method
     * OR implement *ISingleton* interface with *getInstance()* method
   # Define a private constructor;
