@@ -1,3 +1,5 @@
 = Introduction =
 
-=== null import(string name) ===
+=== nulltype import(string name) ===
+
+Imports a given class.
