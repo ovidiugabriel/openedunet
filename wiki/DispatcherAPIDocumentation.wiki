@@ -29,11 +29,15 @@ Given type is required to:
 
 *Not implemented yet:* If you request a singleton for a type whose constructor is not private then an exception shall be thrown.
 
-==== _object singleton(string name)_ ====
+{{{
+object singleton(string name)
+}}}
 
 It is the singleton formal factory method provided by the framework.
 
-====  _require_object(string name[, callable callback])_ ====
+{{{
+require_object(string name[, callable callback])
+}}}
 
 Creates the required object after it automatically loads the class.
 
