@@ -8,12 +8,12 @@ It has been introduced to improve cache performances over the initial Barebone M
 
 === object construct(string name[, boolean singleton]) ===
 
-Creates a new instance of the given class using its fully qualified name (using dot syntax). You have to import the class prior calling *construct()*. This function is used to create instances in a more elegant way. 
+Creates a new instance of the given class using its fully qualified name (using dot syntax). You have to import the class prior calling *construct()*. 
 
 To create a singleton you have to pass *true* as second argument.
 
 ===  require_object(string name[, callable callback]) ===
 
-Creates 
+Creates the required object after it automatically loads the class.
 
 === require_class(string name[, callable callback]) ===
