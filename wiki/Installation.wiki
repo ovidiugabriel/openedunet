@@ -1,6 +1,6 @@
 #summary One-sentence summary of this page.
 
-= Introduction =
+= Installation of base system (framework) =
 
 Add your content here.
 
