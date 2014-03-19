@@ -1,7 +1,7 @@
 <?php
 
 /* * *************************************************************************
- *                               config_ovidiu.php
+ *                 ovidiu-pc-windowsnt-php-5.4.7-localhost.php
  *                    ------------------------------------
  *            begin     : 04.12.2006
  *            copyright : (C) 2006 Ovidiu Farauanu
@@ -29,11 +29,6 @@
  *
  * ************************************************************************* */
 
-/**
- * @package com.bmrweb.dispatcher
- * @version SVN: $Id: config_ovidiu-windows7.php 6 2011-11-26 00:40:12Z ovidiugabriel@gmail.com $
- * @author Ovidiu Farauanu <ovidiugabriel@gmail.com>
- */
 if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
