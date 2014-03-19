@@ -15,7 +15,7 @@ object construct(string name[, false]) throws ClassNotFoundException
 Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using *import()* before calling *construct()*. 
 
 {{{
-object construct(string name, true) throws  ClassNotFoundException, InstantiationException
+object construct(string name, true) throws ClassNotFoundException, InstantiationException
 }}}
 
 To use a _single instance of the type_ you have to pass *true* as second argument to the function. 
