@@ -38,7 +38,7 @@ It is the singleton formal factory method provided by the framework.
 
 This is especially useful to create singletons of classes provided by third party libraries.
 
-Use this function when you want to ensure to use a single instance but don't want to create a function for each type, add a *getInstance()* method to each class or refactor constructors.
+Use this function when you want to ensure usage of a single instance but don't want to create a function for each type, add a *getInstance()* method to each class or refactor constructors.
 
 
 {{{
