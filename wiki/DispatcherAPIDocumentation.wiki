@@ -26,7 +26,7 @@ Given type is required to implement a mechanism to create and return the instanc
   # implement _a function with the same name as the class_
   # implement _Singleton::instance()_ or _ISingleton::getInstance()_ and _define a private constructor_
 
-*Not implemented yet:* If you request a singleton for a type whose constructor is not private then an *InstantiationException* shall be thrown.
+*Not implemented yet:* If you request a singleton for a type whose constructor is not private and _a function with the same name as the class_ is not defined then an *InstantiationException* shall be thrown.
 
     ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchFieldException, NoSuchMethodException
 
