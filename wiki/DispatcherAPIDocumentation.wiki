@@ -25,8 +25,8 @@ To use a _single instance of the type_ you have to pass *true* as second argumen
 Given type is required to:
   # Implement a mechanism to create and return the instance, either:
     * implement _a function with the same name as the class_ (preferred flavor)
-    * or implement *Singleton* interface with *instance()* method
-    * or implement *ISingleton* interface with *getInstance()* method
+    * otherwise implement *Singleton* interface with *instance()* method
+    * or at least implement *ISingleton* interface with *getInstance()* method
   # Define a private constructor
 
 *Not implemented yet:* If you request a singleton for a type whose constructor is not private then an *InstantiationException* shall be thrown.
