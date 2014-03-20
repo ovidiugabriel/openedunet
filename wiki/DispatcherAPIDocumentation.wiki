@@ -23,8 +23,8 @@ object construct(string name, true) throws ClassNotFoundException, Instantiation
 To use a _single instance of the type_ you have to pass *true* as second argument to the function. 
 
 Given type is required to implement a mechanism to create and return the instance, either:
-    * (a) implement _a function with the same name as the class_ (preferred flavor)
-    * (b) otherwise implement _Singleton::instance()_ or _ISingleton::getInstance()_ and _define a private constructor_;
+  # implement _a function with the same name as the class_ (preferred flavor)
+  # otherwise implement _Singleton::instance()_ or _ISingleton::getInstance()_ and _define a private constructor_;
 
 *Not implemented yet:* If you request a singleton for a type whose constructor is not private then an *InstantiationException* shall be thrown.
 
