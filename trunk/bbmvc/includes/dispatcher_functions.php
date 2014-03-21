@@ -88,6 +88,15 @@ function construct($name, $singleton = false) {
     return null;   
 }
 
+function singleton($name) {
+    static $instances = array();
+
+    if (!isset($instances[$name])) {
+        $instances[$name] = new $name();
+    }
+    return $instances[$name];
+}
+
 function require_object($name, $fn = null) {
     import($name);
     $object = construct($name, true);
