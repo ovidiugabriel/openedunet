@@ -13,5 +13,5 @@ Add your content here.  Format your content with:
   * Automatic links to other wiki pages
 
 {{{
-mixed db_value(string field, string sql, Database db)
+mixed db_value(string field, string sql [, Database db])
 }}}
