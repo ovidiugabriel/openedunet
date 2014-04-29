@@ -7,7 +7,7 @@ svn checkout http://openedunet.googlecode.com/svn/trunk/ openedunet-read-only
   # Extract the archive in your working directory.
   # Move the contents of *bbmvc* folder to your document root  (where do you wish to keep your site).
   # Now open the file named *profile* and type your name instead of _mihai_.
-  # If you are working at the same time on different configurations (different operating systems on the same machine, different web servers on the same operating system or just different machines, or the same machine and different network connections) it is strongly recommended to include environment into your configuration. For example: _yourname-windows_ and _yourname-ubuntu_ or _yourname-work_ and _yourname-home_ (*)
+  # If you are working at the same time on different configurations (different operating systems on the same machine, different web servers on the same operating system or just different machines, or the same machine and different network connections) it is strongly recommended to include environment into your configuration. For example: _yourname-windows_ and _yourname-ubuntu_ or _yourname-work_ and _yourname-home_ 
   # Create a copy of *config/config_mihai.php* and rename it to *config/config_yourname.php*. Make the following changes to this new file: 
     * change *_DIR_PROJECT* to your *DOCUMENT_ROOT*
     * change *_URL_MAIN* to your *HTTP_HOST* with "http://" prefix
