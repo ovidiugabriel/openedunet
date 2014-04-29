@@ -11,10 +11,3 @@ svn checkout http://openedunet.googlecode.com/svn/trunk/ openedunet-read-only
   # Create a copy of *config/config_mihai.php* and rename it to *config/config_yourname.php*. Make the following changes to this new file: 
     * change *`_`DIR_PROJECT* to your *DOCUMENT_ROOT*
     * change *`_`URL_MAIN* to your *HTTP_HOST* with "http://" prefix
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
