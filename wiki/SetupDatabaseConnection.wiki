@@ -8,3 +8,5 @@ Now you should setup a connection to a MySQL database. Set the following constan
   * *`_`DB_PASS* - the password
   * *`_`DB_HOST* - the MySQL server hostname
   * *`_`DB_NAME* - the name of the database that is to be selected
+
+Barebone MVC is now ready for development! You can now write Your first Barebone MVC Application.
