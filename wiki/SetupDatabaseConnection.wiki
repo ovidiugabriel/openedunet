@@ -5,3 +5,6 @@ If you are not running on XAMPP, you have to create the CD Collection Demo table
 Now you should setup a connection to a MySQL database. Set the following constants accordingly: 
 
   * *`_`DB_USER* - the username
+  * *`_`DB_PASS* - the password
+  * *`_`DB_HOST* - the MySQL server hostname
+  * *`_`DB_NAME* - the name of the database that is to be selected
