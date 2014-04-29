@@ -1,6 +1,6 @@
 = Setting up a database connection =
 
-f you are not running on XAMPP, you have to create the CD Collection Demo table by running *sql/tables/cds.sql*.
+If you are not running on XAMPP, you have to create the CD Collection Demo table by running *sql/tables/cds.sql*.
 
 Now you should setup a connection to a MySQL database. Set the following constants accordingly: 
 
