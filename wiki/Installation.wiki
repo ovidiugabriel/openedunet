@@ -12,3 +12,5 @@ svn checkout http://openedunet.googlecode.com/svn/trunk/ openedunet-read-only
     * change *`_`DIR_PROJECT* to your *DOCUMENT_ROOT*
     * change *`_`URL_MAIN* to your *HTTP_HOST* with "http://" prefix
 Base system is completely installed right now. But you may continue with advanced steps like SetupDatabaseConnection
+
+<g:plusone size="medium"></g:plusone>
