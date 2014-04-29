@@ -3,4 +3,5 @@
 f you are not running on XAMPP, you have to create the CD Collection Demo table by running *sql/tables/cds.sql*.
 
 Now you should setup a connection to a MySQL database. Set the following constants accordingly: 
-* *`_`DB_USER* - the username
+
+  * *`_`DB_USER* - the username
