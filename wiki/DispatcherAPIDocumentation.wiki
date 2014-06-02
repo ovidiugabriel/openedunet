@@ -34,7 +34,7 @@ Given type is required to implement a mechanism to create and return the instanc
     ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchFieldException, NoSuchMethodException
 
 {{{
-object singleton(string name)
+object singleton(string name, ...)
 }}}
 
 It is the singleton formal factory method provided by the framework.
@@ -48,7 +48,7 @@ Use this function when you want to ensure usage of a single instance but don't w
 object require_object(string name[, callable callback])
 }}}
 
-Creates the required object after it automatically loads the class.
+Creates the required object after it automatically loads the class. If a callback is provided, then the object is passed to the callback and the return value the callback is forwarded back.
 
 {{{
 object require_class(string name[, callable callback])
