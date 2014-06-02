@@ -52,7 +52,7 @@ object require_object(string name[, callable callback])
 
 Creates the required object after it automatically loads the class. 
 
-If a callback is provided, then the object is passed to the callback and the return value the callback is forwarded back.
+If a callback is provided, then the object is passed to the callback and the return value the callback is fetched back.
 
 {{{
 object require_class(string name[, callable callback])
