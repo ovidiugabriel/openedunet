@@ -54,6 +54,11 @@ if (!defined('_VALID_ACCESS')) {
     throw new Execption('Access denied!');
 }
 
+/**
+ * Name respects the format defined by:
+ * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md 
+ */
+
 function import($name) {
     $pieces = explode('.', $name);
     $class = array_pop($pieces);
