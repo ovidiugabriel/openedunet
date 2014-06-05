@@ -1,0 +1,3 @@
+{{{
+[static] public mixed Config::get(string type, string key)
+}}}
