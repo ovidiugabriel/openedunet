@@ -15,7 +15,7 @@ nulltype import(string name) throws ClassNotFoundException
 
 Imports a given class using its fully qualified name (but using dot syntax instead of backslash). This mechanism is emulating namespaces on PHP < 5.3.0 - because namespace feature was not provided by the language prior to PHP 5.3.0. In newer version of PHP it is still recommended to use this in order to keep your code  portable.
 
-It has been introduced, to improve bytecode cache performances, as a replacement of the initial Barebone MVC class autoloader. 
+This function has been introduced, additionally to PHP autoloading mechanism in order to improve bytecode cache performances, as a replacement of the initial Barebone MVC class autoloader. 
 
 *Rasmus Lerdorf*: 
   To clarify, of course conditionally included files get compiled and   cached. The issue is not the included files but the resulting conditionally defined classes and functions needing to be redefined on every request. Whether that is significant or not comes down to the specifics of the situation, but there is no doubt that it is slower. It comes down to a NOP vs. a FETCH_CLASS, for example and the NOP is obviously way faster.
