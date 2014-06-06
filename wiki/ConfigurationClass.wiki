@@ -30,7 +30,7 @@ public variant Config::get(string key) [static]
 }}}
 
 || *Param* || _in_ || _string_ || _key_ || the label of the key you need to read ||
-|| *Return* || _variant_ || || || It can be any of the following supported types:  boolean, float, integer, string, object, array (both list and dictionary). ||
+|| *Return* || || _variant_ || || It can be any of the following supported types:  boolean, float, integer, string, object, array (both list and dictionary). ||
 
 === Writing Key Values and Creating New Keys ===
 
