@@ -26,9 +26,13 @@ Supported types:
 === Reading Key Values ===
 
 {{{
-public variant Config::get(string key) [static] 
+public variant Config::get(string key) [static]
 }}}
 
 {{{
-public nulltype Config::set($name, $type, $value = null) [static]
+public nulltype Config::set(string name, string type, variant value) [static]
+}}}
+
+{{{
+public nulltype Config::set(array values, string type) [static]
 }}}
