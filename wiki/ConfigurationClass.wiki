@@ -31,7 +31,7 @@ public nulltype Config::set(string name, string type, variant value) [static]
 }}}
 
 || *name* || the name of the key you want to write (or create) ||
-|| *type* || a long standard type name (in case of primitive types) or in case of objects and arrays the serialization method must be specified One of the following: <ul><li>_'boolean'_</li><li> _'float'_</li><li>_'integer'_</li><li>_'string'_</li><li>_'json'_</li><li>_'hexdump'_ (not implemented)</li><li>_'serialize'_ (not recommended, use _'json'_ instead)</li><li>_'yaml'_ (proposal)</li><li> _'xml'_ proposal)</li></ul>  ||
+|| *type* || in case of primitive types: a long standard type name<br /> in case of objects and arrays: the serialization method must be specified <br/>One of the following: <ul><li>_'boolean'_</li><li> _'float'_</li><li>_'integer'_</li><li>_'string'_</li><li>_'json'_</li><li>_'hexdump'_ (not implemented)</li><li>_'serialize'_ (not recommended, use _'json'_ instead)</li><li>_'yaml'_ (proposal)</li><li> _'xml'_ proposal)</li></ul>  ||
 || *value* || ||
 || *returns* || *null* ||
 
