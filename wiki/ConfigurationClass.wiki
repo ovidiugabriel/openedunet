@@ -29,9 +29,8 @@ Supported types:
 public variant Config::get(string key) [static]
 }}}
 
-*Param:* _[in] key:string_ the label of the key you need to read
-
-*Return:* _variant_ (also known as mixed type). It can be any of the following supported types:  boolean, float, integer, string, object, array (both list and dictionary).
+|| *Param* || _in_ || _string_ || _key_ || the label of the key you need to read ||
+|| *Return* || _variant_ || || || It can be any of the following supported types:  boolean, float, integer, string, object, array (both list and dictionary). ||
 
 === Writing Key Values and Creating New Keys ===
 
