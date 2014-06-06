@@ -7,7 +7,7 @@ The dispatcher is mainly responsible to
   * serve the response to the client 
   * delegate anything in between
 
-Our framework class naming convention is following the [http://www.php-fig.org/ PHP Framework Interoperability Group] Standard: *[http://www.php-fig.org/psr/psr-0/ PSR-0 Autoloading Standard]*
+Barebone MVC class naming convention is following the [http://www.php-fig.org/ PHP Framework Interoperability Group] Standard: *[http://www.php-fig.org/psr/psr-0/ PSR-0 Autoloading Standard]*
 
 {{{
 nulltype import(string name) throws ClassNotFoundException
