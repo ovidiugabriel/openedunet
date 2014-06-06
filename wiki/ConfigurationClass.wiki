@@ -26,7 +26,7 @@ Supported types:
 === Reading Key Values ===
 
 {{{
-public mixed Config::get(string key) [static] 
+public variant Config::get(string key) [static] 
 }}}
 
 {{{
