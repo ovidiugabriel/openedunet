@@ -29,6 +29,8 @@ Supported types:
 public variant Config::get(string key) [static]
 }}}
 
+=== Writing Key Values and Creating New Keys ===
+
 {{{
 public nulltype Config::set(string name, string type, variant value) [static]
 }}}
