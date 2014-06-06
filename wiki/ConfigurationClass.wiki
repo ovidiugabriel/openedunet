@@ -29,9 +29,7 @@ public nulltype Config::set(string name, string type, variant value) [static]
 }}}
 
 || *name* || ||
-|| *type* || One of the following: <ul>
-<li>_'boolean'_</li>
-<li> _'float'_, _'integer'_, _'string'_, _'json'_, _'hexdump'_ (not implemented), _'serialize'_ (not recommended, use _'json'_ instead), _'yaml'_ (proposal), _'xml'_ proposal)</li></ul>  ||
+|| *type* || One of the following: <ul><li>_'boolean'_</li><li> _'float'_</li><li>_'integer'_</li><li>_'string'_</li><li>_'json'_</li><li>_'hexdump'_ (not implemented)</li><li>_'serialize'_ (not recommended, use _'json'_ instead)</li><li>_'yaml'_ (proposal)</li><li> _'xml'_ proposal)</li></ul>  ||
 || *value* || ||
 || *returns* || *null* ||
 
