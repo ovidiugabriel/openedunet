@@ -1,8 +1,9 @@
 = Introduction =
 
 The dispatcher is the core of the framework.
-The dispatched is mainly responsible to
-  * accept, read and parse the request 
+
+The dispatcher is mainly responsible to
+  * read and parse the request 
   * serve the response to the client 
   * delegate anything in between
 
