@@ -37,8 +37,7 @@ Converts the _value_ to the specified _type_ and stores it into the database (in
 || *value* || ||
 || *returns* || *null* ||
 
-Set mupliple keys at once 
-TODO: a single insert :D
+Set mupliple keys at once ...
 
 {{{
 public nulltype Config::set(array values, string type) [static]
