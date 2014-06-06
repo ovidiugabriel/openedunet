@@ -1,6 +1,6 @@
 = Introduction =
 
-The dispatcher it is the core of the framework. It is responsible to get the request and serve the response to the client (and of course delegate anything in between).
+The dispatcher is the core of the framework. It is responsible to get the request and serve the response to the client (and of course delegate anything in between).
 
 Our framework class naming convention is following the PHP Framework Interoperability Group Standard: *PSR-0 Autoloading Standard*
 
