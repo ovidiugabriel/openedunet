@@ -19,7 +19,7 @@ Another important feature is that object data is automatically serialized into a
 public variant Config::get(string key) [static]
 }}}
 
-|| *key* || the label of the key you need to read ||
+|| *key* || the name of the key you need to read ||
 || *returns* || the key value - it can have one of the following supported types:  boolean, float, integer, string, object, array (for both list and dictionary). ||
 
 === Writing Key Values and Creating New Keys ===
@@ -28,7 +28,7 @@ public variant Config::get(string key) [static]
 public nulltype Config::set(string name, string type, variant value) [static]
 }}}
 
-|| *name* || ||
+|| *name* || the name of the key you want to write (or create) ||
 || *type* || One of the following: <ul><li>_'boolean'_</li><li> _'float'_</li><li>_'integer'_</li><li>_'string'_</li><li>_'json'_</li><li>_'hexdump'_ (not implemented)</li><li>_'serialize'_ (not recommended, use _'json'_ instead)</li><li>_'yaml'_ (proposal)</li><li> _'xml'_ proposal)</li></ul>  ||
 || *value* || ||
 || *returns* || *null* ||
