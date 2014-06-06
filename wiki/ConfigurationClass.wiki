@@ -35,6 +35,9 @@ public variant Config::get(string key) [static]
 public nulltype Config::set(string name, string type, variant value) [static]
 }}}
 
+Set mupliple keys at once 
+TODO: a single insert :D
+
 {{{
 public nulltype Config::set(array values, string type) [static]
 }}}
