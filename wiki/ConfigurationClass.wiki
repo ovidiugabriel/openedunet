@@ -1,4 +1,4 @@
-The Config class is a *Key-value-type store* that means it is a key-value store but each value caries its own type.
+The _Config_ class is a *Key-value-type store* that means it is a key-value store but each value caries its own type.
 
 {{{
 public mixed Config::get(string key) [static] 
