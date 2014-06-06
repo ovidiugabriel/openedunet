@@ -26,6 +26,8 @@ public variant Config::get(string key) [static]
 
 Keys are automatically created when you are trying to set the value for a key that doesn't exists already. You don't have to worry about this issue, no existence check or create call are necessary.
 
+[http://ro1.php.net/manual/en/class.serializable.php Serializable interface]
+
 {{{
 public nulltype Config::set(string name, string type, variant value) [static]
 }}}
