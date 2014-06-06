@@ -29,7 +29,7 @@ Supported types:
 public variant Config::get(string key) [static]
 }}}
 
-*Return:* variant (also known as mixed type). It can be any of the following supported types:  boolean, float, integer, string, object, array.
+*Return:* variant (also known as mixed type). It can be any of the following supported types:  boolean, float, integer, string, object, array (both list and dictionary).
 
 === Writing Key Values and Creating New Keys ===
 
