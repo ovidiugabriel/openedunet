@@ -30,7 +30,7 @@ public variant Config::get(string key) [static]
 }}}
 
 || *key* || the label of the key you need to read ||
-|| *returns* || the key value - it can have one of the following supported types:  boolean, float, integer, string, object, array (both list and dictionary). ||
+|| *returns* || the key value - it can have one of the following supported types:  boolean, float, integer, string, object, array (for both list and dictionary). ||
 
 === Writing Key Values and Creating New Keys ===
 
