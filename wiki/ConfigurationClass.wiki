@@ -3,7 +3,7 @@ The _Config_ class is a *Key-Value-Type store*.
 
 That is a key-value store, but inside each value caries its own associated type.
 
-Without using this feature, each time you request a field value from a database you will get a string - and you have to manually convert the value to the assumed type. _Maybe the assumed type is correct, but maybe it is also wrong_.
+Without using this feature, each time you request a field value from a database you will get a string - and you have to manually convert the value to the assumed type. _Maybe the assumed type it is the correct one, but you also be wrong_.
 
 == Basic Feature ==
 
