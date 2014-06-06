@@ -24,6 +24,8 @@ public variant Config::get(string key) [static]
 
 === Writing Key Values and Creating New Keys ===
 
+Keys are automatically created when you are trying to write a value into a key that doesn't exists already. You don't have to worry about this issue.
+
 {{{
 public nulltype Config::set(string name, string type, variant value) [static]
 }}}
