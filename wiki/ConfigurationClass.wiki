@@ -28,3 +28,7 @@ Supported types:
 {{{
 public mixed Config::get(string key) [static] 
 }}}
+
+{{{
+public nulltype Config::set($name, $type, $value = null) [static]
+}}}
