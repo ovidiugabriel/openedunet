@@ -48,3 +48,5 @@ public nulltype Config::set(array values, string type) [static]
 }}}
 
 == Caching ==
+
+The *get()* method result is cached internally.
