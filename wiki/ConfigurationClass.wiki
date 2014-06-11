@@ -38,7 +38,7 @@ Converts the _value_ to the specified _type_ and stores it into the database (us
 
 || *name* || the name of the key you want to write (or create) ||
 || *value* || value to be stored into the database ||
-|| *type* || <div>in case that _value_ has primitive types: a long standard type name</div><ul><li>_'boolean'_</li><li> _'float'_</li><li>_'integer'_</li><li>_'string'_</li></ul><div> in case that _value_ is an objects an array: the serialization method must be specified</div><div><ul><li>_'json'_</li><li>_'base64'_</li><li>_'hexdump'_ (not implemented)</li><li>_'serialize'_ (not recommended, use _'json'_ instead)</li><li>_'yaml'_ (proposal)</li><li> _'xml'_ (proposal)</li></ul></div><div> `[default]` If _type_ is omitted, the current variable type is used for primitive types - requested with `gettype()` </div><div>For objects, the json serialization method is the default. </div> ||
+|| *type* || <div>in case that _value_ has primitive types: a long standard type name</div><ul><li>`'boolean'`</li><li> `'float'`</li><li>`'integer'`</li><li>`'string'`</li></ul><div> in case that _value_ is an objects an array: the serialization method must be specified</div><div><ul><li>`'json'`</li><li>`'base64'`</li><li>`'hexdump'` (not implemented)</li><li>`'serialize'` (not recommended, use `'json'` instead)</li><li>`'yaml'` (proposal)</li><li> `'xml'` (proposal)</li></ul></div><div> `[default]` If `type` is omitted, the current variable type is used for primitive types - requested with `gettype()` </div><div>For objects, the `json` serialization method is the default. </div> ||
 || *returns* || `null` - Nothing to return. If something is wrong and exception is thrown. ||
 
 Set mupliple keys at once ... TODO: single insert.
