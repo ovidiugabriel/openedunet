@@ -24,7 +24,7 @@ This function has been introduced in order to improve bytecode cache performance
 object create_instance(string name) throws ClassNotFoundException
 }}}
 
-Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using *import()* before calling *construct()*. 
+Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using `import()` before calling `create_instance()`. 
 
 {{{
 // For example instead of the following statement
