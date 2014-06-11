@@ -48,7 +48,7 @@ $obj = create_instance('foo.bar.ClassName');
 == Getting reference to the single object instance ==
 
 {{{
-object create_instance(string name, true) throws ClassNotFoundException, InstantiationException
+object get_instance(string name) throws ClassNotFoundException, InstantiationException
 }}}
 
 To use a _single instance of the type_ you have to pass `true` as second argument to the function. 
