@@ -45,6 +45,8 @@ $obj = new foo_bar_ClassName();
 $obj = create_instance('foo.bar.ClassName');
 }}}
 
+== Getting reference to the single object instance ==
+
 {{{
 object create_instance(string name, true) throws ClassNotFoundException, InstantiationException
 }}}
