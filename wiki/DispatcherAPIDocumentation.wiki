@@ -56,9 +56,7 @@ Retrieves a reference to the _single instance of the type_.
 || *name* || fully qualified class `name` (but using dot syntax instead of backslash) ||
 || *returns* || ... ||
 
-The `name` must be a fully qualified class name (but using dot syntax instead of backslash)
-
-Given type is required to implement a mechanism to create and return the instance, either:
+*IMPORTANT:* Given type is required to implement a mechanism to create and return the instance, either:
   # implement _a function with the same name as the class_
   # implement `Singleton::instance()` or `ISingleton::getInstance()` and _define a private constructor_
 
