@@ -17,7 +17,7 @@ nulltype import(string name) throws ClassNotFoundException
 
 Imports a given class using its fully qualified name (but using dot syntax instead of backslash). This mechanism is emulating namespaces on PHP < 5.3.0 - because namespace feature was not provided by the language prior to PHP 5.3.0. In newer version of PHP it is still recommended to use this in order to keep your code  portable.
 
-|| *name* ||  class using its fully qualified name (but using dot syntax instead of backslash) ||
+|| *name* ||  fully qualified `name` of the class (but using dot syntax instead of backslash) ||
 || *returns* || `null` - Nothing to return. If something is wrong and exception is thrown. ||
 
 This function has been introduced in order to improve bytecode cache performances, additional to autoloading capability.
@@ -51,7 +51,10 @@ $obj = create_instance('foo.bar.ClassName');
 object get_instance(string name) throws ClassNotFoundException, InstantiationException
 }}}
 
-To use a _single instance of the type_ you have to pass `true` as second argument to the function. 
+Retrieves a reference to the _single instance of the type_.
+
+|| *name* || fully qualified class `name` (but using dot syntax instead of backslash) ||
+|| *returns* || ... ||
 
 The `name` must be a fully qualified class name (but using dot syntax instead of backslash)
 
