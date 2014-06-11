@@ -61,7 +61,7 @@ Retrieves a reference to the _single instance of the type_.
   # implement `instance()` or `getInstance()` method and _define a private constructor_;
 
 {{{
-object singleton(string name, ...)
+object singleton(string name)
 }}}
 
 It is the singleton formal factory method provided by the framework.
@@ -72,7 +72,9 @@ Use this function when you want to ensure usage of a single instance but don't w
 
 
 {{{
-object require_object(string name[, callable callback])
+object require_object(string name)
+
+object require_object(string name, callable callback)
 }}}
 
 Creates the required object after it automatically loads the class. 
@@ -82,5 +84,7 @@ If a callback is provided, then the object is passed to the callback and the ret
 The main diference between require_object() and {import(), construct()} is that require_object() is used for lazy loading of the class.
 
 {{{
-object require_class(string name[, callable callback])
+object require_class(string name)
+
+object require_class(string name, callable callback)
 }}}
