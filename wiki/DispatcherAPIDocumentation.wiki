@@ -35,7 +35,7 @@ $obj = new \foo\bar\ClassName();
 $obj = new foo_bar_ClassName();
 
 // you would normally have the following:
-$obj = construct('foo.bar.ClassName');
+$obj = create_instance('foo.bar.ClassName');
 }}}
 
 {{{
