@@ -58,7 +58,7 @@ Retrieves a reference to the _single instance of the type_.
 
 *IMPORTANT:* Given type is required to implement a mechanism to create and return the instance, either:
   # implement _a function with the same name as the class_ that implements singleton behavior and _define a public constructor_; but in this case the user must ensure that constructor is not called when singleton function (same name as the class) is used;
-  # implement `Singleton::instance()` or `ISingleton::getInstance()` and _define a private constructor_;
+  # implement `instance()` or `getInstance()` and _define a private constructor_;
 
 *Not implemented yet:* If you request a singleton for a type whose constructor is not private and a function with the same name as the class is not defined then an `InstantiationException` shall be thrown.
 
