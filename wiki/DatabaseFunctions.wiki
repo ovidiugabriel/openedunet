@@ -13,5 +13,7 @@ Add your content here.  Format your content with:
   * Automatic links to other wiki pages
 
 {{{
-mixed db_value(string field, string sql [, Database db])
+variant db_value(string field, string sql)
+
+variant db_value(string field, string sql, Database db)
 }}}
