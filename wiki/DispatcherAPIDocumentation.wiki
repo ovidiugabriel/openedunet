@@ -25,7 +25,7 @@ This function has been introduced in order to improve bytecode cache performance
 *Rasmus Lerdorf*: 
   To clarify, of course conditionally included files get compiled and   cached. The issue is not the included files but the resulting conditionally defined classes and functions needing to be redefined on every request. Whether that is significant or not comes down to the specifics of the situation, but there is no doubt that it is slower. It comes down to a NOP vs. a FETCH_CLASS, for example and the NOP is obviously way faster.
 
-== Create an object instance ==
+== Create an object ==
 
 {{{
 object create_instance(string name) throws ClassNotFoundException
@@ -48,7 +48,7 @@ $obj = new foo_bar_ClassName();
 $obj = create_instance('foo.bar.ClassName');
 }}}
 
-== Get reference to the single object instance ==
+== Get reference to the single instance ==
 
 {{{
 object get_instance(string name) throws ClassNotFoundException, InstantiationException
