@@ -1,4 +1,4 @@
-= MVC Dispatcher =
+= MVC Dispatcher - Introduction =
 
 The dispatcher is the core of the framework.
 
