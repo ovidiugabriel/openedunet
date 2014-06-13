@@ -34,7 +34,7 @@ object create_instance(string name) throws ClassNotFoundException
 Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using `import()` before calling `create_instance()`. 
 
 || *name* || class fully qualified `name` (but using dot syntax instead of backslash) ||
-|| *returns* || <div>On success, returns a reference to a new instance. </div><div>If something is wrong and exception is thrown.</div>  ||
+|| *returns* || On success, returns a reference to a new instance. If something is wrong and exception is thrown.  ||
 
 {{{
 // For example instead of the following statement
@@ -57,7 +57,7 @@ object get_instance(string name) throws ClassNotFoundException, InstantiationExc
 Retrieves a reference to the _single instance of the type_.
 
 || *name* || fully qualified class `name` (but using dot syntax instead of backslash) ||
-|| *returns* || ... ||
+|| *returns* || On success, returns a reference to the single instance. If something is wrong and exception is thrown. ||
 
 *IMPORTANT:* Given type is required to implement a mechanism to create and return the instance, either:
   # implement _a function with the same name as the class_ that implements singleton behavior and _define a public constructor_; but in this case the user must ensure that constructor is not called when singleton function (same name as the class) is used;
