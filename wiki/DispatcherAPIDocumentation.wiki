@@ -25,6 +25,7 @@ This function has been introduced in order to improve bytecode cache performance
 *Rasmus Lerdorf*: 
   To clarify, of course conditionally included files get compiled and   cached. The issue is not the included files but the resulting conditionally defined classes and functions needing to be redefined on every request. Whether that is significant or not comes down to the specifics of the situation, but there is no doubt that it is slower. It comes down to a NOP vs. a FETCH_CLASS, for example and the NOP is obviously way faster.
 
+*Example:*
 {{{
 
 // Using import, instead of doing something like:
