@@ -69,7 +69,7 @@ object singleton(string name)
 
 It is the singleton formal factory method provided by the framework.
 
-|| *name* || ... ||
+|| *name* || fully qualified class `name` (but using dot syntax instead of backslash)  ||
 || *returns* || ... ||
 
 This is especially useful to create singletons of classes provided by third party libraries.
@@ -85,7 +85,7 @@ object require_object(string name, callable callback)
 
 Creates the required object after it automatically loads the class. 
 
-|| *name* || ... ||
+|| *name* || fully qualified class `name` (but using dot syntax instead of backslash)  ||
 || *callback* || ... ||
 || *returns* || ... ||
 
@@ -99,6 +99,6 @@ object require_class(string name)
 object require_class(string name, callable callback)
 }}}
 
-|| *name* || ... ||
+|| *name* || fully qualified class `name` (but using dot syntax instead of backslash)  ||
 || *callback* || ... ||
 || *returns* || ... ||
