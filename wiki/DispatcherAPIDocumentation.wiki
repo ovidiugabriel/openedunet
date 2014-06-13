@@ -34,7 +34,7 @@ object create_instance(string name) throws ClassNotFoundException
 Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using `import()` before calling `create_instance()`. 
 
 || *name* || class fully qualified `name` (but using dot syntax instead of backslash) ||
-|| *returns* || reference to a new instance ||
+|| *returns* || On success, returns a reference to a new instance. If something is wrong and exception is thrown.  ||
 
 {{{
 // For example instead of the following statement
