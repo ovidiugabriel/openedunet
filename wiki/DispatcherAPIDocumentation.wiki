@@ -90,7 +90,7 @@ Creates the required object after it automatically loads the class.
 
 If a callback is provided, then the object is passed to the callback and the return value the callback is fetched back.
 
-The main diference between `require_object()` and `import()` then `construct()` is that `require_object()` is used for lazy loading of the class.
+The main diference between `require_object()` versus `import()` and `create_instance()` is that `require_object()` is used to loading the class on demand since `import()` is used to load the class at the beginning of script execution.
 
 {{{
 object require_class(string name)
