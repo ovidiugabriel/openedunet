@@ -98,10 +98,10 @@ object require_object(string name, callable callback)
 Creates the required object after it automatically loads the class. 
 
 || *name* || fully qualified class `name` (but using dot syntax instead of backslash)  ||
-|| *callback* || <div>The `callback` which is invoked on the `object` after its creation and shall return the `object` that is further used.</div><div> This is especially useful when do you want to make a copy or extend something related to the created object.</div> ||
+|| *callback* || <div>The `callback` which is invoked on the `object` after its creation and which shall return the `object` that is further used.</div><div> This is especially useful when do you want to clone the object or extend object with new properties, etc.</div> ||
 || *returns* || ... ||
 
-If a callback is provided, then the object is passed to the callback and the return value the callback is fetched back.
+If a callback is provided, then the object is passed to the callback and the return value of the callback is fetched back.
 
 The main diference between `require_object()` versus `import()` and `create_instance()` is that `require_object()` is used to loading the class on demand since `import()` is used to load the class at the beginning of script execution.
 
