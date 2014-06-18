@@ -83,7 +83,7 @@ object singleton(string name)
 It is the singleton formal factory method provided by the framework.
 
 || *name* || fully qualified class `name` (but using dot syntax instead of backslash)  ||
-|| *returns* || ... ||
+|| *returns* || On success, returns a reference to the single instance. If something is wrong and exception is thrown ||
 
 This is especially useful to create singletons of classes provided by third party libraries.
 
