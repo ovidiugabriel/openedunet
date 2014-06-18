@@ -98,7 +98,7 @@ object require_object(string name, callable callback)
 Creates the required object after it automatically loads the class. 
 
 || *name* || fully qualified class `name` (but using dot syntax instead of backslash)  ||
-|| *callback* || The `callback` which is invoked on the `object` after its creation. The callback shall return the `object` that is further returned by this function. - This is useful when do you want to make a copy or extend something related to the created object. ||
+|| *callback* || <div>The `callback` which is invoked on the `object` after its creation.</div><div>The callback shall return the `object` that is further returned by this function.</div><div> This is useful when do you want to make a copy or extend something related to the created object.</div> ||
 || *returns* || ... ||
 
 If a callback is provided, then the object is passed to the callback and the return value the callback is fetched back.
