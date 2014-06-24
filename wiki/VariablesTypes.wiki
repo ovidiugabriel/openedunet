@@ -44,15 +44,7 @@ For example, in the Qt framework, the same behavior is provided by the `QVariant
 
 {{{
 const char* QVariant::typeName() const;
-}}}
-
-So, the procedural style wrapper will be:
-
-{{{
-const char* gettype(QVariant& var) 
-{
-    return var.typeName();
-}
+const char* gettype(QVariant& var);
 }}}
 
 === `settype()` ===
