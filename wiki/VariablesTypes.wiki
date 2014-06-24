@@ -52,6 +52,12 @@ Set the type of a variable
 
 {{{
 public bool variant::settype(string type);
+}}}
+
+|| *type* || ... ||
+|| *return* || ... ||
+
+{{{
 bool settype(variant var, string type); // Procedural style
 }}}
 
