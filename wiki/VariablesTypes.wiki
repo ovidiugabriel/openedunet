@@ -1,3 +1,4 @@
+This is an exhaustive explanation of variable types in PHP.
 {{{
 class variant {
     public string gettype() const;          // Get the type of a variable
