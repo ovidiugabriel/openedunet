@@ -35,7 +35,7 @@ Get the type of a variable. Actually returns the `variant` type name.
 
 {{{
 public string variant::gettype() const;
-string gettype(const variant var);
+string gettype(const variant var); // Procedural style
 }}}
 
 || *returns* || Returns the string representation of the type property of the variant object ||
