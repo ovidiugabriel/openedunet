@@ -8,6 +8,7 @@ In all our documentation, the `mixed` pseudo-type introduced by the official PHP
 
 {{{
 class variant {
+    private typeid type;
     public string gettype() const;          // Get the type of a variable
     public bool settype(string type);       // Set the type of a variable
 
