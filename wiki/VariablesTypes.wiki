@@ -1,6 +1,6 @@
 This is an exhaustive analysis of variables types in PHP. 
 
-Usually you don't need this theory to write code in PHP. But still, our framework is designed to carefully take care of variable types. So if do you wish to use the framework or to contribute to the code base it is recommended to continue reading this document.
+Usually you don't need this theory to write code in PHP. But still, our framework is designed to carefully take care of variable types where this is needed. So if do you wish to use the framework or to contribute to the code base it is recommended to continue reading this document.
 
 == The `variant` type ==
 
