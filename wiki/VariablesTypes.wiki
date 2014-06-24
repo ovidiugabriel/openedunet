@@ -2,7 +2,7 @@ This is an exhaustive analysis of variables types in PHP.
 
 Usually you don't need this theory to write code in PHP. But still, our framework is designed to carefully take care of variable types. So if do you wish to use the framework or to contribute to the code base it is recommended to continue reading this document.
 
-== `variant` type ==
+== The `variant` type ==
 
 In all our documentation, the `mixed` pseudo-type introduced by the official PHP manual has been replaced with `variant` pseudo-type which is used for documentation purposes only. The definition of the `variant` is the following:
 
@@ -27,7 +27,7 @@ class variant {
 }
 }}}
 
-=== gettype() ===
+=== `gettype()` ===
 
 Get the type of a variable
 
