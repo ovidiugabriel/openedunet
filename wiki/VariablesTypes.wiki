@@ -108,7 +108,7 @@ double 	toDouble(bool * ok = 0) const;
 }}}
 
 === `is_null()` ===
-Finds whether a variable is NULL
+Finds whether a variable is `null`. A variant is `null` when its variant type is `nulltype`.
 
 {{{
 public bool variant::is_null() const;
