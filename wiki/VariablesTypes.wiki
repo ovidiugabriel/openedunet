@@ -19,6 +19,7 @@ public bool variant::settype(string type);
 
 {{{
 public bool variant::boolval() const;
+bool 	toBool() const;
 }}}
 
 {{{
