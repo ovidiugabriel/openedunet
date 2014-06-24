@@ -29,7 +29,7 @@ class variant {
 
 === `gettype()` ===
 
-Get the type of a variable. Actually returns the variant type.
+Get the type of a variable. Actually returns the variant type name.
 
 {{{
 public string variant::gettype() const;
