@@ -54,6 +54,8 @@ bool 	toBool() const;
 
 === intval() ===
 
+Get the integer value of a variable
+
 {{{
 public int variant::intval() const; 
 int 	toInt(bool * ok = 0) const;
@@ -61,13 +63,32 @@ int 	toInt(bool * ok = 0) const;
 
 === strval() ===
 
+Get string value of a variable
+
 {{{
 public string variant::strval() const;
 }}}
 
 === floatval() ===
 
+Get float value of a variable
+
 {{{
 public float variant::floatval() const;
 double 	toDouble(bool * ok = 0) const;
 }}}
+
+=== is_bool() ===
+Finds out whether a variable is a boolean 
+=== is_float() ===
+Finds whether the type of a variable is float
+=== is_int() ===
+Find whether the type of a variable is integer
+=== is_string() ===
+Find whether the type of a variable is string
+=== is_object() ===
+Finds whether a variable is an object
+=== is_array() ===
+Finds whether a variable is an array
+=== get_class() ===
+Returns the name of the class of an object
