@@ -116,9 +116,21 @@ public bool is_int() const;
 }}}
 === `is_string()` ===
 Find whether the type of a variable is string
+{{{
+public bool is_string() const;
+}}}
 === `is_object()` ===
 Finds whether a variable is an object
+{{{
+public bool is_object() const;
+}}}
 === `is_array()` ===
 Finds whether a variable is an array
+{{{
+public bool is_array() const;
+}}}
 === `get_class()` ===
 Returns the name of the class of an object
+{{{
+public string get_class() const;  
+}}}
