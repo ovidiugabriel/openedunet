@@ -20,6 +20,9 @@ class variant {
 }}}
 
 === gettype() ===
+
+Get the type of a variable
+
 {{{
 public string variant::gettype() const;
 const char* QVariant::typeName() const;
@@ -33,6 +36,8 @@ const char* gettype(QVariant& var)
 }}}
 
 === settype() ===
+
+Set the type of a variable
 
 {{{
 public bool variant::settype(string type);
