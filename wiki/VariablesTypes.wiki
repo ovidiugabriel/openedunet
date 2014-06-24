@@ -12,7 +12,7 @@ class variant {
     public bool is_float() const;           // Finds whether the type of a variable is float
     public bool is_int() const;             // Find whether the type of a variable is integer
     public bool is_string() const;          // Find whether the type of a variable is string
-    public bool is_object() const;          //  Finds whether a variable is an object
+    public bool is_object() const;          // Finds whether a variable is an object
     public bool is_array() const;           // Finds whether a variable is an array
 
     public string get_class() const;        // Returns the name of the class of an object
