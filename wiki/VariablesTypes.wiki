@@ -1,4 +1,4 @@
-This is an exhaustive analysis of variable types in PHP. 
+This is an exhaustive analysis of variables types in PHP. 
 
 Usually you don't need this theory to write code in PHP. But still, our framework is designed to carefully take care of variable types. So if do you wish to use the framework or to contribute with code it is recommended to continue to read this document.
 
