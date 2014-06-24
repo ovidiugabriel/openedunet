@@ -1,5 +1,6 @@
 = The `Config` Class =
-The _Config_ class is a *Key-Value-Type store*.
+
+The `Config` class is a *Key-Value-Type store*.
 
 That is a key-value store, but inside each value caries its own associated type.
 
