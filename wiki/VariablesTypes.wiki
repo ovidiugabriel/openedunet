@@ -40,13 +40,6 @@ string gettype(const variant var);
 
 || *returns* || Returns the string representation of the type property of the variant object ||
 
-For example, in the Qt framework, the same behavior is provided by the `QVariant::typeName()` method. Which returns the name of the type stored in the variant. 
-
-{{{
-const char* QVariant::typeName() const;
-const char* gettype(QVariant& var);
-}}}
-
 === `settype()` ===
 
 Set the type of a variable
