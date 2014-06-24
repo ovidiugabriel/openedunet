@@ -1,5 +1,11 @@
 {{{
 
 string variant::gettype()
+}}}
+http://ro1.php.net/manual/en/function.gettype.php
+
+
+{{{
 bool variant::settype(string type)
 }}}
+http://ro1.php.net/manual/en/function.settype.php
