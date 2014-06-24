@@ -11,6 +11,7 @@ class variant {
 
 {{{
 public string variant::gettype() const;
+const char * QVariant::typeName() const;
 }}}
 
 {{{
