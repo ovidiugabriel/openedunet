@@ -91,6 +91,10 @@ Get string value of a variable
 public string variant::strval() const;
 }}}
 
+{{{
+QString 	toString() const;
+}}}
+
 === `floatval()` ===
 
 Get float value of a variable
