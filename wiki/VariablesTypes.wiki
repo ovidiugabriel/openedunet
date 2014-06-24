@@ -1,11 +1,6 @@
 {{{
-
-string variant::gettype()
+class variant {
+    public string gettype(); // Get the type of a variable
+    public bool settype(string type); // Set the type of a variable
+}
 }}}
-http://ro1.php.net/manual/en/function.gettype.php
-
-
-{{{
-bool variant::settype(string type)
-}}}
-http://ro1.php.net/manual/en/function.settype.php
