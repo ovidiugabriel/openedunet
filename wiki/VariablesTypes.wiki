@@ -35,7 +35,7 @@ Get the type of a variable. Actually returns the `variant` type name.
 
 {{{
 public string variant::gettype() const;
-string gettype(variant var); // Procedural style
+string gettype(const variant var); // Procedural style
 }}}
 
 || *returns* || Returns the string representation of the type property of the variant object ||
@@ -55,7 +55,7 @@ Get the boolean value of a variable (PHP 5 >= 5.5.0)
 
 {{{
 public bool variant::boolval() const;
-bool boolval(variant var);
+bool boolval(const variant var);
 }}}
 
 {{{
@@ -68,6 +68,7 @@ Get the integer value of a variable
 
 {{{
 public int variant::intval() const; 
+int intval(const variant var);
 }}}
 
 {{{
@@ -80,6 +81,7 @@ Get string value of a variable
 
 {{{
 public string variant::strval() const;
+string strval(const variant var);
 }}}
 
 {{{
@@ -92,6 +94,7 @@ Get float value of a variable
 
 {{{
 public float variant::floatval() const;
+float floatval(const variant var);
 }}}
 
 {{{
