@@ -46,6 +46,7 @@ Set the type of a variable
 
 {{{
 public bool variant::settype(string type);
+bool settype(const variant var, string type); // Procedural style
 }}}
 
 === `boolval()` ===
@@ -54,6 +55,7 @@ Get the boolean value of a variable (PHP 5 >= 5.5.0)
 
 {{{
 public bool variant::boolval() const;
+bool boolval(const variant var);
 }}}
 
 {{{
