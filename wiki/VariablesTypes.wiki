@@ -9,6 +9,7 @@ class variant {
 }
 }}}
 
+== gettype() ==
 {{{
 public string variant::gettype() const;
 const char* QVariant::typeName() const;
@@ -20,6 +21,8 @@ const char* gettype(QVariant& var)
     return var.typeName();
 }
 }}}
+
+== settype() ==
 
 {{{
 public bool variant::settype(string type);
