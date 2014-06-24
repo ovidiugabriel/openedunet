@@ -15,6 +15,13 @@ const char * QVariant::typeName() const;
 }}}
 
 {{{
+const char* gettype(QVariant& var) 
+{
+    return var.typeName();
+}
+}}}
+
+{{{
 public bool variant::settype(string type);
 }}}
 
