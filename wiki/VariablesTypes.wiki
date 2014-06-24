@@ -55,7 +55,7 @@ Get the boolean value of a variable (PHP 5 >= 5.5.0)
 
 {{{
 public bool variant::boolval() const;
-bool boolval(const variant var);
+bool boolval(const variant var); // Procedural style
 }}}
 
 {{{
@@ -68,7 +68,7 @@ Get the integer value of a variable
 
 {{{
 public int variant::intval() const; 
-int intval(const variant var);
+int intval(const variant var); // Procedural style
 }}}
 
 {{{
@@ -81,7 +81,7 @@ Get string value of a variable
 
 {{{
 public string variant::strval() const;
-string strval(const variant var);
+string strval(const variant var); // Procedural style
 }}}
 
 {{{
@@ -94,7 +94,7 @@ Get float value of a variable
 
 {{{
 public float variant::floatval() const;
-float floatval(const variant var);
+float floatval(const variant var); // Procedural style
 }}}
 
 {{{
@@ -106,7 +106,7 @@ Finds whether a variable is `null`. A variant is `null` when its variant type is
 
 {{{
 public bool variant::is_null() const;
-bool is_null(variant var);
+bool is_null(variant var); // Procedural style
 }}}
 
 {{{
