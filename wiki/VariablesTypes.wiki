@@ -8,3 +8,27 @@ class variant {
     public float floatval() const;          // Get float value of a variable
 }
 }}}
+
+{{{
+public string variant::gettype() const;
+}}}
+
+{{{
+public bool variant::settype(string type);
+}}}
+
+{{{
+public bool variant::boolval() const;
+}}}
+
+{{{
+public int variant::intval() const; 
+}}}
+
+{{{
+public string variant::strval() const;
+}}}
+
+{{{
+public float variant::floatval() const;
+}}}
