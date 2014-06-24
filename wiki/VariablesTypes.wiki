@@ -119,6 +119,20 @@ bool is_null(variant var);
 bool QVariant::isNull() const;
 }}}
 
+{{{
+bool is_null(QVariant& var)
+{
+    const char* actual_type = var.typeName();
+    const char* expected_type = typeid(nullptr_t).name();
+
+    if (strlen(actual_type) == strlen(expected_type))
+    {
+        return !strcmp(actual_type, expected_type);
+    }
+    return false;
+}
+}}}
+
 === `is_bool()` ===
 Finds out whether a variable is a boolean 
 {{{
