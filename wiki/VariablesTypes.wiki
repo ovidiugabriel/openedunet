@@ -45,6 +45,8 @@ public bool variant::settype(string type);
 
 === boolval() ===
 
+Get the boolean value of a variable (PHP 5 >= 5.5.0)
+
 {{{
 public bool variant::boolval() const;
 bool 	toBool() const;
