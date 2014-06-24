@@ -33,6 +33,9 @@ Get the type of a variable
 
 {{{
 public string variant::gettype() const;
+}}}
+
+{{{
 const char* QVariant::typeName() const;
 }}}
 
@@ -57,6 +60,9 @@ Get the boolean value of a variable (PHP 5 >= 5.5.0)
 
 {{{
 public bool variant::boolval() const;
+}}}
+
+{{{
 bool 	toBool() const;
 }}}
 
@@ -66,6 +72,9 @@ Get the integer value of a variable
 
 {{{
 public int variant::intval() const; 
+}}}
+
+{{{
 int 	toInt(bool * ok = 0) const;
 }}}
 
@@ -83,15 +92,28 @@ Get float value of a variable
 
 {{{
 public float variant::floatval() const;
+}}}
+
+{{{
 double 	toDouble(bool * ok = 0) const;
 }}}
 
 === `is_bool()` ===
 Finds out whether a variable is a boolean 
+{{{
+public bool is_bool() const;
+}}}
 === `is_float()` ===
 Finds whether the type of a variable is float
+{{{
+public bool is_float() const;
+}}}
+
 === `is_int()` ===
 Find whether the type of a variable is integer
+{{{
+public bool is_int() const;
+}}}
 === `is_string()` ===
 Find whether the type of a variable is string
 === `is_object()` ===
