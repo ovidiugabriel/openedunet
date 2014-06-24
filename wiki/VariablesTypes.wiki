@@ -35,14 +35,20 @@ public bool variant::boolval() const;
 bool 	toBool() const;
 }}}
 
+=== intval() ===
+
 {{{
 public int variant::intval() const; 
 int 	toInt(bool * ok = 0) const;
 }}}
 
+=== strval() ===
+
 {{{
 public string variant::strval() const;
 }}}
+
+=== floatval() ===
 
 {{{
 public float variant::floatval() const;
