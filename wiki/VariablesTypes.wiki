@@ -110,15 +110,24 @@ double 	toDouble(bool * ok = 0) const;
 === `is_null()` ===
 Finds whether a variable is NULL
 
+{{{
+public bool variant::is_null() const;
+bool is_null(variant var);
+}}}
+
+{{{
+bool QVariant::isNull() const
+}}}
+
 === `is_bool()` ===
 Finds out whether a variable is a boolean 
 {{{
-public bool is_bool() const;
+public bool variant::is_bool() const;
 }}}
 === `is_float()` ===
 Finds whether the type of a variable is float
 {{{
-public bool is_float() const;
+public bool variant::is_float() const;
 }}}
 
 === `is_int()` ===
