@@ -8,21 +8,14 @@ class variant {
     public string strval() const;           // Get string value of a variable
     public float floatval() const;          // Get float value of a variable
 
-    public bool is_bool() const; // Finds out whether a variable is a boolean 
-    public bool is_float() const; // Finds whether the type of a variable is float
-    public bool is_int() const; // Find whether the type of a variable is integer
-    public bool is_string() const; // Find whether the type of a variable is string
-    public bool is_object() const; //  Finds whether a variable is an object
-    public bool is_array() const; // Finds whether a variable is an array
+    public bool is_bool() const;            // Finds out whether a variable is a boolean 
+    public bool is_float() const;           // Finds whether the type of a variable is float
+    public bool is_int() const;             // Find whether the type of a variable is integer
+    public bool is_string() const;          // Find whether the type of a variable is string
+    public bool is_object() const;          //  Finds whether a variable is an object
+    public bool is_array() const;           // Finds whether a variable is an array
 
-    public string get_class() const; // Returns the name of the class of an object
-
-
-
-
-
-
-
+    public string get_class() const;        // Returns the name of the class of an object
 }
 }}}
 
