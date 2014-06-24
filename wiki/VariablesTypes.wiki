@@ -24,6 +24,7 @@ bool 	toBool() const;
 
 {{{
 public int variant::intval() const; 
+int 	toInt(bool * ok = 0) const;
 }}}
 
 {{{
