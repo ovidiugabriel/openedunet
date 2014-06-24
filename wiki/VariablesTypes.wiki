@@ -36,6 +36,8 @@ public string variant::gettype() const;
 string gettype(const variant var);
 }}}
 
+In the Qt framework, the same behavior is provided by the `QVariant::typeName()` method. Which returns the name of the type stored in the variant. 
+
 {{{
 const char* QVariant::typeName() const;
 }}}
