@@ -116,7 +116,7 @@ bool is_null(variant var);
 }}}
 
 {{{
-bool QVariant::isNull() const
+bool QVariant::isNull() const;
 }}}
 
 === `is_bool()` ===
