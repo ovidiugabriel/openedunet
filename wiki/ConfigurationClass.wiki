@@ -17,6 +17,8 @@ Another important feature is that object data is automatically serialized into a
 
 {{{
 public variant Config::get(string name) [static]
+
+public variant Config::get(string name, variant defaultValue) [static]
 }}}
 
 || *name* || the name of the key you need to read ||
