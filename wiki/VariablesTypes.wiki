@@ -1,10 +1,10 @@
 {{{
 class variant {
-    public string gettype();          // Get the type of a variable
+    public string gettype() const;          // Get the type of a variable
     public bool settype(string type); // Set the type of a variable
-    public bool boolval();            // Get the boolean value of a variable (PHP 5 >= 5.5.0)
-    public int intval();              // Get the integer value of a variable
-    public string strval();           // Get string value of a variable
-    public float floatval();          // Get float value of a variable
+    public bool boolval() const;            // Get the boolean value of a variable (PHP 5 >= 5.5.0)
+    public int intval() const;              // Get the integer value of a variable
+    public string strval() const;           // Get string value of a variable
+    public float floatval() const;          // Get float value of a variable
 }
 }}}
