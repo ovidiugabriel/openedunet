@@ -4,4 +4,6 @@ Html Helper here...
 
 `html_options()` is a function that creates `<select><option>` group as HTML format string. 
 
-Replacement of: [http://www.smarty.net/docs/en/language.function.html.options.tpl `{html_options}`]
+{{{
+string html_options(dictionary params)
+}}}
