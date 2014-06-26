@@ -4,7 +4,7 @@ The purpose of HTML helpers here is to augment Code Igniter platform HTML helper
 
 === `html_options_assoc()` ===
 
-`html_options()` is a function that creates `<select><option>` group as HTML format string. 
+`html_options_assoc()` is a function that creates `<select><option>` group as HTML format string. 
 
 {{{
 string html_options_assoc(dictionary params)
