@@ -17,3 +17,9 @@ string html_options_assoc(string name, dictionary values, variant selected, dict
 || *`selected`* || ... ||
 || *`params`* || ||
 || *`returns`* || `string` ||
+
+=== `html_options()` ===
+
+{{{
+string html_options()
+}}}
