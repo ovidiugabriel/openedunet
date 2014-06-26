@@ -24,7 +24,7 @@ public variant Config::get(string name, variant defaultValue) [static]
 
 || *name* || the name of the key you need to read ||
 || *defaultValue* || ... ||
-|| *returns* || <div>the value of the key</div> <div> it can have one of the following supported types:  `boolean`, `float`, `integer`, `string`, `object`, `array` (for both `list` and `dictionary`).</div> ||
+|| *returns* || <div>the value of the key</div> <div> a `variant` that can have one of the following supported types:  `boolean`, `float`, `integer`, `string`, `object`, `array` (for both `list` and `dictionary`).</div> ||
 
 === Writing Values / Creating New Keys ===
 
