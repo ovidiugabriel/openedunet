@@ -8,7 +8,8 @@ The purpose of HTML helpers here is to augment Code Igniter platform HTML helper
 
 {{{
 string html_options_assoc(string name, dictionary values)
-string html_options_assoc(string name, dictionary values, dictionary params)
+string html_options_assoc(string name, dictionary values, variant selected)
+string html_options_assoc(string name, dictionary values, variant selected, dictionary params)
 }}}
 
 || *`name`* || ... ||
