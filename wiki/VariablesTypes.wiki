@@ -1,5 +1,4 @@
 
-
 == The `list` and `dictionary` types ==
 
 || `list`       || numerically indexed `array` ||
@@ -7,7 +6,7 @@
 
 == The `variant` type ==
 
-In all our documentation, the `mixed` pseudo-type introduced by the official PHP manual has been replaced with `variant` pseudo-type which is used for documentation purposes only. The definition of the `variant` is the following:
+Tthe `mixed` pseudo-type introduced by the official PHP manual has been replaced in Barebone MVC documentation with `variant` pseudo-type which is used for documentation purposes only. The definition of the `variant` is the following:
 
 {{{
 class variant {
