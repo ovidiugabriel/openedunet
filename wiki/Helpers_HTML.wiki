@@ -2,12 +2,12 @@ Html Helper here...
 
 The purpose of HTML helpers here is to augment Code Igniter platform HTML helpers and to provide a cheap replacement when you want to disable Smarty (or any other template engine) support in BareboneMVC platform.
 
-=== `html_options()` ===
+=== `html_options_assoc()` ===
 
 `html_options()` is a function that creates `<select><option>` group as HTML format string. 
 
 {{{
-string html_options(dictionary params)
+string html_options_assoc(dictionary params)
 }}}
 
 || *Key Name* || *Type* || *Required* || *Default* || *Description* ||
