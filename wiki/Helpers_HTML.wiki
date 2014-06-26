@@ -12,5 +12,5 @@ string html_options(dictionary params)
 
 || *Key Name* || *Type* || *Required* || *Default* || *Description* ||
 || *`name`* || `string` || *Yes* || None || ... ||
-|| values || ... || ... || ... || ... ||
-|| selected || ... || ... || ... || ... ||
+|| *`values`* || `dictionary`  || No ||  || ... ||
+|| *`selected`* || ... || ... || ... || ... ||
