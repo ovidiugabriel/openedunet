@@ -14,5 +14,6 @@ string html_options_assoc(string name, dictionary values, variant selected, dict
 
 || *`name`* || ... ||
 || *`values`* || ... ||
+|| *`selected`* || ... ||
 || *`params`* || ||
 || *`returns`* || `string` ||
