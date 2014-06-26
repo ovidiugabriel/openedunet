@@ -1,6 +1,6 @@
 Html Helper here...
 
-The purpose of HTML helpers here is to augment Code Igniter platform HTML helpers and to provide a cheap replacement when you want to disable Smarty (or any other template engine) support in BareboneMVC platform.
+The purpose of HTML helpers here is to augment Code Igniter platform HTML helpers and to provide a cheap replacement when you want to disable any template engine support in BareboneMVC platform.
 
 === `html_options_assoc()` ===
 
