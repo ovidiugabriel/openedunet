@@ -1,1 +1,6 @@
 === `assign()` ===
+
+{{{
+assign(string name, variant var)
+assign(variant var)
+}}}
