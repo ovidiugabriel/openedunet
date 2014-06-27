@@ -12,7 +12,7 @@ string html_options_assoc(string name, dictionary values, variant selected)
 string html_options_assoc(string name, dictionary values, variant selected, dictionary params)
 }}}
 
-|| *`name`* || The `name` attribute of the `select` tag ||
+|| *`name`* || The value of the `name` attribute of the `select` tag ||
 || *`values`* || ... ||
 || *`selected`* || ... ||
 || *`params`* || ||
