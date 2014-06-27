@@ -21,5 +21,7 @@ string html_options_assoc(string name, dictionary options, variant selected, dic
 === `html_options()` ===
 
 {{{
-string html_options()
+string html_options(string name, list values, list output)
+string html_options(string name, list values, list output, variant selected)
+string html_options(string name, list values, list output, variant selected, dictionary params)
 }}}
