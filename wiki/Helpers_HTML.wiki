@@ -42,3 +42,9 @@ echo html_options($name, array_keys($options), array_values($options));
 === `html_radios()` ===
 
 === `html_checkboxes()` ===
+
+=== `html_table()` ===
+
+=== `html_select_date()` ===
+
+=== `html_select_time()` ===
