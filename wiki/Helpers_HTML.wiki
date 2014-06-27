@@ -13,8 +13,8 @@ string html_options_assoc(string name, dictionary options, variant selected, dic
 }}}
 
 || *`name`* || The value of the `name` attribute of the `select` tag ||
-|| *`options`* || ... ||
-|| *`selected`* || ... ||
+|| *`options`* || An associative `array` (`dictionary`) of values and output ||
+|| *`selected`* || The value of the selected option element(s) ||
 || *`params`* || ||
 || *`returns`* || `string` ||
 
