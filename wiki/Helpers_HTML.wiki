@@ -31,3 +31,10 @@ string html_options(string name, list values, list output, variant selected, dic
 || *`selected`* || The value of the selected option element(s)  ||
 || *`params`* || Other HTML attributes for select tag, like: id, class, etc  ||
 || *`returns`* || `string` ||
+
+{{{
+// The following two calls are equivalent:
+
+echo html_options_assoc($name, $options)
+echo html_options($name, array_keys($options), array_values($options))
+}}}
