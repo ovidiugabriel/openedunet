@@ -38,3 +38,7 @@ string html_options(string name, list values, list output, variant selected, dic
 echo html_options_assoc($name, $options);
 echo html_options($name, array_keys($options), array_values($options));
 }}}
+
+=== `html_radios()` ===
+
+=== `html_checkboxes()` ===
