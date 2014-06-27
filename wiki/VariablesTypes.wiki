@@ -1,4 +1,3 @@
-
 == The `list` and `dictionary` types ==
 
 || `list`       || numerically indexed `array` ||
@@ -72,10 +71,6 @@ public bool variant::boolval() const;
 bool boolval(const variant var); // Procedural style
 }}}
 
-{{{
-bool 	toBool() const;
-}}}
-
 === `intval()` ===
 
 Get the integer value of a variable
@@ -83,10 +78,6 @@ Get the integer value of a variable
 {{{
 public int variant::intval() const; 
 int intval(const variant var); // Procedural style
-}}}
-
-{{{
-int 	toInt(bool * ok = 0) const;
 }}}
 
 === `strval()` ===
@@ -98,10 +89,6 @@ public string variant::strval() const;
 string strval(const variant var); // Procedural style
 }}}
 
-{{{
-QString 	toString() const;
-}}}
-
 === `floatval()` ===
 
 Get float value of a variable
@@ -111,9 +98,6 @@ public float variant::floatval() const;
 float floatval(const variant var); // Procedural style
 }}}
 
-{{{
-double 	toDouble(bool * ok = 0) const;
-}}}
 
 === `is_null()` ===
 Finds whether a variable is `null`. A variant is `null` when its variant type is `nulltype`.
@@ -123,37 +107,23 @@ public bool variant::is_null() const;
 bool is_null(variant var); // Procedural style
 }}}
 
-{{{
-bool QVariant::isNull() const;
-}}}
-
-{{{
-bool is_null(QVariant& var)
-{
-    const char* actual_type = var.typeName();
-    const char* expected_type = typeid(nullptr_t).name();
-
-    if (strlen(actual_type) == strlen(expected_type))
-    {
-        return !strcmp(actual_type, expected_type);
-    }
-    return false;
-}
-}}}
-
 === `is_bool()` ===
 Finds out whether a variable is a boolean 
+
 {{{
 public bool variant::is_bool() const;
 }}}
+
 === `is_float()` ===
 Finds whether the type of a variable is float
+
 {{{
 public bool variant::is_float() const;
 }}}
 
 === `is_int()` ===
 Find whether the type of a variable is integer
+
 {{{
 public bool is_int() const;
 }}}
