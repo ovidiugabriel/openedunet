@@ -7,13 +7,13 @@ The purpose of HTML helpers here is to augment Code Igniter platform HTML helper
 `html_options_assoc()` is a function that creates `<select><option>` group in HTML format, as a string. 
 
 {{{
-string html_options_assoc(string name, dictionary values)
-string html_options_assoc(string name, dictionary values, variant selected)
-string html_options_assoc(string name, dictionary values, variant selected, dictionary params)
+string html_options_assoc(string name, dictionary options)
+string html_options_assoc(string name, dictionary options, variant selected)
+string html_options_assoc(string name, dictionary options, variant selected, dictionary params)
 }}}
 
 || *`name`* || The value of the `name` attribute of the `select` tag ||
-|| *`values`* || ... ||
+|| *`options`* || ... ||
 || *`selected`* || ... ||
 || *`params`* || ||
 || *`returns`* || `string` ||
