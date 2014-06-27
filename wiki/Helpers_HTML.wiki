@@ -26,8 +26,8 @@ string html_options(string name, list values, list output, variant selected)
 string html_options(string name, list values, list output, variant selected, dictionary params)
 }}}
 
-|| name || ... ||
-|| values || ... ||
-|| output || ... ||
-|| selected || ... ||
-|| params || ... ||
+|| *`name`* || ... ||
+|| *`values`* || ... ||
+|| *`output`* || ... ||
+|| *`selected`* || ... ||
+|| *`params`* || ... ||
