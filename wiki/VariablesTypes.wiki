@@ -112,6 +112,7 @@ Finds out whether a variable is a boolean
 
 {{{
 public bool variant::is_bool() const;
+bool is_bool(const variant var); // Procedural style
 }}}
 
 === `is_float()` ===
@@ -119,35 +120,48 @@ Finds whether the type of a variable is float
 
 {{{
 public bool variant::is_float() const;
+bool is_float(const variant var); // Procedural style
 }}}
 
 === `is_int()` ===
 Find whether the type of a variable is integer
 
 {{{
-public bool is_int() const;
+public bool variant::is_int() const;
+bool is_int(const variant var); // Procedural style
 }}}
 
 === `is_numeric()` ===
 Finds whether a variable is a number or a numeric string
 
+{{{
+public bool variant::is_numeric() const;
+bool is_numeric(const variant var);
+}}}
+
 === `is_string()` ===
 Find whether the type of a variable is string
 {{{
-public bool is_string() const;
+public bool variant::is_string() const;
+bool is_string(const variant var);
 }}}
 === `is_object()` ===
 Finds whether a variable is an object
+
 {{{
-public bool is_object() const;
+public bool variant::is_object() const;
+bool is_object(const variant var);
 }}}
 === `is_array()` ===
 Finds whether a variable is an array
 {{{
-public bool is_array() const;
+public bool variant::is_array() const;
+bool is_array(const variant var);
 }}}
+
 === `get_class()` ===
 Returns the name of the class of an object
 {{{
 public string get_class() const;  
+string get_class(const variant var);
 }}}
