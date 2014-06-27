@@ -1,5 +1,7 @@
 == The `list` and `dictionary` types ==
 
+An `array` in PHP is actually an ordered map. A `map` is a type that associates values to keys. This type is optimized for several different uses; it can be treated as an `array`, `list` (`vector`), `hashtable` (an implementation of a `map`), `dictionary`, `collection`, `stack`, `queue`, and probably more. As array values can be other arrays, `tree`s and multidimensional arrays are also possible. 
+
 || `list`       || numerically indexed `array` ||
 || `dictionary` || associative indexed `array` ||
 
