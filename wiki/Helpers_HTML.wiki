@@ -35,6 +35,6 @@ string html_options(string name, list values, list output, variant selected, dic
 {{{
 // The following two calls are equivalent:
 
-echo html_options_assoc($name, $options)
-echo html_options($name, array_keys($options), array_values($options))
+echo html_options_assoc($name, $options);
+echo html_options($name, array_keys($options), array_values($options));
 }}}
