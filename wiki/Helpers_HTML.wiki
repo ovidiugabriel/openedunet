@@ -25,10 +25,9 @@ string html_options(string name, list values, list output)
 string html_options(string name, list values, list output, variant selected)
 string html_options(string name, list values, list output, variant selected, dictionary params)
 }}}
-
-|| *`name`* || ... ||
+|| *`name`* || The value of the `name` attribute of the `select` tag ||
 || *`values`* || ... ||
 || *`output`* || ... ||
-|| *`selected`* || ... ||
-|| *`params`* || ... ||
-|| *`returns`* || ... ||
+|| *`selected`* || The value of the selected option element(s)  ||
+|| *`params`* || Other HTML attributes for select tag, like: id, class, etc  ||
+|| *`returns`* || `string` ||
