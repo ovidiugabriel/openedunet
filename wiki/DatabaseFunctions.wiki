@@ -17,3 +17,9 @@ string GetSQLValueString( variant theValue,
                           variant theDefinedValue, 
                           variant theNotDefinedValue )
 }}}
+
+|| *`theValue`* || ... ||
+|| *`theType`* || ... ||
+|| *`theDefinedValue`* || ... ||
+|| *`theNotDefinedValue`* || ... ||
+|| *returns* || .. ||
