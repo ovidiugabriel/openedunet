@@ -3,6 +3,11 @@ variant db_value(string field, string sql)
 variant db_value(string field, string sql, Database db)
 }}}
 
+|| *`field`* || ... ||
+|| *`sql`* || ... ||
+|| *`db`* || ... ||
+|| *returns* || ... ||
+
 === `GetSQLValueString()` ===
 
 {{{
