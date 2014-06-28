@@ -9,7 +9,8 @@ variant db_value(string field, string sql, Database db)
 string GetSQLValueString( variant theValue, string theType )
 string GetSQLValueString( variant theValue, string theType, variant theDefinedValue )
 
-string GetSQLValueString( variant theValue, string theType, 
+string GetSQLValueString( variant theValue, 
+                          string theType, 
                           variant theDefinedValue, 
                           variant theNotDefinedValue )
 }}}
