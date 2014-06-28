@@ -10,7 +10,7 @@ string GetSQLValueString( variant theValue, string theType )
 string GetSQLValueString( variant theValue, string theType, variant theDefinedValue )
 
 string GetSQLValueString( variant theValue, 
-                          string theType, 
+                          string  theType, 
                           variant theDefinedValue, 
                           variant theNotDefinedValue )
 }}}
