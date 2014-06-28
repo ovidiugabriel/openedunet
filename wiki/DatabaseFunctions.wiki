@@ -26,7 +26,7 @@ string GetSQLValueString( variant theValue,
 }}}
 
 || *`theValue`* || ... ||
-|| *`theType`* || ... ||
+|| *`theType`* || <ul><li>`'text'`</li><li>`'long'` or `'int'`</li><li>`'double'`</li><li>`'date'`</li><li>`'defined'`</li></ul>||
 || *`theDefinedValue`* || ... ||
 || *`theNotDefinedValue`* || ... ||
 || *returns* || .. ||
