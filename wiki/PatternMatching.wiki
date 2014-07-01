@@ -28,3 +28,19 @@ foreach ([$alice, $bob, $charlie] as $person) {
 }
 
 }}}
+
+{{{
+class Person implements IDefault {
+    use PatternMatching;
+
+    public function __construct($name = null, $age = null)
+    {
+        $this->name = $name;
+        $this->age = $age;
+    }
+
+    public function is_default() {
+        return (null === $this->name) && (null === $this->age);
+    }
+}
+}}}
