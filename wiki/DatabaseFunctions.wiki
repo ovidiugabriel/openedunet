@@ -3,8 +3,8 @@
 Extracts the value of the `field` after running the `sql` command on a `database` connection.
 
 {{{
-variant db_value(string field, string sql)
-variant db_value(string field, string sql, Database database)
+string db_value(string field, string sql)
+string db_value(string field, string sql, Database database)
 }}}
 
 || *`field`* || The name of the field to be extracted from query execution output result ||
