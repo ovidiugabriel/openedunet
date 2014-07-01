@@ -5,7 +5,7 @@ dictionary db_row(string sql)
 dictionary db_row(string sql, Databse db)
 }}}
 
-=== `db_result` ===
+=== `db_result()` ===
 
 {{{
 list<dictionary> db_result(string sql)
