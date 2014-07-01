@@ -20,7 +20,7 @@ Iterable types are types that can be used in a `for`/`foreach` construct.
 In the context of BareboneMVC documentation:
   * iterable types: `list` and `dictionary` (`array`s in one word) are not `nullable` by default
   * `string` is `nullable` by default
-  * `for`/`foreach` construct can be used to iterate over public properties of a given object ...
+  * `for`/`foreach` construct can be used to iterate over public properties of a given object so instances are not `nullable` by default.
 
 The return type of functions shall not be replaced with `variant` when it can be marked as `nullable`. If the type is `nullable` by default, the remark is not even necessary, but it is mandatory for types that are not `nullable` by default - for instance `iterable` types.
 
