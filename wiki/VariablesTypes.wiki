@@ -19,14 +19,11 @@ Iterable types are types that can be used in a `for`/`foreach` construct.
 
 In the context of BareboneMVC documentation:
 
-|| *Type* || *Default `nullable`* ||
-|| `list` || No ||
-|| `dictionary` || No ||
-|| `string` || Yes ||
-
-  * iterable types:  and (`array`s in one word) are not `nullable` by default
-  * `string` is `nullable` by default
-  * class instances are `nullable` by default only when they don't have any public properties
+|| *Type* || *Default `nullable`* || Comments ||
+|| `list` || No || ... ||
+|| `dictionary` || No || ... ||
+|| `string` || Yes || ... ||
+|| `object` || No || ... ||
 
 {{{
 $object = new C1();
