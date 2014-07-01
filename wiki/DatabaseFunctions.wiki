@@ -40,6 +40,13 @@ dictionary<string, dictionary> db_result_assoc(string sql, string field)
 dictionary<string, dictionary> db_result_assoc(string sql, string field, Database db)
 }}}
 
+=== `db_column_assoc` ===
+
+{{{
+function db_column_assoc(string sql, string keyfield, string selfield, Database db)
+function db_column_assoc(string sql, string keyfield, string selfield, Database db)
+}}}
+
 === `GetSQLValueString()` ===
 
 {{{
