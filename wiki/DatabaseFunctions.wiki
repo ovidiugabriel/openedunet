@@ -7,7 +7,7 @@ variant db_value(string field, string sql)
 variant db_value(string field, string sql, Database database)
 }}}
 
-|| *`field`* || ... ||
+|| *`field`* || The name of the field to be extracted from query execution output result ||
 || *`sql`* || The SQL command to be executed on the database server ||
 || *`db`* || ... ||
 || *returns* || ... ||
