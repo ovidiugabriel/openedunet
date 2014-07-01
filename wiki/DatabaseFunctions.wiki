@@ -19,6 +19,10 @@ list<dictionary<string, string>> db_result(string sql)
 list<dictionary<string, string>> db_result(string sql, Database db)
 }}}
 
+|| *`query`* || ... ||
+|| *`database`* || `[optional]` Database connection. If not specified, the default connection is used. ||
+|| *returns* || ... ||
+
 === `db_value()` ===
 
 Extracts the value of the `field` after running the `sql` command on a `database` connection.
