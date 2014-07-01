@@ -1,4 +1,4 @@
-# Important documentation convention for variable types
+#summary Important documentation convention for variable types
 
 == The `list` and `dictionary` types ==
 
