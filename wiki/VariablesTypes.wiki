@@ -1,3 +1,5 @@
+# Important documentation convention for variable types
+
 == The `list` and `dictionary` types ==
 
 The `array` type in PHP is very versatile. 
