@@ -1,5 +1,7 @@
 === `db_row()` ===
 
+Extract a record row from the given `sql` query output result executed on a `database` connection.
+
 {{{
 dictionary<string, string> db_row(string sql)
 dictionary<string, string> db_row(string sql, Databse database)
