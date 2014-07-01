@@ -11,9 +11,11 @@ Source: http://www.php.net/manual/en/language.types.array.php
 
 As of PHP 5.4 it is possible to array dereference the result of a function or method call directly. Before it was only possible using a temporary variable. 
 
-=== Traversable types and nullable types  ===
+=== Iterable types and nullable types  ===
 
-`Traversable` types: `list` and `dictionary` are not `nullable` by default.
+Iterable types are types that can be used in a `for`/`foreach` construct.
+
+For BareboneMVC documentation: Iterable types (`arrays` - that is: `list` and `dictionary`) are not `nullable` by default.
 
 == The `variant` type ==
 
