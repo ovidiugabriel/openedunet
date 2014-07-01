@@ -20,7 +20,7 @@ Iterable types are types that can be used in a `for`/`foreach` construct.
 || *Type* || *Default `nullable`* || *Comments* ||
 || `list` || No || ... ||
 || `dictionary` || No || ... ||
-|| `string` || Yes || Use `str_split()` to iterate over string characters ||
+|| `string` || Yes || Use `str_split()` to convert string to an iterable type ||
 || `object` || No || ... ||
 
 {{{
