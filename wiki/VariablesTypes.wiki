@@ -13,7 +13,7 @@ As of PHP 5.4 it is possible to array dereference the result of a function or me
 
 === Not nullable iterable types ===
 
-Iterable types: list, dictionary are not nullable by default.
+Iterable types: `list` and `dictionary` are not `nullable` by default.
 
 == The `variant` type ==
 
