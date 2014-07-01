@@ -1,1 +1,7 @@
 Pattern Matching
+
+{{{
+trait PatternMatching {
+    public nulltype match(list entries);
+}
+}}}
