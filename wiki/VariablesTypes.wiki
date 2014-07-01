@@ -15,7 +15,7 @@ As of PHP 5.4 it is possible to array dereference the result of a function or me
 
 Iterable types are types that can be used in a `for`/`foreach` construct.
 
-In the context of BareboneMVC documentation: Iterable types (`arrays` - that is: `list` and `dictionary`) are not `nullable` by default.
+In the context of BareboneMVC documentation: Iterable types (`arrays` - that is: `list` and `dictionary`) are not `nullable` by default. But for instance, a `string` is `nullable` by default.
 
 == The `variant` type ==
 
