@@ -26,6 +26,13 @@ string db_value(string field, string sql, Database database)
 || *`db`* || `[optional]` `Database` connection. If not specified, the default connection is used.  ||
 || *returns* || `string` ... ||
 
+=== `db_result_assoc()` ===
+
+{{{
+dictionary<string, dictionary> db_result_assoc(string sql, string field)
+dictionary<string, dictionary> db_result_assoc(string sql, string field, Database db)
+}}}
+
 === `GetSQLValueString()` ===
 
 {{{
