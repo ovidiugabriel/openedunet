@@ -21,7 +21,7 @@ list db_result(string query, Database database)
 
 || *`query`* || The query to be executed on the server ||
 || *`database`* || `[optional]` Database connection. If not specified, the default connection is used. ||
-|| *returns* || <div>Each `dictionary` in this `list` is a record.</div> <div>If no result is found for the `query` then an _empty_ `list` is returned.</div>  ||
+|| *returns* || <div>Each `dictionary` in this `list` is a record.</div> <div>If no result is found for the `query` then an _empty_ `list` is returned.</div> <div>This function shall not return `null`.</div> ||
 
 === `db_value()` ===
 
