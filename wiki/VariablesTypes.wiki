@@ -11,6 +11,10 @@ Source: http://www.php.net/manual/en/language.types.array.php
 
 As of PHP 5.4 it is possible to array dereference the result of a function or method call directly. Before it was only possible using a temporary variable. 
 
+=== Iterable types are not nullable ===
+
+Iterable types: list, dictionary are not nullable by default.
+
 == The `variant` type ==
 
 Tthe `mixed` pseudo-type introduced by the official PHP manual has been replaced in Barebone MVC documentation with `variant` pseudo-type which is used for documentation purposes only. The definition of the `variant` is the following:
