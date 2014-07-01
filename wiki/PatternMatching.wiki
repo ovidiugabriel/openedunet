@@ -13,7 +13,9 @@ interface IDefault {
 }
 }}}
 
-==== Example 1 ====
+=== Example 1 ===
+
+Matching objects of the same type
 
 {{{
 $alice   = new Person("Alice", 25);
