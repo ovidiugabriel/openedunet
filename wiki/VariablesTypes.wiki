@@ -11,7 +11,7 @@ Source: http://www.php.net/manual/en/language.types.array.php
 
 As of PHP 5.4 it is possible to array dereference the result of a function or method call directly. Before it was only possible using a temporary variable. 
 
-=== Iterable types are not nullable ===
+=== Not nullable iterable types ===
 
 Iterable types: list, dictionary are not nullable by default.
 
