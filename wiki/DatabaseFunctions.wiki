@@ -1,8 +1,10 @@
 === `db_value()` ===
 
+Extracts the value of the `field` after running the `sql` command on a `database` connection.
+
 {{{
 variant db_value(string field, string sql)
-variant db_value(string field, string sql, Database db)
+variant db_value(string field, string sql, Database database)
 }}}
 
 || *`field`* || ... ||
