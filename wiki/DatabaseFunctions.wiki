@@ -56,21 +56,23 @@ function db_column_assoc(string sql, string keyfield, string selfield, Database 
 
 === `GetSQLValueString()` ===
 
-{{{
-string GetSQLValueString( variant theValue, string theType )
+Executes proper escaping for the given input `value` and `type`.
 
-string GetSQLValueString( variant theValue, 
-                          string  theType, 
+{{{
+string GetSQLValueString( variant value, string type )
+
+string GetSQLValueString( variant value, 
+                          string  type, 
                           variant theDefinedValue )
 
-string GetSQLValueString( variant theValue, 
-                          string  theType, 
+string GetSQLValueString( variant value, 
+                          string  type, 
                           variant theDefinedValue, 
                           variant theNotDefinedValue )
 }}}
 
-|| *`theValue`* || ... ||
-|| *`theType`* || <ul><li>`'text'`</li><li>`'long'` or `'int'`</li><li>`'double'`</li><li>`'date'`</li><li>`'defined'`</li></ul>||
+|| *`value`* || ... ||
+|| *`type`* || <ul><li>`'text'`</li><li>`'long'` or `'int'`</li><li>`'double'`</li><li>`'date'`</li><li>`'defined'`</li></ul>||
 || *`theDefinedValue`* || `[optional]` ||
 || *`theNotDefinedValue`* || `[optional]` ||
 || *returns* || `string` ... ||
