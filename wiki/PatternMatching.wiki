@@ -5,3 +5,9 @@ trait PatternMatching {
     public nulltype match(list entries);
 }
 }}}
+
+{{{
+interface IDefault {
+    public boolean is_default();
+}
+}}}
