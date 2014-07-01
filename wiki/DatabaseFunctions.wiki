@@ -1,8 +1,8 @@
 === `db_row()` ===
 
 {{{
-dictionary db_row(string sql)
-dictionary db_row(string sql, Databse db)
+dictionary<string, string> db_row(string sql)
+dictionary<string, string> db_row(string sql, Databse db)
 }}}
 
 === `db_result()` ===
