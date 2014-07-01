@@ -2,7 +2,7 @@
 
 {{{
 dictionary<string, string> db_row(string sql)
-dictionary<string, string> db_row(string sql, Databse db)
+dictionary<string, string> db_row(string sql, Databse database)
 }}}
 
 === `db_result()` ===
