@@ -3,8 +3,8 @@
 Extract a record row from the given `query` output result executed on a `database` connection.
 
 {{{
-variant db_row(string query)
-variant db_row(string query, Databse database)
+dictionary db_row(string query)
+dictionary db_row(string query, Databse database)
 }}}
 
 || *`query`* || The query to be executed on the server ||
