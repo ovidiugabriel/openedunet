@@ -19,7 +19,7 @@ Iterable types are types that can be used in a `for`/`foreach` construct.
 
 In the context of BareboneMVC documentation:
 
-|| *Type* || *Default `nullable`* || Comments ||
+|| *Type* || *Default `nullable`* || *Comments* ||
 || `list` || No || ... ||
 || `dictionary` || No || ... ||
 || `string` || Yes || ... ||
