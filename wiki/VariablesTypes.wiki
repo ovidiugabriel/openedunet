@@ -23,14 +23,6 @@ Iterable types are types that can be used in a `for`/`foreach` construct. Iterab
 || `string` || Yes || Use `str_split()` to convert string to an iterable type ||
 || `object` || No || ... ||
 
-{{{
-$object = new C1();
-
-foreach ($object as $key => $value) {
-    // ...
-}
-}}}
-
 The return type of functions shall not be replaced with `variant` when it can be marked as `nullable`. If the type is `nullable` by default, the remark is not even necessary, but it is mandatory for types that are not `nullable` by default - for instance `iterable` types.
 
 == The `variant` type ==
