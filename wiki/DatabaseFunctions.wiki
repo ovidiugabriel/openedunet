@@ -10,7 +10,7 @@ string db_value(string field, string sql, Database database)
 || *`field`* || The name of the field to be extracted from query execution output result ||
 || *`sql`* || The SQL command to be executed on the database server ||
 || *`db`* || ... ||
-|| *returns* || ... ||
+|| *returns* || `string` ... ||
 
 === `GetSQLValueString()` ===
 
@@ -31,4 +31,4 @@ string GetSQLValueString( variant theValue,
 || *`theType`* || <ul><li>`'text'`</li><li>`'long'` or `'int'`</li><li>`'double'`</li><li>`'date'`</li><li>`'defined'`</li></ul>||
 || *`theDefinedValue`* || `[optional]` ||
 || *`theNotDefinedValue`* || `[optional]` ||
-|| *returns* || .. ||
+|| *returns* || `string` ... ||
