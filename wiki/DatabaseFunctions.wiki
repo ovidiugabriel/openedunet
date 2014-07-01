@@ -21,7 +21,7 @@ list db_result(string query, Database database)
 
 || *`query`* || ... ||
 || *`database`* || `[optional]` Database connection. If not specified, the default connection is used. ||
-|| *returns* || Returns a list of dictionaries. Each dictionary in this list is a record of the same structure as result returned by `db_row()`  ||
+|| *returns* || Each dictionary in this list is a record of the same structure as result returned by `db_row()`  ||
 
 === `db_value()` ===
 
