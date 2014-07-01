@@ -18,8 +18,8 @@ As of PHP 5.4 it is possible to array dereference the result of a function or me
 Iterable types are types that can be used in a `for`/`foreach` construct. Iterable types are not `nullable` by default. So, in the context of BareboneMVC documentation, if an iterable type is `nullable` it must be explicitly specified `nullable`.
 
 || *Type* || *Default `nullable`* || *Comments* ||
-|| `list` || No || ... ||
-|| `dictionary` || No || ... ||
+|| `list` || No || No comment ||
+|| `dictionary` || No || No comment ||
 || `string` || Yes || Use `str_split()` to convert string to an iterable type ||
 || `object` || No || Only the `dictionary` of `public` properties is iterable ||
 
