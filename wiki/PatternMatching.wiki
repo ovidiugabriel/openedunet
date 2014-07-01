@@ -26,7 +26,8 @@ foreach ([$alice, $bob, $charlie] as $person) {
     $person->match([
             [new Person("Alice", 25), function() { println("Hi Alice!"); }],
             [new Person("Bob", 32),   function() { println('Hi Bob!'); }],
-            [new Person(),            function($object) { println("Age: $object->age year, name: $object->name");  }]
+            [new Person(),            function($object) {
+                println("Age: $object->age year, name: $object->name");  }]
         ]);
 }
 
