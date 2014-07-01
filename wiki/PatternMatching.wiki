@@ -15,8 +15,8 @@ interface IDefault {
 === Example ===
 
 {{{
-$alice = new Person("Alice", 25);
-$bob = new Person("Bob", 32);
+$alice   = new Person("Alice", 25);
+$bob     = new Person("Bob", 32);
 $charlie = new Person("Charlie", 32);
 
 foreach ([$alice, $bob, $charlie] as $person) {
