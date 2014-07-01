@@ -7,6 +7,11 @@ dictionary<string, string> db_row(string sql)
 dictionary<string, string> db_row(string sql, Databse database)
 }}}
 
+|| sql || ... ||
+|| database || ... ||
+|| returns || Returns a dictionary where keys are field names and values are field values in the selected record. ||
+
+
 === `db_result()` ===
 
 {{{
