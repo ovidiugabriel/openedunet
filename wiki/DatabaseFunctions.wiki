@@ -8,7 +8,7 @@ variant db_value(string field, string sql, Database database)
 }}}
 
 || *`field`* || ... ||
-|| *`sql`* || ... ||
+|| *`sql`* || The SQL command to be executed on the database server ||
 || *`db`* || ... ||
 || *returns* || ... ||
 
