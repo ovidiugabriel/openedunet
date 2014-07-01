@@ -11,3 +11,20 @@ interface IDefault {
     public boolean is_default();
 }
 }}}
+
+=== Example ===
+
+{{{
+$alice = new Person("Alice", 25);
+$bob = new Person("Bob", 32);
+$charlie = new Person("Charlie", 32);
+
+foreach ([$alice, $bob, $charlie] as $person) {
+    $person->match([
+            [new Person("Alice", 25), function() { println("Hi Alice!"); }],
+            [new Person("Bob", 32), function() { println('Hi Bob!'); }],
+            [new Person(), function($object) { println("Age: $object->age year, name: $object->name");  }]
+        ]);
+}
+
+}}}
