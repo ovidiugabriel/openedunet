@@ -3,25 +3,25 @@
 Extract a record row from the given `query` output result executed on a `database` connection.
 
 {{{
-dictionary<string, string> db_row(string query)
-dictionary<string, string> db_row(string query, Databse database)
+variant db_row(string query)
+variant db_row(string query, Databse database)
 }}}
 
 || *`query`* || ... ||
 || *`database`* || `[optional]` Database connection. If not specified, the default connection is used. ||
-|| *returns* || Returns a dictionary where keys are field names and values are field values in the selected record. ||
+|| *returns* || Returns a `dictionary` where keys are field names and values are field values in the selected record. If no result is found for the `query` then `null` is returned. ||
 
 
 === `db_result()` ===
 
 {{{
-list<dictionary<string, string>> db_result(string sql)
-list<dictionary<string, string>> db_result(string sql, Database db)
+list db_result(string query)
+list db_result(string query, Database database)
 }}}
 
 || *`query`* || ... ||
 || *`database`* || `[optional]` Database connection. If not specified, the default connection is used. ||
-|| *returns* || ... ||
+|| *returns* || Returns a list of dictionaries. Each dictionary in this list is a record of the same structure as result returned by `db_row()`  ||
 
 === `db_value()` ===
 
