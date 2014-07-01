@@ -15,8 +15,8 @@ dictionary<string, string> db_row(string sql, Databse database)
 === `db_result()` ===
 
 {{{
-list<dictionary> db_result(string sql)
-list<dictionary> db_result(string sql, Database db)
+list<dictionary<string, string>> db_result(string sql)
+list<dictionary<string, string>> db_result(string sql, Database db)
 }}}
 
 === `db_value()` ===
