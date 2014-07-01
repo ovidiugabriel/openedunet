@@ -15,7 +15,7 @@ As of PHP 5.4 it is possible to array dereference the result of a function or me
 
 === Iterable types and nullable types  ===
 
-Iterable types are types that can be used in a `for`/`foreach` construct.
+Iterable types are types that can be used in a `for`/`foreach` construct. Iterable types are not `nullable` by default. That is if an iterable type is nullable it must be explicitly specified `nullable`.
 
 || *Type* || *Default `nullable`* || *Comments* ||
 || `list` || No || ... ||
