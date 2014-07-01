@@ -17,8 +17,6 @@ As of PHP 5.4 it is possible to array dereference the result of a function or me
 
 Iterable types are types that can be used in a `for`/`foreach` construct.
 
-In the context of BareboneMVC documentation:
-
 || *Type* || *Default `nullable`* || *Comments* ||
 || `list` || No || ... ||
 || `dictionary` || No || ... ||
