@@ -1,6 +1,10 @@
 == `val()` ==
 
 {{{
-variant val(string id, variant value) // Setter
-variant val(string id) // Getter
+variant val(string selector, variant value) // Setter
+variant val(string selector) // Getter
 }}}
+
+|| *`id`* || ... ||
+|| *`value`* || ... ||
+|| *returns* || ... ||
