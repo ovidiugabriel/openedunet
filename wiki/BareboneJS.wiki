@@ -1,3 +1,6 @@
+== `val()` ==
+
 {{{
-variant val(string id, variant value)
+variant val(string id, variant value) // Setter
+variant val(string id) // Getter
 }}}
