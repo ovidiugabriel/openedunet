@@ -3,10 +3,14 @@ A client library (ECMA Script) for the BareboneMVC framework.
 == `val()` ==
 
 {{{
-variant val(string selector, variant value) // Setter
-variant val(string selector) // Getter
+variant val(string id, variant value) // Setter
+variant val(string id) // Getter
 }}}
 
 || *`id`* || ... ||
 || *`value`* || ... ||
 || *returns* || ... ||
+
+{{{
+document.getElementById(id)
+}}}
