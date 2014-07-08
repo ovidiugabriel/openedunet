@@ -2,6 +2,9 @@ A client library (ECMA Script) for the BareboneMVC framework.
 
 == `val()` ==
 
+Advantages:
+  * Automatically detects if `.val()` or `.text()` method shall be called;
+
 {{{
 variant val(string id, variant value) // Setter
 variant val(string id) // Getter
