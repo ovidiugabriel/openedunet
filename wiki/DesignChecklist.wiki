@@ -49,3 +49,26 @@ public class ClassName {
   # Does `OpeartionName` apply to all instances of class `ClassName` including instances of subclasses?
   # Could `OperationName` be eliminated from the model?
   # Is there another operation in the model that should be revised or eliminated beacause it serves the same purpose as `OperationName`?
+
+== Attribute ==
+
+  # Does the name `AttributeName` clearly describe the attribute?
+  # Is `AttributeName` a noun or noun phrase?
+  # Could the name `AttributeName` be misinterpreted to mean something else?
+  # Is the type too restrictive to represent all possible values of `AttributeName`?
+  # Does the type allow values for AttributeName that could never be correct?
+  # Could `AttributeName` be combined with some other attribute of `ClassName` ?
+  # Could `AttributeName` be broken down into two more parts (a phone number can be broken down into area code, prefix, and number)?
+  # Could `AttributeName` be computed from other attributes instead of stored?
+  # Should `AttributeName` have an initial (or default) value?
+  # Is the initial value correct?
+  # Could you write an expression to check if AttrbuteName is correct? Plausible?
+  # Could `AttributeName` be defined in a different class that is associated with `ClassName`?
+  # Could `AtrributeName` be moved up the inheritance hierarchy to apply to AttributeName and to other classes?
+  # Does `AttributeName` apply to all instances of class ClassName including instances of subclasses?
+  # Could `AttrbiuteName` be eliminated from the model?
+  # Is there another attribute in the model that should be revised or eliminated because it serves the same purpose as `AttributeName`?
+  # For what reasons will `AttrbiuteName` be updated?
+  # Is there some other attribute that must be updated whenever AttributeName is updated?
+  # Is there a method that should be called when AttributeName is updated?
+  # Is there a method that should be called when AttributeName is given a certain kind of value?
