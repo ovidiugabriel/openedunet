@@ -24,6 +24,10 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
   # PHP keywords MUST be in lower case. The PHP constants `true`, `false`, and `null` MUST be in lower case.
   # The extends and implements keywords MUST be declared on the same line as the class name.
   # Lists of implements MAY be split across multiple lines, where each subsequent line is indented once. When doing so, the first item in the list MUST be on the next line, and there MUST be only one interface per line.
+  # Visibility MUST be declared on all properties.
+  # The `var` keyword MUST NOT be used to declare a property.
+  # There MUST NOT be more than one property declared per statement.
+  # Property names SHOULD NOT be prefixed with a single underscore to indicate protected or private visibility.
 
 ==== PSR-3 Logger Interface ====
 
