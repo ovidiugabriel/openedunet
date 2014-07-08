@@ -17,6 +17,9 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
   # Visibility MUST be declared on all properties and methods; abstract and final MUST be declared before the visibility;
   # Control structure keywords MUST have one space after them; method and function calls MUST NOT.
   # Opening braces for control structures MUST go on the same line, and closing braces MUST go on the next line after the body.
+  # All code files MUST use the Unix LF (linefeed) line ending.
+  # All code files MUST end with a single blank line.
+  # The closing `?>` tag MUST be omitted from files containing only PHP.
 
 ==== PSR-3 Logger Interface ====
 
