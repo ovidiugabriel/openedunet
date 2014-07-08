@@ -18,4 +18,9 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ==== PSR-3 Logger Interface ====
 
+
 ==== PSR-4 Improved Autoloading ====
+
+==== Aditional ====
+
+  # Usage of `static` methods and `static` local variables is discouraged
