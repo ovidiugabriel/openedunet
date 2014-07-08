@@ -14,8 +14,7 @@ trait PatternMatching {
         return false;
     }
 
-    public function match(array $entries)
-    {
+    public function match(array $entries) {
         foreach ($entries as $entry) {
             list($object, $callback) = $entry;
             if ($this->match_entry($object, $callback)) {
