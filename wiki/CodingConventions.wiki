@@ -12,6 +12,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
     "Side effects" include but are not limited to: generating output, explicit use of require or include, connecting to external services, modifying ini settings, emitting errors or exceptions, modifying global or static variables, reading from or writing to a file, and so on.
 
+  # Namespaces and classes MUST follow PSR-0.
+
 ==== PSR-2 Coding Style ====
 
 ==== PSR-3 Logger Interface ====
