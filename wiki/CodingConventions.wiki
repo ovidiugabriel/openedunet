@@ -21,6 +21,6 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ==== PSR-4 Improved Autoloading ====
 
-==== Aditional ====
+==== Aditional (specific to BareboneMVC) ====
 
   # Usage of `static` methods and `static` local variables is discouraged
