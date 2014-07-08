@@ -14,6 +14,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
   # Code MUST use 4 spaces for indenting, not tabs.
   # There MUST NOT be a hard limit on line length; the soft limit MUST be 120 characters;
+  # Visibility MUST be declared on all properties and methods; abstract and final MUST be declared before the visibility;
 
 ==== PSR-3 Logger Interface ====
 
