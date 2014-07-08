@@ -4,17 +4,13 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ==== PSR-1 Basic Coding ====
 
-  # PHP code MUST use the long <?php ?> tags ~~or the short-echo <?= ?> tags~~; it MUST NOT use the other tag variations.
-  # Code files MUST use only UTF-8 without BOM for PHP code.
-  # Files SHOULD either declare symbols (classes, functions, constants, etc.) or cause side-effects (e.g. generate output, change .ini settings, etc.) but SHOULD NOT do both.
+  # PHP code MUST use the long <?php ?> tags; it MUST NOT use the other tag variations.
+  # Code files MUST use only UTF-8 without BOM.
+  # Files SHOULD either declare symbols (classes, functions, constants, etc.) or cause side-effects (e.g. generate output, change .ini settings,explicit use of require or include, connecting to external services, mitting errors or exceptions, modifying global or static variables, reading from or writing to a file, etc.) but SHOULD NOT do both.
   # Namespaces and classes MUST follow PSR-0.
   # Class names MUST be declared in `StudlyCaps`
   # Class constants MUST be declared in all upper case with underscore separators.
   # Method names MUST be declared in `camelCase`.
-
-The phrase "side effects" means execution of logic not directly related to declaring classes, functions, constants, etc., merely from including the file.
-
-"Side effects" include but are not limited to: generating output, explicit use of require or include, connecting to external services, modifying ini settings, emitting errors or exceptions, modifying global or static variables, reading from or writing to a file, and so on.
 
 ==== PSR-2 Coding Style ====
 
