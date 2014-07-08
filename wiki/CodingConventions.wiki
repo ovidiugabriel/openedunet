@@ -26,7 +26,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
   # Lists of implements MAY be split across multiple lines, where each subsequent line is indented once. When doing so, the first item in the list MUST be on the next line, and there MUST be only one interface per line.
   # In the argument list, there MUST NOT be a space before each comma, and there MUST be one space after each comma.
   # Method arguments with default values MUST go at the end of the argument list.
-
+  # Argument lists MAY be split across multiple lines, where each subsequent line is indented once. When doing so, the first item in the list MUST be on the next line, and there MUST be only one argument per line.
 
 ==== PSR-3 Logger Interface ====
 
