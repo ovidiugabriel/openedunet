@@ -3,6 +3,7 @@
 // @namespace   http://www.ovidiugabriel.net/internet
 // @version     1
 // @grant       none
+// Info: http://www.ovidiugabriel.net/internet/popup-removal.html
 // ==/UserScript==
 
 var Loader = function () { };
