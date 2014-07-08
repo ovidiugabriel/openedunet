@@ -7,8 +7,8 @@ variant val(string id, variant value) // Setter
 variant val(string id) // Getter
 }}}
 
-|| *`id`* || ... ||
-|| *`value`* || ... ||
+|| *`id`* || The `id` of the node you are searching for ||
+|| *`value`* || The value to be set into the node ||
 || *returns* || ... ||
 
 {{{
