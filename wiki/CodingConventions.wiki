@@ -1,8 +1,11 @@
-...
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
 
 ==== PSR-0 Autoloading ====
 
 ==== PSR-1 Basic Coding ====
+
+  # PHP code MUST use the long <?php ?> tags or the short-echo <?= ?> tags; it MUST NOT use the other tag variations.
+  # Code files MUST use only UTF-8 without BOM for PHP code.
 
 ==== PSR-2 Coding Style ====
 
