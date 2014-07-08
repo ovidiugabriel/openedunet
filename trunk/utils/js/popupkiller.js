@@ -33,25 +33,46 @@ Loader.prototype = {
     }
 };
 
+/** 
+ * Returns true if we are on a blacklisted site.
+ */
+function ExecuteKill() {
+    // TODO: remove harcoded testing
+    if ("http://www.vivre.ro/" == document.URL.substr(0, "http://www.vivre.ro/".length)) {
+        // We are on http://www.vivre.ro/
+        document.getElementById('login-wrapper').style.display = 'none';
+        document.getElementsByClassName('ui-widget-overlay').item(0).style.display = 'none';       
+        return true;
+    }
+    return false;
+}
+
+var killExecuted = false;
 function script_loaded() {
     console.log('jQuery loaded');
     
     $(document).ready(function(){
-        console.log('document ready:', document.URL);
-        
-        // TODO: remove harcoded testing
-        if ("http://www.vivre.ro/" == document.URL.substr(0, "http://www.vivre.ro/".length)) {
-            // We are on http://www.vivre.ro/
-            document.getElementById('login-wrapper').style.display = 'none';
-            document.getElementsByClassName('ui-widget-overlay').item(0).style.display = 'none';
-        }
+        console.log('document ready:', document.URL);        
+        ExecuteKill();
+        killExecuted = true; // popup removal executed, we have to show the page now
+        document.body.style.display = '';
     });
 }
 
+function TimerCallback() {    
+    if (!killExecuted) {
+       document.body.style.display = 'none';
+       if (!ExecuteKill()) { // Not needed to execute popup removal on this page
+           killExecuted = true;
+           document.body.style.display = '';
+       }
+       setTimeout(TimerCallback, 0);
+    }    
+};
+setTimeout(TimerCallback, 0);
 
 var loader = new Loader();
 loader.require([
        "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
     ], 
     script_loaded);
-
