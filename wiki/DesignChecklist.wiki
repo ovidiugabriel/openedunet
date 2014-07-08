@@ -1,4 +1,13 @@
-== Classes ==
+{{{
+public class ClassName {
+    public int AttributeName;
+    public int OperationName();
+}
+
+}}}
+
+== Class ==
+
   # Does the name `ClassName` clearly describe the class?
   # Is `ClassName` a noun or a noun phrase?
   # Could the name `ClassName` be misinterpreted to mean something else?
@@ -11,7 +20,7 @@
   # Do all operations maintain the class invariant?
   # Could `ClassName` be defined in a different location in the class hierarchy?
   # Have you planned to have subclasses of `ClassName`?
-  # Could ClassName be eliminated from the model?
+  # Could `ClassName` be eliminated from the model?
   # Is there another class in the model that should be revised or eliminated because it serves the same purpose as `ClassName`?
-  # For what reasons will an instance of ClassName be updated?
-  # Is there some other object that must be updated whenever ClassName is updated?
+  # For what reasons will an instance of `ClassName` be updated?
+  # Is there some other object that must be updated whenever `ClassName` is updated?
