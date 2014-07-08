@@ -7,7 +7,9 @@ trait PatternMatching {
             return true;
         }        
 
-        if ($object->is_default() && (gettype($this) == gettype($object))) {
+        if ($object->is_default() && 
+           (gettype($this) == gettype($object))) 
+        {
             $func($this);
             return true;
         }
