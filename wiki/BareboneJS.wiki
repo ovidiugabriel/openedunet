@@ -1,4 +1,4 @@
-a client library (ECMA Script) for the BareboneMVC framework.
+A client library (ECMA Script) for the BareboneMVC framework.
 
 == `val()` ==
 
