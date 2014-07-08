@@ -20,6 +20,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
   # All code files MUST use the Unix LF (linefeed) line ending.
   # All code files MUST end with a single blank line.
   # The closing `?>` tag MUST be omitted from files containing only PHP.
+  # There MUST NOT be more than one statement per line.
 
 ==== PSR-3 Logger Interface ====
 
