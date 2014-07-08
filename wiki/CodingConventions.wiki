@@ -30,9 +30,6 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
   # Argument lists MAY be split across multiple lines, where each subsequent line is indented once. When doing so, the first item in the list MUST be on the next line, and there MUST be only one argument per line.
   # The keyword elseif SHOULD be used instead of else if so that all control keywords look like single words.
 
-==== PSR-3 Logger Interface ====
-
-
 ==== PSR-4 Improved Autoloading ====
 
 ==== Aditional (specific to BareboneMVC) ====
