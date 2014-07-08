@@ -45,7 +45,7 @@ public class ClassName {
   # How will `OperationName` behave if preconditions are violated?
   # How will `OperationName` behave if postconditions cannot be achieved?
   # Could `OperationName` be defined in a different class that is associated with `ClassName`?
-  # Could OperationName be moved up the inheritance hierarchy to apply to ClassName and to other classes?
-  # Does OpeartionName apply to all instances of clas ClassName including instances of subclasses?
-  # Could OperationName be eliminated from the model?
+  # Could `OperationName` be moved up the inheritance hierarchy to apply to `ClassName` and to other classes?
+  # Does `OpeartionName` apply to all instances of class `ClassName` including instances of subclasses?
+  # Could `OperationName` be eliminated from the model?
   # Is there another operation in the model that should be revised or eliminated beacause it serves the same purpose as `OperationName`?
