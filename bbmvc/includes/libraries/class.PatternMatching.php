@@ -1,7 +1,8 @@
 <?php
 
 trait PatternMatching {
-    private function match_entry(IDefault $object, callable $func) 
+    private function match_entry(IDefault $object, 
+                                 callable $func) 
     {
         if ($object == $this) {
             $func($this);
