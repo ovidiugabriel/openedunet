@@ -1,3 +1,11 @@
 ...
 
-=== PSR-0 Autoloading ===
+==== PSR-0 Autoloading ====
+
+==== PSR-1 Basic Coding ====
+
+==== PSR-2 Coding Style ====
+
+==== PSR-3 Logger Interface ====
+
+==== PSR-4 Improved Autoloading ====
