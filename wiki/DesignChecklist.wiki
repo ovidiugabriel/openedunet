@@ -1,0 +1,17 @@
+== Classes ==
+  # Does the name `ClassName` clearly describe the class?
+  # Is `ClassName` a noun or a noun phrase?
+  # Could the name `ClassName` be misinterpreted to mean something else?
+  # Does `ClassName` be its own class or a simple attribute of another class?
+  # Does `ClassName` do exactly one thing and do it well?
+  # Could `ClassName` be broken down in two or more classes?
+  # Do all attributes of `ClassName` start with meaningful values?
+  # Could you write an invariant for this class?
+  # Do all constructors establish the class invariant?
+  # Do all operations maintain the class invariant?
+  # Could `ClassName` be defined in a different location in the class hierarchy?
+  # Have you planned to have subclasses of `ClassName`?
+  # Could ClassName be eliminated from the model?
+  # Is there another class in the model that should be revised or eliminated because it serves the same purpose as `ClassName`?
+  # For what reasons will an instance of ClassName be updated?
+  # Is there some other object that must be updated whenever ClassName is updated?
