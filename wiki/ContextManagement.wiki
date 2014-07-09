@@ -1,6 +1,13 @@
-
 ==== `with()` ====
 
 {{{
 nulltype with(callable ctorcall, callable block)
+}}}
+
+Example
+
+{{{
+with(function() { return new Example(); }, function($ex) {
+    print_r($ex);
+});
 }}}
