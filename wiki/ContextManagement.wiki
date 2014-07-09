@@ -1,0 +1,6 @@
+
+==== `with()` ====
+
+{{{
+nulltype with(callable ctorcall, callable block)
+}}}
