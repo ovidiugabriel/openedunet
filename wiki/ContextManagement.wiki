@@ -4,6 +4,11 @@
 nulltype with(callable ctorcall, callable block)
 }}}
 
+  # Executes `ctorcall`
+  # Calls `__enter__()` method on the object returned by `ctorcall`
+  # Calls `block` passing the object returned by `ctorcall` as parameter
+  # Calls `__exit__()` method on the object returned by `ctorcall`
+
 Example
 
 {{{
