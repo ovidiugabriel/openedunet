@@ -22,7 +22,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
   # Property names SHOULD NOT be prefixed with a single underscore to indicate protected or private visibility
   # Opening braces for control structures MUST go on the same line, and closing braces MUST go on the next line after the body.
   # All code files MUST use the Unix LF (linefeed) line ending. {`"default_line_ending": "unix"`}
-  # All code files MUST end with a single blank line.
+  # All code files MUST end with a single blank line. {`"ensure_newline_at_eof_on_save": true`}
   # The closing `?>` tag MUST be omitted from files containing only PHP.
   # PHP keywords MUST be in lower case. The PHP constants `true`, `false`, and `null` MUST be in lower case.
   # The `extends` and `implements` keywords MUST be declared on the same line as the class name.
