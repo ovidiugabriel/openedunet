@@ -15,7 +15,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 ==== PSR-2 Coding Style ====
 
   # Code MUST use 4 spaces for indenting, not tabs. {`"tab_size": 4, "translate_tabs_to_spaces": true`}
-  # There MUST NOT be a hard limit on line length; the soft limit MUST be 120 characters;
+  # There MUST NOT be a hard limit on line length; the soft limit MUST be 120 characters; {` "rulers": [80, 120]`}
   # Visibility MUST be declared on all properties and methods; 
   # `abstract` and `final` MUST be declared before the visibility; 
   # The `var` keyword MUST NOT be used to declare a property. 
