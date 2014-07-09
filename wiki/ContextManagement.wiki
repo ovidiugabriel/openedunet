@@ -4,7 +4,7 @@
 nulltype with(callable ctorcall, callable block)
 }}}
 
-  # Executes `ctorcall`
+  # Executes `ctorcall` and stores the object reference returned
   # Calls `__enter__()` method on the object returned by `ctorcall`
   # Calls `block` passing the object returned by `ctorcall` as parameter
   # Calls `__exit__()` method on the object returned by `ctorcall`
