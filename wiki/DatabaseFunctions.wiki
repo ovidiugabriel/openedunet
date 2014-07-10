@@ -25,7 +25,7 @@ list db_result(string query, Database database)
 
 === `db_value()` ===
 
-Extracts the value of the `field` after running the `sql` command on a `database` connection.
+Extracts the value of the `field` after running the `query` command on a `database` connection.
 
 {{{
 string db_value(string field, string query)
@@ -33,7 +33,7 @@ string db_value(string field, string query, Database database)
 }}}
 
 || *`field`* || The name of the field to be extracted from query execution output result ||
-|| *`query`* || The query command to be executed on the database server ||
+|| *`query`* || The `query` command to be executed on the database server ||
 || *`db`* || `[optional]` `Database` connection. If not specified, the default connection is used.  ||
 || *returns* || `string` ... ||
 
