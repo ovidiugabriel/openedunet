@@ -1,3 +1,6 @@
+
+These database functions are provided as an alternative to the Object Oriented Database Abstraction Layer provided by Barebone MVC.
+
 === `db_row()` ===
 
 Extract a record row from the given `query` output result executed on a `database` connection.
