@@ -2,5 +2,5 @@
 
 {{{
 assign(string name, variant var)
-assign(variant var)
+assign(dictionary var)
 }}}
