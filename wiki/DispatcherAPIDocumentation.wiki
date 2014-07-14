@@ -78,6 +78,8 @@ Retrieves a reference to the _single instance of the type_.
   # implement _a function with the same name as the class_ that implements singleton behavior and _define a public constructor_; but in this case the user must ensure that constructor is not called when singleton function (same name as the class) is used;
   # implement `instance()` or `getInstance()` method and _define a private constructor_;
 
+=== `singleton()` ===
+
 {{{
 object singleton(string name)
 }}}
@@ -90,6 +92,8 @@ It is the singleton formal factory method provided by the framework.
 This is especially useful to create singletons of classes provided by third party libraries.
 
 Use this function when you want to ensure usage of a single instance but don't want to create a function for each type, add a `getInstance()` or `instance()` method to each class or refactor libraries to change constructors access level.
+
+=== `require_object()` ===
 
 {{{
 object require_object(string name)
