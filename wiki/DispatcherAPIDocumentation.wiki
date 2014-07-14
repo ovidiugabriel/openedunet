@@ -115,4 +115,4 @@ object require_class(string name, callable callback)
 || *callback* || ... ||
 || *returns* || ... ||
 
-==== set_flashdata() ====
+=== `set_flashdata()` ===
