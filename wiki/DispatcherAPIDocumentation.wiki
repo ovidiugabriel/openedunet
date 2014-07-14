@@ -11,6 +11,8 @@ Barebone MVC class naming convention is following the [http://www.php-fig.org/ P
 
 == Import a Class ==
 
+=== `import()` ===
+
 {{{
 nulltype import(string name) throws ClassNotFoundException, InvalidArgumentException
 }}}
