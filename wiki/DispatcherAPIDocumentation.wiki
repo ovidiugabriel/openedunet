@@ -114,3 +114,5 @@ object require_class(string name, callable callback)
 || *name* || fully qualified class `name` (but using dot syntax instead of backslash)  ||
 || *callback* || ... ||
 || *returns* || ... ||
+
+==== set_flashdata() ====
