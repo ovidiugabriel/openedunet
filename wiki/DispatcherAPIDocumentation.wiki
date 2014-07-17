@@ -124,3 +124,12 @@ object require_class(string name, callable callback)
 || *returns* || ... ||
 
 === `set_flashdata()` ===
+
+=== `get_flashdata()` ===
+
+=== `log_message()` ===
+
+{{{
+log_message(integer level, string message)
+}}}
+}}}
