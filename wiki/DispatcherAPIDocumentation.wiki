@@ -133,3 +133,9 @@ object require_class(string name, callable callback)
 log_message(integer level, string message)
 }}}
 }}}
+
+=== `trace_query()` ===
+
+{{{
+void trace_query(void)
+}}}
