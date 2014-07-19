@@ -58,7 +58,7 @@ dictionary<string, dictionary> db_result_assoc(string query, string field)
 dictionary<string, dictionary> db_result_assoc(string query, string field, Database database)
 }}}
 
-=== `db_result_func()` ===
+=== `db_result_assoc_func()` ===
 
 === `db_column_assoc()` ===
 
