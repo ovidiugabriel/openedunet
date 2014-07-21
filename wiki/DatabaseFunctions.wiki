@@ -11,6 +11,13 @@ nullable dictionary db_row(string query, Databse database)
 || *`database`* || `[optional]` Database connection. If not specified, the default connection is used. ||
 || *returns* || <div>Returns a `dictionary` where keys are field names and values are field values in the selected record.</div> <div>If no result is found for the `query` then `null` is returned.</div> ||
 
+=== `db_row_object()` ===
+
+{{{
+nullable dictionary db_row_object(string type, string query)
+nullable dictionary db_row_object(string type, string query, Databse database)
+}}}
+
 === `db_row_num()` ===
 
 
@@ -49,8 +56,8 @@ string db_value(string field, string query, Database database)
 === `db_value_object()` ===
 
 {{{
-string db_value(string type, string field, string query)
-string db_value(string type, string field, string query, Database database)
+string db_value_object(string type, string field, string query)
+string db_value_object(string type, string field, string query, Database database)
 }}}
 
 === `db_column()` ===
