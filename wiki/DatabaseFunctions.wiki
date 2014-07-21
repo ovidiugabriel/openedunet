@@ -14,8 +14,8 @@ nullable dictionary db_row(string query, Databse database)
 === `db_row_object()` ===
 
 {{{
-nullable dictionary db_row_object(string type, string query)
-nullable dictionary db_row_object(string type, string query, Databse database)
+nullable object db_row_object(string type, string query)
+nullable object db_row_object(string type, string query, Databse database)
 }}}
 
 === `db_row_num()` ===
@@ -56,8 +56,8 @@ string db_value(string field, string query, Database database)
 === `db_value_object()` ===
 
 {{{
-string db_value_object(string type, string field, string query)
-string db_value_object(string type, string field, string query, Database database)
+nullable object db_value_object(string type, string field, string query)
+nullable object db_value_object(string type, string field, string query, Database database)
 }}}
 
 === `db_column()` ===
