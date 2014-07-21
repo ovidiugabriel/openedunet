@@ -79,7 +79,7 @@ dictionary<string, dictionary> db_result_assoc(string query, string field, Datab
 === `db_column_assoc()` ===
 
 {{{
-function db_column_assoc(string query, string keyfield, string field, Database database)
+function db_column_assoc(string query, string keyfield, string field)
 function db_column_assoc(string query, string keyfield, string field, Database database)
 }}}
 
