@@ -46,6 +46,13 @@ string db_value(string field, string query, Database database)
 || *`db`* || `[optional]` `Database` connection. If not specified, the default connection is used.  ||
 || *returns* || `string` ... ||
 
+=== `db_value_object()` ===
+
+{{{
+string db_value(string type, string field, string query)
+string db_value(string type, string field, string query, Database database)
+}}}
+
 === `db_column()` ===
 
 {{{
