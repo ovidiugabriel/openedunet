@@ -32,7 +32,7 @@ list db_result(string query, Database database)
 || *`database`* || `[optional]` Database connection. If not specified, the default connection is used. ||
 || *returns* || <div>Each `dictionary` in this `list` is a record.</div> <div>If no result is found for the `query` then an _empty_ `list` is returned.</div>||
 
-=== `db_result_object()` ===
+=== `db_result_objects()` ===
 
 {{{
 list db_result_objects(string type, string query)
