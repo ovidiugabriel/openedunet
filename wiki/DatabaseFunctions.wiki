@@ -95,6 +95,11 @@ nullable object db_value_object(string type, string field, string query)
 nullable object db_value_object(string type, string field, string query, Database database)
 }}}
 
+|| *`type`* || ... ||
+|| *`field`* || ... ||
+|| *`query`* || ... ||
+|| *returns* || ... ||
+
 === `db_column()` ===
 
 {{{
