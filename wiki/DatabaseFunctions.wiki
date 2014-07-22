@@ -32,6 +32,11 @@ nullable list db_row_num(list fields, string query)
 nullable list db_row_num(list fields, string query, Databse database)
 }}}
 
+|| *`fields`* || ... ||
+|| *`query`* || ... ||
+|| *`database`* || ... ||
+|| *returns* || ... ||
+
 
 === `db_result()` ===
 
