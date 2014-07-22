@@ -22,6 +22,11 @@ nullable object db_row_object(string type, string query, Databse database)
 
 === `db_row_num()` ===
 
+{{{
+nullable dictionary db_row(list fields, string query)
+nullable dictionary db_row(list fields, string query, Databse database)
+}}}
+
 
 === `db_result()` ===
 
