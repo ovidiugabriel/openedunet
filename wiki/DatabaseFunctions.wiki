@@ -56,6 +56,11 @@ list db_result_objects(string type, string query)
 list db_result_objects(string type, string query, Database database)
 }}}
 
+|| *`type`* || ... ||
+|| *`query`* || ... ||
+|| *`database`* || ... ||
+|| *returns* || ... ||
+
 === `db_result_func()` ===
 
 {{{
