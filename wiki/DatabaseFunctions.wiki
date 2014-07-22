@@ -107,6 +107,11 @@ list<string> db_column(string query, string field)
 list<string> db_column(string query, string field, Database database)
 }}}
 
+|| *`query`* || ... ||
+|| *`field`* || ... ||
+|| *`database`* || ... ||
+|| *returns* || ... ||
+
 === `db_result_assoc()` ===
 
 {{{
