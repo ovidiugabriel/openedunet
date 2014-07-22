@@ -126,6 +126,11 @@ dictionary<string, dictionary> db_result_assoc(string query, string field, Datab
 
 === `db_result_assoc_func()` ===
 
+{{{
+nulltype db_result_assoc_func(string query, string field, callable func)
+nulltype db_result_assoc_func(string query, string field, callable func, Database database)
+}}}
+
 === `db_column_assoc()` ===
 
 {{{
