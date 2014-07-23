@@ -58,3 +58,9 @@ Lower level functions
 {{{
 string html_checked(boolean cond)
 }}}
+
+=== `html_selected()` ===
+
+{{{
+string html_selected(boolean cond)
+}}}
