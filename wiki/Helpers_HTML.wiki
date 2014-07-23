@@ -2,6 +2,8 @@ Html Helper here...
 
 The purpose of HTML helpers here is to augment Code Igniter platform HTML helpers and to provide a cheap replacement when do you want to disable any template engine support in BareboneMVC framework.
 
+HTML helpers output directly as default when they are called in a template context.
+
 === `html_options_assoc()` ===
 
 `html_options_assoc()` is a function that creates `<select><option>` group in HTML format, as a string. 
