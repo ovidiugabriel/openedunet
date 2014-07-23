@@ -48,3 +48,11 @@ echo html_options($name, array_keys($options), array_values($options));
 === `html_select_date()` ===
 
 === `html_select_time()` ===
+
+Lower level functions
+
+=== `html_checked()` ===
+
+{{{
+string html_checked(boolean cond)
+}}}
