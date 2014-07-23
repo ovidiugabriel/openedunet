@@ -71,3 +71,9 @@ string html_selected(boolean cond)
 {{{
 string html_selected_post(string key, string value)
 }}}
+
+=== `html_checked_post()` ===
+
+{{{
+string html_checked_post(string key, string value)
+}}}
