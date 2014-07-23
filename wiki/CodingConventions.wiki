@@ -65,7 +65,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ==== Aditional (specific to BareboneMVC) ====
 
-  # Usage of `static` methods and `static` local variables is discouraged. Make sure you have an object oriented or a functional design before using `static`. And make sure you are not forcing procedural style over classes by using `static` in excess. If you still need to use `static` methods make sure that static 
+  # Usage of `static` methods and `static` local variables is discouraged. Make sure you have an object oriented or a functional design before using `static`. And make sure you are not forcing procedural style over classes by using `static` in excess. If you still need to use `static` methods make sure that `static` keyword is written on the line above the method signature.
 
 {{{
     /**
