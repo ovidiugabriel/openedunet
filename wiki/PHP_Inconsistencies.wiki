@@ -6,4 +6,4 @@
 
   # variable names are *case sensitive*
   # function names are class names are *not* case sensitive
-  # defines are case sensitive
+  # defines and consts are case sensitive
