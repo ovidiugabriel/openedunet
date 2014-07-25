@@ -4,6 +4,5 @@
 
 == Case sensitivity ==
 
-  # variable names are *case sensitive*
+  # variable names and constants names (including defines) are *case sensitive*
   # function names are class names are *not* case sensitive
-  # defines and consts are case sensitive
