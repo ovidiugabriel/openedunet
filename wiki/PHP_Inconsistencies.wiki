@@ -5,3 +5,4 @@
 == Case sensitivity ==
 
   # variable names are *case sensitive*
+  # function names are *not* case sensitive
