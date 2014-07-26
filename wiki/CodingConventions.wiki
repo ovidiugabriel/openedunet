@@ -82,7 +82,7 @@ What about letter cases and underscores?
 
   # Constants are always `SCREAMING_CAPS`;
   # Local variables, object properties and function parameters are `snake_case`;
-  # Functions that are not methods are often `snake_case`;
+  # Functions that are not methods are often `snake_case` and in some cases `StudlyCaps`;
   # Methods are generally `camelCase`;
 
 
