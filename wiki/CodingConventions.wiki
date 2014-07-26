@@ -78,6 +78,14 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
     }
 }}}
 
+What about letter cases and underscores?
+
+1. Constants are always SCREAMING_CAPS; StudlyCaps is tolerated but not recommended.
+2. Local variables, object properties and function parameters are snake_case.
+3. Global functions are often snake_case and StudlyCaps in rare cases.
+
+
+
 ==== PHP specific ===
 
   # Access type `abstract` for interface methods must be omitted.
