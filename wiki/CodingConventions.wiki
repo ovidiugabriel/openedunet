@@ -94,7 +94,11 @@ These rules are not mandatory, they are just advisory and won't be enforced on c
 
 After all, computer programming is about data structures, algorithms, architectures and interfaces and not so much about text formatting and typography.
 
-We are more concerned with [http://en.wikipedia.org/wiki/Don%27t_repeat_yourself DRY Principle] for example than with CodingConventions.
+Forget about CodingConventions. We are more concerned with:
+  * [http://en.wikipedia.org/wiki/Don%27t_repeat_yourself DRY Principle]
+  * [http://en.wikipedia.org/wiki/Separation_of_concerns Separation of concerns]
+  * [http://en.wikipedia.org/wiki/Code_reuse Code reuse]
+  * [http://en.wikipedia.org/wiki/Abstraction_principle_%28programming%29 Abstraction principles]
 
 *What about hungarian notation?*
 
