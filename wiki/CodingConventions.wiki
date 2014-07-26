@@ -37,7 +37,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
   # PHP code MUST use the long `<?php ?>` tags; it MUST NOT use the other tag variations.
   # Code files MUST use only UTF-8 {`"default_encoding": "UTF-8"`}
-  # Files SHOULD either declare symbols (classes, functions, constants, etc.) or cause side-effects (e.g. generate output, change .ini settings,explicit use of require or include, connecting to external services, mitting errors or exceptions, modifying global or static variables, reading from or writing to a file, etc.) but SHOULD NOT do both.
+  # Files SHOULD either declare symbols (classes, functions, constants, etc.) or cause side-effects (e.g. generate output, change .ini settings,explicit use of require or include, connecting to external services, emitting errors or exceptions, modifying global or static variables, reading from or writing to a file, etc.) but SHOULD NOT do both.
   # Namespaces and classes MUST follow PSR-0.
   # Class names MUST be declared in `StudlyCaps`
 
