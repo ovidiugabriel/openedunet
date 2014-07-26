@@ -80,18 +80,17 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 *What about letter cases and underscores?*
 
-We are not so strict in this area. But however, keep in mind: *don't put everything in the same basket*.
+We are very liberal in this area. Maybe it is confusing,
+but however it is important to keep in mind: *don't put everything in the same basket*.
 
   # Constants are always `SCREAMING_CAPS`;
   # Local variables, object properties and function parameters are `snake_case`;
   # Functions that are not methods are often `snake_case`;
   # Methods are generally `camelCase` but `snake_case` is also used ;
 
-Confusing? Maybe. But it is better that to put everything in the same basket.
-
 *What about hungarian notation?*
 
-Prefixing is not allowed in this project, except rare situations.
+Hungarian notation is really stupid. Prefixing that way is not allowed in this project, except rare situations. Object type is a property of the object.
 
 ==== PHP specific ===
 
