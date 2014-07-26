@@ -36,16 +36,16 @@ $controller = new Foo_Bar();
 
 // you will do something like:
 import('Foo.Bar');
-$controller = new_instance('Foo.Bar');
+$controller = create_instance('Foo.Bar');
 }}}
 
 == Create an object ==
 
 {{{
-object new_instance(string name) throws ClassNotFoundException
+object create_instance(string name) throws ClassNotFoundException
 }}}
 
-Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using `import()` before calling `new_instance()`. 
+Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using `import()` before calling `create_instance()`. 
 
 || *name* || class fully qualified `name` (but using dot syntax instead of backslash) ||
 || *returns* || On success, returns a reference to a new instance. If something is wrong and exception is thrown.  ||
@@ -60,7 +60,7 @@ $obj = new \foo\bar\ClassName();
 $obj = new foo_bar_ClassName();
 
 // you would normally have the following:
-$obj = new_instance('foo.bar.ClassName');
+$obj = create_instance('foo.bar.ClassName');
 }}}
 
 == Get reference to the single instance ==
