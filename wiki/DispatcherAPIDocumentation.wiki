@@ -137,5 +137,11 @@ log_message(integer level, string message)
 === `trace_query()` ===
 
 {{{
-void trace_query(void)
+nulltype trace_query(void)
+}}}
+
+=== `json_success()`  ===
+
+{{{
+nulltype json_success(boolean success)
 }}}
