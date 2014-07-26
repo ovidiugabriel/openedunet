@@ -143,5 +143,5 @@ nulltype trace_query(void)
 === `json_success()`  ===
 
 {{{
-nulltype json_success(boolean success)
+boolean json_success(boolean success)
 }}}
