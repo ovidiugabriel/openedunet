@@ -80,17 +80,17 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 *What about letter cases and underscores?*
 
-We are very liberal in this area. 
+We have a very _liberal approach_ in this area. 
 
 Maybe it is confusing,
-but however it is important to keep in mind: *don't put everything in the same basket*.
+but it is important to keep in mind only one rule: *don't put everything in the same basket*.
 
   # Constants are always `SCREAMING_CAPS`;
   # Local variables, object properties and function parameters are `snake_case`;
   # Functions that are not methods are often `snake_case`;
   # Methods are generally `camelCase`;
 
-These rules are advisory and won't be enforced on contributors.
+These rules are not mandatory, they are just advisory and won't be enforced on contributors.
 
 *What about hungarian notation?*
 
