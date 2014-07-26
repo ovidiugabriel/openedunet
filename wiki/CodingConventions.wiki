@@ -92,6 +92,8 @@ but it is important to keep in mind only one rule: *don't put everything in the 
 
 These rules are not mandatory, they are just advisory and won't be enforced on contributors.
 
+After all, computer programming is about data structures, algorithms, architectures and interfaces and not so much about text formatting and typography.
+
 *What about hungarian notation?*
 
 Hungarian notation is really stupid. Prefixing that way is not allowed in this project, except rare situations. 
