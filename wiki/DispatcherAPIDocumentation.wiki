@@ -39,10 +39,11 @@ import('Foo.Bar');
 $controller = create_instance('Foo.Bar');
 }}}
 
-== Create an object ==
+== Create a new object ==
 
 {{{
 object create_instance(string name) throws ClassNotFoundException
+object create_instance(string name, dictionary properties) throws ClassNotFoundException
 }}}
 
 Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using `import()` before calling `create_instance()`. 
