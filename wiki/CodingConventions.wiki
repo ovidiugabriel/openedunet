@@ -82,7 +82,8 @@ What about letter cases and underscores?
 
   # Constants are always `SCREAMING_CAPS`; `StudlyCaps` is tolerated but not recommended.
   # Local variables, object properties and function parameters are `snake_case`.
-  # Global functions are often `snake_case` and `StudlyCaps` in rare cases.
+  # Global functions (functions that are not methods) are often `snake_case` and `StudlyCaps` in rare cases.
+  # Methods are generally camelCase but snake_case is also tolerated.
 
 
 
