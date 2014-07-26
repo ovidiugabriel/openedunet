@@ -88,7 +88,9 @@ but however it is important to keep in mind: *don't put everything in the same b
   # Constants are always `SCREAMING_CAPS`;
   # Local variables, object properties and function parameters are `snake_case`;
   # Functions that are not methods are often `snake_case`;
-  # Methods are generally `camelCase` but `snake_case` is also used ;
+  # Methods are generally `camelCase`;
+
+These rules are advisory and won't be enforced on contributors.
 
 *What about hungarian notation?*
 
