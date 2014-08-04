@@ -14,7 +14,11 @@ variant val(string id) // Getter
 || *`value`* || The value to be set into the node ||
 || *returns* || ... ||
 
-== `to_fixed(value, default_value)` ==
+== `to_fixed()` ==
+
+{{{
+string to_fixed(float number, int decimals)
+}}}
 
 {{{
 document.getElementById(id)
