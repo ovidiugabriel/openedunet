@@ -18,6 +18,7 @@ variant val(string id) // Getter
 
 {{{
 string to_fixed(float value, int decimals)
+string to_fixed(integer value, int decimals)
 }}}
 
 {{{
