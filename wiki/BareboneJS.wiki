@@ -16,9 +16,12 @@ variant val(string id) // Getter
 
 == `to_fixed()` ==
 
+Advantages:
+  * Automatically detects if `value` is not a number (`integer` or `float`) and returns the `default_value` in that case.
+
 {{{
-string to_fixed(float value, int decimals)
-string to_fixed(integer value, int decimals)
+string to_fixed(float value, integer decimals, string default_value)
+string to_fixed(integer value, integer decimals, string default_value)
 }}}
 
 {{{
