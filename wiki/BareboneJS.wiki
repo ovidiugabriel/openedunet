@@ -90,7 +90,8 @@ reactive.set('price', 10);
 // The update of internal variable triggers the automatic update of the HTML element
 
 // but a change into the HTML won't change the internal variable 
-document.getElementById(price').value = 100;
+document.getElementById('price').value = 100;
 
+// Until we register on a specific event on the HTML element 
 reactive.listen('price', 'change', 'val()');
 }}}
