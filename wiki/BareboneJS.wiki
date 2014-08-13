@@ -43,12 +43,12 @@ variant reactive::set(string varname, variant value)
 == `reactive.get_vars()` ==
 
 {{{
-object reactive::get_vars()
-object reactive::get_vars(list vars)
+`dictionary` reactive::get_vars()
+`dictionary` reactive::get_vars(list vars)
 }}}
 
-|| *`vars`* || `[optional]` The list of variable names that requested as members in the returned object ||
-|| *returns* || ||
+|| *`vars`* || `[optional]` The `list` of variable names requested ||
+|| *returns* || a `dictionary` with pairs (variable_name, variable_value)  ||
 
 *Example:*
 {{{
