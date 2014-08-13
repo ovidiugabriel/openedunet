@@ -47,13 +47,21 @@ object reactive::get_vars()
 object reactive::get_vars(list vars)
 }}}
 
+|| *`vars`* || ||
+|| *returns* || ||
+
+*Example:*
+{{{
+reactive.get_vars(['x', 'y', 'price']); // -> Object { x=20, y=200, price=20}
+}}}
+
 == `reactive.bind()` ==
 
 {{{
 nulltype reactive::bind(string id, string expr, callable fun)
 }}}
 
-Example:
+*Example:*
 
 {{{
 reactive.set('x', 0);               // initial value of x variable is set to 0
