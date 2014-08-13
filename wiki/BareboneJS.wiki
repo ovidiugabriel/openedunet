@@ -27,3 +27,9 @@ string to_fixed(integer value, integer decimals, string default_value)
 {{{
 document.getElementById(id)
 }}}
+
+== `get()` ==
+
+{{{
+reactive::get(string varname)
+}}}
