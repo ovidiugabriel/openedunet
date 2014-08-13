@@ -53,6 +53,12 @@ object reactive::get_vars(list vars)
 nulltype reactive::bind(string id, string expr, callable fun)
 }}}
 
+Example:
+
+{{{
+reactive.bind('entry_price', 10, 'val')
+}}}
+
 == `reactive.listen()` ==
 
 {{{
