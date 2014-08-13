@@ -57,10 +57,11 @@ Example:
 
 {{{
 reactive.set('x', 0);                     // initial value of x variable is set to 0
+reactive.set('y', 'x*10');                // set relation y = x * 10
 reactive.bind('entry_price', 'x', 'val'); // binds x variable to HTML element with id=entry_price
 
 // after a while, on an event the x variable gets updated
-reactive.set('x', 20);
+reactive.set('x', 20); // all variables that are bound with x are now updated
 }}}
 
 == `reactive.listen()` ==
