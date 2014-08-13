@@ -94,4 +94,6 @@ document.getElementById('price').value = 100;
 
 // Until we register on a specific event on the HTML element 
 reactive.listen('price', 'change', 'val()');
+
+// No changes are propagated in a bidirectional way
 }}}
