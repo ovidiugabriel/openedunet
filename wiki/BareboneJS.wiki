@@ -64,8 +64,8 @@ reactive.bind('price', 'x', 'val'); // binds x variable to HTML element with att
 reactive.set('x', 20);              // all variables that are bound with x are now updated
                                     // price will show 20 and y will be 200
 
-reactive.get_vars();     // -> "{"x":20,"y":200,"price":20}"
-$('#entry_price').val(); // -> "20"
+reactive.get_vars();                    // -> "{"x":20,"y":200,"price":20}"
+document.getElementById('price').value; // -> "20"
 }}}
 
 == `reactive.listen()` ==
