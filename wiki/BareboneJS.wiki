@@ -47,7 +47,7 @@ object reactive::get_vars()
 object reactive::get_vars(list vars)
 }}}
 
-|| *`vars`* || ||
+|| *`vars`* || `[optional]` The list of variable names that requested as members in the returned object ||
 || *returns* || ||
 
 *Example:*
