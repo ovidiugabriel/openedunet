@@ -51,3 +51,9 @@ list reactive::get_vars(list vars)
 {{{
 nulltype reactive::bind(string id, string expr, callable fun)
 }}}
+
+== `reactive.listen()` ==
+
+{{{
+nulltype reactive::listen(string id, string event_type, string call)
+}}}
