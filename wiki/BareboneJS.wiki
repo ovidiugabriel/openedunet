@@ -83,8 +83,8 @@ nulltype reactive::listen(string id, string event_type, string call)
 }}}
 
 {{{
-reactive.set('price', 0)
-reactive.bind('price', 'price', 'val')
+reactive.set('price', 0);               // initial value of variable price
+reactive.bind('price', 'price', 'val'); // first HTML element with id="price" is bound to changes of variable "price"
 
 reactive.set('price', 10); 
 // The update of internal variable triggers the automatic update of the HTML element
