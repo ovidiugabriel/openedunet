@@ -43,7 +43,8 @@ react reactive::set(string varname, variant value)
 == `reactive.get_vars()` ==
 
 {{{
-list reactive::get_vars(list vars)
+object reactive::get_vars()
+object reactive::get_vars(list vars)
 }}}
 
 == `reactive.bind()` ==
