@@ -56,8 +56,10 @@ nulltype reactive::bind(string id, string expr, callable fun)
 Example:
 
 {{{
-reactive.set('x', 10);                    // now x variable is set to 10
+reactive.set('x', 0);                     // initial value of x variable is set to 0
 reactive.bind('entry_price', 'x', 'val'); // binds x variable to HTML element with id=entry_price
+
+// after a while, on an event the x variable gets updated
 reactive.set('x', 20);
 }}}
 
