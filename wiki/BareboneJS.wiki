@@ -45,3 +45,9 @@ react reactive::set(string varname, variant value)
 {{{
 list reactive::get_vars(list vars)
 }}}
+
+== `reactive.bind()` ==
+
+{{{
+nulltype reactive::bind(string id, string expr, callable fun)
+}}}
