@@ -58,7 +58,7 @@ reactive.get_vars(['x', 'y', 'price']); // -> Object { x=20, y=200, price=20}
 == `reactive.bind()` ==
 
 {{{
-nulltype reactive::bind(string id, string expr, callable fun)
+nulltype reactive::bind(string id, string expr, string fun)
 }}}
 
 *Example:*
