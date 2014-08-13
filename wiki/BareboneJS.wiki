@@ -31,5 +31,5 @@ document.getElementById(id)
 == `reactive.get()` ==
 
 {{{
-variant reactive::get(string varname)
+react reactive::get(string varname)
 }}}
