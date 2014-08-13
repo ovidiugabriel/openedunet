@@ -31,5 +31,5 @@ document.getElementById(id)
 == `reactive.get()` ==
 
 {{{
-reactive::get(string varname)
+variant reactive::get(string varname)
 }}}
