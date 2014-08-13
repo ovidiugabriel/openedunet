@@ -56,7 +56,9 @@ nulltype reactive::bind(string id, string expr, callable fun)
 Example:
 
 {{{
-reactive.bind('entry_price', 10, 'val')
+reactive.set('x', 10);                    // now x variable is set to 10
+reactive.bind('entry_price', 'x', 'val'); // binds x variable to HTML element with id=entry_price
+reactive.set('x', 20);
 }}}
 
 == `reactive.listen()` ==
