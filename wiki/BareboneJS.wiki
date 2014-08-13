@@ -56,12 +56,13 @@ nulltype reactive::bind(string id, string expr, callable fun)
 Example:
 
 {{{
-reactive.set('x', 0);                     // initial value of x variable is set to 0
-reactive.set('y', 'x*10');                // set relation y = x * 10
+reactive.set('x', 0);               // initial value of x variable is set to 0
+reactive.set('y', 'x*10');          // set relation y = x * 10
 reactive.bind('price', 'x', 'val'); // binds x variable to HTML element with attribute id="price"
 
 // after a while, on an event the x variable gets updated
-reactive.set('x', 20); // all variables that are bound with x are now updated
+reactive.set('x', 20);              // all variables that are bound with x are now updated
+                                    // price will show 20 and y will be 200
 }}}
 
 == `reactive.listen()` ==
