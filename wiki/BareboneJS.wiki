@@ -33,3 +33,9 @@ document.getElementById(id)
 {{{
 react reactive::get(string varname)
 }}}
+
+== `reactive.set()` ==
+
+{{{
+react reactive::set(string varname, variant value)
+}}}
