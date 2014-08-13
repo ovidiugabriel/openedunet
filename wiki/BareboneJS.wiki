@@ -81,3 +81,15 @@ document.getElementById('price').value; // -> "20"
 {{{
 nulltype reactive::listen(string id, string event_type, string call)
 }}}
+
+{{{
+reactive.set('entry_price', 0)
+reactive.bind('entry_price', 'entry_price', 'val')
+
+reactive.set('entry_price', 10); // The update of internal variable triggers the automatic update of the HTML element
+
+// but a change into the HTML won't change the internal variable 
+document.getElementById('entry_price').value = 100
+
+reactive.listen('entry_price', 'change', 'val()')
+}}}
