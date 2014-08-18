@@ -1,6 +1,6 @@
 A client library (ECMA Script) for the BareboneMVC framework.
 
-== `val()` ==
+=== `val()` ===
 
 Advantages:
   * Automatically detects if `.val()` or `.text()` method shall be called depending on the node type;
