@@ -41,6 +41,8 @@ $controller = create_instance('Foo.Bar');
 
 == Create a new object ==
 
+=== `create_instance()` ===
+
 {{{
 object create_instance(string name) throws ClassNotFoundException
 object create_instance(string name, dictionary properties) throws ClassNotFoundException
