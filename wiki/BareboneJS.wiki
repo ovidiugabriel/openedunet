@@ -30,7 +30,7 @@ document.getElementById(id)
 
 == Reactive ==
 
-|| *Recommendation:* A simple way to establish reactive formulas before translating them into reactive `JavaScript` code is to use an [https://www.openoffice.org/product/calc.html Apache OpenOffice Calc] spreadsheet first. ||
+*Recommendation:* A simple way to establish reactive formulas before translating them into reactive `JavaScript` code is to use an [https://www.openoffice.org/product/calc.html Apache OpenOffice Calc] spreadsheet first.
 
 === `reactive.get()` ===
 
