@@ -68,6 +68,8 @@ $obj = create_instance('foo.bar.ClassName');
 
 == Get reference to the single instance ==
 
+=== `get_instance()` ===
+
 {{{
 object get_instance(string name) throws ClassNotFoundException, InstantiationException
 }}}
@@ -141,6 +143,8 @@ log_message(integer level, string message)
 {{{
 nulltype trace_query(void)
 }}}
+
+TO BE REMOVED. Not a good idea to call this manually.
 
 === `json_success()`  ===
 
