@@ -14,7 +14,7 @@ variant val(string id) // Getter
 || *`value`* || The value to be set into the node ||
 || *returns* || ... ||
 
-== `to_fixed()` ==
+=== `to_fixed()` ===
 
 Advantages:
   * Automatically detects if `value` is not a number (`integer` or `float`) and returns the `default_value` in that case.
@@ -30,21 +30,21 @@ document.getElementById(id)
 
 == Reactive ==
 
-|| Recommendation: It is sea||
+|| *Recommendation:* A simple way to establish reactive formulas is to use an Excel sheet first.  ||
 
-== `reactive.get()` ==
+=== `reactive.get()` ===
 
 {{{
 variant reactive::get(string varname)
 }}}
 
-== `reactive.set()` ==
+=== `reactive.set()` ===
 
 {{{
 variant reactive::set(string varname, variant value)
 }}}
 
-== `reactive.get_vars()` ==
+=== `reactive.get_vars()` ===
 
 {{{
 dictionary reactive::get_vars()
@@ -59,7 +59,7 @@ dictionary reactive::get_vars(list vars)
 reactive.get_vars(['x', 'y', 'price']); // -> Object { x=20, y=200, price=20}
 }}}
 
-== `reactive.bind()` ==
+=== `reactive.bind()` ===
 
 {{{
 nulltype reactive::bind(string id, string expr, string fun)
@@ -80,7 +80,7 @@ reactive.get_vars();                    // -> Object {"x":20,"y":200,"price":20}
 document.getElementById('price').value; // -> "20"
 }}}
 
-== `reactive.listen()` ==
+=== `reactive.listen()` ===
 
 {{{
 nulltype reactive::listen(string id, string event_type, string call)
