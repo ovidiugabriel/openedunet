@@ -24,6 +24,10 @@ string to_fixed(integer value, integer decimals, string default_value)
 Advantages:
   * Automatically detects if `value` is not a number (`integer` or `float`) and returns the `default_value` in that case.
 
+|| value || ... ||
+|| decimals || ... ||
+|| default_value || ... ||
+
 {{{
 document.getElementById(id)
 }}}
