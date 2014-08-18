@@ -2,13 +2,13 @@ A client library (ECMA Script) for the BareboneMVC framework.
 
 === `val()` ===
 
-Advantages:
-  * Automatically detects if `.val()` or `.text()` method shall be called depending on the node type;
-
 {{{
 variant val(string id, variant value) // Setter
 variant val(string id) // Getter
 }}}
+
+Advantages:
+  * Automatically detects if `.val()` or `.text()` method shall be called depending on the node type;
 
 || *`id`* || The `id` of the node you are searching for ||
 || *`value`* || The value to be set into the node ||
