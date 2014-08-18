@@ -151,3 +151,5 @@ TO BE REMOVED. Not a good idea to call this manually.
 {{{
 nulltype json_success(boolean success)
 }}}
+
+See Aspect Oriented Programming solution for this.
