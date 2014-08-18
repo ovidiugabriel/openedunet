@@ -27,6 +27,7 @@ Advantages:
 || value || ... ||
 || decimals || ... ||
 || default_value || ... ||
+|| returns || ... ||
 
 {{{
 document.getElementById(id)
