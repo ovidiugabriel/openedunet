@@ -149,7 +149,7 @@ The `level` is compatible with the `syslog()` and `trigger_error()` functions.
 || `LOG_ALERT`   || `1` ||                   ||        || action must be taken immediately ||
 || `LOG_CRIT`    || `2` ||                   ||        || critical conditions ||
 || `LOG_DEBUG`   || `7` ||                   ||        || debug-level messages ||
-||               ||     || `E_USER_DEPRECATED` || `16384` || ...  ||
+||               ||     || `E_USER_DEPRECATED` || `16384` || deprecated feature requested ||
 
 === `trace_query()` ===
 
