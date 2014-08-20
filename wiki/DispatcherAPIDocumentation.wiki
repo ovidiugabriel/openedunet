@@ -151,7 +151,7 @@ The `level` is compatible with the `syslog()` and `trigger_error()` functions.
 || `LOG_DEBUG` || 7 || debug-level messages ||
 || ... || ... || User-generated error message || `E_USER_ERROR` || 256 ||
 || ... || ... || User-generated warning message || `E_USER_WARNING` || 512 ||
-|| ... || ... || User-generated notice message || `E_USER_NOTICE`|| 1024 
+|| ... || ... || User-generated notice message || `E_USER_NOTICE`|| 1024 ||
 
 === `trace_query()` ===
 
