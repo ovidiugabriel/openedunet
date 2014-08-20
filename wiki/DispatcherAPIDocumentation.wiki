@@ -141,10 +141,11 @@ log_message(integer level, string message)
 The `level` is compatible with the `syslog()` and `trigger_error()` functions.
 
 || `syslog()` || ... || ... || ... || ... ||
-||  `E_CORE_ERROR | LOG_ERR` || `0x13` || `E_ERROR` || `0x001` || error conditions
-|| `E_CORE_ERROR | LOG_WARNING` || `0x14` || `E_WARNING` || 2 || warning conditions ||
-|| `E_CORE_ERROR | LOG_NOTICE` || `0x15` || `E_NOTICE` || 8 || normal but significant condition ||
-|| `E_CORE_ERROR | LOG_INFO` || `0x16` || `E_INFO` || 0 || informational  ||
+
+|| `E_CORE_ERROR | LOG_ERR`     || `0x13` || `E_ERROR`   || `0x01` || error conditions ||
+|| `E_CORE_ERROR | LOG_WARNING` || `0x14` || `E_WARNING` || `0x02` || warning conditions ||
+|| `E_CORE_ERROR | LOG_NOTICE`  || `0x15` || `E_NOTICE`  || `0x08` || normal but significant condition ||
+|| `E_CORE_ERROR | LOG_INFO`    || `0x16` || `E_INFO`    || `0x00` || informational  ||
 
 === `trace_query()` ===
 
