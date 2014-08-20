@@ -150,6 +150,7 @@ The `level` is compatible with the `syslog()` and `trigger_error()` functions.
 || `LOG_INFO` || 6 || informational || `E_INFO` || 0 ||
 || `LOG_DEBUG` || 7 || debug-level messages ||
 || ... || ... || Compile-time parse errors || `E_PARSE` || 4 ||
+|| ... || ... || ... || E_STRICT || 2048 ||
 || ... || ... || User-generated error message || `E_USER_ERROR` || 256 ||
 || ... || ... || User-generated warning message || `E_USER_WARNING` || 512 ||
 || ... || ... || User-generated notice message || `E_USER_NOTICE`|| 1024 ||
