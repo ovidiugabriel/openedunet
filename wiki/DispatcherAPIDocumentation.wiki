@@ -142,7 +142,7 @@ The `level` is compatible with the `syslog()` and `trigger_error()` functions.
 
 || ... || ... || ... ||
 || `LOG_EMERG` || 0 || system is unusable ||
-|| `LOG_ALERT` || 1 || action must be taken immediately ||
+|| `LOG_ALERT` `E_ERROR`  || 1 || error conditions ||
 || `LOG_CRIT`  || 2 || critical conditions ||
 || `LOG_ERR` || 3 || error conditions ||
 || `LOG_WARNING` || 4 || warning conditions ||
@@ -151,6 +151,7 @@ The `level` is compatible with the `syslog()` and `trigger_error()` functions.
 || `LOG_DEBUG` || 7 || debug-level messages ||
 || `E_USER_ERROR` || 256 || User-generated error message ||
 || `E_USER_WARNING` || 512 || User-generated warning message ||
+|| `E_USER_NOTICE`|| 1024 || User-generated notice message ||
 
 === `trace_query()` ===
 
