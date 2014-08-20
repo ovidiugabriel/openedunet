@@ -141,19 +141,10 @@ log_message(integer level, string message)
 The `level` is compatible with the `syslog()` and `trigger_error()` functions.
 
 || `syslog()` || ... || ... || ... || ... ||
-|| `LOG_EMERG` || 0 || system is unusable ||
-|| `LOG_ALERT` || 1 || error conditions ||
-|| `LOG_CRIT`  || 2 || critical conditions ||
-|| `LOG_ERR` || 3 || error conditions || `E_ERROR` || 1 ||
-|| `LOG_WARNING` || 4 || warning conditions || `E_WARNING` || 2 ||
-|| `LOG_NOTICE` || 5 || normal but significant condition || `E_NOTICE` || 8 ||
-|| `LOG_INFO` || 6 || informational || `E_INFO` || 0 ||
-|| `LOG_DEBUG` || 7 || debug-level messages ||
-|| ... || ... || Compile-time parse errors || `E_PARSE` || 4 ||
-|| ... || ... || ... || E_STRICT || 2048 ||
-|| ... || ... || User-generated error message || `E_USER_ERROR` || 256 ||
-|| ... || ... || User-generated warning message || `E_USER_WARNING` || 512 ||
-|| ... || ... || User-generated notice message || `E_USER_NOTICE`|| 1024 ||
+||  `E_USER_ERROR | LOG_ERR` || `0x103` || error conditions || `E_ERROR` || `0x001` ||
+|| `E_USER_ERROR | LOG_WARNING` || 4 || warning conditions || `E_WARNING` || 2 ||
+|| `E_USER_ERROR | LOG_NOTICE` || 5 || normal but significant condition || `E_NOTICE` || 8 ||
+|| `E_USER_ERROR | LOG_INFO` || 6 || informational || `E_INFO` || 0 ||
 
 === `trace_query()` ===
 
