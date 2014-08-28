@@ -105,6 +105,12 @@ These rules are not mandatory, they are just advisory and won't be enforced on c
 
 After all, computer programming is about data structures, algorithms, architectures and interfaces and not so much about text formatting and typography.
 
+*What about hungarian notation?*
+
+Hungarian notation is really stupid. Prefixing that way is not allowed in this project, except rare situations. 
+
+Object type is a property of the object - let it as it is.
+
 == Design Principles ==
 
 Forget about CodingConventions. We are more concerned with:
@@ -129,12 +135,6 @@ And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_
   * [http://en.wikipedia.org/wiki/God_object God Object]: Concentrating too many functions in a single part of the design (class)
   * [http://en.wikipedia.org/wiki/Object_orgy Object Orgy]:  Failing to properly encapsulate objects permitting unrestricted access to their internals
   * *Premature optimization*: Coding early-on for perceived efficiency, sacrificing good design, maintainability, and sometimes even real-world efficiency - D. Knuth: "We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil."
-
-*What about hungarian notation?*
-
-Hungarian notation is really stupid. Prefixing that way is not allowed in this project, except rare situations. 
-
-Object type is a property of the object - let it as it is.
 
 == PHP specific standards ==
 
