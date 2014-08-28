@@ -108,7 +108,7 @@ And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_
   * [http://en.wikipedia.org/wiki/Copy_and_paste_programming Copy and paste programming]
   * [http://en.wikipedia.org/wiki/Cargo_cult_programming Cargo cult programming]
   * Code Distrust
-  * [http://c2.com/cgi/wiki?ArrowAntiPattern Arrow Anti-Pattern]
+  * [http://c2.com/cgi/wiki?ArrowAntiPattern Arrow Anti-Pattern]: It often develops when a programmer applies the "OneReturnPerFunction rule" blindly and in poor taste
   * [http://en.wikipedia.org/wiki/Error_hiding Error hiding]: Catching an error message before it can be shown to the user and either showing nothing or showing a meaningless message
   * [http://en.wikipedia.org/wiki/God_object God Object]: Concentrating too many functions in a single part of the design (class)
   * [http://en.wikipedia.org/wiki/Object_orgy Object Orgy]:  Failing to properly encapsulate objects permitting unrestricted access to their internals
