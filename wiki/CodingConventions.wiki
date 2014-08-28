@@ -90,6 +90,8 @@ but it is important to keep in mind only one rule: *don't put everything in the 
   # Functions that are not methods are often `snake_case`;
   # Methods are generally `camelCase`;
 
+Usually I stick to the same convetions as [http://blog.lmorchard.com/2013/01/23/naming-conventions Les Orchard]
+
 These rules are not mandatory, they are just advisory and won't be enforced on contributors.
 
 After all, computer programming is about data structures, algorithms, architectures and interfaces and not so much about text formatting and typography.
