@@ -131,7 +131,10 @@ And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_
 
   * [http://c2.com/cgi/wiki?ArrowAntiPattern Arrow Anti-Pattern]: It often develops when a programmer applies the 'One Return Per Function rule' blindly and in poor taste
   * [http://www.leepoint.net/JavaBasics/methods/method-commentary/methcom-30-multiple-return.html One Return Per Function ]: simple readable code in more important than following any arbitrary rule.
+  * *Loop-switch sequence*: Encoding a set of sequential steps using a switch within a loop statement
   * [http://en.wikipedia.org/wiki/Error_hiding Error hiding]: Catching an error message before it can be shown to the user and either showing nothing or showing a meaningless message
+  * *Hard code*: Embedding assumptions about the environment of a system in its implementation
+  * *Inappropriate intimacy*: a class that has dependencies on implementation details of another class.
   * Fat Controller Anti-Pattern
   * [http://en.wikipedia.org/wiki/God_object God Object]: Concentrating too many functions in a single part of the design (class)
   * [http://en.wikipedia.org/wiki/Object_orgy Object Orgy]:  Failing to properly encapsulate objects permitting unrestricted access to their internals
