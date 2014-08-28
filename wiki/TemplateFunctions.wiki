@@ -1,3 +1,5 @@
+[http://trac.php-tools.net/patTemplate patTemplate]
+
 === `assign()` ===
 
 {{{
