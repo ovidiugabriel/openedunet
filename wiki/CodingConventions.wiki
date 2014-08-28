@@ -87,8 +87,7 @@ but it is important to keep in mind only one rule: *don't put everything in the 
 
   # Constants are always `SCREAMING_CAPS`;
   # Local variables, object properties and function parameters are `snake_case`;
-  # Functions that are not methods are often `snake_case`;
-  # Methods are generally `camelCase`;
+  # Functions and methods are generally `camelCase`;
 
 Usually I stick to the same convetions as [http://blog.lmorchard.com/2013/01/23/naming-conventions Les Orchard]
 
