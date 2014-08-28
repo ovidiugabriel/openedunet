@@ -86,6 +86,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
     }
 }}}
 
+== Naming Conventions ==
+
 *What about letter cases and underscores?*
 
 We have a very _liberal approach_ in this area. 
@@ -97,7 +99,7 @@ but it is important to keep in mind only one rule: *don't put everything in the 
   # Local variables, object properties and function parameters are `snake_case`;
   # Functions and methods are generally `camelCase`;
 
-Usually I stick to the same convetions as [http://blog.lmorchard.com/2013/01/23/naming-conventions Les Orchard]
+Usually I stick to the same convetions as [http://blog.lmorchard.com/2013/01/23/naming-conventions Les Orchard].
 
 These rules are not mandatory, they are just advisory and won't be enforced on contributors.
 
