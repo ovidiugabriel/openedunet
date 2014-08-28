@@ -108,7 +108,9 @@ And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_
   * [http://en.wikipedia.org/wiki/Copy_and_paste_programming Copy and paste programming]
   * [http://en.wikipedia.org/wiki/Cargo_cult_programming Cargo cult programming]
   * Smart UI Anti-Pattern (See: [http://geekswithblogs.net/gregorymalcolm/archive/2009/07/14/user-interface-patterns.aspx Using Interface Patterns] - includes details on MVC and so on)
-  * Code Distrust
+  * *Code Distrust*: checking to see if a boolean-typed variable is something other than true or false; Using `if (true == (true == x))` instead of `if (x)` when `x` is a boolean variable.
+
+
   * [http://c2.com/cgi/wiki?ArrowAntiPattern Arrow Anti-Pattern]: It often develops when a programmer applies the 'One Return Per Function rule' blindly and in poor taste
   * [http://en.wikipedia.org/wiki/Error_hiding Error hiding]: Catching an error message before it can be shown to the user and either showing nothing or showing a meaningless message
   * Fat Controller Anti-Pattern
