@@ -105,6 +105,8 @@ These rules are not mandatory, they are just advisory and won't be enforced on c
 
 After all, computer programming is about data structures, algorithms, architectures and interfaces and not so much about text formatting and typography.
 
+== Design Principles ==
+
 Forget about CodingConventions. We are more concerned with:
   * [http://en.wikipedia.org/wiki/Don%27t_repeat_yourself DRY Principle]
   * [http://en.wikipedia.org/wiki/Separation_of_concerns Separation of concerns]
