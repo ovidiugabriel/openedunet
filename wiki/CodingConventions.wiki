@@ -103,6 +103,15 @@ Forget about CodingConventions. We are more concerned with:
 
 And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_paste_programming Copy and paste programming] and [http://en.wikipedia.org/wiki/Cargo_cult_programming Cargo cult programming] at any price, dead or alive, no matter what.*
 
+*Other anti-patterns to avoid:*
+  
+  * [http://en.wikipedia.org/wiki/Copy_and_paste_programming Copy and paste programming]
+  * [http://en.wikipedia.org/wiki/Cargo_cult_programming Cargo cult programming]
+  * Code Distrust
+  * [http://c2.com/cgi/wiki?ArrowAntiPattern Arrow Anti-Pattern]
+  * [http://en.wikipedia.org/wiki/God_object God Object]
+  * [http://en.wikipedia.org/wiki/Object_orgy Object Orgy]
+
 *What about hungarian notation?*
 
 Hungarian notation is really stupid. Prefixing that way is not allowed in this project, except rare situations. 
