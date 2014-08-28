@@ -109,7 +109,7 @@ After all, computer programming is about data structures, algorithms, architectu
 
 Hungarian notation is really stupid. Let _Károly Simonyi_ do that. It breaks the encapsulation, obfuscate identifiers and makes code prone to confusion due to accidental erroneous use. Prefixing that way is not allowed in this project, except rare situations. 
 
-Object type is a property of the object - let it as it is.
+Object type is a property of the object not a part of the name - let it as it is.
 
 == Design Principles ==
 
