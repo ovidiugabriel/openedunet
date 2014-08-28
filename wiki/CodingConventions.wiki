@@ -110,6 +110,7 @@ And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_
   * Code Distrust
   * [http://c2.com/cgi/wiki?ArrowAntiPattern Arrow Anti-Pattern]: It often develops when a programmer applies the 'One Return Per Function rule' blindly and in poor taste
   * [http://en.wikipedia.org/wiki/Error_hiding Error hiding]: Catching an error message before it can be shown to the user and either showing nothing or showing a meaningless message
+  * Fact Controller Anti-Pattern
   * [http://en.wikipedia.org/wiki/God_object God Object]: Concentrating too many functions in a single part of the design (class)
   * [http://en.wikipedia.org/wiki/Object_orgy Object Orgy]:  Failing to properly encapsulate objects permitting unrestricted access to their internals
   * *Premature optimization*: Coding early-on for perceived efficiency, sacrificing good design, maintainability, and sometimes even real-world efficiency - D. Knuth: "We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil."
