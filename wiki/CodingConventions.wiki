@@ -37,6 +37,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 }
 }}}
 
+== PSR Standards ==
+
 ==== PSR-0 Autoloading ====
 
 ==== PSR-1 Basic Coding ====
