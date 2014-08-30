@@ -13,7 +13,7 @@ gint request_array(string_t key, gchar**& vals)
 
 This is the same as calling `Request.getForms(strcat(key, "[]"), vals)`.
 
-And it is the same as `$_REQUEST[name]` in PHP, but where it is automatically detected that `$_REQUEST[name]` is an array while in Ch CGI you have to make the *assumption* that `name` is an array to decide to use `request_array()`.
+And it is the same as `$_REQUEST[name]` in PHP - but where it is automatically detected that `$_REQUEST[name]` is an array while in Ch CGI you have to assume (although you would say it is written it is part of an interface contract) that `name` is an array to decide to use `request_array()`.
 
 {{{
 gfloat floatval(string_t str)
