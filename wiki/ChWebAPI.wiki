@@ -9,7 +9,7 @@ It is the same as `$_REQUEST[name]` in PHP.
 gint request_array(string_t key, gchar**& vals)
 }}}
 
-This is the same as calling `return Request.getForms(key + "[]", vals)`.
+This is the same as calling `Request.getForms(key + "[]", vals)`.
 It is the same as `$_REQUEST[name]` but PHP automatically detects 
 
 {{{
