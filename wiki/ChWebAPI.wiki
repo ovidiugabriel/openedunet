@@ -1,16 +1,16 @@
-
 {{{
 string_t request_scalar(string_t name)
 }}}
 
 This does the same as calling `Request.getForm(name)`.
-It is the same as `$_REQUEST[name]`
+It is the same as `$_REQUEST[name]` in PHP.
 
 {{{
 gint request_array(string_t key, gchar**& vals)
 }}}
 
-This is the same as calling `return Request.getForms(key + "[]", vals)`
+This is the same as calling `return Request.getForms(key + "[]", vals)`.
+It is the same as `$_REQUEST[name]` but PHP automatically detects 
 
 {{{
 gfloat floatval(string_t str)
