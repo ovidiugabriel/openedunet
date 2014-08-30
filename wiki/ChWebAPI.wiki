@@ -4,6 +4,9 @@ Ch is a C/C++ dialect.
 string_t request_scalar(string_t name)
 }}}
 
+|| *`name`* || ... ||
+|| *returns* || ... ||
+
 This does the same as calling `Request.getForm(name)`.
 And it is the same as `$_REQUEST[name]` in PHP.
 
