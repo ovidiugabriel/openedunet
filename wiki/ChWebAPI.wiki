@@ -1,10 +1,10 @@
 
-
 {{{
 string_t request_scalar(string_t name)
 }}}
 
-This does the same as calling `Request.getForm(name)`
+This does the same as calling `Request.getForm(name)`.
+It is the same as `$_REQUEST[name]`
 
 {{{
 gint request_array(string_t key, gchar**& vals)
