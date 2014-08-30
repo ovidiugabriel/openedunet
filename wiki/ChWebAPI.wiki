@@ -1,13 +1,15 @@
-#summary One-sentence summary of this page.
+{{{
+string_t request_scalar(string_t name)
+}}}
 
-= Introduction =
+{{{
+gint request_array(string_t key, gchar**& vals)
+}}}
 
-Add your content here.
+{{{
+gfloat floatval(string_t str)
+}}}
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+{{{
+void get_float_values(gfloat* result, string_t* values, gint num)
+}}}
