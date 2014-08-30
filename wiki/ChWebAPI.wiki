@@ -19,13 +19,13 @@ And it is also the same as `$_REQUEST[name]` in PHP - but where it is automatica
 gfloat floatval(string_t str)
 }}}
 
-It is not the same as `floatval()` in PHP - where `float` and `double` are both on 64-bits. Here in Ch, like in C/C++ `float` is on 32-bits while `double` is on 64-bits.
+It is not the same as `floatval()` in PHP - where `float` and `double` are both on 64-bits. Here in Ch, like in C/C++, `float` is on 32-bits while `double` is on 64-bits.
 
 {{{
 gdouble doubleval(string_t str)
 }}}
 
-It is the same as `doubleval()` or `floatval()` in PHP.
+It is the same as `doubleval()` or `floatval()` in PHP - where both `float` and `double` are on 64-bits. Here in Ch, like in C/C++, `float` is on 32-bits while `double` is on 64-bits.
 
 {{{
 void get_float_values(gfloat* result, string_t* values, gint num)
