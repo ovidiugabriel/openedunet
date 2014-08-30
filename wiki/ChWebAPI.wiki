@@ -1,10 +1,16 @@
+
+
 {{{
 string_t request_scalar(string_t name)
 }}}
 
+This does the same as calling `Request.getForm(name)`
+
 {{{
 gint request_array(string_t key, gchar**& vals)
 }}}
+
+This is the same as calling `return Request.getForms(key + "[]", vals)`
 
 {{{
 gfloat floatval(string_t str)
