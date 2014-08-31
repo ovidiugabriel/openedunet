@@ -14,6 +14,9 @@ And it is the same as `$_REQUEST[name]` in PHP.
 gint request_array(string_t key, gchar**& vals)
 }}}
 
+|| *`key`* || ... ||
+|| *returns* || ... ||
+
 This is the same as calling `Request.getForms(strcat(key, "[]"), vals)`.
 
 And it is also the same as `$_REQUEST[name]` in PHP - but where it is automatically detected that `$_REQUEST[name]` is an array while in Ch CGI you have to assume (although you would say it is written it is part of an interface contract) that `name` is an array to decide to use `request_array()`.
