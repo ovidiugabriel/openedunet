@@ -1,6 +1,6 @@
 Ch is a C/C++ dialect.
 
-== request_scalar() ==
+== `request_scalar()` ==
 
 {{{
 string_t request_scalar(string_t name)
@@ -12,7 +12,7 @@ string_t request_scalar(string_t name)
 This does the same as calling `Request.getForm(name)`.
 And it is the same as `$_REQUEST[name]` in PHP.
 
-== request_array() ==
+== `request_array()` ==
 
 {{{
 gint request_array(string_t key, gchar**& vals)
@@ -25,7 +25,7 @@ This is the same as calling `Request.getForms(strcat(key, "[]"), vals)`.
 
 And it is also the same as `$_REQUEST[name]` in PHP - but where it is automatically detected that `$_REQUEST[name]` is an array while in Ch CGI you have to assume (although you would say it is written it is part of an interface contract) that `name` is an array to decide to use `request_array()`.
 
-== doubleval() ==
+== `doubleval()` ==
 
 {{{
 gdouble doubleval(string_t str)
@@ -36,7 +36,7 @@ gdouble doubleval(string_t str)
 
 It is the same as `doubleval()` or `floatval()` in PHP - where both `float` and `double` are on 64-bits. Here in Ch, like in C/C++, only `double` is on 64-bits.
 
-== get_double_values() ==
+== `get_double_values()` ==
 
 {{{
 void get_double_values(gdouble* result, string_t* values, gint num)
