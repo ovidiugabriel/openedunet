@@ -33,3 +33,8 @@ It is the same as `doubleval()` or `floatval()` in PHP - where both `float` and 
 {{{
 void get_double_values(gdouble* result, string_t* values, gint num)
 }}}
+
+|| *`result`* || ... ||
+|| *`values`* || ... ||
+|| *`num`* || ... ||
+|| *returns* || ... ||
