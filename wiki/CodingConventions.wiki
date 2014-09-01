@@ -6,6 +6,9 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 === Sublime Settings ===
 
+Preferences > Settings-User ... 
+Packages\User\Preferences.sublime-settings
+
 *Sublime settings are highlighted between { and }*
 
 {{{
