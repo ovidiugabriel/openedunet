@@ -1,5 +1,15 @@
 Ch is a C/C++ dialect.
 
+= Types =
+
+== `FP` ==
+
+{{{
+typedef void* (*FP) (...);
+}}}
+
+= Macros =
+
 == `FP_CALLBACK()` ==
 
 {{{
