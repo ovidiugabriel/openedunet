@@ -1,5 +1,17 @@
 Ch is a C/C++ dialect.
 
+== `FP_CALLBACK()` ==
+
+{{{
+#define FP_CALLBACK(p)  ((FP) (p))
+}}}
+
+== `COUNT()` ==
+
+{{{
+#define COUNT(x)        (sizeof(x)/sizeof((x)[0]))
+}}}
+
 == `request_scalar()` ==
 
 {{{
