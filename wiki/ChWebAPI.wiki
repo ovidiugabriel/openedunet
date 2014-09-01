@@ -73,6 +73,8 @@ void get_double_values(gdouble* result, string_t* values, gint num)
 
 Of course this is the same as running `doubleval()` on `values` with `array_map()` and storing the output in `result`.
 
+== `array_map()` ==
+
 {{{
 void array_map(void* result, FP callback, void* values, int count)
 }}}
