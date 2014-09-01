@@ -22,6 +22,8 @@ typedef void* (*FP) (...);
 #define COUNT(x)        (sizeof(x)/sizeof((x)[0]))
 }}}
 
+= Functions =
+
 == `request_scalar()` ==
 
 {{{
