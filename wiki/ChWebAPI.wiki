@@ -79,7 +79,7 @@ Of course this is the same as running `doubleval()` on `values` with `array_map(
 void array_map(void* result, FP callback, void* values, int count)
 }}}
 
-== `double_value()` ==
+== `double_value_array()` ==
 
 {{{
 void double_value(gdouble* result, string_t* values, gint index)
