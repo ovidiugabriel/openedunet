@@ -82,5 +82,5 @@ void array_map(void* result, FP callback, void* values, int count)
 == `double_value_array()` ==
 
 {{{
-void double_value(gdouble* result, string_t* values, gint index)
+void double_value_array(gdouble* result, string_t* values, gint index)
 }}}
