@@ -47,4 +47,4 @@ void get_double_values(gdouble* result, string_t* values, gint num)
 || *`num`* || ... ||
 || *returns* || ... ||
 
-Of course this is the same as running `doubleval()` on `values` with `array_map()` and storing the output in `result` - but a generic implementation of `array_map()` in C is `restricted` (to read unsafe).
+Of course this is the same as running `doubleval()` on `values` with `array_map()` and storing the output in `result`.
