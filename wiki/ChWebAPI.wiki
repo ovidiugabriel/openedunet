@@ -111,7 +111,6 @@ void double_value_array(gdouble* result, string_t* values, gint index)
 For string functions *`strcpy()`*, *`strncpy()`*, *`strcat()`*, and *`strncat()`*, the memory will be automatically handled
 if the first argument is of the type *`string t`*.
 
-/* For Ch string_t */
 {{{
 unsigned int str2ascii(char *s);
 }}}
