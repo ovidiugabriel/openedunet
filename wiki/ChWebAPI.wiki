@@ -186,11 +186,13 @@ char* strtok(char* str, const char* delim);
 }}}
 
 {{{
-char* delimiter;
-char* s;
-char* token;
+foreach (token; s; NULL; delimiter) {
+    // ...
+}
+}}}
 
-foreach(token; s; NULL; delimiter) {
+{{{
+foreach (explode($delimiter, $S) as $token) {
     // ...
 }
 }}}
