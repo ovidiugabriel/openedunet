@@ -120,38 +120,55 @@ Ch.
 In Ch: For string functions *`strcpy()`*, *`strncpy()`*, *`strcat()`*, and *`strncat()`*, the memory will be automatically handled
 if the first argument is of the type *`string t`*.
 
+=== `strcasecmp()` ===
+
 {{{
 int strcasecmp(char *s1, char *s2);
 }}}
+
+=== `strconcat()` ===
 
 {{{
 char* strconcat (const char *string1, ...);
 }}}
 
+=== `strjoin()` ===
 
 {{{
 char* strjoin(const char *separator, ...);
 }}}
 
+=== `strncasecmp()` ===
+
 {{{
 int strncasecmp(char *s1, char *s2, int n);
 }}}
+
+=== `str2ascii()` ===
 
 {{{
 unsigned int str2ascii(char *s);
 }}}
 
+=== `str2mat()` ===
+
 {{{
 int str2mat(char mat[:][:], string_t s1, ...);
 }}}
+
+=== `strgetc()` ===
 
 {{{
 char strgetc(string_t &s, int i);
 }}}
 
+=== `strputc()` ===
+
 {{{
 int strputc(string_t &s, int i, char c);
 }}}
+
+=== `strrep()` ===
 
 {{{
 string_t strrep(string_t s1, string_t s2, string_t s3);
