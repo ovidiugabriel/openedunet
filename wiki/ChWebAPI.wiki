@@ -178,3 +178,19 @@ string_t strrep(string_t s1, string_t s2, string_t s3);
 }}}
 
 === `stradd()` ===
+
+=== `foreach` ===
+
+{{{
+char* strtok(char* str, const char* delim);
+}}}
+
+{{{
+char* delimiter;
+char* s;
+char* token;
+
+foreach(token; s; NULL; delimiter) {
+    // ...
+}
+}}}
