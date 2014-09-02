@@ -120,6 +120,9 @@ Ch.
 In Ch: For string functions *`strcpy()`*, *`strncpy()`*, *`strcat()`*, and *`strncat()`*, the memory will be automatically handled
 if the first argument is of the type *`string t`*.
 
+As it is mentioned above, one of the advantages of type string t is that Ch can handle the memory for variables of type string t automatically. For every operations on these variables, Ch will figure out the size
+of the memory required, and then allocate enough memory for the variables. At the end of the lifetimes of these variables, Ch will free their memory automatically.
+
 === `strcasecmp()` ===
 
 {{{
