@@ -114,6 +114,9 @@ The value of a variable of type `char` is a single character or escape sequence 
 as in `'x'`. A character constant has type `int` in C. Like C++, a character constant has type `char` in
 Ch.
 
+|| C || `int` ||
+|| C++, Ch || `char` ||
+
 For string functions *`strcpy()`*, *`strncpy()`*, *`strcat()`*, and *`strncat()`*, the memory will be automatically handled
 if the first argument is of the type *`string t`*.
 
