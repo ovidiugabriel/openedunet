@@ -181,15 +181,21 @@ string_t strrep(string_t s1, string_t s2, string_t s3);
 
 === `foreach` ===
 
+In Ch the `foreach` loop is limited to the specific string tokenization that otherwise is usually done with `strtok()`.
+
 {{{
 char* strtok(char* str, const char* delim);
 }}}
+
+This way the following Ch code:
 
 {{{
 foreach (token; s; NULL; delimiter) {
     // ...
 }
 }}}
+
+Is equivalent with the following PHP code:
 
 {{{
 foreach (explode($delimiter, $S) as $token) {
