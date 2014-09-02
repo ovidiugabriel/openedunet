@@ -45,7 +45,7 @@ typedef void* (*FP) (...);
 
 = Functions =
 
-== `request_scalar()` ==
+=== `request_scalar()` ===
 
 {{{
 string_t request_scalar(string_t name)
