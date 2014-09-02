@@ -117,7 +117,7 @@ Ch.
 || C || `int` ||
 || C++, Ch || `char` ||
 
-For string functions *`strcpy()`*, *`strncpy()`*, *`strcat()`*, and *`strncat()`*, the memory will be automatically handled
+In Ch: For string functions *`strcpy()`*, *`strncpy()`*, *`strcat()`*, and *`strncat()`*, the memory will be automatically handled
 if the first argument is of the type *`string t`*.
 
 {{{
