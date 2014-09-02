@@ -22,6 +22,25 @@ typedef void* (*FP) (...);
 #define COUNT(x)        (sizeof(x)/sizeof((x)[0]))
 }}}
 
+== Deferred-Shape array ==
+
+{{{
+/**
+ * A deferred-shape array is an array pointer or an allocatable array. 
+ */
+#if defined(_CH_)
+    /* Deferred-shape array is created with the syntax of the language */
+    #define CREATE_DEFERRED_SHAPE_ARRAY(type, name, num)    type name[0:(num)-1]
+ 
+#elif !defined(_SCH_)
+    /* 
+     * Deferred-shape array is created with dynamic allocation of the operating system.
+     * When using this, always use RAII pattern. (http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization)
+     */
+    #define CREATE_DEFERRED_SHAPE_ARRAY(type, name, num)    type* name = (type*) malloc((num) * sizeof(type))
+#endif
+}}}
+
 = Functions =
 
 == `request_scalar()` ==
