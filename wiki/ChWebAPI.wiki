@@ -35,7 +35,8 @@ typedef void* (*FP) (...);
 #elif !defined(_SCH_)
     /* 
      * Deferred-shape array is created with dynamic allocation of the operating system.
-     * When using this, always use RAII pattern. (http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization)
+     * When using this, always use RAII pattern. 
+     * (http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization)
      */
     #define CREATE_DEFERRED_SHAPE_ARRAY(type, name, num)    type* name = (type*) malloc((num) * sizeof(type))
 #endif
