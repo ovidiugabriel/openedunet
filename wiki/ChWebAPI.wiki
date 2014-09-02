@@ -1,4 +1,5 @@
-Ch is a C/C++ dialect.
+Ch is a C/C++ dialect. It is an interpretive implementation of C with salient features from C++, other languages and software packages for scripting, rapid application development, deployment, and integration with legacy systems. Ch is designed for both experienced C/C++ programmers and new comers. Leveraging their C language skills, programmers can learn C once, and use it anywhere for any programming purpose.
+
 
 = Types =
 
