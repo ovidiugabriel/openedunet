@@ -118,6 +118,23 @@ For string functions *`strcpy()`*, *`strncpy()`*, *`strcat()`*, and *`strncat()`
 if the first argument is of the type *`string t`*.
 
 {{{
+int strcasecmp(char *s1, char *s2);
+}}}
+
+{{{
+char* strconcat (const char *string1, ...);
+}}}
+
+
+{{{
+char* strjoin(const char *separator, ...);
+}}}
+
+{{{
+int strncasecmp(char *s1, char *s2, int n);
+}}}
+
+{{{
 unsigned int str2ascii(char *s);
 }}}
 
