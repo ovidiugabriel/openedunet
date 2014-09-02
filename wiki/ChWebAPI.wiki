@@ -108,6 +108,12 @@ void double_value_array(gdouble* result, string_t* values, gint index)
 
 == Strings ==
 
+Types `char` and `wchar_t` are used to define variables of characters and wide characters in Ch.
+
+The value of a variable of type `char` is a single character or escape sequence which is enclosed in singlequotes,
+as in `'x'`. A character constant has type `int` in C. Like C++, a character constant has type `char` in
+Ch.
+
 For string functions *`strcpy()`*, *`strncpy()`*, *`strcat()`*, and *`strncat()`*, the memory will be automatically handled
 if the first argument is of the type *`string t`*.
 
