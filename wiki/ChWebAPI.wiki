@@ -11,13 +11,13 @@ typedef void* (*FP) (...);
 
 = Macros =
 
-== `FP_CALLBACK()` ==
+=== `FP_CALLBACK()` ===
 
 {{{
 #define FP_CALLBACK(p)  ((FP) (p))
 }}}
 
-== `COUNT()` ==
+=== `COUNT()` ===
 
 {{{
 #define COUNT(x)        (sizeof(x)/sizeof((x)[0]))
