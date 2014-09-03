@@ -65,8 +65,7 @@ string_t request_scalar(string_t name)
 }}}
 
 || *`name`* || the name of the key ||
-|| *returns* || <div>- Returns the value associated with the key `name`.  </div>
-<div>Returns an empty string if the key is not found.</div> ||
+|| *returns* || <div>- Returns the value associated with the key `name`.  </div><div>Returns an empty string if the key is not found.</div> ||
 
 This does the same as calling `Request.getForm(name)`.
 And it is the same as `$_REQUEST[name]` in PHP.
