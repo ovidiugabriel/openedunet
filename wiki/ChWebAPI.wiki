@@ -70,7 +70,7 @@ string_t request_scalar(string_t name)
 *Limitation:* If a key exists and its value is an empty string then just by using this function you cannot tell if the key is set or not.
 
 || `http://localhost/cgi-bin/cgi.chf` || - || an empty string ||
-|| `http://localhost/cgi-bin/cgi.chf?y` || y || <span style="color: red;">garbage</span> ||
+|| `http://localhost/cgi-bin/cgi.chf?y` || y || <font color="red">garbage</span> ||
 || `http://localhost/cgi-bin/cgi.chf?y=` || - || an empty string ||
 || `http://localhost/cgi-bin/cgi.chf?y=0` || y || 0 ||
 
