@@ -58,13 +58,13 @@ If you have more than `2,147,483,647` elements to be counted use `UCOUNT()`.
 
 === `request_scalar()` ===
 
-Returns the value associated with the key `key`.
+Returns the value associated with the key `name`.
 
 {{{
 string_t request_scalar(string_t name)
 }}}
 
-|| *`name`* || ... ||
+|| *`name`* || the name of the key ||
 || *returns* || ... ||
 
 This does the same as calling `Request.getForm(name)`.
