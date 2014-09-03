@@ -73,10 +73,11 @@ And it is the same as `$_REQUEST[name]` in PHP.
 === `request_array()` ===
 
 {{{
-gint request_array(string_t key, gchar**& vals)
+gint request_array(string_t key, gchar**& values)
 }}}
 
 || *`key`* || ... ||
+|| *`values`* || ... ||
 || *returns* || ... ||
 
 This is the same as calling `Request.getForms(strcat(key, "[]"), vals)`.
