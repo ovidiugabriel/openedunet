@@ -58,6 +58,8 @@ If you have more than `2,147,483,647` elements to be counted use `UCOUNT()`.
 
 === `request_scalar()` ===
 
+Returns the value associated with the key `key`.
+
 {{{
 string_t request_scalar(string_t name)
 }}}
