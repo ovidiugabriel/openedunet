@@ -27,6 +27,13 @@ One important thing about this macro is that the type of the resulting expressio
 
 If you have more than `2,147,483,647` elements to be counted use `UCOUNT()`.
 
+=== `UCOUNT()` ===
+
+{{{
+#define UCOUNT(x)        (sizeof(x)/sizeof((x)[0]))
+}}}
+
+
 == Deferred-Shape array ==
 
 {{{
