@@ -23,7 +23,7 @@ typedef void* (*FP) (...);
 #define COUNT(x)        ((ssize_t)(sizeof(x)/sizeof((x)[0])))
 }}}
 
-One important thing about this macro is that the type of the resulting expression is cast to `ssize_t` - which according to POSIX standard is _Used for a count of bytes or an error indication._
+One important thing about this macro is that the type of the resulting expression is cast to `ssize_t` - which according to POSIX standard is _Used for a count of bytes or an error indication._ We don't use it for that reason, but if there is enough representation capacity and we are not interested in operating bitwise, we shall keep it `signed` since most probably some comparisons will be done with `signed` variables.
 
 If you have more than `2,147,483,647` elements to be counted use `UCOUNT()`.
 
