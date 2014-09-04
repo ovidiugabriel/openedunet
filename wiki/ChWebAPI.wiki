@@ -92,7 +92,7 @@ gint parse_str(string_t str, string_t names[], string_t values[])
 === `request_array()` ===
 
 {{{
-gint request_array(string_t key, string_t*& vals)
+gint request_array(string_t key, string_t*& values)
 }}}
 
 || *`key`* || ... ||
