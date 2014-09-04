@@ -92,6 +92,12 @@ And it is the same as `$_REQUEST[name]` in PHP.
 void parse_str(string_t str, string_t names[], string_t values[])
 }}}
 
+|| `str` || ... ||
+|| `names` || ... ||
+|| `values` || ... ||
+|| returns || ... ||
+
+
 {{{
 int parse_string_count(string_t str)
 }}}
