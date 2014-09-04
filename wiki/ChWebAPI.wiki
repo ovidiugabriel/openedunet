@@ -75,22 +75,13 @@ If you have more than `2,147,483,647` elements to be counted use `UCOUNT()`.
 Returns the value associated with the key `name`.
 
 {{{
-string_t request_scalar(string_t name)
+bool request_scalar(string_t& result, string_t name)
 }}}
 
 || *`name`* || the name of the key ||
 || *returns* || Returns the value associated with the key `name`.  Returns an empty string if the key is not found. ||
 
-*Limitation:* If a key exists and its value is an empty string then just by using this function you cannot tell if the key is set or not.
-
-|| || *Query String* || *Found* || `request_scalar()` *result* || Key found w/ `parse_str()` ||
-|| 1 || `(empty string)` || No || an empty string || No ||
-|| 2 || `x` || Yes || <font color="red">garbage</font> || Yes ||
-|| 3 || `x=` || <font color="red">No</font> || an empty string || Yes ||
-|| 4 || `x=0` || Yes || 0 || Yes ||
-
-This does the same as calling `Request.getForm(name)`.
-And it is the same as `$_REQUEST[name]` in PHP.
+It is the same as `$_REQUEST[name]` in PHP. This is recommended instead of calling `Request.getForm(name)` - because `Request::getForm()` has a known limitation and a bug.
 
 
 === `parse_str()` ===
