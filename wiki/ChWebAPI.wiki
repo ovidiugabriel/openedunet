@@ -85,7 +85,7 @@ And it is the same as `$_REQUEST[name]` in PHP.
 === `parse_str()` ===
 
 {{{
-gint parse_str(gchar* str, string_t* names, string_t* values)
+gint parse_str(string_t str, string_t names[], string_t values[])
 }}}
 
 === `request_array()` ===
