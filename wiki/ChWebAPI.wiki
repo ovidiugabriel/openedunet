@@ -11,7 +11,7 @@ typedef char   chchar;
 typedef char** chstrarray;
 }}}
 
-== `FP` ==
+=== `FP` ===
 
 {{{
 typedef void* (*FP) (...);
