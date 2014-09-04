@@ -98,7 +98,7 @@ int parse_string_count(string_t str)
 === `request_array()` ===
 
 {{{
-gint request_array(string_t key, string_t*& values)
+int request_array(string_t key, string_t*& values)
 }}}
 
 || *`key`* || ... ||
@@ -123,7 +123,7 @@ It is the same as `doubleval()` or `floatval()` in PHP - where both `float` and 
 === `get_double_values()` ===
 
 {{{
-void get_double_values(gdouble* result, string_t* values, gint num)
+void get_double_values(gdouble* result, string_t* values, int num)
 }}}
 
 || *`result`* || ... ||
@@ -142,7 +142,7 @@ void array_map(void* result, FP callback, void* values, int count)
 === `double_value_array()` ===
 
 {{{
-void double_value_array(gdouble* result, string_t* values, gint index)
+void double_value_array(gdouble* result, string_t* values, int index)
 }}}
 
 == Strings ==
