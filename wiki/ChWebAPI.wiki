@@ -105,11 +105,10 @@ int parse_string_count(string_t str)
 || `str` || ... ||
 || returns || ... ||
 
-=== `str_in_array()` ===
-
+=== `str_array_search()` ===
 
 {{{
-bool str_in_array(string_t needle, string_t haystack[], int num)
+int str_array_search(string_t needle, string_t haystack[], int num)
 }}}
 
 === `request_array()` ===
