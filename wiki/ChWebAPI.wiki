@@ -3,11 +3,6 @@ Ch is a C/C++ dialect. It is an interpretive implementation of C with salient fe
 
 = Types =
 
-{{{
-typedef char*  string_t;
-typedef char** chstrarray;
-}}}
-
 == `FP` ==
 
 {{{
