@@ -5,6 +5,7 @@ Ch is a C/C++ dialect. It is an interpretive implementation of C with salient fe
 
 {{{
 typedef char   chchar;
+// typedef char*  string_t; - It's a built in type
 typedef char** chstrarray;
 }}}
 
