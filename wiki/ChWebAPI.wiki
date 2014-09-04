@@ -1,6 +1,10 @@
 Ch is a C/C++ dialect. It is an interpretive implementation of C with salient features from C++, other languages and software packages for scripting, rapid application development, deployment, and integration with legacy systems. 
 
 
+{{{
+#include "webapp.chf"
+}}}
+
 <wiki:toc />
 
 = Types =
