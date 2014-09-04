@@ -83,10 +83,10 @@ string_t request_scalar(string_t name)
 
 *Limitation:* If a key exists and its value is an empty string then just by using this function you cannot tell if the key is set or not.
 
-|| *Query String* || *Key Found* || *`request_scalar()` result* ||
+|| *Query String* || *Key Found* || `request_scalar()` *result* ||
 || `(empty string)` || No || an empty string ||
 || `x` || Yes || <font color="red">garbage</font> ||
-|| `x=` || No || an empty string ||
+|| `x=` || <font color="red">No</font> || an empty string ||
 || `x=0` || Yes || 0 ||
 
 This does the same as calling `Request.getForm(name)`.
