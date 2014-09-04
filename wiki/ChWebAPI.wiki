@@ -88,7 +88,7 @@ And it is the same as `$_REQUEST[name]` in PHP.
 
 === `parse_str()` ===
 
-Parses str as if it were the query string passed via a URL and sets variables in the current scope. 
+Parses `str` as if it were the query string passed via a URL and sets variables in the current scope. 
 
 {{{
 void parse_str(string_t str, string_t names[], string_t values[])
@@ -98,7 +98,7 @@ void parse_str(string_t str, string_t names[], string_t values[])
 || `names` || ... ||
 || `values` || ... ||
 
-You have to use `parse_string_count()` to allocate space for `names` and `values`.
+You have to use `parse_string_count()` to know how much space to allocate for `names` and `values`.
 
 {{{
 int parse_string_count(string_t str)
