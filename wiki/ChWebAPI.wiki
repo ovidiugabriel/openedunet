@@ -183,6 +183,8 @@ of the memory required, and then allocate enough memory for the variables. At th
 
 === `strcasecmp()` ===
 
+Compare two strings, ignoring case.
+
 {{{
 int strcasecmp(char *s1, char *s2);
 }}}
