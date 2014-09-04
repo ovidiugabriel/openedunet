@@ -201,6 +201,8 @@ char* strjoin(const char *separator, ...);
 
 === `strncasecmp()` ===
 
+Compare part of two strings, ignoring case.
+
 {{{
 int strncasecmp(char *s1, char *s2, int n);
 }}}
