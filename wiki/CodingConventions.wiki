@@ -144,6 +144,24 @@ And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_
   * [http://en.wikipedia.org/wiki/Object_orgy Object Orgy]:  Failing to properly encapsulate objects permitting unrestricted access to their internals
   * *Premature optimization*: Coding early-on for perceived efficiency, sacrificing good design, maintainability, and sometimes even real-world efficiency - D. Knuth: "We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil."
 
+Over engineering? Redundant stuff?
+
+Let's have an example: 
+{{{
+if (numMines > 0)
+{
+   enabled=true;
+}
+else
+{
+   enabled=false;
+}
+}}}
+
+Why would you do that when you could just use:
+{{{
+enabled = (numMines > 0);
+}}}
 
 == PHP specific standards ==
 
