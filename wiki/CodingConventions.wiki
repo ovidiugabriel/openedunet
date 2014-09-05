@@ -129,11 +129,10 @@ And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_
 *Other anti-patterns to avoid:*
   
   * [http://en.wikipedia.org/wiki/Copy_and_paste_programming Copy and paste programming]
+  * [http://en.wikipedia.org/wiki/Duplicate_code Duplicated code]: identical or very similar code exists in more than one location.
   * [http://en.wikipedia.org/wiki/Cargo_cult_programming Cargo cult programming]
-  * *Smart UI Anti-Pattern* (See: [http://geekswithblogs.net/gregorymalcolm/archive/2009/07/14/user-interface-patterns.aspx Using Interface Patterns] - includes details on MVC and so on)
   * *Code Distrust*: checking to see if a `boolean`-typed variable is something other than `true` or `false`; Using `if (true == (true == x))` instead of `if (x)` when `x` is a boolean variable, etc.
-
-
+  * *Smart UI Anti-Pattern* (See: [http://geekswithblogs.net/gregorymalcolm/archive/2009/07/14/user-interface-patterns.aspx Using Interface Patterns] - includes details on MVC and so on)
   * [http://c2.com/cgi/wiki?ArrowAntiPattern Arrow Anti-Pattern]: It often develops when a programmer applies the 'One Return Per Function rule' blindly and in poor taste
   * [http://www.leepoint.net/JavaBasics/methods/method-commentary/methcom-30-multiple-return.html One Return Per Function ]: simple readable code in more important than following any arbitrary rule.
   * *Loop-switch sequence*: Encoding a set of sequential steps using a switch within a loop statement
@@ -144,7 +143,7 @@ And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_
   * [http://en.wikipedia.org/wiki/God_object God Object]: Concentrating too many functions in a single part of the design (class)
   * [http://en.wikipedia.org/wiki/Object_orgy Object Orgy]:  Failing to properly encapsulate objects permitting unrestricted access to their internals
   * *Premature optimization*: Coding early-on for perceived efficiency, sacrificing good design, maintainability, and sometimes even real-world efficiency - D. Knuth: "We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil."
-  * [http://en.wikipedia.org/wiki/Duplicate_code Duplicated code]: identical or very similar code exists in more than one location.
+
 
 == PHP specific standards ==
 
