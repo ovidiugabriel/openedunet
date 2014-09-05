@@ -161,6 +161,12 @@ void array_map(void* result, FP callback, void* values, int count)
 void double_value_array(gdouble* result, string_t* values, int index)
 }}}
 
+=== `var_dump_double()` ===
+
+{{{
+void var_dump_double(double* var, int num)
+}}}
+
 == Strings ==
 
 Types `char` and `wchar_t` are used to define variables of characters and wide characters in Ch.
