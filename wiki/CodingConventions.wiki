@@ -124,6 +124,8 @@ Forget about CodingConventions. We are more concerned with:
 
 And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_paste_programming Copy and paste programming] and [http://en.wikipedia.org/wiki/Cargo_cult_programming Cargo cult programming] at any price, dead or alive, no matter what.*
 
+[http://ilpverymuch.wordpress.com/2014/06/23/10-steps-to-becoming-a-better-programmer/ 10 steps to becoming a better programmer]
+
 *Other anti-patterns to avoid:*
   
   * [http://en.wikipedia.org/wiki/Copy_and_paste_programming Copy and paste programming]
