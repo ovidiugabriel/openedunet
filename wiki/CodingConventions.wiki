@@ -95,6 +95,8 @@ Packages\User\Preferences.sublime-settings
 
 We have a very _liberal approach_ in this area. 
 
+As _Linus Torvalds_ said: _"Coding style is very personal, and I won't force my views on anybody, but this is what goes for anything that I have to be able to maintain"_.
+
 Maybe it is confusing,
 but it is important to keep in mind only one rule: *don't put everything in the same basket*.
 
