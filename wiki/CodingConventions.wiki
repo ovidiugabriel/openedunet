@@ -141,7 +141,7 @@ And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_
   * [http://www.leepoint.net/JavaBasics/methods/method-commentary/methcom-30-multiple-return.html One Return Per Function ]: simple readable code in more important than following any arbitrary rule.
   * *Loop-switch sequence*: Encoding a set of sequential steps using a switch within a loop statement
   * [http://en.wikipedia.org/wiki/Error_hiding Error hiding]: Catching an error message before it can be shown to the user and either showing nothing or showing a meaningless message. Checking results without throwing exceptions or forwarding error codes and messages to both caller and logging system.
-  * Pinball Programming: Using code that doesn't throw exceptions, and not checking the output result.
+  * Pinball Programming: Using code that doesn't throw exceptions, and not checking the output result. Blindly using running over errors with faith that everything is fine since the system has `display_errors` muted.
   * *Hard code*: Embedding assumptions about the environment of a system in its implementation
   * *Inappropriate intimacy*: a class that has dependencies on implementation details of another class.
   * *Fat Controller Anti-Pattern*
