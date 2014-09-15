@@ -2,6 +2,8 @@
 
 == Scaning, Splitting, Tokenize, Parse, Unpack ==
 
+In C/C++ you would have:
+
 {{{
 int z = 0;
 int l = 0;
@@ -12,16 +14,20 @@ int n_fields = sscanf(s, "%2d.%2d.%4d", &z, &l, &a);
 assert(3 == n_fields);
 }}}
 
+In PHP, the C-style:
 
 {{{
 $s = '01.01.1970';
 sscanf($s, "%2d.%2d.%4d", $z, $l, $a);
 }}}
 
+In PHP, a modern way to achieve the same result (let's say a pythonic one):
+
 {{{
 list ($z, $l, $a) = explode('.', $s);
 }}}
 
+Here it is in Python:
 
 {{{
 z, l, a = s.split('.')
