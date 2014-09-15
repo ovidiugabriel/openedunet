@@ -27,7 +27,7 @@ In PHP, a modern way to achieve the same result (let's say a pythonic one):
 list ($z, $l, $a) = explode('.', $s);
 }}}
 
-*This is the recommended form.*
+*This is the recommended form for this project.*
 
 Here it is in Python:
 
