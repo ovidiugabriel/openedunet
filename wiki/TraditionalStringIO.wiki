@@ -11,3 +11,18 @@ char* s = "01.01.1970";
 int n_fields = sscanf(s, "%2d.%2d.%4d", &z, &l, &a);
 assert(3 == n_fields);
 }}}
+
+
+{{{
+$s = '01.01.1970';
+sscanf($s, "%2d.%2d.%4d", $z, $l, $a);
+}}}
+
+{{{
+list ($z, $l, $a) = explode('.', $s);
+}}}
+
+
+{{{
+z, l, a = s.split('.')
+}}}
