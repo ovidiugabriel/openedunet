@@ -39,12 +39,28 @@ Loader.prototype = {
  */
 function ExecuteKill() {    
     // TODO: remove harcoded testing
-    if ("http://www.vivre.ro/" == document.URL.substr(0, "http://www.vivre.ro/".length)) {        
+    var url ="http://www.vivre.ro/";
+    
+    if (url == document.URL.substr(0, url.length)) {        
         // We are on http://www.vivre.ro/
         doDestroyModal('signup-wrapper');
         doDestroyModal('login-wrapper');
         return true;
     }
+    
+    url = "http://www.homeycomb.ro";
+    if (url == document.URL.substr(0, url.length)) {        
+        console.log('We are on homeycomb.ro');
+        // We are on http://www.homeycomb.ro/
+        if (document.getElementById('main_popup_login')) {
+           document.getElementById('main_popup_login').remove();
+           document.getElementById('control_overlay').remove();
+        }
+        
+        return true;
+    }
+    
+    
     return false;
 }
 
