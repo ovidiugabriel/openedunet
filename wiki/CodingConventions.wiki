@@ -140,6 +140,7 @@ It has been proved that hungarian notation can only lead to confusion:
 || `_Matrix` || ... ||
 || `_Array` || ... ||
 || `_Polynomial` || ... ||
+|| `_typename` ||  for all `enum typename`, `struct typename`, `class typename`, `union typename` never use `_enum`, `_struct`, `_class` or `_union` as suffixes ||
 
 == Design Principles ==
 
