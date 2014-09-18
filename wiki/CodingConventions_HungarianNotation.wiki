@@ -1,7 +1,7 @@
 === What about hungarian notation? ===
 (continued from CodingConventions)
 
-Hungarian notation is a naming anti-pattern in modern day programming environments and form of Tautology. It simply violates basic principles the DRY principle and KISS principle.
+Hungarian notation is a naming anti-pattern in modern day programming environments and form of Tautology. It simply violates very basic principles like: DRY principle and KISS principle.
 
 *Hence it is an anti-pattern you should avoid it. *
 
