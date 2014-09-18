@@ -139,6 +139,7 @@ It has been proved that hungarian notation can only lead to confusion:
 || `_Vector` || ... ||
 || `_Matrix` || ... ||
 || `_Array` || ... ||
+|| `_Polynomial` || ... ||
 
 == Design Principles ==
 
