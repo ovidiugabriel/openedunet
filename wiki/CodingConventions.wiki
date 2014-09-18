@@ -155,7 +155,7 @@ Simonyi Károly mistakenly used the word `type` in his paper, and generations of
 Usually I remember only the first letters of a variable name, so it is  better use a suffix than a prefix.
 
 || *Suffix* || *Variable type* ||
-|| `_String` || For all string types: `char[]`, `std::string`, `QString`, etc ||
+|| `_String` || <div>For all string types: `char*`, `char[]`, `std::string`, `QString`, etc</div><div>Disregard the fact that a string is `char*` because `std::string` is not a pointer</div> ||
 || `_Integer` || all types of `integer` ||
 || `_Rational` || all types of `float` ||
 || `_Complex` || `complex` ||
