@@ -130,6 +130,10 @@ It has been proved that hungarian notation can only lead to confusion:
   # *s* prefix stands for both `string` and `struct`
   # *f* prefix stands for both `boolean` and `float`
 
+|| *Suffix* || *Variable type* ||
+|| `_Integer` || `integer` ||
+|| `_Real` || `float`, `double` and `long double` ||
+
 == Design Principles ==
 
 Forget about CodingConventions. We are more concerned with:
