@@ -112,9 +112,9 @@ After all, computer programming is about data structures, algorithms, architectu
 
 *What about hungarian notation?*
 
-Hungarian notation is a naming anti-pattern in modern day programming environments and form of Tautology. It violates the DRY principle.
+Hungarian notation is a naming anti-pattern in modern day programming environments and form of Tautology. It simply violates the DRY principle.
 
-It is generally a sign of breaking encapsulation, it obfuscates identifiers and makes code prone to confusion due to accidental erroneous use. In other words it makes wrong code impossible to read - what I can't read with loud voice I cannot debug.
+It is generally a sign of breaking encapsulation, it obfuscates identifiers and makes code prone to confusion due to accidental erroneous use. In other words it makes wrong code impossible to read by a sane human.
 
 *Prefixing that way is not needed really, and it is not allowed in this project, except rare situations.*
 
