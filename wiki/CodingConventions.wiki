@@ -116,7 +116,7 @@ Hungarian notation is a naming anti-pattern in modern day programming environmen
 
 It is generally a sign of breaking encapsulation, it obfuscates identifiers and makes code prone to confusion due to accidental erroneous use. In other words it makes wrong code impossible to read - what I can't read with loud voice I cannot debug.
 
-*Prefixing that way is not allowed in this project, except rare situations.*
+*Prefixing that way is not needed really, and it is not allowed in this project, except rare situations.*
 
 Here it is _Linus Torvalds_ (the father of Linux) opinion on this: _"Encoding the type of a function into the name (so-called Hungarian notation) is brain damaged -- the compiler knows the types anyway and can check those, and it only confuses the programmer. No wonder Micro $$oft makes buggy programs"_
 
@@ -146,11 +146,9 @@ It has been proved that hungarian notation can only lead to confusion:
   # *s* prefix stands for both `string` and `struct`
   # *f* prefix stands for both `boolean` and `float`
 
-
-
-I’m using the word kind on purpose, there, because 
-
 Simonyi Károly mistakenly used the word `type` in his paper, and generations of programmers misunderstood what he meant. Maybe he was talking about _kind_ and _purpose_.
+
+Usually I remember only the first letters of a variable name. So, better use a suffix than a prefix.
 
 || *Suffix* || *Variable type* ||
 || `_Integer` || all types of `integer` ||
