@@ -127,7 +127,7 @@ _"This technique that can be useful in untyped languages, but is completely unsu
 
 Don't try to be smarter than _Bjarne Stroustrup_ and _Linus Torvalds_.
 
-Hungarian notation doesn't help even for scripting languages. - For modern reflective scripting languages the object type is a property of the object not a part of the name. However the type is judged as interface. 
+Hungarian notation doesn't help even for scripting languages. - For modern reflective scripting languages the object type is a property of the object not a part of the name. 
 
 Don't be fooled  by the fact that type declaration is not mandatory. That doesn't mean that variables do not have a type - it is just encapsulated by its internal variant. This is *a feature of object orientation*.
 
@@ -139,6 +139,7 @@ $Z = 0.0; // here Z is a float
 $A = [1, 2, 3, 4]; // here A is an array
 }}}
 
+However if the type is judged as interface we have subtyping polymorphism.
 
 It has been proved that hungarian notation can only lead to confusion:
   # *b* prefix stands for both `boolean` and `byte`
