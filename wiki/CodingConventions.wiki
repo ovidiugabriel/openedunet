@@ -131,8 +131,10 @@ It has been proved that hungarian notation can only lead to confusion:
   # *f* prefix stands for both `boolean` and `float`
 
 || *Suffix* || *Variable type* ||
-|| `_Integer` || `integer` ||
-|| `_Real` || `float`, `double` and `long double` ||
+|| `_Integer` || all types of `integer` ||
+|| `_Rational` || all types of `float` ||
+|| `_Complex` || `complex` ||
+|| `_Number` || all types of `integer` and `float` ||
 
 == Design Principles ==
 
