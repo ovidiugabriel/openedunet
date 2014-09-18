@@ -135,9 +135,9 @@ It has been proved that hungarian notation can only lead to confusion:
 || `_Rational` || all types of `float` ||
 || `_Complex` || `complex` ||
 || `_Number` || all types of `integer` and `float` ||
-|| _List || ... ||
-|| _Vector || ... ||
-|| _Matrix || ... ||
+|| `_List` || ... ||
+|| `_Vector` || ... ||
+|| `_Matrix` || ... ||
 
 == Design Principles ==
 
