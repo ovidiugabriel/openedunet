@@ -123,9 +123,16 @@ This technique was important in BCPL programming language because BCPL has no da
 Here it is _Bjarne Stroustrup_ (the father of C++) opinion on this issue:
 _"This technique that can be useful in untyped languages, but is completely unsuitable for a language that supports generic programming and object-oriented programming—both of which emphasize selection of operations based on the type an arguments. In this case, 'building the type of an object into names' simply complicates and minimizes abstraction."_
 
-For modern reflective scripting languages the object type is a property of the object not a part of the name. However the type is judged as interface.
-
 Don't try to be smarter than _Bjarne Stroustrup_ and _Linus Torvalds_.
+
+This doesn't help event for scripting languages. For modern reflective scripting languages the object type is a property of the object not a part of the name. However the type is judged as interface. Don't be fooled  by the fact that type declaration is not mandatory. 
+
+{{{
+$X = "0"; // here X is a string
+$Y = 0;   // here Y is an integer
+$Z = 0.0; // here Z is a float
+}}}
+
 
 It has been proved that hungarian notation can only lead to confusion:
   # *b* prefix stands for both `boolean` and `byte`
