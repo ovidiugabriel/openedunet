@@ -114,7 +114,9 @@ After all, computer programming is about data structures, algorithms, architectu
 
 Hungarian notation is a naming anti-pattern in modern day programming environments and form of Tautology. It violates the DRY principle.
 
-Hungarian notation is really stupid. Let _Károly Simonyi_ do that. It breaks the encapsulation, obfuscate identifiers and makes code prone to confusion due to accidental erroneous use. Prefixing that way is not allowed in this project, except rare situations. 
+Hungarian notation is really stupid. Let _Károly Simonyi_ do that. It breaks the encapsulation, obfuscate identifiers and makes code prone to confusion due to accidental erroneous use. 
+
+*Prefixing that way is not allowed in this project, except rare situations.*
 
 Here it is _Linus Torvalds_ (the father of Linux) opinion on this: _"Encoding the type of a function into the name (so-called Hungarian notation) is brain damaged -- the compiler knows the types anyway and can check those, and it only confuses the programmer. No wonder Micro $$oft makes buggy programs"_
 
