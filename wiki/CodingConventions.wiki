@@ -148,7 +148,7 @@ It has been proved that hungarian notation can only lead to confusion because un
   # *s* prefix can stands for both `string` and `struct`
   # *f* prefix can stands for both `boolean` and `float`
 
-Hungarian notation in current form puts way too much emphasis on the underlying type and ignores semantics. Important information like: the name of the structure, the name of the enumeration are hidden behind meaningless prefixes like `e` or `s`.
+Hungarian notation in its current form puts way too much emphasis on the underlying type and ignores semantics. Important information like: the name of the structure, the name of the enumeration are hidden behind meaningless prefixes like `e` or `s`.
 
 Simonyi Károly mistakenly used the word `type` in his paper, and generations of programmers misunderstood what he meant. Maybe he was talking about _kind_ and _purpose_.
 
