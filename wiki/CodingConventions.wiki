@@ -141,6 +141,8 @@ $A = [1, 2, 3, 4]; // here A is an array
 
 However if the type is judged as interface we have subtyping polymorphism.
 
+  # Unique tags must be defined for type definitions and instance variables; but this must be done for each project, module, company, team etc. Better you use that time to learn practical stuff like multiple programming languages, paradigms, algorithms and software architecture than wasting time to train you on some arbitrary fantasies.
+
 It has been proved that hungarian notation can only lead to confusion:
   # *b* prefix stands for both `boolean` and `byte`
   # *s* prefix stands for both `string` and `struct`
