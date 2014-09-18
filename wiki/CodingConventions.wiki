@@ -119,8 +119,9 @@ Object type is a property of the object not a part of the name - let it as it is
 Here it is _Linus Torvalds_ opinion on this: _"Encoding the type of a function into the name (so-called Hungarian notation) is brain damaged -- the compiler knows the types anyway and can check those, and it only confuses the programmer. No wonder Micro $$oft makes buggy programs"_
 
 It has been proved that hungarian notation can only lead to confusion:
-  # *b* prefix stands for both `boolean` and `byte`; some programmers will use it for boolean, others will use it for byte; when it is used for byte it is not well understood if the byte was signed byte or unsigned byte;
+  # *b* prefix stands for both `boolean` and `byte`
   # *s* prefix stands for both `string` and `struct`
+  # *f* prefix stands for both `boolean` and `float`
 
 == Design Principles ==
 
