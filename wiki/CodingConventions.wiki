@@ -146,6 +146,12 @@ It has been proved that hungarian notation can only lead to confusion:
   # *s* prefix stands for both `string` and `struct`
   # *f* prefix stands for both `boolean` and `float`
 
+
+
+I’m using the word kind on purpose, there, because 
+
+Simonyi Károly mistakenly used the word `type` in his paper, and generations of programmers misunderstood what he meant. Maybe he was talking about _kind_ and _purpose_.
+
 || *Suffix* || *Variable type* ||
 || `_Integer` || all types of `integer` ||
 || `_Rational` || all types of `float` ||
