@@ -1,12 +1,12 @@
 *What about hungarian notation?*
 
-Hungarian notation is a naming anti-pattern in modern day programming environments and form of Tautology. It simply violates the DRY principle.
-
-It is generally a sign of breaking encapsulation, it obfuscates identifiers and makes code prone to confusion due to accidental erroneous use. In other words it makes wrong code impossible to read by a sane human.
+Hungarian notation is a naming anti-pattern in modern day programming environments and form of Tautology. It simply violates basic principles the DRY principle and KISS principle.
 
 *Hence it is an anti-pattern you should avoid it. *
 
-Prefixing that way is not needed really, or recommended and it is not allowed in this project, except rare situations.*
+It is generally a sign of breaking encapsulation, it obfuscates identifiers and makes code prone to confusion due to accidental erroneous use. In other words it makes wrong code impossible to read by a sane human.
+
+*Prefixing that way is not needed really, or recommended and it is not allowed in this project, except rare situations.*
 
 Here it is _Linus Torvalds_ (the father of Linux) opinion on this: _"Encoding the type of a function into the name (so-called Hungarian notation) is brain damaged -- the compiler knows the types anyway and can check those, and it only confuses the programmer. No wonder Micro $$oft makes buggy programs"_
 
