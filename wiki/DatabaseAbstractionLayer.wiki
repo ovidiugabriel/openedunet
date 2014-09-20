@@ -19,7 +19,7 @@ try {
 
 
 {{{
-public dictionary IDatabase::nextRow(integer res_num)
+public variant IDatabase::nextRow(integer res_num)
 }}}
 
 {{{
