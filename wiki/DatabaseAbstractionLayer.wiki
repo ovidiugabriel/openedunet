@@ -27,5 +27,9 @@ public integer IDatabase::numRows(integer res_num)
 }}}
 
 {{{
+public integer IDatabase::insert(string table, dictionary values)
+}}}
+
+{{{
 public integer IDatabase::update(string table, dictionary values, string where)
 }}}
