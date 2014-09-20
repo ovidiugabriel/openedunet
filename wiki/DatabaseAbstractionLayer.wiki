@@ -3,5 +3,5 @@ public integer IDatabase::query(string query) throws Exception
 }}}
 
 {{{
-public array nextRow(integer res_num);
+public variant nextRow(integer res_num);
 }}}
