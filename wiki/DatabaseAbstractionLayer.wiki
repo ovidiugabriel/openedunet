@@ -1,6 +1,5 @@
 {{{
-integer IDatabase::query(string query)
-    throws Exception
+integer IDatabase::query(string query) throws Exception
 }}}
 
 {{{
