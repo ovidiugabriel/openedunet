@@ -25,3 +25,7 @@ public variant IDatabase::nextRow(integer res_num)
 {{{
 public integer IDatabase::numRows(integer res_num)
 }}}
+
+{{{
+public function update(string table, dictionary values, string where)
+}}}
