@@ -1,7 +1,7 @@
 {{{
-integer IDatabase::query(string query) throws Exception
+public integer IDatabase::query(string query) throws Exception
 }}}
 
 {{{
- public function nextRow($res_num) {
+public array nextRow(integer res_num);
 }}}
