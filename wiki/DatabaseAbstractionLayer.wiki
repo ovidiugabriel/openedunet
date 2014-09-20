@@ -1,4 +1,8 @@
-
 {{{
 integer IDatabase::query(string query)
+    throws Exception
+}}}
+
+{{{
+ public function nextRow($res_num) {
 }}}
