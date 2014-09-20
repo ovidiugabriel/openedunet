@@ -27,5 +27,5 @@ public integer IDatabase::numRows(integer res_num)
 }}}
 
 {{{
-public function update(string table, dictionary values, string where)
+public integer IDatabase::update(string table, dictionary values, string where)
 }}}
