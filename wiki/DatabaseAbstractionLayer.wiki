@@ -5,7 +5,7 @@ public integer IDatabase::query(string query) throws Exception
 || *`query`* || ... ||
 || *returns* || ... ||
 
-*Important:* In case of error an exception is thrown. Do not check the return result to detect an error. resource_id = 0 is a valid resource_id.
+*Important:* In case of error an exception is thrown. Do not check the return result to detect an error. `resource_id = 0` is a valid `resource_id`.
 
 {{{
 
