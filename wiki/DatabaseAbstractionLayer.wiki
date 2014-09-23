@@ -1,3 +1,6 @@
+
+=== `IDatabase::query()` ===
+
 {{{
 public integer IDatabase::query(string query) throws Exception
 }}}
@@ -17,18 +20,25 @@ try {
 
 }}}
 
+=== `IDatabase::nextRow()` ===
 
 {{{
 public variant IDatabase::nextRow(integer res_num)
 }}}
 
+=== `IDatabase::numRows()` ===
+
 {{{
 public integer IDatabase::numRows(integer res_num)
 }}}
 
+=== `IDatabase::insert()` ===
+
 {{{
 public integer IDatabase::insert(string table, dictionary values)
 }}}
+
+=== `IDatabase::update()` ===
 
 {{{
 public integer IDatabase::update(string table, dictionary values, string where)
