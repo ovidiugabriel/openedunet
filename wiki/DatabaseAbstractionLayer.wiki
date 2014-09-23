@@ -1,5 +1,6 @@
-
 === `IDatabase::query()` ===
+
+Executes a query and returns a handle to the resource.
 
 {{{
 public integer IDatabase::query(string query) throws Exception
