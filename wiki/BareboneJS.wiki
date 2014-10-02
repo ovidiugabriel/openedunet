@@ -1,3 +1,5 @@
+<wiki:toc>
+
 A client library (ECMA Script) for the BareboneMVC framework.
 
 === `val()` ===
