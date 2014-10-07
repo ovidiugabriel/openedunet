@@ -26,6 +26,8 @@ public variant Config::get(string name, variant defaultValue) [static]
 || *defaultValue* || ... ||
 || *returns* || <div>the value of the key</div> <div> a `variant` that can have one of the following supported types:  `boolean`, `float`, `integer`, `string`, `object`, `array` (for both `list` and `dictionary`).</div> ||
 
+IMPORTANT: This function converts key name from `org.openedunet.keyname` or `org::openedunet::keyname` or `org\openedunet\keyname` to `org_openedunet_keyname` for some compatibility reasons. This is done also for the `set()` method.
+
 === Writing Values / Creating New Keys ===
 
 New keys are automatically created when you are trying to set the value for a key that doesn't exists already. You don't have to worry about this issue. No existence check or create calls are necessary.
