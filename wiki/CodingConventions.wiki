@@ -63,7 +63,7 @@ Packages\User\Preferences.sublime-settings
   # Visibility MUST be declared on all properties and methods; 
   # `abstract` and `final` MUST be declared before the visibility; 
   # The `var` keyword MUST NOT be used to declare a property. 
-  # Property names SHOULD NOT be prefixed with a single underscore to indicate _protected_ or _private_ visibility - since keywords are available.
+  # Property names SHOULD NOT be prefixed with a single underscore to indicate `protected` or `private` visibility - since keywords are available.
   # Opening braces for control structures MUST go on the same line, and closing braces MUST go on the next line after the body.
   # All code files MUST use the Unix LF (linefeed) line ending. {`"default_line_ending": "unix"`}
   # All code files MUST end with a single blank line. {`"ensure_newline_at_eof_on_save": true`}
