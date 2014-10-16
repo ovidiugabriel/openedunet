@@ -38,6 +38,8 @@ Packages\User\Preferences.sublime-settings
     // Set to true to ensure the last line of the file ends in a newline
     // character when saving
     "ensure_newline_at_eof_on_save": true,
+
+    // Set to false to disable detection of tabs vs. spaces on load
     "detect_indentation": false
 }
 }}}
