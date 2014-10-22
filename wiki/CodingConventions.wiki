@@ -40,7 +40,8 @@ Packages\User\Preferences.sublime-settings
     "ensure_newline_at_eof_on_save": true,
 
     // Set to false to disable detection of tabs vs. spaces on load
-    "detect_indentation": false
+    "detect_indentation": false,
+    "draw_white_space": "all"
 }
 }}}
 
