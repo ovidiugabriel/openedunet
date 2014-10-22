@@ -41,7 +41,8 @@ Packages\User\Preferences.sublime-settings
 
     // Set to false to disable detection of tabs vs. spaces on load
     "detect_indentation": false,
-    "draw_white_space": "all"
+    "draw_white_space": "all",
+    "trim_trailing_white_space_on_save": true
 }
 }}}
 
