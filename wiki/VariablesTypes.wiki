@@ -31,6 +31,7 @@ The return type of functions shall not be replaced with `variant` when it can be
 || `Stack` || `SplStack` ||
 || `Queue` || `SplQueue` ||
 || || `SplFixedArray` ||
+|| || `ArrayAccess` ||
 
 == The `variant` type ==
 
