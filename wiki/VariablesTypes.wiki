@@ -30,6 +30,7 @@ The return type of functions shall not be replaced with `variant` when it can be
 || Type || Extends ||
 || `Stack` || `SplStack` ||
 || `Queue` || `SplQueue` ||
+|| || `SplFixedArray` ||
 
 == The `variant` type ==
 
