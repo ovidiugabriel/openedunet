@@ -27,7 +27,7 @@ The return type of functions shall not be replaced with `variant` when it can be
 
 == Types/classes ==
 
-|| *Type* || Extends ||
+|| *Type* || *Extends* ||
 || `Stack` || `SplStack` ||
 || `Queue` || `SplQueue` ||
 || || `SplFixedArray` ||
