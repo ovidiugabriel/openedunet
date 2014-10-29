@@ -27,8 +27,8 @@ The return type of functions shall not be replaced with `variant` when it can be
 
 == Types/classes ==
 
-|| SplStack ||
-|| SplQueue ||
+|| `Stack extends SplStack` ||
+|| `Queue extends SplQueue` ||
 
 == The `variant` type ==
 
