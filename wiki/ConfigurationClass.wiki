@@ -16,11 +16,6 @@ Another important feature is that object data is automatically serialized into a
 
 === Reading Values ===
 
-Old version:
-{{{
-    static public function set($name, $type, $value = null)
-}}}
-
 {{{
 public variant Config::get(string name) [static]
 
@@ -41,6 +36,12 @@ IMPORTANT: This function converts key name from `org.openedunet.keyname` or `org
 New keys are automatically created when you are trying to set the value for a key that doesn't exists already. You don't have to worry about this issue. No existence check or create calls are necessary.
 
 [http://ro1.php.net/manual/en/class.serializable.php Serializable interface]
+
+Old version:
+{{{
+    static public function set($name, $type, $value = null)
+}}}
+
 
 {{{
 public nulltype Config::set(string name, variant value, string type) [static]
