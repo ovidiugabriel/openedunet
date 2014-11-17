@@ -16,6 +16,11 @@ Another important feature is that object data is automatically serialized into a
 
 === Reading Values ===
 
+Old version:
+{{{
+    static public function set($name, $type, $value = null)
+}}}
+
 {{{
 public variant Config::get(string name) [static]
 
