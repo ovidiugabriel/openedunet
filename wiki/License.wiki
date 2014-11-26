@@ -4,7 +4,7 @@ Current license of this project is *Modified BSD License*.
 
 The license was changed from original GPL2 because it is more permissive and that way it encourages business development. It removes share-alike reciprocal requirements and offer a better protection of copyright. 
 
-Say, this change adds the advantages to use the framework in real business and not only in the development community.
+Say, this change adds the advantages to use the framework in real businesses and not only in the development community. But of course, it is still open-source and free software. And it will always be.
 
 || DFSG compatible || Yes ||
 || FSF approved || Yes ||
