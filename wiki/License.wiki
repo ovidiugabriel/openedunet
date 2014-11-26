@@ -1,10 +1,14 @@
 = License =
 
-Current license of this project is *BSD License* (Simplified BSD License/FreeBSD License). 
+Current license of this project is *Modified BSD License*.
 
-It was changed from original GPL2 because it is more permissive and that way it encourages business development.
+The license was changed from original GPL2 because it is more permissive and that way it encourages business development.
 
-FreeBSD License have been verified as GPL-compatible free software licenses by the Free Software Foundation.
+|| DFSG compatible || Yes ||
+|| FSF approved || Yes ||
+|| OSI approved || Yes ||
+|| GPL compatible || Yes ||
+|| Copyleft || No ||
 
 {{{
 
