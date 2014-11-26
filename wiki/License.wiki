@@ -4,6 +4,8 @@ Current license of this project is *BSD License* (Simplified BSD License/FreeBSD
 
 It was changed from original GPL2 because it is more permissive and that way it encourages business development.
 
+FreeBSD License have been verified as GPL-compatible free software licenses by the Free Software Foundation.
+
 {{{
 
 /* * *************************************************************************
