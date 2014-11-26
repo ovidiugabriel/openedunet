@@ -1,6 +1,6 @@
 = License =
 
-Current license of this project is *BSD License* _[Simplified BSD License/FreeBSD License (2-clause)]_. 
+Current license of this project is *BSD License* (Simplified BSD License/FreeBSD License). 
 
 It was changed from original GPL2 because it is more permissive and it encourages business development.
 
