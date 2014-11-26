@@ -2,7 +2,7 @@
 
 Current license of this project is *Modified BSD License*.
 
-The license was changed from original GPL2 because it is more permissive and that way it encourages business development.
+The license was changed from original GPL2 because it is more permissive and that way it encourages business development. It removes share-alike reciprocal requirements and offer a better protection of copyright.
 
 || DFSG compatible || Yes ||
 || FSF approved || Yes ||
