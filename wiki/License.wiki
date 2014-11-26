@@ -1,6 +1,8 @@
 = License =
 
-Current license of this project is BSD License. It was changed from GPL because it is more permissive and it encourages business development.
+Current license of this project is BSD License. 
+
+It was changed from original GPL2 because it is more permissive and it encourages business development.
 
 {{{
 
