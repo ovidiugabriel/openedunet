@@ -1,3 +1,5 @@
+#summary PHP helpers that generate HTML without need to use a template engine
+
 Html Helper here...
 
 The purpose of HTML helpers here is to augment Code Igniter platform HTML helpers and to provide a cheap replacement when do you want to disable any template engine support in BareboneMVC framework.
