@@ -1,3 +1,5 @@
+#summary Config class documentation
+
 = The `Config` Class =
 
 The `Config` class is a *Key-Value-Type store*.
