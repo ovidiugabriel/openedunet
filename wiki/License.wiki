@@ -1,3 +1,5 @@
+#summary license of the project
+
 = License =
 
 Current license of this project is *Modified BSD License*.
