@@ -1,3 +1,5 @@
+#summary small reactive JavaScript library used by the BareboneMVC project
+
 <wiki:toc>
 
 A client library (ECMA Script) for the BareboneMVC framework.
