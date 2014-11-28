@@ -112,6 +112,9 @@ but it is important to keep in mind only one rule: *don't put everything in the 
 
 Usually I stick to the same convetions as [http://blog.lmorchard.com/2013/01/23/naming-conventions Les Orchard].
 
+|| Variable || mutable || All lower case, words separated by underscores. ||
+|| Constant || immutable || All upper case, words separated by underscores. ||
+
 These rules are not mandatory, they are just advisory and won't be enforced on contributors.
 
 After all, computer programming is about data structures, algorithms, architectures and interfaces and not so much about text formatting and typography.
