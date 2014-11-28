@@ -1,5 +1,7 @@
 [http://trac.php-tools.net/patTemplate patTemplate]
 
+[http://phphtmllib.newsblob.com/ phpHtmlLib]
+
 === `assign()` ===
 
 {{{
