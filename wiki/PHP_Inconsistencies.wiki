@@ -1,6 +1,6 @@
 === `var_dump()` ===
 
-`var_dump()` outputs sometimes `string '' (length=0)` and sometimes `string(0) ''` for an empty string.
+`var_dump()` can be overrided by XDebug
 
 == Case sensitivity ==
 
