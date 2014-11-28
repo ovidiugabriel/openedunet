@@ -1,3 +1,5 @@
+#summary how to get the code
+
 = Installation of base framework =
 
   # Check out a read-only working copy anonymously over HTTP.
