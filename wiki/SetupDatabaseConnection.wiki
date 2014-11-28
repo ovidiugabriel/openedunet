@@ -1,3 +1,5 @@
+#summary how to setup a database connection for Barebone MVC
+
 = Setting up a database connection =
 
 If you are not running on XAMPP, you have to create the CD Collection Demo table by running *sql/tables/cds.sql*.
