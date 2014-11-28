@@ -1,3 +1,5 @@
+#summary categories of code formatting
+
 == Kernighan and Ritchie ==
 
 {{{
