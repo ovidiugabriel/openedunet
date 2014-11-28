@@ -1,3 +1,5 @@
+#summary functions and classes to use SOAP web services
+
 {{{
 variant soap_request(integer id, string method, array params)
 }}}
