@@ -1,4 +1,4 @@
-#sumarry type safe PHP functions
+#summary type safe PHP functions
 
 {{{
 integer safe_count(array variable)
