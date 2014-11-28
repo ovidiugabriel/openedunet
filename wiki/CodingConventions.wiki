@@ -115,6 +115,7 @@ Usually I stick to the same convetions as [http://blog.lmorchard.com/2013/01/23/
 || Variable || mutable || All lower case, words separated by underscores. ||
 || Constant || immutable || All upper case, words separated by underscores. ||
 || Functions/methods || immutable and callable things || Mixed camel case, first letter always lower case. ||
+|| Structs and classes ||  immutable and instantiatable things || Mixed camel case, first letter always upper case. ||
 
 These rules are not mandatory, they are just advisory and won't be enforced on contributors.
 
