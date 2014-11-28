@@ -1,3 +1,5 @@
+#summary string packing and unpacking
+
 = Traditional String IO =
 
 == Scaning, Splitting, Tokenize, Parse, Unpack ==
