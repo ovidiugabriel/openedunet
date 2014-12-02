@@ -12,3 +12,6 @@ namespace sql;
  */
 class Error {
 }
+
+class Error_ErrorType {
+}
