@@ -16,3 +16,12 @@ abstract class Driver {
       extends QObject
   */
 }
+
+class Driver_DriverFeature {
+}
+
+class Driver_IdentifierType {
+}
+
+class Driver_StatementType {
+}
