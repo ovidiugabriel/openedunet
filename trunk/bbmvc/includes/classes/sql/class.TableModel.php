@@ -7,3 +7,6 @@ namespace sql;
  */
 class TableModel extends QueryModel {
 }
+
+class TableModel_EditStrategy {
+}
