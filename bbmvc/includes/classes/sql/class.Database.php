@@ -16,6 +16,18 @@ class Database {
         extends QtJambiObject
         implements java.lang.Cloneable 
    */
+   
+  /**
+   * @param string $user
+   * @param string $password
+   * @return boolean
+   *
+   * @proto: public final boolean open(java.lang.String user, java.lang.String password)
+   * @proto: public final boolean open()   
+   */
+  public final function open($user = null, $password = null) {
+
+  }
 }
 
 class Location {
