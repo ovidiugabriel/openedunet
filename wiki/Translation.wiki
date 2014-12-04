@@ -3,18 +3,20 @@
 == Function ==
 
 {{{
-{translate string=""}
-{translate ""}
+{translate string="The string to translate"}
+{translate "The string to translate"}
 }}}
 
 == Modifier ==
 
 {{{
-{""|translate}
+{"The string to translate"|translate}
 }}}
 
 == Block ==
 
 {{{
-{translate}{/translate}
+{translate}
+  The string to translate
+{/translate}
 }}}
