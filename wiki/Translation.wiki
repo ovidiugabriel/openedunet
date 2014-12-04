@@ -7,4 +7,6 @@ Block
 {translate}{/translate}
 
 {translate}
+
+{""|translate}
 }}}
