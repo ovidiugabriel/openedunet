@@ -41,8 +41,8 @@ if (!defined('_VALID_ACCESS')) {
  */
 function smarty_function_url($params, &$smarty) {
 
-    if (!empty($params["href"])) {
-        return _URL_MAIN . "/$params[href]";
+    if (!empty($params['href'])) {
+        return _URL_MAIN . '/'. $params['href'];
     }
 
     return getSeoUrl($params);
