@@ -1,1 +1,11 @@
 #summary Translation of User Interface texts
+
+{{{
+
+Block
+
+{translate}{/translate}
+
+{translate}
+
+}}}
