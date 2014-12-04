@@ -1,19 +1,19 @@
 #summary Translation of User Interface texts
 
-Function
+== Function ==
 
 {{{
 {translate string=""}
 {translate ""}
 }}}
 
-Modifier
+== Modifier ==
 
 {{{
 {""|translate}
 }}}
 
-Block
+== Block ==
 
 {{{
 {translate}{/translate}
