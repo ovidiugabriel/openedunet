@@ -1,12 +1,20 @@
 #summary Translation of User Interface texts
 
+Function
+
+{{{
+{translate string=""}
+{translate ""}
+}}}
+
+Modifier
+
+{{{
+{""|translate}
+}}}
 
 Block
 
 {{{
 {translate}{/translate}
-
-{translate}
-
-{""|translate}
 }}}
