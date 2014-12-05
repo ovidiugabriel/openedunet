@@ -67,7 +67,9 @@ class Database {
     $this->databaseName = $name;
   }
   
-  // public final java.lang.String databaseName()
+  /**
+   * @proto public final java.lang.String databaseName()
+   */
   public final function databaseName() {
     return $this->databaseName;
   }
@@ -79,7 +81,9 @@ class Database {
     $this->hostName = $host;
   }
   
-  // public final java.lang.String hostName()
+  /**
+   * @proto public final java.lang.String hostName()
+   */
   public final function hostName() {
     return $hostName;
   }
@@ -92,7 +96,9 @@ class Database {
     $this->password = $password;
   }
   
-  // public final java.lang.String password()
+  /**
+   * @proto public final java.lang.String password()
+   */
   public final function password() {
     return $this->password;
   }
@@ -106,7 +112,9 @@ class Database {
     $this->port = intval($p);
   }
   
-  // public final int port()
+  /**
+   * @proto public final int port()
+   */
   public final function port() {
     return intval($this->port);
   }
@@ -119,10 +127,13 @@ class Database {
     $this->userName = $name;
   }
   
-  // public final java.lang.String userName()
+  /**
+   * @proto public final java.lang.String userName()
+  */
   public final function userName() {
     return $this->userName;
   }
+  
 } /* end of class Database */
 
 class Location {
