@@ -70,26 +70,26 @@ class Database {
     if ($name != '') {      // called as a setter
       $this->databaseName = $name;
       return $this;
-    } else {                // called as a getter
-      return $this->databaseName;      
-    }
+    }    
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088E end
+    
+    // called as a getter
+    return $this->databaseName;
   }
   
   /* 
-   * @proto public final void setHostName(java.lang.String host) 
+   * @param string $host
    */
-  public final function setHostName($host) {
+  public final function hostName($host = '') {
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000892 begin
-    $this->hostName = $host;
+    if ($host != '') {
+      // called as a setter
+      $this->hostName = $host;
+      return $this;
+    }
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000892 end
-  }
-  
-  /**
-   * @proto public final java.lang.String hostName()
-   */
-  public final function hostName() {
-    return $hostName;
+    // called as a getter
+    return $this->hostName;
   }
   
   /**
