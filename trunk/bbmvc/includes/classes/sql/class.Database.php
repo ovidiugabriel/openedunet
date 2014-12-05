@@ -75,7 +75,11 @@ class Database {
    * @proto public final java.lang.String databaseName()
    */
   public final function databaseName() {
-    return $this->databaseName;
+    $returnValue = (string) '';
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088E begin
+    $returnValue = $this->databaseName;
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088E end
+    return (string) $returnValue;
   }
   
   /* 
