@@ -10,10 +10,6 @@
  */
 namespace sql;
 
-if (0 > version_compare(PHP_VERSION, '5')) {
-    die('This file was generated for PHP 5');
-}
-
 /* user defined includes */
 // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000866-includes begin
 // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000866-includes end
