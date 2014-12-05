@@ -14,4 +14,9 @@ class Error {
 }
 
 class Error_ErrorType {
+  const ConnectionError  = 0;
+  const NoError          = 1;
+  const StatementError   = 2;
+  const TransactionError = 3;
+  const UnknownError     = 4;
 }
