@@ -206,4 +206,24 @@ class ParamTypeFlag {
 }
 
 class TableType {
+  const AllTables    = 1;
+  const SystemTables = 2;
+  const Tables       = 3;
+  const Views        = 4;
+
+  public static function values()
+  {
+    return array(
+      'AllTables'    => self::AllTables,
+      'SystemTables' => self::SystemTables,
+      'Tables'       => self::Tables,
+      'Views'        => self::Views,
+    );
+  }
+
+  static public function valueOf($name)
+  {
+    $values = self::values();
+    return $values[$name];
+  }   
 }
