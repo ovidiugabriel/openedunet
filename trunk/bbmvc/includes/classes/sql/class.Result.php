@@ -7,6 +7,8 @@ abstract class Result {
 }
 
 class Result_BindingSyntax {
+  const NamedBinding      = 0;
+  const PositionalBinding = 1;
 }
 
 class Result_VirtualHookOperation {
