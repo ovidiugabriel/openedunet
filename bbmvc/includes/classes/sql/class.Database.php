@@ -155,10 +155,30 @@ class Location {
   {
     $values = self::values();
     return $values[$name];
-  }
+  }  
 }
 
 class NumericalPrecisionPolicy {
+  const LowPrecisionInt32  = 1;
+  const LowPrecisionInt64  = 2;
+  const LowPrecisionDouble = 3;
+  const HighPrecision      = 4;
+  
+  public static function values()
+  {
+    return array(
+      'LowPrecisionInt32'  => self::LowPrecisionInt32,
+      'LowPrecisionInt64'  => self::LowPrecisionInt64,
+      'LowPrecisionDouble' => self::LowPrecisionDouble,
+      'HighPrecision'      => self::HighPrecision,
+    );
+  }
+
+  static public function valueOf($name)
+  {
+    $values = self::values();
+    return $values[$name];
+  }  
 }
 
 class ParamType {
