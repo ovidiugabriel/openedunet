@@ -54,7 +54,8 @@ class Database {
    * @proto public final boolean open(java.lang.String user, java.lang.String password)
    * @proto public final boolean open()   
    */
-  public final function open($user = null, $password = null) {
+  public final function open($user = null, $password = null) 
+  {
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000886 begin
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000886 end
   }
@@ -63,8 +64,11 @@ class Database {
    * @param string $name
    * @proto public final void setDatabaseName(java.lang.String name) 
    */
-  public final function setDatabaseName($name) {
+  public final function setDatabaseName($name) 
+  {
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088A begin
     $this->databaseName = $name;
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088A end    
   }
   
   /**
