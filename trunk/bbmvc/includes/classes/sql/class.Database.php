@@ -140,6 +140,22 @@ class Database {
 } /* end of class Database */
 
 class Location {
+  const BeforeFirstRow = 1;
+  const AfterLastRow   = 2;
+  
+  static public function values()
+  {
+    return array(
+      'BeforeFirstRow' => self::BeforeFirstRow,
+      'AfterLastRow'   => self::AfterLastRow,
+    );
+  }
+  
+  static public function valueOf($name)
+  {
+    $values = self::values();
+    return $values[$name];
+  }
 }
 
 class NumericalPrecisionPolicy {
