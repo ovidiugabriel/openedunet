@@ -32,6 +32,32 @@ class Driver_DriverFeature {
   const EventNotifications     = 12;
   const FinishQuery            = 13;
   const MultipleResultSets     = 14;
+
+  static public function values()
+  {
+    return array(
+      'Transactions'           => self::Transactions,
+      'QuerySize'              => self::QuerySize,
+      'BLOB'                   => self::BLOB,
+      'Unicode'                => self::Unicode,
+      'PreparedQueries'        => self::PreparedQueries,
+      'NamedPlaceholders'      => self::NamedPlaceholders,
+      'PositionalPlaceholders' => self::PositionalPlaceholders,
+      'LastInsertId'           => self::LastInsertId,
+      'BatchOperations'        => self::BatchOperations,
+      'SimpleLocking'          => self::SimpleLocking,
+      'LowPrecisionNumbers'    => self::LowPrecisionNumbers,
+      'EventNotifications'     => self::EventNotifications,
+      'FinishQuery'            => self::FinishQuery,
+      'MultipleResultSets'     => self::MultipleResultSets,
+    );
+  }
+
+  static public function valueOf($name)
+  {
+    $values = self::values();
+    return $values[$name];
+  }
 }
 
 class Driver_IdentifierType {
