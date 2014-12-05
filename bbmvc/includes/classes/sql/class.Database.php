@@ -140,8 +140,8 @@ class Database {
 } /* end of class Database */
 
 class Location {
-  const BeforeFirstRow = 1;
-  const AfterLastRow   = 2;
+  const BeforeFirstRow = 0;
+  const AfterLastRow   = 1;
   
   static public function values()
   {
@@ -159,10 +159,10 @@ class Location {
 }
 
 class NumericalPrecisionPolicy {
-  const LowPrecisionInt32  = 1;
-  const LowPrecisionInt64  = 2;
-  const LowPrecisionDouble = 3;
-  const HighPrecision      = 4;
+  const LowPrecisionInt32  = 0;
+  const LowPrecisionInt64  = 1;
+  const LowPrecisionDouble = 2;
+  const HighPrecision      = 3;
   
   public static function values()
   {
@@ -185,6 +185,24 @@ class ParamType {
 }
 
 class ParamTypeFlag {
+  const Binary = 0;
+  const In     = 1;
+  const InOut  = 2;
+
+  public static function values()
+  {
+    return array(
+      'Binary' => self::Binary,
+      'In'     => self::In,
+      'InOut'  => self::InOut,
+    );
+  }
+
+  static public function valueOf($name)
+  {
+    $values = self::values();
+    return $values[$name];
+  } 
 }
 
 class TableType {
