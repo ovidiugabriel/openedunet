@@ -85,4 +85,21 @@ class Driver_StatementType {
   const SelectStatement = 3;
   const UpdateStatement = 4;
   const WhereStatement  = 5;
+
+  static public function values()
+  {
+    return array(
+      'DeleteStatement' => self::DeleteStatement,
+      'InsertStatement' => self::InsertStatement,
+      'SelectStatement' => self::SelectStatement,
+      'UpdateStatement' => self::UpdateStatement,
+      'WhereStatement'  => self::WhereStatement,
+    );
+  }
+
+  static public function valueOf($name)
+  {
+    $values = self::values();
+    return $values[$name];
+  }    
 }
