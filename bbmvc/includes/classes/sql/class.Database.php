@@ -91,17 +91,9 @@ class Database {
     // called as a getter
     return $this->hostName;
   }
-  
+
   /**
    * @param string $password
-   * @proto public final void setPassword(java.lang.String password)
-   */
-  public final function setPassword() {
-    $this->password = $password;
-  }
-  
-  /**
-   * @proto public final java.lang.String password()
    */
   public final function password($password = null) {
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000895 begin
@@ -117,17 +109,14 @@ class Database {
   
   /**
    * @param integer $p
-   *
-   * @proto public final void setPort(int p)
    */
-  public final function setPort($p) {
-    $this->port = intval($p);
-  }
-  
-  /**
-   * @proto public final int port()
-   */
-  public final function port() {
+  public final function port($p = null) {
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000897 begin
+    if ($p !== null) {
+      $this->port = intval($p);
+      return $this;
+    }
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000897 end
     return intval($this->port);
   }
   
