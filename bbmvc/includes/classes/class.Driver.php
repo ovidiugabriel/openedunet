@@ -17,7 +17,7 @@ abstract class Driver {
   */
 }
 
-class Driver_DriverFeature {
+class Driver_DriverFeature extends Enumeration {
   const Transactions           = 1;
   const QuerySize              = 2;
   const BLOB                   = 3;
@@ -35,22 +35,7 @@ class Driver_DriverFeature {
 
   static public function values()
   {
-    return array(
-      'Transactions'           => self::Transactions,
-      'QuerySize'              => self::QuerySize,
-      'BLOB'                   => self::BLOB,
-      'Unicode'                => self::Unicode,
-      'PreparedQueries'        => self::PreparedQueries,
-      'NamedPlaceholders'      => self::NamedPlaceholders,
-      'PositionalPlaceholders' => self::PositionalPlaceholders,
-      'LastInsertId'           => self::LastInsertId,
-      'BatchOperations'        => self::BatchOperations,
-      'SimpleLocking'          => self::SimpleLocking,
-      'LowPrecisionNumbers'    => self::LowPrecisionNumbers,
-      'EventNotifications'     => self::EventNotifications,
-      'FinishQuery'            => self::FinishQuery,
-      'MultipleResultSets'     => self::MultipleResultSets,
-    );
+    return parent::values(__CLASS__);
   }
 
   static public function valueOf($name)
