@@ -61,6 +61,22 @@ class Driver_DriverFeature {
 }
 
 class Driver_IdentifierType {
+  const FieldName = 1;
+  const TableName = 2;
+  
+  static public function values()
+  {
+    return array(
+      'FieldName' => self::FieldName,
+      'TableName' => self::TableName,
+    );
+  }
+  
+  static public function valueOf($name)
+  {
+    $values = self::values();
+    return $values[$name];
+  }  
 }
 
 class Driver_StatementType {
