@@ -10,12 +10,28 @@
  */
 namespace sql;
 
-/** Represents a connection to a database */
+if (0 > version_compare(PHP_VERSION, '5')) {
+    die('This file was generated for PHP 5');
+}
+
+/* user defined includes */
+// section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000866-includes begin
+// section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000866-includes end
+
+/* user defined constants */
+// section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000866-constants begin
+// section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000866-constants end
+
+/**
+ * Represents a connection to a database
+ *
+ * @access public
+ * @author firstname and lastname of author, <author@example.org>
+ */
 class Database { 
-  /* public class QSqlDatabase
-        extends QtJambiObject
-        implements java.lang.Cloneable 
-   */
+  // --- ASSOCIATIONS ---
+
+  // --- ATTRIBUTES ---
    
   /** @var string $databaseName */
   private $databaseName;
@@ -31,7 +47,9 @@ class Database {
   
   /** @var string $userName */
   private $userName;
-   
+
+  // --- OPERATIONS ---
+  
   /**
    * @param string $user
    * @param string $password
@@ -108,7 +126,7 @@ class Database {
   public final function userName() {
     return $this->userName;
   }
-}
+} /* end of class Database */
 
 class Location {
 }
