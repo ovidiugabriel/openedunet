@@ -64,10 +64,10 @@ class Database {
   /**
    * @param string $name
    */
-  public final function databaseName($name = '') 
+  public final function databaseName($name = null) 
   {
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088E begin
-    if ($name != '') {      // called as a setter
+    if ($name !== null) {      // called as a setter
       $this->databaseName = $name;
       return $this;
     }    
@@ -80,14 +80,14 @@ class Database {
   /* 
    * @param string $host
    */
-  public final function hostName($host = '') {
+  public final function hostName($host = null) {
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000892 begin
-    if ($host != '') {
-      // called as a setter
+    if ($host !== null) {       // called as a setter
       $this->hostName = $host;
       return $this;
     }
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000892 end
+
     // called as a getter
     return $this->hostName;
   }
@@ -96,14 +96,22 @@ class Database {
    * @param string $password
    * @proto public final void setPassword(java.lang.String password)
    */
-  public final function setPassword($password) {
+  public final function setPassword() {
     $this->password = $password;
   }
   
   /**
    * @proto public final java.lang.String password()
    */
-  public final function password() {
+  public final function password($password = null) {
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000895 begin
+    if ($password !== null) {       // called as a setter
+      $this->password = $password;
+      return $this;
+    }
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000895 end
+
+    // called as a getter
     return $this->password;
   }
   
