@@ -112,26 +112,28 @@ class Database {
    */
   public final function port($p = null) {
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000897 begin
-    if ($p !== null) {
+    if ($p !== null) {       // called as a setter
       $this->port = intval($p);
       return $this;
     }
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000897 end
+    
+    // called as a getter
     return intval($this->port);
   }
-  
+   
   /**
    * @param string $name
-   * @proto public final void setUserName(java.lang.String name)
    */
-  public final function setUserName($name) {
-    $this->userName = $name;
-  }
-  
-  /**
-   * @proto public final java.lang.String userName()
-  */
-  public final function userName() {
+  public final function userName($name = null) {
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000899 begin
+    if ($name !== null) {       // called as a setter
+      $this->userName = $name;
+      return $this;
+    }
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000899 end
+
+    // called as a getter
     return $this->userName;
   }
   
