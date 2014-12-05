@@ -60,33 +60,34 @@ class Database {
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000886 end
   }
   
+ 
   /**
    * @param string $name
-   * @proto public final void setDatabaseName(java.lang.String name) 
    */
-  public final function setDatabaseName($name) 
+  public final function databaseName($name = '') 
   {
-    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088A begin
-    $this->databaseName = $name;
-    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088A end    
-  }
-  
-  /**
-   * @proto public final java.lang.String databaseName()
-   */
-  public final function databaseName() {
-    $returnValue = (string) '';
+    $returnValue =  '';
+
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088E begin
-    $returnValue = $this->databaseName;
+    if ($name != '') {      // called as a setter
+      $this->databaseName = $name;
+      $returnValue = $this;
+    } else {                // called as a getter
+      $returnValue = $this->databaseName;
+      
+    }
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088E end
-    return (string) $returnValue;
+
+    return $returnValue;
   }
   
   /* 
    * @proto public final void setHostName(java.lang.String host) 
    */
   public final function setHostName($host) {
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000892 begin
     $this->hostName = $host;
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000892 end
   }
   
   /**
