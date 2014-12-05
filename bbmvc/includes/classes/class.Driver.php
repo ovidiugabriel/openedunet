@@ -18,6 +18,20 @@ abstract class Driver {
 }
 
 class Driver_DriverFeature {
+  const Transactions           = 1;
+  const QuerySize              = 2;
+  const BLOB                   = 3;
+  const Unicode                = 4;
+  const PreparedQueries        = 5;
+  const NamedPlaceholders      = 6;
+  const PositionalPlaceholders = 7;
+  const LastInsertId           = 8;
+  const BatchOperations        = 9;
+  const SimpleLocking          = 10;
+  const LowPrecisionNumbers    = 11;
+  const EventNotifications     = 12;
+  const FinishQuery            = 13;
+  const MultipleResultSets     = 14;
 }
 
 class Driver_IdentifierType {
