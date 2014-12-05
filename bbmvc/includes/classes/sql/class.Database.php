@@ -55,7 +55,8 @@ class Database {
    * @proto public final boolean open()   
    */
   public final function open($user = null, $password = null) {
-
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000886 begin
+    // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000886 end
   }
   
   /**
