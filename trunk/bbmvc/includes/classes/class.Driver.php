@@ -80,4 +80,9 @@ class Driver_IdentifierType {
 }
 
 class Driver_StatementType {
+  const DeleteStatement = 1;
+  const InsertStatement = 2;
+  const SelectStatement = 3;
+  const UpdateStatement = 4;
+  const WhereStatement  = 5;
 }
