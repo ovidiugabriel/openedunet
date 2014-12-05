@@ -66,19 +66,14 @@ class Database {
    */
   public final function databaseName($name = '') 
   {
-    $returnValue =  '';
-
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088E begin
     if ($name != '') {      // called as a setter
       $this->databaseName = $name;
-      $returnValue = $this;
+      return $this;
     } else {                // called as a getter
-      $returnValue = $this->databaseName;
-      
+      return $this->databaseName;      
     }
     // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088E end
-
-    return $returnValue;
   }
   
   /* 
