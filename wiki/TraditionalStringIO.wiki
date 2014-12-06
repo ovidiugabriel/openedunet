@@ -36,3 +36,13 @@ Here it is in Python:
 {{{
 z, l, a = s.split('.')
 }}}
+
+== Serialization ==
+
+When a parameter is passed to a function it can be in:
+  * unserialized form
+  * serialized form
+
+For the serialized form we have:
+  * dictionary (called associative array in PHP)
+  * object (in JavaScript and object is a dictionary)
