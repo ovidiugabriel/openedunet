@@ -37,8 +37,11 @@ Here it is in Python:
 z, l, a = s.split('.')
 }}}
 
+For type safety in PHP we have some extra lines:
+
 {{{
 list ($z, $l, $a) = explode('.', $s);
+
 // but for type-safety
 $z = intval($z);
 $l = intval($l);
