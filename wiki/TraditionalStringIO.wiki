@@ -45,4 +45,6 @@ When a parameter is passed to a function it can be in:
 
 For the serialized form we have:
   * dictionary (called associative array in PHP)
-  * object (in JavaScript and object is a dictionary)
+  * object (in `JavaScript` and object is a dictionary)
+
+A form of serialization is `QUERY_STRING`
