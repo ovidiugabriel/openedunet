@@ -37,6 +37,14 @@ Here it is in Python:
 z, l, a = s.split('.')
 }}}
 
+{{{
+list ($z, $l, $a) = explode('.', $s);
+// but for type-safety
+$z = intval($z);
+$l = intval($l);
+$a = intval($a);
+}}}
+
 == Serialization ==
 
 When a parameter is passed to a function it can be in:
