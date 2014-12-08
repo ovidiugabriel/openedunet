@@ -205,25 +205,32 @@ class ParamTypeFlag {
   } 
 }
 
-class TableType {
+class TableType extends Enum {
   const AllTables    = 1;
   const SystemTables = 2;
   const Tables       = 3;
   const Views        = 4;
 
-  public static function values()
+  /** 
+   * @return dictionary
+   */
+  static 
+  public function values()
   {
-    return array(
-      'AllTables'    => self::AllTables,
-      'SystemTables' => self::SystemTables,
-      'Tables'       => self::Tables,
-      'Views'        => self::Views,
-    );
+    return parent::values(__CLASS__);
   }
 
-  static public function valueOf($name)
+  /** 
+   * @param string $name
+   * @return integer
+   */
+  static 
+  public function valueOf($name)
   {
     $values = self::values();
     return $values[$name];
   }   
 }
+
+// EOF
+
