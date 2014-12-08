@@ -23,6 +23,7 @@ namespace sql;
  *
  * @access public
  * @author firstname and lastname of author, <author@example.org>
+ * @see http://doc.qt.digia.com/qtjambi-4.5.2_01/com/trolltech/qt/sql/QSqlDatabase.html
  */
 class Database { 
   // --- ASSOCIATIONS ---
@@ -139,42 +140,60 @@ class Database {
   
 } /* end of class Database */
 
-class Location {
+/** 
+ * @access public
+ * @see http://doc.qt.digia.com/qtjambi-4.5.2_01/com/trolltech/qt/sql/QSql.Location.html
+ */
+class Location extends Enum {
   const BeforeFirstRow = 0;
   const AfterLastRow   = 1;
   
-  static public function values()
+  /** 
+   * @return dictionary
+   */
+  static 
+  public function values()
   {
-    return array(
-      'BeforeFirstRow' => self::BeforeFirstRow,
-      'AfterLastRow'   => self::AfterLastRow,
-    );
+    return parent::values(__CLASS__);
   }
   
-  static public function valueOf($name)
+  /** 
+   * @param string $name
+   * @return integer
+   */
+  static 
+  public function valueOf($name)
   {
     $values = self::values();
     return $values[$name];
   }  
 }
 
-class NumericalPrecisionPolicy {
+/** 
+ * @access public
+ * @see http://doc.qt.digia.com/qtjambi-4.5.2_01/com/trolltech/qt/sql/QSql.NumericalPrecisionPolicy.html
+ */
+class NumericalPrecisionPolicy extends Enum {
   const LowPrecisionInt32  = 0;
   const LowPrecisionInt64  = 1;
   const LowPrecisionDouble = 2;
   const HighPrecision      = 3;
   
-  public static function values()
+  /** 
+   * @return dictionary
+   */
+  static
+  public function values()
   {
-    return array(
-      'LowPrecisionInt32'  => self::LowPrecisionInt32,
-      'LowPrecisionInt64'  => self::LowPrecisionInt64,
-      'LowPrecisionDouble' => self::LowPrecisionDouble,
-      'HighPrecision'      => self::HighPrecision,
-    );
+    return parent::values(__CLASS__);
   }
 
-  static public function valueOf($name)
+  /**
+   * @param string $name
+   * @return integer
+   */
+  static 
+  public function valueOf($name)
   {
     $values = self::values();
     return $values[$name];
