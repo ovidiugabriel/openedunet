@@ -1,6 +1,6 @@
 <?php
 
-class Enumeration {
+class Enum {
 	static public function values($class_name)
 	{
 		$reflection = new ReflectionClass($class_name);
