@@ -184,21 +184,26 @@ class NumericalPrecisionPolicy {
 class ParamType {
 }
 
-class ParamTypeFlag {
+class ParamTypeFlag extends Enum {
   const Binary = 0;
   const In     = 1;
   const InOut  = 2;
 
-  public static function values()
+  /** 
+   * @return dictionary
+   */
+  static 
+  public function values()
   {
-    return array(
-      'Binary' => self::Binary,
-      'In'     => self::In,
-      'InOut'  => self::InOut,
-    );
+    return parent::values(__CLASS__);
   }
 
-  static public function valueOf($name)
+  /** 
+   * @param string $name
+   * @return integer
+   */
+  static 
+  public function valueOf($name)
   {
     $values = self::values();
     return $values[$name];
