@@ -6,6 +6,7 @@
 {$varname} // smarty style
 {varname}  // python style
 ${varname} // bash style
+$(varname)
 $varname   // perl style
 "#{varname}" // ruby style
 %varname
