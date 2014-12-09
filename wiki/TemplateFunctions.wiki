@@ -6,12 +6,12 @@
 
 {{{
 // using various sigil styles
-// encountered in Bash, Perl, Smarty, etc.
+// encountered in Bash, Perl, PHP, Smarty, etc.
 
-{$varname}
+{$varname}  // used by Smarty and PHP
 ${varname}
 $(varname)
-$varname
+$varname    // used by PHP
 
 // using variable name in curly braces
 // encountered and Pyhton and some template engines
