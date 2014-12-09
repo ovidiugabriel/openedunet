@@ -33,6 +33,7 @@ $varname    // used by PHP
 %{ expression } 
 %< expression >
 
+%%expression%
 
 }}}
 
