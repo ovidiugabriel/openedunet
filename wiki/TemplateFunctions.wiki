@@ -22,6 +22,7 @@ $varname    // used by PHP
 %varname
 %varname%
 
+#varname#
 "#{varname}" // ruby style
 :varname
 ?
