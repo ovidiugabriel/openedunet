@@ -2,6 +2,8 @@
 
 [http://phphtmllib.newsblob.com/ phpHtmlLib]
 
+== Placeholders for string interpolation ==
+
 {{{
 // using various sigil styles
 // encountered in Bash, Perl, Smarty, etc.
