@@ -10,6 +10,10 @@ $varname   // perl style
 #{varname} // ruby style
 %varname
 %varname%
+
+:varname
+?
+{0}, {1}
 }}}
 
 
