@@ -15,10 +15,12 @@ $varname
 // encountered and Pyhton and some template engines
 {varname}
 
-"#{varname}" // ruby style
+// using percent prefix
+// encountered in proprietary platforms like IBM and Microsoft
 %varname
 %varname%
 
+"#{varname}" // ruby style
 :varname
 ?
 {0}, {1}
