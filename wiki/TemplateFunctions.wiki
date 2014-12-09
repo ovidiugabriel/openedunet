@@ -37,6 +37,8 @@ $varname    // used by PHP
 
 %!delimiter\!! # escape '!' literal
 
+\(varname)
+
 
 }}}
 
