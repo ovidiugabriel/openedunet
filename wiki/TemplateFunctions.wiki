@@ -26,6 +26,14 @@ $varname    // used by PHP
 :varname
 ?
 {0}, {1}
+
+// More complex
+%( expression )
+%[ expression ] 
+%{ expression } 
+%< expression >
+
+
 }}}
 
 
