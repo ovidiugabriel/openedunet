@@ -39,6 +39,8 @@ $varname    // used by PHP
 
 \(varname)
 
+<# expression #>
+<% expression %>
 
 }}}
 
