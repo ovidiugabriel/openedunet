@@ -8,6 +8,8 @@
 ${varname} // bash style
 $varname   // perl style
 #{varname} // ruby style
+%varname
+%varname%
 }}}
 
 
