@@ -3,11 +3,15 @@
 [http://phphtmllib.newsblob.com/ phpHtmlLib]
 
 {{{
-{$varname} // smarty style
-{varname}  // python style
-${varname} // bash style
+// Using various sigil styles
+{$varname}
+${varname}
 $(varname)
-$varname   // perl style
+$varname
+
+// Using variable name in curly braces
+{varname}
+
 "#{varname}" // ruby style
 %varname
 %varname%
