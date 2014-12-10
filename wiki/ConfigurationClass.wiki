@@ -22,6 +22,12 @@ Another important feature is that object data is automatically serialized into a
 || Type || ... ||
 || Default || ... ||
 
+{{{
+
+Config(string schema)
+
+}}}
+
 === Reading Values ===
 
 {{{
