@@ -140,7 +140,7 @@ object require_class(string name, callable callback)
 log_message(integer level, string message)
 }}}
 
-The `level` is compatible with the `syslog()` and `trigger_error()` functions.
+The `level` is compatible with the [http://php.net/manual/en/function.syslog.php syslog()] and `trigger_error()` functions.
 
 || *`syslog()` constant* || *Numeric* || *`trigger_error()` constant* || *Numeric* || *Description* ||
 || `LOG_ERR`     || `3` || `E_USER_ERROR`    || `256`  || error conditions ||
