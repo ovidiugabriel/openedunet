@@ -16,6 +16,12 @@ In order to *avoid assuming the correct type*, this function converts the stored
 
 Another important feature is that object data is automatically serialized into a specific form in the database, and they are automatically unserialized when you are accessing the key.
 
+|| Schema || ... ||
+|| Summary || (actual comment) ... ||
+|| Description || ... ||
+|| Type || ... ||
+|| Default || ... ||
+
 === Reading Values ===
 
 {{{
