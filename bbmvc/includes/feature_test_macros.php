@@ -8,5 +8,5 @@
 
 // 5.3.0 - Anonymous functions become available. 
 if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
-    define ('ANONYMOUS_FUNCTIONS', 1);
+    define ('_ANONYMOUS_FUNCTIONS', 1);
 }
