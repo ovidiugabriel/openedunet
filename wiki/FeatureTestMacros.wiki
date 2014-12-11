@@ -1,0 +1,4 @@
+
+=== `_ANONYMOUS_FUNCTIONS` ===
+
+Anonymous functions become available in PHP 5.3.0 	
