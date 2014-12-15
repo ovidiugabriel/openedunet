@@ -1,0 +1,346 @@
+#!/usr/bin/php
+<?php
+
+error_reporting(E_ALL | E_STRICT);
+
+require_once 'class.Console.php';
+
+// For C++0x features compile with -std=c++0x
+
+// Known limitations:
+// 1. Only public static members are allowed at this time.
+//    Protected and private static members are not allowed yet.
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// GLOBAL FLAGS INITIALIZATIONS
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+const endl = "\n";
+
+define ('EOL', "\n");
+define ('TAB', "    ");
+
+function tab($n = 1) {
+    $txt = '';
+    for ($i = 0; $i < $n; $i++) {
+        $txt .= TAB;
+    }
+    return $txt;
+}
+
+$f_opt['HEADER_PUBLIC']    = false;
+$f_opt['HEADER_PROTECTED'] = false;
+$f_opt['HEADER_PRIVATE']   = false;
+$f_opt['HEADER_INTERNAL']  = false;
+$f_opt['HEADER']           = false;
+$f_opt['SOURCE']           = false;
+$f_opt['GOBJECT']          = false;
+$f_opt['LANG_C']           = false;
+$f_opt['LANG_CPP']         = false;
+$f_opt['LANG_OBJC']        = false;
+$f_opt['LANG_OBJCPP']      = false;
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// GLOBAL STORAGE
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+$g_types = array();
+
+function coral_get_flags() {
+    return $GLOBALS['f_opt'];
+}
+
+function coral_get_types() {
+    return $GLOBALS['g_types'];
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// PRINTING FUNCTIONS
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+function usage_option($name, $description, $indent = 2) {
+    println(tab($indent-1) . Console::bold($name, Console::YELLOW)); 
+    println(tab($indent) . $description); 
+    println();
+}
+
+function usage($argv) {
+    $cmd_name = str_replace(array('.', '/'), array('', ''), $argv[0]);
+    println();
+    println(Console::bold('NAME', Console::CYAN));
+    println(tab().$cmd_name .' - a tool to write and verify more reliable code in a faster way.');
+    println();
+
+    println(Console::bold('USAGE', Console::CYAN));
+    println(tab() . Console::bold($cmd_name, Console::GREEN) ." [options ...] -c <classname>");
+    println(tab() . Console::bold($cmd_name, Console::GREEN) ." [options ...] -h <accesslevel> <classname>");
+    println();
+
+    println(Console::bold('INTERFACE ACCESS LEVELS', Console::CYAN));
+    println(tab(). 'The access level is a required argument. Event if the interface is ' . Console::underline('public') . ', this must be explicitly specified.');
+    println();
+    usage_option('public',    '');
+    usage_option('protected', '');
+    usage_option('private',   '');
+    usage_option('internal',  '');
+    println();
+
+    println(Console::bold('OPTIONS', Console::CYAN));
+    usage_option('--clang=language', 'If not specified, the default language is '. Console::bold('c'));
+    usage_option('c', 'ANSI C/ISO C/MISRA C/GNU C', 3);
+    usage_option('cpp', 'C++', 3);
+    usage_option('objc', 'Objective-C', 3);
+    usage_option('objcpp', 'Objective-C++', 3);
+
+    usage_option('--gobject', 'Use glib runtime type identification and management system, including glib object signal handling');
+    usage_option('--qobject', 'Use Qt meta-object type system for signals mechanism and run-time type information');
+
+    usage_option('--auto [mode]', 'Use one of the following modes for default automatic type variables:');
+
+    usage_option('gpointer', 'Since '. Console::underline('void*'). ' and ' . Console::underline('gpointer').' are the same. This is the old school generic C type.', 3);
+    usage_option('infer', 'Use C++11 compiler type inference system.', 3);
+    usage_option('zval', 'A zval is a C structure in which Zend Engine variables are stored. ', 3);
+    println(tab(3). 'Internally, this zval keeps a refcount, a union with the possible types and a number of other members too. ');
+    println(tab(3). 'In C++ you can encapsulate all this complicated zval handling using Php::Value wrapper.');
+    println();
+
+    usage_option('php-value', 'The Php::Value object is a wrapper around a zval variable, but it completely hides the complexity of zval handling.', 3);
+    println(tab(3). 'It hides everything that you always wanted to ask about the internals of zval, but were afraid to ask.');
+    println(tab(3). 'Available only with C++ code.');
+    println();
+
+    usage_option('gvariant', 'Use glib variant type GVariant to store generic objects.', 3);
+    usage_option('qvariant', 'Use Qt variant type QVariant to store generic objects. Available only with C++ code.', 3);
+
+    usage_option('--gcc-raii-cleanup',  'The '.Console::underline('cleanup').' attribute runs a function when the variable goes out of scope.');
+    usage_option('--gcc-packed-all', 'Specify '.Console::underline('packed').' attribute for all structures (equivalent to specifying the '.Console::underline('packed').' attribute on each of the structure members).');
+
+    usage_option('--boolval', 'Force redundant conversions to a boolean value (great for static code checkers)');
+    usage_option('--gunlikely-errors', 'Optimize error branches using G_UNLIKELY');
+    usage_option('--iso646', 'Use C alternative tokens for bitwise and logical operators');
+    println();
+
+    println(Console::bold('DEBUG BACKTRACE', Console::CYAN)); println();
+    println(tab(2)."NONE");
+//    debug_print_backtrace(); println();
+    die;
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// STRING FUNCTIONS
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/** 
+ * Generates a declaration of a pointer to an object of given type.
+ *
+ * @param string $type - the type of the object
+ * @param string $name - the name of the pointer variable
+ * @return string - some C code
+ */
+function gen_decl_ref($type, $var) {
+//    return "$type* $var;";
+    return "";
+}
+
+/** 
+ * Generate the "get_instance" function.
+ * Since there is a single instance of this type, there is no need to specify
+ * the variable name separately.
+ *
+ * @param string $type
+ */
+function gen_get_instance(array $types) {
+  $out = '';
+//    $out .=     ("void* get_instance( int type ) {") . endl;
+//    $out .=     ("    switch (type){") . endl;
+
+//    foreach ($types as $type) {
+//        $out .= ("        case TYPE_".strtoupper($type).": return &g_".strtolower($type).";") . endl;
+//    }
+//    $out .=     ("    }") . endl;
+//    $out .=     ("    return NULL_PTR;") . endl;
+//    $out .=     ("}") . endl;
+    return $out;
+}
+
+/** 
+ * Generates a call to get_instance() function.
+ *
+ * @param string $type
+ */
+function gen_call_get_instance($type) {
+//    return "(($type*) get_instance( TYPE_".strtoupper($type)." ))";
+    return "";
+}
+
+
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// MAIN CODE
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ob_start();
+
+if (1 == $argc) {
+    usage($argv);
+}
+
+$class_name = array_pop($argv);
+
+$opt = getopt("ch:", array(
+    'clang:',
+    'gobject', 
+    'qobject',
+    'gcc-raii-cleanup',
+    'gcc-packed-all',
+    'boolval',
+    'gunlikely-errors',
+    'iso646',
+    'auto:'
+));
+
+// print_r($opt);
+
+if (isset($opt['clang'])) {
+    switch ($opt['clang']) {
+        case 'c':      { $f_opt['LANG_C']      = true; } break;
+        case 'cpp':    { $f_opt['LANG_CPP']    = true; } break;
+        case 'objc':   { $f_opt['LANG_OBJC']   = true; } break;
+        case 'objcpp': { $f_opt['LANG_OBJCPP'] = true; } break;
+        default: usage($argv);
+    }
+} else {
+    $f_opt['LANG_C'] = true;
+    $opt['clang'] = 'c'; // default
+}
+
+$cname = 'Language_' . ucfirst($opt['clang']);
+require_once dirname(__FILE__) . '/lib/' . 'class.'.$cname.'.php';
+$lang_spec = new $cname();
+
+if (isset($opt['gobject'])) {
+    $f_opt["GOBJECT"] = true;
+}
+
+if (isset($opt['c'])) {
+    // C source code generation requested
+    $f_opt["SOURCE"] = 1;
+
+} elseif (isset($opt['h'])) {
+    // header file generation requested
+    $f_opt["HEADER"] = 1;
+    switch (strtolower($opt['h'])) {
+        case 'public'   : { $f_opt["HEADER_PUBLIC"]    = true; } break;
+        case 'protected': { $f_opt["HEADER_PROTECTED"] = true; } break;
+        case 'private'  : { $f_opt["HEADER_PRIVATE"]   = true; } break;
+        case 'internal' : { $f_opt["HEADER_INTERNAL"]  = true; } break;
+        default: 
+            usage($argv);
+    }
+} else {
+    usage($argv);
+}
+
+$auto_variant = 'void*';
+if (isset($opt['auto'])) {
+    $t = array('qvariant' => 'QVariant',
+       'gvariant' => 'GVariant',
+       'zval' => 'zval');
+    $auto_variant = $t[$opt['auto']];
+}
+
+// This utiliy can optionally generate classes/object 
+// based on gobject. But by default it will use plain-C code
+
+// **********************************************************************
+// Process input
+// **********************************************************************
+
+require_once dirname(__FILE__) . '/input/class.' . $class_name . '.php';
+$refl       = new ReflectionClass($class_name);
+$instance   = new $class_name();
+
+// print_r( get_class_methods($refl) );
+
+// add to the list of public types
+if (!in_array($class_name, $g_types)) {
+    $g_types[] = $class_name;
+}
+
+$constants = $refl->getConstants();
+
+foreach ($refl->getProperties( ) as $property) { 
+
+    if (preg_match('/\@var\s+([^\s]+)/', $property->getDocComment(), $matches)) {
+        $type = $matches[1];
+    } else {
+        // depending on user options, the type can be:
+        //	GVariant https://developer.gnome.org/glib/2.28/glib-GVariant.html
+        //      QVariant http://qt-project.org/doc/qt-4.8/qvariant.html
+        //      zval: http://www.php.net/manual/en/internals2.ze1.zendapi.php
+
+        $type = $auto_variant;
+    }
+
+    if ($property->isPublic()) {
+        $access = 'public';       
+    } elseif ($property->isProtected()) {
+        $access = 'protected';
+    } elseif ($property->isPrivate()) {
+        $access = 'private';
+    }
+
+    if ($property->isStatic()) {
+        try {
+            $value = $refl->getStaticPropertyValue($property->name);       
+            $properties['static'][$access][$property->name]    = array($type, $value);
+        } catch (ReflectionException $ex) {
+            // Error: `static` property is supported only if it is `public`
+            $lang_spec->compile_error(str_replace(
+                array('property', 'does not'), 
+                array('static ' . $access . ' property', 'cannot'), $ex->getMessage()));
+            
+            die;
+        }
+    } else {
+        $properties[$access][$property->name]    = $type;       
+    }
+}
+
+// *************************************************************************
+// Create output 
+// *************************************************************************
+
+define ('SECTION_IMPORTS', 'imports');
+define ('SECTION_STATIC_GLOBALS', 'static globals');
+
+$sections = array(
+    SECTION_IMPORTS => array()
+);
+
+function append_to_section($section_type, $data) {
+    global $sections;
+    $sections[$section_type][] = $data;
+}
+
+
+if ($f_opt["SOURCE"]) {
+    // TODO: append to imports section
+    $sections[SECTION_IMPORTS][] = $lang_spec->import($class_name);
+} else {
+    if ($f_opt["HEADER_PUBLIC"]) {
+       // println("#define NULL_PTR 0");
+    }
+}
+
+// use singleton declaration with the list of all public members
+
+println($lang_spec->singleton_text($class_name,  $constants, $properties));
+
+if ($f_opt["SOURCE"]) {
+//    println(gen_get_instance($g_types));
+}
+
+print_r($sections);
+
+ob_end_flush();
