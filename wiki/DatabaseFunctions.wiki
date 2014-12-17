@@ -120,13 +120,20 @@ dictionary<string, dictionary> db_result_assoc(string query, string field [, Dat
 || *`query`* || ... ||
 || *`field`* || ... ||
 || *`database`* || ... ||
-|| *return* || ... ||
+|| *returns* || ... ||
 
 === `db_result_assoc_func()` ===
 
 {{{
 nulltype db_result_assoc_func(string query, string field, callable func [, Database database])
 }}}
+
+|| *`query`* || ... ||
+|| *`field`* || ... ||
+|| *`func`* || ... ||
+|| *`database`* || ... ||
+|| *returns* || ... ||
+
 
 === `db_column_assoc()` ===
 
