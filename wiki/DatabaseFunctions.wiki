@@ -103,8 +103,7 @@ nullable object db_value_object(string type, string field, string query [, Datab
 === `db_column()` ===
 
 {{{
-list<string> db_column(string query, string field)
-list<string> db_column(string query, string field, Database database)
+list<string> db_column(string query, string field [, Database database])
 }}}
 
 || *`query`* || ... ||
