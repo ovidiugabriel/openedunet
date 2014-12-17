@@ -46,8 +46,7 @@ nullable list db_row_num(list fields, string query [, Databse database])
 === `db_result()` ===
 
 {{{
-list db_result(string query)
-list db_result(string query, Database database)
+list db_result(string query [, Database database])
 }}}
 
 || *`query`* || The `query` to be executed on the server ||
