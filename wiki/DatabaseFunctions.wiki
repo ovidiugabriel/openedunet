@@ -114,8 +114,7 @@ list<string> db_column(string query, string field [, Database database])
 === `db_result_assoc()` ===
 
 {{{
-dictionary<string, dictionary> db_result_assoc(string query, string field)
-dictionary<string, dictionary> db_result_assoc(string query, string field, Database database)
+dictionary<string, dictionary> db_result_assoc(string query, string field [, Database database])
 }}}
 
 || *`query`* || ... ||
@@ -126,8 +125,7 @@ dictionary<string, dictionary> db_result_assoc(string query, string field, Datab
 === `db_result_assoc_func()` ===
 
 {{{
-nulltype db_result_assoc_func(string query, string field, callable func)
-nulltype db_result_assoc_func(string query, string field, callable func, Database database)
+nulltype db_result_assoc_func(string query, string field, callable func [, Database database])
 }}}
 
 === `db_column_assoc()` ===
