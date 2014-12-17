@@ -1,3 +1,11 @@
+=== `load_database()` ===
+
+{{{
+load_database(string config_name)
+}}}
+
+|| *`config_name`* || ... ||
+
 === `db_row()` ===
 
 Extract a record row from the given `query` output result executed on a `database` connection.
