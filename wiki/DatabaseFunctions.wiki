@@ -92,8 +92,7 @@ string db_value(string field, string query [, Database database])
 === `db_value_object()` ===
 
 {{{
-nullable object db_value_object(string type, string field, string query)
-nullable object db_value_object(string type, string field, string query, Database database)
+nullable object db_value_object(string type, string field, string query [, Database database])
 }}}
 
 || *`type`* || ... ||
