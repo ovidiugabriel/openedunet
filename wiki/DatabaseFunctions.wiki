@@ -4,7 +4,7 @@
 load_database(string config_name)
 }}}
 
-|| *`config_name`* || ... ||
+|| *`config_name`* || the name of the configuration ||
 
 === `db_row()` ===
 
