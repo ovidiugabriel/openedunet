@@ -56,8 +56,7 @@ list db_result(string query [, Database database])
 === `db_result_objects()` ===
 
 {{{
-list db_result_objects(string type, string query)
-list db_result_objects(string type, string query, Database database)
+list db_result_objects(string type, string query [, Database database])
 }}}
 
 || *`type`* || ... ||
