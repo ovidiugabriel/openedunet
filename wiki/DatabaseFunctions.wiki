@@ -1,7 +1,7 @@
 === `load_database()` ===
 
 {{{
-Databse load_database(string config_name)
+Database load_database(string config_name)
 }}}
 
 || *`config_name`* || the name of the configuration ||
@@ -25,7 +25,7 @@ Creates an object of given `type` from the output result of the given `query` ex
 
 {{{
 nullable object db_row_object(string type, string query)
-nullable object db_row_object(string type, string query, Databse database)
+nullable object db_row_object(string type, string query, Database database)
 }}}
 
 || *`type`* || ... ||
