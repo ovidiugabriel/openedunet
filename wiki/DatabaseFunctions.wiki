@@ -131,8 +131,7 @@ nulltype db_result_assoc_func(string query, string field, callable func [, Datab
 === `db_column_assoc()` ===
 
 {{{
-function db_column_assoc(string query, string keyfield, string field)
-function db_column_assoc(string query, string keyfield, string field, Database database)
+list db_column_assoc(string query, string keyfield, string field [, Database database])
 }}}
 
 === `GetSQLValueString()` ===
