@@ -67,8 +67,7 @@ list db_result_objects(string type, string query [, Database database])
 === `db_result_func()` ===
 
 {{{
-nulltype db_result_func(string query, callable func)
-nulltype db_result_func(string query, callable func, Database database)
+nulltype db_result_func(string query, callable func [, Database database])
 }}}
 
 || *`query`* || ... ||
@@ -82,8 +81,7 @@ nulltype db_result_func(string query, callable func, Database database)
 Extracts the value of the `field` after running the `query` command on a `database` connection.
 
 {{{
-string db_value(string field, string query)
-string db_value(string field, string query, Database database)
+string db_value(string field, string query [, Database database])
 }}}
 
 || *`field`* || The name of the field to be extracted from query execution output result ||
