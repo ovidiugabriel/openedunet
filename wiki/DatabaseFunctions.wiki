@@ -35,8 +35,7 @@ nullable object db_row_object(string type, string query, Database database)
 === `db_row_num()` ===
 
 {{{
-nullable list db_row_num(list fields, string query)
-nullable list db_row_num(list fields, string query, Databse database)
+nullable list db_row_num(list fields, string query [, Databse database])
 }}}
 
 || *`fields`* || ... ||
