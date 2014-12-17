@@ -1,7 +1,7 @@
 === `load_database()` ===
 
 {{{
-load_database(string config_name)
+Databse load_database(string config_name)
 }}}
 
 || *`config_name`* || the name of the configuration ||
