@@ -33,9 +33,11 @@ Config(string schema)
 {{{
 public variant Config::get(string name) [static]
 
-public variant Config::get(string name, variant defaultValue) [static]
+public variant Config::get(string name, boolean noThrown) [static]
 
-public variant Config::get(string name, variant defaultValue, boolean noThrown) [static]
+public variant Config::get(string name, boolean noThrown, variant defaultValue) [static]
+
+
 }}}
 
 || *name* || the name of the key you need to read ||
