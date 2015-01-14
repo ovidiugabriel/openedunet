@@ -29,6 +29,7 @@ Packages\User\Preferences.sublime-settings
     "tab_size": 4, 
 
     // Set to true to insert spaces when tab is pressed
+    // PSR-2. 1. Code MUST use 4 spaces for indenting, not tabs.
     "translate_tabs_to_spaces": true,
 
     // Columns in which to display vertical rulers
