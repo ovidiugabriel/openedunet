@@ -102,7 +102,7 @@ Seven Virtues of a Good Object: 5. His Class Doesn't Have Anything Static
      * We try to avoid static methods as more as possible.
      * PSR-4.5. When present, the static declaration MUST come after the visibility declaration.
      */
-    static
+    static // << -- this is the place for static keyword
     public function FunctionName($value='') {
         # code...
     }
