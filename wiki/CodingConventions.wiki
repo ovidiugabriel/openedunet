@@ -95,8 +95,7 @@ Packages\User\Preferences.sublime-settings
      *
      */
     static
-    public function FunctionName($value='')
-    {
+    public function FunctionName($value='') {
         # code...
     }
 }}}
