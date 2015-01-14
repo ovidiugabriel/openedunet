@@ -165,11 +165,11 @@ Let's have an example:
 {{{
 if (numMines > 0)
 {
-   enabled=true;
+   enabled = true;
 }
 else
 {
-   enabled=false;
+   enabled = false;
 }
 }}}
 
