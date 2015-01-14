@@ -92,7 +92,7 @@ Packages\User\Preferences.sublime-settings
 
 {{{
     /** 
-     * I am using this because it is similar with @staticmethod in python.
+     * I am using this because it is similar with @staticmethod used in Python.
      */
     static
     public function FunctionName($value='') {
