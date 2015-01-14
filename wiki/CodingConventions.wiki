@@ -90,6 +90,9 @@ Packages\User\Preferences.sublime-settings
 
   # Usage of `static` methods and `static` local variables is discouraged. Make sure you have an object oriented or a functional design before using `static`. And make sure you are not forcing procedural style over classes by using `static` in excess. If you still need to use `static` methods make sure that `static` keyword is written on the line above the method signature.
 
+Seven Virtues of a Good Object: 5. His Class Doesn't Have Anything Static
+http://www.yegor256.com/2014/11/20/seven-virtues-of-good-object.html
+
 {{{
     /** 
      * I am using this because it is similar with @staticmethod used in Python.
