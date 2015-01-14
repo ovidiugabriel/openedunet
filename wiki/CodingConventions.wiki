@@ -93,6 +93,8 @@ Packages\User\Preferences.sublime-settings
 {{{
     /** 
      * I am using this because it is similar with @staticmethod used in Python.
+     * We don't stick to PSR-4.5, because it is more suitable for C++/Java style. We try to avoid static methods as more as possible.
+     * PSR-4.5. When present, the static declaration MUST come after the visibility declaration.
      */
     static
     public function FunctionName($value='') {
