@@ -21,6 +21,7 @@ Packages\User\Preferences.sublime-settings
     // encoding (either detected or given explicitly), this setting will be
     // ignored, and the file will be saved with the encoding it was opened
     // with.
+    // PSR-1. 2. Code files MUST use only UTF-8
     "default_encoding": "UTF-8",
 
     // The number of spaces a tab is considered equal to
