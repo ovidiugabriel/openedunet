@@ -90,8 +90,10 @@ Packages\User\Preferences.sublime-settings
 
   # Usage of `static` methods and `static` local variables is discouraged. Make sure you have an object oriented or a functional design before using `static`. And make sure you are not forcing procedural style over classes by using `static` in excess. If you still need to use `static` methods make sure that `static` keyword is written on the line above the method signature.
 
+We don't stick to PSR-4.5 because we try to avoid static methods as more as possible.
+
 Seven Virtues of a Good Object: 5. His Class Doesn't Have Anything Static
-http://www.yegor256.com/2014/11/20/seven-virtues-of-good-object.html
+[http://www.yegor256.com/2014/11/20/seven-virtues-of-good-object.html Yegor Bugayenko]
 
 {{{
     /** 
