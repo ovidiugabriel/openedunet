@@ -8,9 +8,9 @@ The license was changed from original GPL2 because it is more permissive and tha
 
 Say, this change adds the advantages to use the framework in real businesses and not only in the development community. But of course, it is still open-source and free software. And it will always be.
 
-|| DFSG compatible || Yes ||
-|| FSF approved || Yes ||
-|| OSI approved || Yes ||
+|| DFSG compatible || <span style="color: green;">Yes</a> ||
+|| FSF approved || <span style="color: green;">Yes</span> ||
+|| OSI approved || <span style="color: green;">Yes</span> ||
 || GPL compatible || Yes ||
 || Copyleft || No ||
 
