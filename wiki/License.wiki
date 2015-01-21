@@ -24,6 +24,10 @@ Rights:
 Obligations:
   * the original copyright must be retained
 
+Forbids:
+  * using contributors' names, trademarks or logos
+  * software/license owner cannpot be charged for damages
+
 {{{
 
 /* * *************************************************************************
