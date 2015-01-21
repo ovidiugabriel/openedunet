@@ -26,7 +26,7 @@ Obligations:
 
 Forbids:
   * using contributors' names, trademarks or logos
-  * software/license owner cannpot be charged for damages
+  * software/license owner cannot be charged for damages
 
 {{{
 
