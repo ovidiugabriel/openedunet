@@ -14,12 +14,15 @@ Say, this change adds the advantages to use the framework in real businesses and
 || GPL compatible || Yes ||
 || Copyleft || No ||
 
-What you can do:
+Rights:
   * use the software for commercial purposes
   * modify the software and create derivatives
   * distribute original or modified (derivative) works
   * grant/extend a license to the software
   * place warranty on the software licensed
+
+Obligations:
+  * the original copyright must be retained
 
 {{{
 
