@@ -7,5 +7,13 @@ class php_Lib {
     static function hprint($v) {
         echo(Std::string($v));
     }
+    static function isCli() {
+        return (0 == strncasecmp(PHP_SAPI, 'cli', 3));
+    }
+    static function hashOfAssociativeArray($arr) {
+        $h = new haxe_ds_StringMap();
+        $h->h = $arr;
+        return $h;
+    }
     public function __toString() { return 'php.Lib'; }
 }
