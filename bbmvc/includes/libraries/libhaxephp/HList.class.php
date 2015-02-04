@@ -10,5 +10,5 @@ class HList implements IteratorAggregate{
     public function getIterator() {
         return $this->iterator();
     }
-    public function __toString() { return 'List'; }
+    function __toString() { return 'List'; }
 }
