@@ -93,46 +93,49 @@ class _hx_array implements ArrayAccess, IteratorAggregate {
         return false;
     }
 
-	public function indexOf($x, $fromIndex) {
-		$i = ($fromIndex === null) ? 0 : $fromIndex;
-		$len = $this->length;
-		$a = $this->a;
-		if ($i < 0) {
-			$i += $len;
-			if ($i < 0) $i = 0;
-		}
-		while ($i < $len) {
-			if ($a[$i] === $x)
-				return $i;
-			$i++;
-		}
-		return -1;
-	}
+    public function indexOf($x, $fromIndex) {
+        $i = ($fromIndex === null) ? 0 : $fromIndex;
+		    $len = $this->length;
+		    $a = $this->a;
+		    if ($i < 0) {
+			      $i += $len;
+            if ($i < 0) { $i = 0; }
+		    }
+		    while ($i < $len) {
+            if ($a[$i] === $x) {
+				        return $i;
+            }
+			      $i++;
+		    }
+		    return -1;
+    }
 
-	function lastIndexOf($x, $fromIndex) {
-		$len = $this->length;
-		$i = ($fromIndex === null) ? $len - 1 : $fromIndex;
-		$a = $this->a;
-		if ($i >= $len)
-			$i = $len - 1;
-		else if ($i < 0)
-			$i += $len;
-		while ($i >= 0) {
-			if ($a[$i] === $x)
-				return $i;
-			$i--;
-		}
-		return -1;
-	}
+    public function lastIndexOf($x, $fromIndex) {
+        $len = $this->length;
+		    $i = ($fromIndex === null) ? $len - 1 : $fromIndex;
+		    $a = $this->a;
 
-	function removeAt($pos) {
-		if(array_key_exists($pos, $this->a)) {
-			unset($this->a[$pos]);
-			$this->length--;
-			return true;
-		} else
-			return false;
-	}
+		    if ($i >= $len)
+			      $i = $len - 1;
+		    else if ($i < 0)
+            $i += $len;
+
+        while ($i >= 0) {
+            if ($a[$i] === $x)
+				        return $i;
+			      $i--;
+        }
+        return -1;
+	  }
+
+    public function removeAt($pos) {
+		    if (array_key_exists($pos, $this->a)) {
+            unset($this->a[$pos]);
+			      $this->length--;
+            return true;
+        } else
+			      return false;
+    }
 
 	function reverse() {
 		$this->a = array_reverse($this->a, false);
