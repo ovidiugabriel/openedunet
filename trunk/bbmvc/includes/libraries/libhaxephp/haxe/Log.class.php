@@ -1,5 +1,7 @@
 <?php
 
+/* Copyright (C) 2014 Haxe Foundation - Do not change */
+
 class haxe_Log {
     public function __construct(){}
     static function trace($v, $infos = null) { return call_user_func_array(self::$trace, array($v, $infos)); }
