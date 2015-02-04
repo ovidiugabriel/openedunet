@@ -1,5 +1,7 @@
 At this moment this library seems to be too bloated for current use.
 
+Library documentation: http://api.haxe.org/php/index.html
+
 http://www.aymericlamboley.fr/blog/using-native-php-with-haxe-php/
 http://old.haxe.org/doc/advanced/magic
 
