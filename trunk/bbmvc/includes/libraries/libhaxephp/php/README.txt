@@ -1,5 +1,8 @@
 At this moment this library seems to be too bloated for current use.
 
+http://www.aymericlamboley.fr/blog/using-native-php-with-haxe-php/
+http://old.haxe.org/doc/advanced/magic
+http://old.haxe.org/doc/php/extern_libraries
 
 Php Magic
 
