@@ -2,25 +2,6 @@
 
 /* Copyright (C) 2014 Haxe Foundation - Do not change */
 
-/* 
-symbols_list {
-
-  php_Boot::__construct()
-  php_Boot::$qtypes
-  php_Boot::$ttypes
-  php_Boot::$tpaths
-  php_Boot::$skip_constructor
-  php_Boot::__toString()
-  
-  $_hx_class_prefix
-  _hx_add()
-  _hx_anonymous
-  
-  _hx_array::__construct()
-  _hx_array::concat()
-}
-*/
-
 class php_Boot {
     public function __construct(){}
     static $qtypes;
@@ -28,7 +9,7 @@ class php_Boot {
     static $tpaths;
     static $skip_constructor = false;
     public function __toString() { return 'php.Boot'; }
-} /* endclass php_Boot */
+}
 
 $_hx_class_prefix = null; // TODO: side effect code, to remove
   
@@ -65,7 +46,7 @@ class _hx_array implements ArrayAccess, IteratorAggregate {
         return new _hx_array($this->a);
     }
 
-    public function &get($index) {
+  public function &get($index) { // TODO: return by reference is deprecated??
         if (isset($this->a[$index])) { 
             return $this->a[$index]; 
         }
@@ -232,133 +213,154 @@ class _hx_array implements ArrayAccess, IteratorAggregate {
 }
 
 class _hx_array_iterator implements Iterator {
-	private $a;
-	private $i;
-	public function __construct($a) {
-		$this->a = $a;
-		$this->i = 0;
-	}
+    private $a;
+    private $i;
+    public function __construct($a) {
+        $this->a = $a;
+        $this->i = 0;
+    }
 
-	public function next() {
-		if(!$this->hasNext()) return null;
-		return $this->a[$this->i++];
-	}
+    public function next() {
+        if (!$this->hasNext()) { 
+          return null; 
+        }
+        return $this->a[$this->i++];
+    }
 
-	public function hasNext() {
-		return $this->i < count($this->a);
-	}
+    public function hasNext() {
+        return $this->i < count($this->a);
+    }
 
-	public function current() {
-		if (!$this->hasNext()) return false;
-		return $this->a[$this->i];
-	}
+    public function current() {
+        if (!$this->hasNext()) { 
+            return false; 
+        }
+        return $this->a[$this->i];
+    }
 
-	public function key() {
-		return $this->i;
-	}
+    public function key() {
+        return $this->i;
+    }
 
-	public function valid() {
-		return $this->current() !== false;
-	}
+    public function valid() {
+        return $this->current() !== false;
+    }
 
-	public function rewind() {
-		$this->i = 0;
-	}
-	public function size() {
-		return count($this->a);
-	}
+    public function rewind() {
+        $this->i = 0;
+    }
+
+    public function size() {
+        return count($this->a);
+    }
 }
 
-function _hx_array_get($a, $pos) { return $a[$pos]; }
+function _hx_array_get($a, $pos) { 
+    return $a[$pos]; 
+}
 
-function _hx_array_increment($a, $pos) { return $a[$pos] += 1; }
-function _hx_array_decrement($a, $pos) { return $a[$pos] -= 1; }
+function _hx_array_increment($a, $pos) { 
+    return $a[$pos] += 1; 
+}
 
-function _hx_array_assign($a, $i, $v) { return $a[$i] = $v; }
+function _hx_array_decrement($a, $pos) { 
+    return $a[$pos] -= 1; 
+}
+
+function _hx_array_assign($a, $i, $v) { 
+    return $a[$i] = $v; 
+}
 
 class _hx_break_exception extends Exception {}
 
 function _hx_cast($v, $type) {
-	if(Std::is($v, $type)) {
-		return $v;
-	} else {
-		throw new HException('Class cast error');
-	}
+    if(Std::is($v, $type)) {
+        return $v;
+    } else {
+        throw new HException('Class cast error');
+    }
 }
 
 function _hx_char_at($o, $i) {
-	if ($i < 0)
-		return '';
-	$c = substr($o, $i, 1);
-	return FALSE === $c ? '' : $c;
+    if ($i < 0) {
+        return '';
+    }
+    $c = substr($o, $i, 1);
+    return FALSE === $c ? '' : $c;
 }
 
 function _hx_char_code_at($s, $pos) {
-	if($pos < 0 || $pos >= strlen($s)) return null;
-	return ord($s{$pos});
+    if ($pos < 0 || $pos >= strlen($s)) { 
+        return null; 
+    }
+    return ord($s{$pos});
 }
 
-function _hx_deref($o) { return $o; }
+function _hx_deref($o) {
+    return $o; 
+}
 
 function _hx_equal($x, $y) {
-	if(is_null($x)) {
-		return is_null($y);
-	} else {
-		if(is_null($y)) {
-			return false;
-		} else {
-			if((is_float($x) || is_int($x)) && (is_float($y) || is_int($y))) {
-				return $x == $y;
-			} else {
-				return $x === $y;
-			}
-		}
-	}
+    if (is_null($x)) {
+        return is_null($y);
+    } else {
+        if (is_null($y)) {
+            return false;
+        } else {
+            if((is_float($x) || is_int($x)) && (is_float($y) || is_int($y))) {
+                return $x == $y;
+            } else {
+                return $x === $y;
+            }
+        }
+    }
 }
 
 function _hx_mod($x, $y) {
-	if (is_int($x) && is_int($y)) {
-		if ($y == 0) return 0;
-		return $x % $y;
-	}
-	if (!is_nan($x) && !is_nan($y) && !is_finite($y) && is_finite($x)) {
-		return $x;
-	}
-	return fmod($x, $y);
+    if (is_int($x) && is_int($y)) {
+        if ($y == 0) return 0;
+        return $x % $y;
+    }
+    if (!is_nan($x) && !is_nan($y) && !is_finite($y) && is_finite($x)) {
+        return $x;
+    }
+    return fmod($x, $y);
 }
 
 function _hx_error_handler($errno, $errmsg, $filename, $linenum, $vars) {
-	if (!(error_reporting() & $errno)) {
-		return false;
-	}
-	$msg = $errmsg . ' (errno: ' . $errno . ') in ' . $filename . ' at line #' . $linenum;
-	$e = new HException($msg, $errmsg, $errno, _hx_anonymous(array('fileName' => 'Boot.hx', 'lineNumber' => __LINE__, 'className' => 'php.Boot', 'methodName' => '_hx_error_handler')));
-	$e->setFile($filename);
-	$e->setLine($linenum);
-	throw $e;
-	return null;
+    if (!(error_reporting() & $errno)) {
+        return false;
+    }
+    $msg = $errmsg . ' (errno: ' . $errno . ') in ' . $filename . ' at line #' . $linenum;
+    $e = new HException($msg, $errmsg, $errno, _hx_anonymous(array('fileName' => 'Boot.hx', 'lineNumber' => __LINE__, 'className' => 'php.Boot', 'methodName' => '_hx_error_handler')));
+    $e->setFile($filename);
+    $e->setLine($linenum);
+    throw $e;
+    return null;
 }
 
 function _hx_exception_handler($e) {
-	if(0 == strncasecmp(PHP_SAPI, 'cli', 3)) {
-		$msg   = $e-> getMessage();
-		$nl    = "\n";
-		$pre   = '';
-		$post  = '';
-	} else {
-		$msg   = '<b>' . $e-> getMessage() . '</b>';
-		$nl    = "<br />";
-		$pre   = '<pre>';
-		$post  = '</pre>';
-	}
-	if(isset($GLOBALS['%s'])) {
-		$stack = '';
-		$i = $GLOBALS['%s']->length;
-		while(--$i >= 0)
-			$stack .= 'Called from '.$GLOBALS['%s'][$i].$nl;
-		die($pre.'uncaught exception: '.$msg.$nl.$nl.$stack.$post);
-	} else
-		die($pre.'uncaught exception: '.$msg.$nl.$nl.'in file: '.$e->getFile().' line '.$e->getLine().$nl.$e->getTraceAsString().$post);
+    if (0 == strncasecmp(PHP_SAPI, 'cli', 3)) {
+        $msg   = $e-> getMessage();
+        $nl    = "\n";
+        $pre   = '';
+        $post  = '';
+    } else {
+        $msg   = '<b>' . $e-> getMessage() . '</b>';
+        $nl    = "<br />";
+        $pre   = '<pre>';
+        $post  = '</pre>';
+    }
+    if (isset($GLOBALS['%s'])) {
+        $stack = '';
+        $i = $GLOBALS['%s']->length;
+        while (--$i >= 0) { 
+            $stack .= 'Called from '.$GLOBALS['%s'][$i].$nl; 
+        }
+        die ($pre.'uncaught exception: '.$msg.$nl.$nl.$stack.$post);
+    } else {
+        die ($pre.'uncaught exception: '.$msg.$nl.$nl.'in file: '.$e->getFile().' line '.$e->getLine().$nl.$e->getTraceAsString().$post);
+    }
 }
 
 function _hx_explode($delimiter, $s) {
@@ -988,4 +990,4 @@ if(!ini_get('date.timezone'))
 	date_default_timezone_set('UTC');
 
 spl_autoload_register('_hx_autoload');
-}
+
