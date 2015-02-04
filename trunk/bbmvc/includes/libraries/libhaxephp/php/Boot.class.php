@@ -2,6 +2,25 @@
 
 /* Copyright (C) 2014 Haxe Foundation - Do not change */
 
+/* 
+symbols_list {
+
+  php_Boot::__construct()
+  php_Boot::$qtypes
+  php_Boot::$ttypes
+  php_Boot::$tpaths
+  php_Boot::$skip_constructor
+  php_Boot::__toString()
+  
+  $_hx_class_prefix
+  _hx_add()
+  _hx_anonymous
+  
+  _hx_array::__construct()
+  _hx_array::concat()
+}
+*/
+
 class php_Boot {
     public function __construct(){}
     static $qtypes;
@@ -30,8 +49,8 @@ function _hx_anonymous($arr = array()) {
 }
 
 class _hx_array implements ArrayAccess, IteratorAggregate {
-  var $a; // TODO: remove var usage
-  var $length; // TODO: remove var usage
+    private $a;
+    private $length;
   
     public function __construct($a = array()) {
         $this->a = $a;
@@ -137,76 +156,79 @@ class _hx_array implements ArrayAccess, IteratorAggregate {
 			      return false;
     }
 
-	function reverse() {
-		$this->a = array_reverse($this->a, false);
-	}
+    public function reverse() {
+        $this->a = array_reverse($this->a, false);
+    }
 
-	function shift() {
-		$r = array_shift($this->a);
-		$this->length = count($this->a);
-		return $r;
-	}
+    public function shift() {
+        $r = array_shift($this->a);
+        $this->length = count($this->a);
+        return $r;
+    }
 
-	function slice($pos, $end) {
-		if($end === null)
-			return new _hx_array(array_slice($this->a, $pos));
-		else
-			return new _hx_array(array_slice($this->a, $pos, $end-$pos));
-	}
+    public function slice($pos, $end) {
+        if ($end === null) {
+            return new _hx_array(array_slice($this->a, $pos));
+        } else {
+            return new _hx_array(array_slice($this->a, $pos, $end-$pos));
+        }
+    }
 
-	function sort($f) {
-		usort($this->a, $f);
-	}
+    public function sort($f) {
+        usort($this->a, $f);
+    }
 
-	function splice($pos, $len) {
-		if($len < 0) $len = 0;
-		$nh = new _hx_array(array_splice($this->a, $pos, $len));
-		$this->length = count($this->a);
-		return $nh;
-	}
+    public function splice($pos, $len) {
+        if ($len < 0) $len = 0;
+        $nh = new _hx_array(array_splice($this->a, $pos, $len));
+        $this->length = count($this->a);
+        return $nh;
+    }
 
-	function toString() {
-		return '['.implode(',', array_map('_hx_string_rec',$this->a,array())).']';
-	}
+    public function toString() {
+        return '['.implode(',', array_map('_hx_string_rec',$this->a,array())).']';
+    }
 
-	function __toString() {
-		return $this->toString();
-	}
+    public function __toString() {
+      return $this->toString();
+    }
 
-	function unshift($x) {
-		array_unshift($this->a, $x);
-		$this->length++;
-	}
+    public function unshift($x) {
+        array_unshift($this->a, $x);
+        $this->length++;
+    }
 
-	function map($f) {
-		return new _hx_array(array_map($f, $this->a));
-	}
+    public function map($f) {
+        return new _hx_array(array_map($f, $this->a));
+    }
 
-	function filter($f) {
-		return new _hx_array(array_values(array_filter($this->a,$f)));
-	}
+    public function filter($f) {
+        return new _hx_array(array_values(array_filter($this->a,$f)));
+    }
 
-	// ArrayAccess methods:
-	function offsetExists($offset) {
-		return isset($this->a[$offset]);
-	}
+    // ArrayAccess methods:
+    public function offsetExists($offset) {
+        return isset($this->a[$offset]);
+    }
 
-	function offsetGet($offset) {
-		if(isset($this->a[$offset])) return $this->a[$offset];
-		return null;
-	}
+    public function offsetGet($offset) {
+        if (isset($this->a[$offset])) {
+            return $this->a[$offset]; 
+        }
+        return null;
+    }
 
-	function offsetSet($offset, $value) {
-		if($this->length <= $offset) {
-			$this->a = array_merge($this->a, array_fill(0, $offset+1-$this->length, null));
-			$this->length = $offset+1;
-		}
-		return $this->a[$offset] = $value;
-	}
+    public function offsetSet($offset, $value) {
+        if ($this->length <= $offset) {
+            $this->a = array_merge($this->a, array_fill(0, $offset+1-$this->length, null));
+            $this->length = $offset+1;
+        }
+        return $this->a[$offset] = $value;
+    }
 
-	function offsetUnset($offset) {
-		return $this->removeAt($offset);
-	}
+    public function offsetUnset($offset) {
+        return $this->removeAt($offset);
+    }
 }
 
 class _hx_array_iterator implements Iterator {
