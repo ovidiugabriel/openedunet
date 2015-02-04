@@ -4,8 +4,8 @@
 
 class Std {
     public function __construct(){}
-    static public function string($s) {
+    static function string($s) {
         return _hx_string_rec($s, "");
     }
-    public function __toString() { return 'Std'; }
+    function __toString() { return 'Std'; }
 }
