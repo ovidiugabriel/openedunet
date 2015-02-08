@@ -55,7 +55,7 @@ Config::NOT_FOUND_DO_NOT_THROW =  true
 
 *IMPORTANT*: This function converts key name from `org.openedunet.keyname` or `org::openedunet::keyname` or `org\openedunet\keyname` to `org_openedunet_keyname` for some compatibility reasons. This is done also for the `set()` method.
 
-To use full namespace you must specify `schema`.
+To use full namespace you must specify `schema` (See Extended Feature).
 
 === Writing Values / Creating New Keys ===
 
