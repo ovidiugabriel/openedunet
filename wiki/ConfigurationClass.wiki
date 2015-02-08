@@ -74,9 +74,6 @@ Converts the _value_ to the specified _type_ and stores it into the database (us
 
 Set mupliple keys at once ... TODO: single insert.
 
-{{{
-public nulltype Config::set(array values, string type) [static]
-}}}
 
 == Caching ==
 
