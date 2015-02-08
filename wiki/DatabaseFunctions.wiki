@@ -6,6 +6,12 @@ Database load_database(string config_name)
 
 || `config_name` || the name of the configuration ||
 
+This function call is equivalent with the following code snippet:
+
+{{{
+$db = Database::instance();
+}}}
+
 === `db_row()` ===
 
 Extract a record row from the given `query` output result executed on a `database` connection.
