@@ -45,6 +45,10 @@ public variant Config::get(string name, boolean noThrow, variant defaultValue) [
 || *defaultValue* || if `defaultValue` is not set, then `null` is returned when the key is not found, if `noThrow` is `true`  ||
 || *returns* || <div>the value of the key</div> <div> a `variant` that can have one of the following supported types:  `boolean`, `float`, `integer`, `string`, `object`, `array` (for both `list` and `dictionary`).</div> ||
 
+{{{
+Config::NOT_FOUND_THROW        =  false
+Config::NOT_FOUND_DO_NOT_THROW =  true
+}}}
 IMPORTANT: This function converts key name from `org.openedunet.keyname` or `org::openedunet::keyname` or `org\openedunet\keyname` to `org_openedunet_keyname` for some compatibility reasons. This is done also for the `set()` method.
 
 === Writing Values / Creating New Keys ===
