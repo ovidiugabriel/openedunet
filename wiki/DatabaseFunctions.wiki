@@ -27,6 +27,7 @@ nullable dictionary db_row(string query, Databse database)
 || *`database`* || `[optional]` Database connection. If not specified, the default connection is used. ||
 || *returns* || <div>Returns a `dictionary` where keys are field names and values are field values in the selected record.</div> <div>If no result is found for the `query` then `null` is returned.</div> ||
 
+
 === `db_row_object()` ===
 
 Creates an object of given `type` from the output result of the given `query` executed on a `database` connection. 
