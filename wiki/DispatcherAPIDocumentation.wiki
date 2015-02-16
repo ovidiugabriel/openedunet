@@ -11,6 +11,8 @@ The dispatcher is mainly responsible to
 
 Barebone MVC class naming convention is following the [http://www.php-fig.org/ PHP Framework Interoperability Group] Standard: *[http://www.php-fig.org/psr/psr-0/ PSR-0 Autoloading Standard]*
 
+<wiki:toc />
+
 == Use Exception Handling ==
 
 *IMPORTANT*: The dispatcher API is designed based on the [http://c2.com/cgi/wiki?UseExceptionsInsteadOfErrorValues UseExceptionsInsteadOfErrorValues] pattern. Although some users insist having a return value to be checked by the caller instead. 
