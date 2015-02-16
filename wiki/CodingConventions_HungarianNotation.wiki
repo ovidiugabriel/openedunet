@@ -47,13 +47,13 @@ Usually I remember only the first letters of a variable name, so it is  better u
 
 || *Suffix* || *Variable type* ||
 || _varname_`_String` || <div>For all string types: `char*`, `char[]`, `std::string`, `QString`, etc</div><div>Disregard the fact that a string is `char*` because `std::string` is not a pointer. You cannot say `std::string pVarname;` or `QString psVarname;`</div><div>By the way, a string is a string, a pointer to string or a pointer to character?</div> <div>If a `char*` is a pointer string, how do you call `char**`??</div>||
-|| `_Integer` || all types of `integer` ||
-|| `_Rational` || all types of `float` ||
-|| `_Complex` || `complex` ||
-|| `_Number` || all types of `integer` and `float` ||
-|| `_List` || ... ||
-|| `_Vector` || ... ||
-|| `_Matrix` || ... ||
-|| `_Array` || ... ||
-|| `_Polynomial` || ... ||
-|| `_typename` ||  for all `enum typename`, `struct typename`, `class typename`, `union typename` never use `_enum`, `_struct`, `_class` or `_union` as suffixes ||
+|| _varname_`_Integer` || all types of `integer` ||
+|| _varname_`_Rational` || all types of `float` ||
+|| _varname_`_Complex` || `complex` ||
+|| _varname_`_Number` || all types of `integer` and `float` ||
+|| _varname_`_List` || ... ||
+|| _varname_`_Vector` || ... ||
+|| _varname_`_Matrix` || ... ||
+|| _varname_`_Array` || ... ||
+|| _varname_`_Polynomial` || ... ||
+|| _varname_`_typename` ||  for all `enum typename`, `struct typename`, `class typename`, `union typename` never use `_enum`, `_struct`, `_class` or `_union` as suffixes ||
