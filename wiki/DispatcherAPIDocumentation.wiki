@@ -11,7 +11,7 @@ The dispatcher is mainly responsible to
 
 Barebone MVC class naming convention is following the [http://www.php-fig.org/ PHP Framework Interoperability Group] Standard: *[http://www.php-fig.org/psr/psr-0/ PSR-0 Autoloading Standard]*
 
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="2" />
 
 == Use Exception Handling ==
 
