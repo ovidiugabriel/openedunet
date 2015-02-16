@@ -1,0 +1,1 @@
+#summary Smarty Compatible Template Engine interface
