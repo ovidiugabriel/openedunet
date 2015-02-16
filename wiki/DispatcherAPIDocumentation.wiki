@@ -152,7 +152,9 @@ Flash data is session data that is stored only until the next request.
 
 === `get_flashdata()` ===
 
-== Portable logging ==
+== Portable Logging ==
+
+Portable logging can be used to write to system log, to write in files, or using interfaces with Firebug, etc.
 
 === `log_message()` ===
 
