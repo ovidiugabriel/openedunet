@@ -15,7 +15,7 @@ Barebone MVC class naming convention is following the [http://www.php-fig.org/ P
 
 *IMPORTANT*: The dispatcher API is designed based on the [http://c2.com/cgi/wiki?UseExceptionsInsteadOfErrorValues UseExceptionsInsteadOfErrorValues] pattern. Although some users insist having a return value to be checked by the caller instead. 
 
-Okay, so just try to imagine that we provide an `import_nothrow()` function to load a class. The caller forget to check the return value and the class is not loaded, when `create_instance_nothrow()` will be used it will return `null` instead of throwing an exception. And if the user forget to check this, the next method call will be on a `null` object. 
+Imagine that we provide an `import_nothrow()` function to load a class. The caller forget to check the return value and the class is not loaded, when `create_instance_nothrow()` will be used it will return `null` instead of throwing an exception. And if the user forget to check this, the next method call will be on a `null` object. 
 
 In this case our recommendation is to trust exception handling. If anything goes wrong and uncaught exception will bail out your program.
 
