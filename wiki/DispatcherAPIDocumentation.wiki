@@ -159,7 +159,7 @@ Portable logging can be used to write to system log, to write in files, or using
 === `log_message()` ===
 
 {{{
-log_message(integer level, string message)
+nulltype log_message(integer level, string message)
 }}}
 
 The `level` is compatible with the [http://php.net/manual/en/function.syslog.php syslog()] and `trigger_error()` functions. Although  `trigger_error()` constants use is *`DEPRECATED`*.
