@@ -1,5 +1,7 @@
 === `load_database()` ===
 
+Loads the database connection using the configuration with given name.
+
 {{{
 Database load_database(string config_name)
 }}}
