@@ -195,6 +195,6 @@ nullable string json_success(boolean success [, boolean flush = true])
 
 See _Aspect Oriented Programming_ solution for this.
 
-|| `success` || boolean value to be returned to the client ||
-|| `flush` || `[optional]` ||
+|| *`success`* || boolean value to be returned to the client ||
+|| *`flush`* || `[optional]` tells if the JSON string must be returned or flushed on the `stdout` ||
 || *returns* || when `flush` is `false` a JSON string is returned; if `flush` is `true` returns always `null` ||
