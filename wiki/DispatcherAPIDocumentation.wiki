@@ -1,6 +1,6 @@
 #summary core functions of the Barebone MVC framework
 
-= MVC Dispatcher - Introduction =
+== MVC Dispatcher - Introduction ==
 
 The dispatcher is the core of the framework.
 
