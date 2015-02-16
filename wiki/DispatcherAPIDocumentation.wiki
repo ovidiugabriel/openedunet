@@ -66,6 +66,7 @@ object create_instance(string name, dictionary properties) throws ClassNotFoundE
 Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using `import()` before calling `create_instance()`. 
 
 || *name* || class fully qualified `name` (but using dot syntax instead of backslash) ||
+|| *properties* || values that will assigned to object members at creation; note: properties that are not declared in class definition will become public properties  ||
 || *returns* || On success, returns a reference to a new instance. If something is wrong and exception is thrown.  ||
 
 *Example:*
