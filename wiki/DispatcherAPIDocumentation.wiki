@@ -190,7 +190,11 @@ TO BE REMOVED. Not a good idea to call this manually.
 === `json_success()`  ===
 
 {{{
-nulltype json_success(boolean success [, boolean flush = true])
+nullable string json_success(boolean success [, boolean flush = true])
 }}}
 
-See Aspect Oriented Programming solution for this.
+See _Aspect Oriented Programming_ solution for this.
+
+|| `success` || boolean value to be returned to the client ||
+|| `flush` || `[optional]` ||
+|| *returns* || when `flush` is `false` a JSON string is returned; if `flush` is `true` returns always `null` ||
