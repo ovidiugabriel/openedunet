@@ -1,5 +1,7 @@
 #summary core functions of the Barebone MVC framework
 
+<wiki:toc max_depth="2" />
+
 == MVC Dispatcher - Introduction ==
 
 The dispatcher is the core of the framework.
@@ -10,8 +12,6 @@ The dispatcher is mainly responsible to
   * delegate anything in between
 
 Barebone MVC class naming convention is following the [http://www.php-fig.org/ PHP Framework Interoperability Group] Standard: *[http://www.php-fig.org/psr/psr-0/ PSR-0 Autoloading Standard]*
-
-<wiki:toc max_depth="2" />
 
 == Use Exception Handling ==
 
