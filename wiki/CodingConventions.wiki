@@ -56,12 +56,7 @@ Packages\User\Preferences.sublime-settings
 
 ==== PSR-0 Autoloading ====
 
-  # The fully qualified class name MUST have a top-level namespace name, also known as a "vendor namespace".
-  # Each `_` character in the `CLASS NAME` is converted to a `DIRECTORY_SEPARATOR`. The `_` character has no special meaning in the namespace.
-  # The fully-qualified namespace and class is suffixed with `.php` when loading from the file system.
-  # All class names MUST be referenced in a case-sensitive fashion.
-
-
+...
 
 ==== PSR-1 Basic Coding ====
 
@@ -92,6 +87,8 @@ Packages\User\Preferences.sublime-settings
   # The keyword `elseif` SHOULD be used instead of else if so that all control keywords look like single words.
 
 ==== PSR-4 Improved Autoloading ====
+
+...
 
 == Aditional specific conventions ==
 
