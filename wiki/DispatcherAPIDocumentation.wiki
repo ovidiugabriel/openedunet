@@ -190,7 +190,7 @@ TO BE REMOVED. Not a good idea to call this manually.
 === `json_success()`  ===
 
 {{{
-nulltype json_success(boolean success)
+nulltype json_success(boolean success [, boolean flush = true])
 }}}
 
 See Aspect Oriented Programming solution for this.
