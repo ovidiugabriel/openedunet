@@ -113,7 +113,7 @@ This is especially useful to create singletons of classes provided by third part
 
 Use this function when you want to ensure usage of a single instance but don't want to create a function for each type, add a `getInstance()` or `instance()` method to each class or refactor libraries to change constructors access level.
 
-== Import a class and create an instance ==
+== Import a class and create a single/multiple instances ==
 
 === `require_object()` ===
 
