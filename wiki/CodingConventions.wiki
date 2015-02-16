@@ -56,6 +56,8 @@ Packages\User\Preferences.sublime-settings
 
 ==== PSR-0 Autoloading ====
 
+  # The fully qualified class name MUST have a top-level namespace name, also known as a "vendor namespace".
+
 ==== PSR-1 Basic Coding ====
 
   # PHP code MUST use the long `<?php ?>` tags; it MUST NOT use the other tag variations. (Also see PSR-2.10)
