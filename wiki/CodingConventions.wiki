@@ -57,7 +57,7 @@ Packages\User\Preferences.sublime-settings
 ==== PSR-0 Autoloading ====
 
   # The fully qualified class name MUST have a top-level namespace name, also known as a "vendor namespace".
-  # Each _ character in the CLASS NAME is converted to a DIRECTORY_SEPARATOR. The _ character has no special meaning in the namespace.
+  # Each `_` character in the `CLASS NAME` is converted to a `DIRECTORY_SEPARATOR`. The `_` character has no special meaning in the namespace.
 
 ==== PSR-1 Basic Coding ====
 
