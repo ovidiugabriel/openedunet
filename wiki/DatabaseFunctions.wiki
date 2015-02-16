@@ -32,11 +32,12 @@ nullable dictionary db_row(string query, Databse database)
 Creates an object of given `type` from the output result of the given `query` executed on a `database` connection. 
 
 {{{
-nullable object db_row_object(string type, string query [, Database database])
+nullable object db_row_object(string type, string query)
+nullable object db_row_object(string type, string query, Database database)
 }}}
 
-|| *`type`* || ... ||
-|| *`query`* || ... ||
+|| *`type`* || the name of the `type` used to create the returned object ||
+|| *`query`* || the `query` to be send to the database ||
 || *`database`* || `[optional]`  ||
 || *returns* || ... ||
 
