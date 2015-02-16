@@ -148,6 +148,8 @@ object require_class(string name, callable callback)
 
 === `set_flashdata()` ===
 
+Flash data is session data that is stored only until the next request.
+
 === `get_flashdata()` ===
 
 === `log_message()` ===
