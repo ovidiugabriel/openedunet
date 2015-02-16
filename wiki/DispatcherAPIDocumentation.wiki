@@ -152,6 +152,8 @@ Flash data is session data that is stored only until the next request.
 
 === `get_flashdata()` ===
 
+== Portable logging ==
+
 === `log_message()` ===
 
 {{{
