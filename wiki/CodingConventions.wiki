@@ -137,7 +137,7 @@ Usually I stick to the same convetions as [http://blog.lmorchard.com/2013/01/23/
 
 These rules are not mandatory, they are just advisory and won't be enforced on contributors.
 
-We do not agree [CodingConventions_HungarianNotation Hungarian Notation]
+We do not agree [CodingConventions_HungarianNotation Hungarian Notation] (click the link to find out why).
 
 After all, computer programming is about data structures, algorithms, architectures and interfaces and not so much about text formatting and typography.
 
