@@ -102,7 +102,8 @@ Seven Virtues of a Good Object: 5. His Class Doesn't Have Anything Static
     /** 
      * I am using this because it is similar with @staticmethod used in Python.
      * We don't stick to PSR-4.5, because it is more suitable for C++/Java style. 
-     * We try to avoid static methods as more as possible. Scala already removed statics and JavaScript never had this idea of statics.
+     * We try to avoid static methods as more as possible. Scala already removed statics 
+     * and JavaScript never had this idea of statics.
      * PSR-4.5. When present, the static declaration MUST come after the visibility declaration.
      */
     static // << -- this is the place for static keyword
