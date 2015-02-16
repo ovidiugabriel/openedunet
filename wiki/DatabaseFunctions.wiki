@@ -4,7 +4,7 @@
 Database load_database(string config_name)
 }}}
 
-|| `config_name` || the name of the configuration ||
+|| *`config_name`* || the name of the configuration ||
 
 This function call is equivalent with the following code snippet:
 
