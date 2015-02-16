@@ -162,9 +162,9 @@ Portable logging can be used to write to system log, to write in files, or using
 nulltype log_message(integer level, string message)
 }}}
 
-|| *level* || ||
+|| *level* || `syslog()` constant ||
 || *message* || ||
-|| *returns* || ||
+|| *returns* || nothing ||
 
 The `level` is compatible with the [http://php.net/manual/en/function.syslog.php syslog()] and `trigger_error()` functions. Although  `trigger_error()` constants use is *`DEPRECATED`*.
 
