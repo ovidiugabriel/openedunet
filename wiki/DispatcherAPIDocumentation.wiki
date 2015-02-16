@@ -11,7 +11,7 @@ The dispatcher is mainly responsible to
 
 Barebone MVC class naming convention is following the [http://www.php-fig.org/ PHP Framework Interoperability Group] Standard: *[http://www.php-fig.org/psr/psr-0/ PSR-0 Autoloading Standard]*
 
-*IMPORTANT*: The dispatcher API is designed based on the [http://c2.com/cgi/wiki?UseExceptionsInsteadOfErrorValues UseExceptionsInsteadOfErrorValues] pattern. Some users insist having a return value to be checked instead.
+*IMPORTANT*: The dispatcher API is designed based on the [http://c2.com/cgi/wiki?UseExceptionsInsteadOfErrorValues UseExceptionsInsteadOfErrorValues] pattern. Some users insist having a return value to be checked by the caller instead. So, just imagine we provide an `import_nothrow()` function to load a class. The caller
 
 == Import a Class ==
 
