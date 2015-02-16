@@ -155,7 +155,7 @@ And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_
   * *Code Distrust*: checking to see if a `boolean`-typed variable is something other than `true` or `false`; Using `if (true == (true == x))` instead of `if (x)` when `x` is a boolean variable, etc.
   * *Smart UI Anti-Pattern* (See: [http://geekswithblogs.net/gregorymalcolm/archive/2009/07/14/user-interface-patterns.aspx Using Interface Patterns] - includes details on MVC and so on)
   * [http://c2.com/cgi/wiki?ArrowAntiPattern Arrow Anti-Pattern]: It often develops when a programmer applies the 'One Return Per Function rule' blindly and in poor taste
-  * [http://www.leepoint.net/JavaBasics/methods/method-commentary/methcom-30-multiple-return.html One Return Per Function ]: simple readable code in more important than following any arbitrary rule.
+  * [http://www.leepoint.net/JavaBasics/methods/method-commentary/methcom-30-multiple-return.html One Return Per Function ]: simple readable code in more important than following any arbitrary rule. - Also called *"Single Exit Fantasy"*
   * *Loop-switch sequence*: Encoding a set of sequential steps using a switch within a loop statement
   * [http://en.wikipedia.org/wiki/Error_hiding Error hiding]: Catching an error message before it can be shown to the user and either showing nothing or showing a meaningless message. Checking results without throwing exceptions or forwarding error codes and messages to both caller and logging system.
   * *Pinball Programming*: Using code that doesn't throw exceptions, and not checking the output result. Blindly using running over errors with faith that everything is fine since the system has `display_errors` muted.
