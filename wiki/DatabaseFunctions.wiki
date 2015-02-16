@@ -81,7 +81,8 @@ list db_result_objects(string type, string query, Database database)
 === `db_result_func()` ===
 
 {{{
-nulltype db_result_func(string query, callable func [, Database database])
+nulltype db_result_func(string query, callable func)
+nulltype db_result_func(string query, callable func, Database database)
 }}}
 
 || *`query`* || ... ||
