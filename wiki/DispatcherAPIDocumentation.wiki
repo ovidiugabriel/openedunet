@@ -24,7 +24,7 @@ Imagine that we provide an `import_nothrow()` function to load a class. The call
 
 In this case our recommendation is to trust exception handling. If anything goes wrong, in the worst case an uncaught exception will bail out your program. This is the contract between the caller and the API. If the contract is broken, an exception is thrown - this is good Object Oriented design. 
 
-When calling a `nothrow` function you refuse the guarantee that what's returned is valid, and everything falls on your responsibility. Because this API is the core of our framework, we cannot provide `nothrow` functions here. We are trying to provide a Secure Coding framework. Hiding errors into the return value is not a secure coding practice.
+When calling a `nothrow` function you refuse the guarantee that what's returned is valid, and everything falls on your responsibility. Because this API is the core of our framework, we cannot provide `nothrow` functions here. We are trying to provide a Secure Coding framework. Hiding errors into the return value is not a secure coding practice. Fatal errors always require escalation.
 
 == Import a Class ==
 
