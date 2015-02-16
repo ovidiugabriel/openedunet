@@ -17,7 +17,7 @@ Barebone MVC class naming convention is following the [http://www.php-fig.org/ P
 
 Imagine that we provide an `import_nothrow()` function to load a class. The caller forget to check the return value and the class is not loaded, when `create_instance_nothrow()` will be used it will return `null` instead of throwing an exception. And if the user forget to check this, the next method call will be on a `null` object. As a result the user will end up invoking methods on an invalid object.
 
-In this case our recommendation is to trust exception handling. If anything goes wrong and uncaught exception will bail out your program. This is the contract between the caller and the API. If the contract is broken, an exception is thrown.
+In this case our recommendation is to trust exception handling. If anything goes wrong, in the worst case an uncaught exception will bail out your program. This is the contract between the caller and the API. If the contract is broken, an exception is thrown.
 
 == Import a Class ==
 
