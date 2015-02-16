@@ -1,8 +1,9 @@
 #summary core functions of the Barebone MVC framework
-
-<wiki:toc max_depth="2" />
+#labels Phase-Implementation
 
 == MVC Dispatcher - Introduction ==
+
+<wiki:toc max_depth="2" />
 
 The dispatcher is the core of the framework.
 
