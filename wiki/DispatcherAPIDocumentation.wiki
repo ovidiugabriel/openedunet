@@ -17,6 +17,7 @@ Barebone MVC class naming convention is following the [http://www.php-fig.org/ P
 
 {{{
 nulltype import(string name) throws ClassNotFoundException, InvalidArgumentException
+
 boolean import_nothrow(string name)
 }}}
 
@@ -49,6 +50,9 @@ $controller = create_instance('Foo.Bar');
 {{{
 object create_instance(string name) throws ClassNotFoundException
 object create_instance(string name, dictionary properties) throws ClassNotFoundException
+
+nullable object create_instance_nothrow(string name)
+nullable object create_instance_nothrow(string name, dictionary properties)
 }}}
 
 Creates a new instance of the given class using its fully qualified name (but using dot syntax instead of backslash). Note that you have to import the class using `import()` before calling `create_instance()`. 
