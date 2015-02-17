@@ -31,12 +31,14 @@ Config(string schema)
 === Reading Values ===
 
 {{{
-public variant Config::get(string name) [static]
+[static]
+public variant Config::get(string name) 
 
-public variant Config::get(string name, boolean noThrow) [static]
+[static]
+public variant Config::get(string name, boolean noThrow) 
 
-public variant Config::get(string name, boolean noThrow, variant defaultValue) [static]
-
+[static]
+public variant Config::get(string name, boolean noThrow, variant defaultValue) 
 
 }}}
 
