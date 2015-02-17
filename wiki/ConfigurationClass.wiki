@@ -31,15 +31,9 @@ Config(string schema)
 === Reading Values ===
 
 {{{
-[static]
-public variant Config::get(string name) 
-
-[static]
-public variant Config::get(string name, boolean noThrow) 
-
-[static]
-public variant Config::get(string name, boolean noThrow, variant defaultValue) 
-
+public variant Config::get(string name[, boolean noThrow = false]) [static, throws]
+public variant Config::get(string name, true) [static, nothrow]
+public variant Config::get(string name, true, variant defaultValue) [static, nothrow]
 }}}
 
 || *name* || the name of the key you need to read ||
