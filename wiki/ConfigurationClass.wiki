@@ -41,8 +41,8 @@ public variant Config::get(string name, boolean noThrow, variant defaultValue) [
 }}}
 
 || *name* || the name of the key you need to read ||
-|| *noThrow* || default is `false`; if set on `true`, the `defaultValue` is returned and exception is not thrown when the key is not found ||
-|| *defaultValue* || if `defaultValue` is not set, then `null` is returned when the key is not found, if `noThrow` is `true`  ||
+|| *noThrow* || `[optional]` default is `false`; if set on `true`, the `defaultValue` is returned and exception is not thrown when the key is not found ||
+|| *defaultValue* || `[optional]` if `defaultValue` is not set, then `null` is returned when the key is not found, if `noThrow` is `true`  ||
 || *returns* || <div>the value of the key</div> <div> a `variant` that can have one of the following supported types:  `boolean`, `float`, `integer`, `string`, `object`, `array` (for both `list` and `dictionary`).</div> ||
 
 For `noThrow` parameter is recommended to use the following class contants for better readability:
