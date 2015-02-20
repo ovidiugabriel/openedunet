@@ -158,6 +158,8 @@ Portable logging can be used to write to system log, to write in files, or using
 
 === `log_message()` ===
 
+This can be part of the *Platform Abstraction Layer*.
+
 {{{
 nulltype log_message(integer level, string message)
 }}}
