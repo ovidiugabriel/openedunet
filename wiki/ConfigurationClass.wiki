@@ -84,6 +84,8 @@ Not applicable for this project (move to another wiki):
 || `Single` ||
 || `String` ||
 || `Boolean` || 
+|| `DoubleWaveform` ||
+|| `Int16Waveform` ||
 || `Int8` ||
 || `UInt8` ||
 || `Int16` ||
@@ -101,6 +103,11 @@ Not applicable for this project (move to another wiki):
 || `Array<UInt32>` ||
 || `Array<Int64>` ||
 || `Array<UInt64>` ||
+|| `Array<Single>` ||
+|| `Array<Double>` ||
+|| `Array<DoubleWaveform>` ||
+|| `Array<Int16Waveform>` ||
+|| `Variant` ||
 
 Set mupliple keys at once ... TODO: single insert.
 
