@@ -93,6 +93,14 @@ Not applicable for this project (move to another wiki):
 || `Int64` ||
 || `UInt64` ||
 || `Array<Boolean>` ||
+|| `Array<Int8>` ||
+|| `Array<Uint8>` ||
+|| `Array<Int16>` ||
+|| `Array<UInt16>` ||
+|| `Array<Int32>` ||
+|| `Array<UInt32>` ||
+|| `Array<Int64>` ||
+|| `Array<UInt64>` ||
 
 Set mupliple keys at once ... TODO: single insert.
 
