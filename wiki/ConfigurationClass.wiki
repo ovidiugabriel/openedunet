@@ -80,19 +80,19 @@ Converts the _value_ to the specified _type_ and stores it into the database (us
 
 Not applicable for this project (move to another wiki):
 
-|| Double ||
-|| Single ||
-|| String ||
-|| Boolean || 
-|| Int8 ||
-|| UInt8 ||
-|| Int16 ||
-|| UInt16 ||
-|| Int32 ||
-|| UInt32 ||
-|| Int64 ||
-|| UInt64 ||
-|| Array<Boolean> ||
+|| `Double` ||
+|| `Single` ||
+|| `String` ||
+|| `Boolean` || 
+|| `Int8` ||
+|| `UInt8` ||
+|| `Int16` ||
+|| `UInt16` ||
+|| `Int32` ||
+|| `UInt32` ||
+|| `Int64` ||
+|| `UInt64` ||
+|| `Array<Boolean>` ||
 
 Set mupliple keys at once ... TODO: single insert.
 
