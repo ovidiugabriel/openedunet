@@ -78,6 +78,18 @@ Converts the _value_ to the specified _type_ and stores it into the database (us
 || *type* || <div>in case that _value_ has primitive types: a long standard type name</div><ul><li>`'boolean'`</li><li> `'float'`</li><li>`'integer'`</li><li>`'string'`</li></ul><div> in case that _value_ is an object or an array: the serialization method must be specified</div><div><ul><li>`'json'`</li><li>`'base64'`</li><li>`'hexdump'` (not implemented)</li><li>`'serialize'` (not recommended, use `'json'` instead)</li><li>`'yaml'` (proposal)</li><li> `'xml'` (proposal)</li></ul></div><div> `[default]` If `type` is omitted, the current variable type is used for primitive types - requested with `gettype()` </div><div>For objects, the `json` serialization method is the default. </div> ||
 || *returns* || `null` - Nothing to return. If something is wrong and exception is thrown. ||
 
+Not applicable:
+
+|| Double ||
+|| String ||
+|| Boolean || 
+|| Int8 ||
+|| UInt8 ||
+|| Int16 ||
+|| UInt16 ||
+|| Int32 ||
+|| UInt32 ||
+
 Set mupliple keys at once ... TODO: single insert.
 
 
