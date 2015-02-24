@@ -1,11 +1,14 @@
 #summary The file system structure
 
-|| `├───config` ||
-|| `├───includes` ||
-|| `│   ├───classes` ||
-|| `│   └───libraries` ||
-|| `├───modules` ||
-|| `└───templates` ||
-|| `config.php` ||
-|| `index.php` ||
-|| `style.css` ||
+{{{
+
+├───config
+├───includes
+│   ├───classes
+│   └───libraries
+├───modules
+└───templates
+config.php
+index.php
+style.css          -- to be removed (it belongs to a public_html) folder
+}}}
