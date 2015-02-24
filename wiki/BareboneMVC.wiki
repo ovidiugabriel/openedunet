@@ -5,7 +5,7 @@ Author: Mihai Brehar (Released: 20.07.2007)
 = What is Barebone MVC (BBMVC)? =
 
 It is a very simple framework which enables clear, rapid and secure development of PHP applications.
-It is modular, object oriented and uses Smarty as a template system.
+It is *modular, object oriented* and uses Smarty as a *template system*.
 
 Long story short: all parameters will be automatically checked for security. The required modules, functions and templates will be automatically called and loaded.
 
