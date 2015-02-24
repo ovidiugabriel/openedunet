@@ -53,7 +53,7 @@ If you have a form, then you should use the similar *`url`* smarty function, lik
 
 Some other things about the *`a`*/*`url`* smarty functions:
 
-  * Either the module parameter or the href parameter must be given.
-  * If the action parameter is missing, then the defaultAction value will be considered.
-  * If a parameter's name starts with seo_, then the parameter will only be used internally and it will not be passed to the resulting URL
-  * The rel and the target parameter given to the a block function, will be treated as their html counterparts. 
+  * Either the `module` parameter or the `href` parameter must be given.
+  * If the `action` parameter is missing, then the `defaultAction` value will be considered.
+  * If a parameter's name starts with `seo_`, then the parameter will only be used internally and it will not be passed to the resulting URL
+  * The `rel` and the `target` parameter given to the a block function, will be treated as their html counterparts. 
