@@ -23,12 +23,12 @@ One module consists of 4 components:
 
 The security and SEO part are not mandatory.
 
-Every class.ClassName.php file should hold the ClassName class.
+Every `class.ClassName.php` file should hold the `ClassName` class.
 
 The dispatcher(BBMVC) checks for the existence of the above mentioned folders, files and classes.
 
-The CdCollection class should have a public method called cdEdit.
+The `CdCollection` class should have a public method called `cdEdit`.
 
 [Security checks are done, see below]
 
-If no error occurs, then the CdCollection->cdEdit() method is called and the /templates/CdCollection/cdEdit.tpl template is displayed. 
+If no error occurs, then the `CdCollection->cdEdit()` method is called and the `/templates/CdCollection/cdEdit.tpl` template is displayed. 
