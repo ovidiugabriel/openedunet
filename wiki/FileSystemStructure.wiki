@@ -1,27 +1,11 @@
 #summary The file system structure
 
-{{{
-├───config
-├───includes
-│   ├───classes
-│   │   └───sql
-│   ├───libraries
-│   │   └───Smarty-2.6.26
-│   │       └───libs
-│   │           ├───internals
-│   │           └───plugins
-│   └───smarty_extended
-├───modules
-│   └───CdCollection
-├───sql
-│   ├───sp
-│   ├───tables
-│   ├───triggers
-│   └───views
-├───templates
-│   └───CdCollection
-└───tmp
--a---        17.01.2015     17:00       3730 config.php
--a---        17.01.2015     17:00       2861 index.php
--a---        17.01.2015     17:00        240 style.css
-}}}
+|| `├───config` ||
+|| `├───includes` ||
+|| `│   ├───classes` ||
+|| `│   └───libraries` ||
+|| `├───modules` ||
+|| `└───templates` ||
+|| `config.php` ||
+|| `index.php` ||
+|| `style.css` ||
