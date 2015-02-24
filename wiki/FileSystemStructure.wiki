@@ -1,14 +1,20 @@
 #summary The file system structure
 
 {{{
-
-├───config
+├───applications
+|   applications/config
+│   ├───development
+│   ├───production
+│   ├───staging
+│   └───test
+|
 ├───includes       -- contains dispatcher internal logic (to be moved to classes)
 │   ├───classes    -- classes that belong to the framework
 │   └───libraries  -- packages provided by bundled 3rd party libraries
 ├───modules        
 │   ├───controllers -- a collection of controllers
-│   └───models      -- a collection of models
+│   ├───models      -- a collection of models
+│   └───presenters  -- a collection of presenters
 └───templates
 config.php         -- to be renamed to "config.profile.php"
 index.php          -- the entry point
