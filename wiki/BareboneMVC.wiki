@@ -10,7 +10,7 @@ Long story short: all parameters will be automatically checked for security. The
 = How BBMVC works? =
 
 Basically, I want every single webpage to be called via index.php, so that I (and you) can have a better control of everything.
-For this, I suggest the following URL "format": http://domain.com/index.php?module=CdCollection&action=cdEdit&cd_id=3&other_param=1
+For this, I suggest the following URL "format": `http://domain.com/index.php?module=CdCollection&action=cdEdit&cd_id=3&other_param=1`
 Mark the module and action parameters, BBMVC will be looking for these.
 
 First, let's talk about the module.
