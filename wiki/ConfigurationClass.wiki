@@ -78,6 +78,17 @@ Converts the _value_ to the specified _type_ and stores it into the database (us
 || *returns* || `null` - Nothing to return. If something is wrong and exception is thrown. ||
 
 {{{
+class Config {
+    // ...
+    const TYPE_BOOLEAN  = 'boolean';
+    const TYPE_FLOAT    = 'float';
+    const TYPE_INTEGER  = 'integer';
+    const TYPE_STRING   = 'string';
+    // ...
+}
+}}}
+
+{{{
 public void Config::setBoolean(string name, boolean value) [static]
 public void Config::setInteger(string name, integer value) [static]
 public void Config::setString(string name, string value) [static]
