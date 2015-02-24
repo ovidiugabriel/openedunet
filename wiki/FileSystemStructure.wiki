@@ -3,12 +3,12 @@
 {{{
 
 ├───config
-├───includes
-│   ├───classes
-│   └───libraries
+├───includes       -- contains dispatcher internal logic (to be moved to classes)
+│   ├───classes    -- classes that belong to the framework
+│   └───libraries  -- classes provided by bundled 3rd party libraries
 ├───modules
 └───templates
-config.php
+config.php         -- to be renamed to "config.profile.php"
 index.php
 style.css          -- to be removed (it belongs to a public_html) folder
 }}}
