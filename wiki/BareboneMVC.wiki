@@ -57,3 +57,20 @@ Some other things about the *`a`*/*`url`* smarty functions:
   * If the `action` parameter is missing, then the `defaultAction` value will be considered.
   * If a parameter's name starts with `seo_`, then the parameter will only be used internally and it will not be passed to the resulting URL
   * The `rel` and the `target` parameter given to the a block function, will be treated as their html counterparts. 
+
+= SEO component =
+
+Barebone MVC can help you build search engine friendly URLs very easy.
+The first step is to use the above mentiond *`a`*/*`url`* smarty functions. Let's take this as an example:
+`{a module=CdCollection action=cdEdit cd_id=5}Abc def{/a}`
+The resulting link will look like `<a href="http://www.domain.com/index.php?module=CdCollection&action=cdEdit&cdId=5">Abc def</a>`
+but we want something like this:
+`<a href="http://www.domain.com/abc-def.html">Abc def</a>`
+
+Now the second step comes. You need to create the `/modules/CdCollection/class.CdCollectionSeo.php` file containing the `CdCollectionSeo` class. The `CdCollectionSeo` needs to have a public function called `seo_cdEdit`. This `seo_cdEdit` has an array as a parameter. For the given example, the array looks like this:
+`array("module" => "CdCollection", "action" => "cdEdit", "cdId" => "5");`
+Basically, you have all the parameters passed to the `a`/`url` smarty function. Now it's a matter of choice on how you handle the parameters and how you return the string used in the SEF URLs.
+
+Very important: you will have SEF URLs only if you set `_USE_SEO_LINK` to `1` in your `config/profile` file.
+
+I will add more suggestions here, for optimizing this process. Also, I will add info about the server side settings(apache, mod-rewrite) needed for the URLs to work.
