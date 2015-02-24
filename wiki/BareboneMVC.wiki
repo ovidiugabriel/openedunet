@@ -57,7 +57,10 @@ the url function should be used like this:
 {a module=CdCollection action=cdEdit cd_id=5}...{/a}
 }}}
 
-If you have a form, then you should use the similar *`url`* smarty function, like this: `<form action="{url module=CdCollection action=cdUpdate}" method="post">`
+If you have a form, then you should use the similar *`url`* smarty function, like this: 
+{{{
+<form action="{url module=CdCollection action=cdUpdate}" method="post">
+}}}
 
 Some other things about the *`a`*/*`url`* smarty functions:
 
