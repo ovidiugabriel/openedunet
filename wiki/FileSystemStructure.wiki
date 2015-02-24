@@ -2,20 +2,22 @@
 
 {{{
 ├───applications
-|   applications/config
+|   applications/<appname>/config
 │   ├───development
 │   ├───production
 │   ├───staging
 │   └───test
-|
-├───includes       -- contains dispatcher internal logic (to be moved to classes)
-│   ├───classes    -- classes that belong to the framework
-│   └───libraries  -- packages provided by bundled 3rd party libraries
-├───modules        
+|----application/<appname>/logs
+|----application/<appname>/cache
+├───application/<appname>/modules        
 │   ├───controllers -- a collection of controllers
 │   ├───models      -- a collection of models
 │   └───presenters  -- a collection of presenters
-└───templates
+└───application/<appname>/templates
+
+├───includes       -- contains dispatcher internal logic (to be moved to classes)
+│   ├───classes    -- classes that belong to the framework
+│   └───libraries  -- packages provided by bundled 3rd party libraries
 config.php         -- to be renamed to "config.profile.php"
 index.php          -- the entry point
 style.css          -- to be removed (it belongs to a public_html) folder
