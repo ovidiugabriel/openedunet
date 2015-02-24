@@ -1,8 +1,0 @@
-=== `var_dump()` ===
-
-`var_dump()` can be overrided by XDebug
-
-== Case sensitivity ==
-
-  # variable names and constants names (including defines) are *case sensitive*
-  # function names and class names are *not* case sensitive
