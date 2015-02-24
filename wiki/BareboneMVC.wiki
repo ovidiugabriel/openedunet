@@ -61,11 +61,20 @@ Some other things about the *`a`*/*`url`* smarty functions:
 = SEO component =
 
 Barebone MVC can help you build search engine friendly URLs very easy.
-The first step is to use the above mentiond *`a`*/*`url`* smarty functions. Let's take this as an example:
-`{a module=CdCollection action=cdEdit cd_id=5}Abc def{/a}`
-The resulting link will look like `<a href="http://www.domain.com/index.php?module=CdCollection&action=cdEdit&cdId=5">Abc def</a>`
+The first step is to use the above mentiond *`a`*/*`url`* smarty functions. 
+
+Let's take this as an example:
+{{{
+{a module=CdCollection action=cdEdit cd_id=5}Abc def{/a}
+}}}
+The resulting link will look like 
+{{{
+<a href="http://www.domain.com/index.php?module=CdCollection&action=cdEdit&cdId=5">Abc def</a>
+}}}
 but we want something like this:
-`<a href="http://www.domain.com/abc-def.html">Abc def</a>`
+{{{
+<a href="http://www.domain.com/abc-def.html">Abc def</a>
+}}}
 
 Now the second step comes. You need to create the `/modules/CdCollection/class.CdCollectionSeo.php` file containing the `CdCollectionSeo` class. The `CdCollectionSeo` needs to have a public function called `seo_cdEdit`. This `seo_cdEdit` has an array as a parameter. For the given example, the array looks like this:
 `array("module" => "CdCollection", "action" => "cdEdit", "cdId" => "5");`
