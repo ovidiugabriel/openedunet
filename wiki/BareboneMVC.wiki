@@ -1,5 +1,7 @@
 #summary One-sentence summary of this page.
 
+Author: Mihai Brehar
+
 = What is Barebone MVC (BBMVC)? =
 
 It is a very simple framework which enables clear, rapid and secure development of PHP applications.
