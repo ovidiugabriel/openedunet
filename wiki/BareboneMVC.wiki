@@ -6,3 +6,29 @@ It is a very simple framework which enables clear, rapid and secure development 
 It is modular, object oriented and uses Smarty as a template system.
 
 Long story short: all parameters will be automatically checked for security. The required modules, functions and templates will be automatically called and loaded.
+
+= How BBMVC works? =
+
+Basically, I want every single webpage to be called via index.php, so that I (and you) can have a better control of everything.
+For this, I suggest the following URL "format": http://domain.com/index.php?module=CdCollection&action=cdEdit&cd_id=3&other_param=1
+Mark the module and action parameters, BBMVC will be looking for these.
+
+First, let's talk about the module.
+One module consists of 4 components:
+
+    /modules/CdCollection/class.CdCollection.php - main PHP code for the module
+    /modules/CdCollection/class.CdCollectionSecurity.php - PHP code responsible for module security
+    /modules/CdCollection/class.CdCollectionSeo.php - PHP code responsible for SEO (search engine friendly URLs, for now)
+    /templates/CdCollection/ - if it's not clear yet, templates of the module are located here
+
+The security and SEO part are not mandatory.
+
+Every class.ClassName.php file should hold the ClassName class.
+
+The dispatcher(BBMVC) checks for the existence of the above mentioned folders, files and classes.
+
+The CdCollection class should have a public method called cdEdit.
+
+[Security checks are done, see below]
+
+If no error occurs, then the CdCollection->cdEdit() method is called and the /templates/CdCollection/cdEdit.tpl template is displayed. 
