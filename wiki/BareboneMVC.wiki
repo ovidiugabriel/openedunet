@@ -32,3 +32,11 @@ The `CdCollection` class should have a public method called `cdEdit`.
 Security checks are done, see below:
 
 If no error occurs, then the `CdCollection->cdEdit()` method is called and the `/templates/CdCollection/cdEdit.tpl` template is displayed. 
+
+= Security checks =
+
+BBMVC provides you a way to automatically check all _GET, _POST and _COOKIE parameters. You can enable/disable security checks using the _SECURITY_ENFORCE constants defined in the configuration file.
+
+In order to check the above cd_id parameter, you must have a public function called check_GET_cd_id in the CdCollectionSecurity class. Same for other_param, you need a function called check_GET_other_param.
+
+To check a _POST parameter, you will need a check_POST_paramName function. 
