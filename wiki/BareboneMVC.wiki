@@ -40,3 +40,20 @@ BBMVC provides you a way to automatically check all `_GET`, `_POST` and `_COOKIE
 In order to check the above *`cd_id`* parameter, you must have a public function called *`check_GET_cd_id`* in the `CdCollectionSecurity` class. Same for *`other_param`*, you need a function called *`check_GET_other_param`*.
 
 To check a `_POST` parameter, you will need a *`check_POST_paramName`* function. 
+
+= Template special functions =
+
+In order to be more flexible and allow easy integration of the SEO part, bbmvc has a smarty block function called *`a`* which should be used everywhere you have links. 
+
+Eg: Instead of inserting a link like `<a href="index.php?module=CdCollection&action=cdEdit&cd_id=5">...</a>`
+the url function should be used like this:
+`{a module=CdCollection action=cdEdit cd_id=5}...{/a}`
+
+If you have a form, then you should use the similar *`url`* smarty function, like this: `<form action="{url module=CdCollection action=cdUpdate}" method="post">`
+
+Some other things about the a/url smarty functions:
+
+    Either the module parameter or the href parameter must be given.
+    If the action parameter is missing, then the defaultAction value will be considered.
+    If a parameter's name starts with seo_, then the parameter will only be used internally and it will not be passed to the resulting URL
+    The rel and the target parameter given to the a block function, will be treated as their html counterparts. 
