@@ -29,6 +29,6 @@ The dispatcher(BBMVC) checks for the existence of the above mentioned folders, f
 
 The `CdCollection` class should have a public method called `cdEdit`.
 
-[Security checks are done, see below]
+Security checks are done, see below:
 
 If no error occurs, then the `CdCollection->cdEdit()` method is called and the `/templates/CdCollection/cdEdit.tpl` template is displayed. 
