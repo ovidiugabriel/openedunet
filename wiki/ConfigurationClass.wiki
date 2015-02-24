@@ -90,11 +90,14 @@ class Config {
 }
 }}}
 
+The following methods are preferred especially when interfacing with a strong-typed language.
+
 {{{
 public void Config::setBoolean(string name, boolean value) [static]
 public void Config::setInteger(string name, integer value) [static]
 public void Config::setString(string name, string value) [static]
 public void Config::setFloat(string name, float value) [static]
+public void Config::setObject(string name, object value) [static]
 }}}
 
 Not applicable for this project (move to another wiki):
