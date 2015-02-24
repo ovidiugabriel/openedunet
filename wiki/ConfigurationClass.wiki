@@ -71,6 +71,8 @@ public nulltype Config::set(string name, variant value) [static]
 
 public void Config::setBoolean(string name, boolean value) [static]
 public void Config::setInteger(string name, integer value) [static]
+public void Config::setString(string name, string value) [static]
+public void Config::setFloat(string name, float value) [static]
 }}}
 
 Converts the _value_ to the specified _type_ and stores it into the database (using the representation format specified by _type_).
