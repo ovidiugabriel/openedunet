@@ -16,10 +16,10 @@ Mark the module and action parameters, BBMVC will be looking for these.
 First, let's talk about the module.
 One module consists of 4 components:
 
-    /modules/CdCollection/class.CdCollection.php - main PHP code for the module
-    /modules/CdCollection/class.CdCollectionSecurity.php - PHP code responsible for module security
-    /modules/CdCollection/class.CdCollectionSeo.php - PHP code responsible for SEO (search engine friendly URLs, for now)
-    /templates/CdCollection/ - if it's not clear yet, templates of the module are located here
+  # `/modules/CdCollection/class.CdCollection.php` - main PHP code for the module
+  # `/modules/CdCollection/class.CdCollectionSecurity.php` - PHP code responsible for module security
+  # `/modules/CdCollection/class.CdCollectionSeo.php` - PHP code responsible for SEO (search engine friendly URLs, for now)
+  # `/templates/CdCollection/` - if it's not clear yet, templates of the module are located here
 
 The security and SEO part are not mandatory.
 
