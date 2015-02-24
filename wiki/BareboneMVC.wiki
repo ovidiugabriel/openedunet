@@ -54,7 +54,7 @@ Eg: Instead of inserting a link like
 {{{
 <a href="index.php?module=CdCollection&action=cdEdit&cd_id=5">...</a>
 }}}
-the url function should be used like this:
+the *`url`* function should be used like this:
 {{{
 {a module=CdCollection action=cdEdit cd_id=5}...{/a}
 }}}
