@@ -9,6 +9,6 @@
 ├───modules        -- a collection of controllers
 └───templates
 config.php         -- to be renamed to "config.profile.php"
-index.php
+index.php          -- the entry point
 style.css          -- to be removed (it belongs to a public_html) folder
 }}}
