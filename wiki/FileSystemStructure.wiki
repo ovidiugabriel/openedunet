@@ -5,7 +5,7 @@
 ├───config
 ├───includes       -- contains dispatcher internal logic (to be moved to classes)
 │   ├───classes    -- classes that belong to the framework
-│   └───libraries  -- classes provided by bundled 3rd party libraries
+│   └───libraries  -- packages provided by bundled 3rd party libraries
 ├───modules
 └───templates
 config.php         -- to be renamed to "config.profile.php"
