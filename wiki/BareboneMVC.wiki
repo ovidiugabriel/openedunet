@@ -1,6 +1,6 @@
 #summary One-sentence summary of this page.
 
-Author: Mihai Brehar
+Author: Mihai Brehar (Released: 20.07.2007)
 
 = What is Barebone MVC (BBMVC)? =
 
