@@ -68,11 +68,6 @@ Old version:
 {{{
 public nulltype Config::set(string name, variant value, string type) [static]
 public nulltype Config::set(string name, variant value) [static]
-
-public void Config::setBoolean(string name, boolean value) [static]
-public void Config::setInteger(string name, integer value) [static]
-public void Config::setString(string name, string value) [static]
-public void Config::setFloat(string name, float value) [static]
 }}}
 
 Converts the _value_ to the specified _type_ and stores it into the database (using the representation format specified by _type_).
@@ -81,6 +76,13 @@ Converts the _value_ to the specified _type_ and stores it into the database (us
 || *value* || value to be stored into the database ||
 || *type* || <div>in case that _value_ has primitive types: a long standard type name</div><ul><li>`'boolean'`</li><li> `'float'`</li><li>`'integer'`</li><li>`'string'`</li></ul><div> in case that _value_ is an object or an array: the serialization method must be specified</div><div><ul><li>`'json'`</li><li>`'base64'`</li><li>`'hexdump'` (not implemented)</li><li>`'serialize'` (not recommended, use `'json'` instead)</li><li>`'yaml'` (proposal)</li><li> `'xml'` (proposal)</li></ul></div><div> `[default]` If `type` is omitted, the current variable type is used for primitive types - requested with `gettype()` </div><div>For objects, the `json` serialization method is the default. </div> ||
 || *returns* || `null` - Nothing to return. If something is wrong and exception is thrown. ||
+
+{{{
+public void Config::setBoolean(string name, boolean value) [static]
+public void Config::setInteger(string name, integer value) [static]
+public void Config::setString(string name, string value) [static]
+public void Config::setFloat(string name, float value) [static]
+}}}
 
 Not applicable for this project (move to another wiki):
 
