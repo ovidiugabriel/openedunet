@@ -149,6 +149,11 @@ Forget about CodingConventions. We are more concerned with:
   * [http://en.wikipedia.org/wiki/Code_reuse Code reuse]
   * [http://en.wikipedia.org/wiki/Abstraction_principle_%28programming%29 Abstraction principles]
 
+Some good documentation:
+  * [http://www.tonymarston.net/php-mysql/3-tier-architecture.html Three Layers Architecture]
+  * [http://www.tonymarston.net/php-mysql/model-view-controller.html MVC Architectural Pattern in Web Applications]
+  * [http://www.tonymarston.net/php-mysql/dependency-injection-is-evil.html On coupling and cohesion (with some arguments on Dependency Injection)]
+
 And speaking about DRY Principle: *Avoid [http://en.wikipedia.org/wiki/Copy_and_paste_programming Copy and paste programming] and [http://en.wikipedia.org/wiki/Cargo_cult_programming Cargo cult programming] at any price, dead or alive, no matter what.*
 
 [http://ilpverymuch.wordpress.com/2014/06/23/10-steps-to-becoming-a-better-programmer/ 10 steps to becoming a better programmer]
