@@ -82,10 +82,11 @@ For the value of `type` you can pas one of the *`Config::TYPE_<type>`* constants
 {{{
 class Config {
     // ...
-    const TYPE_BOOLEAN  = 'boolean';
-    const TYPE_FLOAT    = 'float';
-    const TYPE_INTEGER  = 'integer';
-    const TYPE_STRING   = 'string';
+    const TYPE_BOOLEAN     = 'boolean';
+    const TYPE_FLOAT       = 'float';
+    const TYPE_INTEGER     = 'integer';
+    const TYPE_STRING      = 'string';
+    const TYPE_OBJECT_JSON = 'json';
     // ...
 }
 }}}
