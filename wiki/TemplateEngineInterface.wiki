@@ -1,1 +1,10 @@
 #summary Smarty Compatible Template Engine interface
+
+{{{
+
+interface ITemplateEngine {
+    void append(mixed var);
+    void append(string varname, mixed var, bool merge);
+}
+
+}}}
