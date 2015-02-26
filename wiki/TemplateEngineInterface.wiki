@@ -19,3 +19,9 @@ interface ITemplateEngine {
 }}}
 
 === `assign()` ===
+
+=== `append()` === 
+
+=== `fetch()` === 
+
+=== `display()` === 
