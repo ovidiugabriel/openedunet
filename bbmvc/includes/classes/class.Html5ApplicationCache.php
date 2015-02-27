@@ -5,3 +5,6 @@
    */
   class Html5ApplicationCache {
   }
+  
+  class CacheManifest {
+  }
