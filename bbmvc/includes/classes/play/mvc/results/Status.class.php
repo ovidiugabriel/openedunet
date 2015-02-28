@@ -1,11 +1,6 @@
 <?php
 
 class play_mvc_results_Status implements play_mvc_Result{
-	public function __construct($status, $content = null) { if(!php_Boot::$skip_constructor) {
-		if($content === null) {
-			$content = "";
-		}
-	}}
 	const BAD_REQUEST = 400;
 	const CREATED = 201;
 	const FORBIDDEN = 403;
@@ -17,5 +12,4 @@ class play_mvc_results_Status implements play_mvc_Result{
 	const SEE_OTHER = 303;
 	const TEMPORARY_REDIRECT = 307;
 	const UNAUTHORIZED = 401;
-	function __toString() { return 'play.mvc.results.Status'; }
 }
