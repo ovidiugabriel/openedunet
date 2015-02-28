@@ -5,6 +5,8 @@ Library documentation: http://api.haxe.org/php/index.html
 http://www.aymericlamboley.fr/blog/using-native-php-with-haxe-php/
 http://old.haxe.org/doc/advanced/magic
 
+For interface conversion: http://phptohaxe.haqteam.com/code.php
+
 Php Magic
 
 There are four magic identifiers in php:
