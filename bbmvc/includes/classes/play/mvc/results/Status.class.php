@@ -12,4 +12,5 @@ class play_mvc_results_Status implements play_mvc_Result{
 	const SEE_OTHER = 303;
 	const TEMPORARY_REDIRECT = 307;
 	const UNAUTHORIZED = 401;
+	function __toString() { return 'play.mvc.results.Status'; }
 }
