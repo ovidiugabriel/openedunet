@@ -3,5 +3,18 @@
 == Actions ==
 
 {{{
-Results::ok($this->fetch('Controller/Template.tpl'));
+public function index() {
+    return Results::ok($this->fetch());
+}
+}}}
+
+Where
+{{{
+    return Results::ok($this->fetch());
+}}}
+
+is equivalent of the following:
+
+{{{
+    return $this->display();
 }}}
