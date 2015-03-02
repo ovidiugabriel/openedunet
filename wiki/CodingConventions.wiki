@@ -47,6 +47,9 @@ Packages\User\Preferences.sublime-settings
 
     // Set to false to disable detection of tabs vs. spaces on load
     "detect_indentation": false,
+
+    // Set to "none" to turn off drawing white space, "selection" to draw only the
+    // white space within the selection, and "all" to draw all white space
     "draw_white_space": "all",
     "trim_trailing_white_space_on_save": true
 }
