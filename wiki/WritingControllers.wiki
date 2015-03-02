@@ -3,5 +3,5 @@
 == Actions ==
 
 {{{
-Results::ok();
+Results::ok($this->fetch('Controller/Template.tpl'));
 }}}
