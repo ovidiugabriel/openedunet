@@ -2,7 +2,7 @@
 
 = License =
 
-Current license of this project is *Modified BSD License* (BSD 3-clause license).
+Current license of this project is *Modified BSD License* ([http://opensource.org/licenses/BSD-3-Clause BSD 3-clause license]).
 
 The license was changed from original GPL2 because it is more permissive and that way it encourages *business development*. It removes share-alike reciprocal requirements and offer a better protection of copyright. 
 
