@@ -158,9 +158,10 @@ function checkVariables(ReflectionClass $class, Security $security, $array) {
 }
 
 /**
- *
  * @param array $params
  * @return null
+ * 
+ * @see https://ellislab.com/codeigniter/user-guide/helpers/url_helper.html
  */
 function redirect(array $params) {
 
