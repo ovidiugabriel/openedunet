@@ -127,11 +127,11 @@ class Console {
         if ( isset($css['text-decoration']) ) {
             // text-decoration: underline; 
             $css_text_decoration = strtolower($css['text-decoration']);
-            if ('underline' == $css_text_decoration) {
+            if (false !== strpos(/* haystack: */ $css_text_decoration, /* needle: */ 'underline' )) {
                 $text .= self::UNDERLINED;
             }
-
-            if ('blink' == $css_text_decoration) {
+            
+            if (false !== strpos(/* haystack: */ $css_text_decoration, /* needle: */ 'blink')) {
                 $text .= self::BLINK;
             }
         }
