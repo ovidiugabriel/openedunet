@@ -91,24 +91,39 @@ class Console {
         if (isset($css['color'])) {
             // Reference: http://en.wikipedia.org/wiki/Web_colors
             $color_map = array(
-                'black'   => self::BLACK  ,
-                '#000000' => self::BLACK  ,
-                'blue'    => self::BLUE   ,
-                '#0000FF' => self::BLUE   ,
-                'cyan'    => self::CYAN   ,
-                '#00FFFF' => self::CYAN   ,
-                'green'   => self::GREEN  ,
-                '#008000' => self::GREEN  ,
-                'magenta' => self::MAGENTA,
-                '#FF00FF' => self::MAGENTA,
-                'red'     => self::RED    ,
-                '#FF0000' => self::RED    ,
-                'white'   => self::WHITE  ,
-                '#FFFFFF' => self::WHITE  ,
-                'yellow'  => self::YELLOW ,
-                '#FFFF00' => self::YELLOW ,
+                'black'            => self::BLACK   ,
+                '#000000'          => self::BLACK   ,
+                'rgb(0,0,0)'       => self::BLACK   ,
+                // ----------------------------------
+                'blue'             => self::BLUE    ,
+                '#0000FF'          => self::BLUE    ,
+                'rgb(0,0,255)'     => self::BLUE    ,
+                // ----------------------------------
+                'cyan'             => self::CYAN    ,
+                '#00FFFF'          => self::CYAN    ,
+                'rgb(0,255,255)'   => self::CYAN    ,
+                // ----------------------------------
+                'green'            => self::GREEN   ,
+                '#008000'          => self::GREEN   ,
+                'rgb(0,128,0)'     => self::GREEN   ,
+                // ----------------------------------
+                'magenta'          => self::MAGENTA ,
+                '#FF00FF'          => self::MAGENTA ,
+                'rgb(255,0,255)'   => self::MAGENTA ,
+                // ----------------------------------
+                'red'              => self::RED     ,
+                '#FF0000'          => self::RED     ,
+                'rgb(255,0,0)'     => self::RED     ,
+                // ----------------------------------
+                'white'            => self::WHITE   ,
+                '#FFFFFF'          => self::WHITE   ,
+                'rgb(255,255,255)' => self::WHITE   ,
+                // ----------------------------------
+                'yellow'           => self::YELLOW  ,
+                '#FFFF00'          => self::YELLOW  ,
+                'rgb(255,255,0)'   => self::YELLOW  ,
             );
-            $css_color = strtolower($css['color']);
+            $css_color = str_replace(' ', '',  strtolower($css['color']) );
             if (isset( $color_map[$css_color] )) {
                 $text .= $color_map[$css_color];    
             }
@@ -116,25 +131,40 @@ class Console {
         
         if (isset($css['background-color'])) {
             $bgcolor_map = array(
-                'black'   => self::BLACK_B  ,
-                '#000000' => self::BLACK_B  ,
-                'blue'    => self::BLUE_B   ,
-                '#0000FF' => self::BLUE_B   ,
-                'cyan'    => self::CYAN_B   ,
-                '#00FFFF' => self::CYAN_B   ,
-                'green'   => self::GREEN_B  ,
-                '#008000' => self::GREEN_B  ,
-                'magenta' => self::MAGENTA_B,
-                '#FF00FF' => self::MAGENTA_B,
-                'red'     => self::RED_B    ,
-                '#FF0000' => self::RED_B    ,
-                'white'   => self::WHITE_B  ,
-                '#FFFFFF' => self::WHITE_B  ,
-                'yellow'  => self::YELLOW_B ,
-                '#FFFF00' => self::YELLOW_B ,
+                'black'            => self::BLACK_B   ,
+                '#000000'          => self::BLACK_B   ,
+                'rgb(0,0,0)'       => self::BLACK_B   ,
+                // ----------------------------------
+                'blue'             => self::BLUE_B    ,
+                '#0000FF'          => self::BLUE_B    ,
+                'rgb(0,0,255)'     => self::BLUE_B    ,
+                // ----------------------------------
+                'cyan'             => self::CYAN_B    ,
+                '#00FFFF'          => self::CYAN_B    ,
+                'rgb(0,255,255)'   => self::CYAN_B    ,
+                // ----------------------------------
+                'green'            => self::GREEN_B   ,
+                '#008000'          => self::GREEN_B   ,
+                'rgb(0,128,0)'     => self::GREEN_B   ,
+                // ----------------------------------
+                'magenta'          => self::MAGENTA_B ,
+                '#FF00FF'          => self::MAGENTA_B ,
+                'rgb(255,0,255)'   => self::MAGENTA_B ,
+                // ----------------------------------
+                'red'              => self::RED_B     ,
+                '#FF0000'          => self::RED_B     ,
+                'rgb(255,0,0)'     => self::RED_B     ,
+                // ----------------------------------
+                'white'            => self::WHITE_B   ,
+                '#FFFFFF'          => self::WHITE_B   ,
+                'rgb(255,255,255)' => self::WHITE_B   ,
+                // ----------------------------------
+                'yellow'           => self::YELLOW_B  ,
+                '#FFFF00'          => self::YELLOW_B  ,
+                'rgb(255,255,0)'   => self::YELLOW_B  ,
             );
             
-            $css_background = strtolower($css['background-color']);
+            $css_background = str_replace(' ', '', strtolower($css['background-color']) );
             if (isset( $bgcolor_map[$css_background] )) {
                 $text .= $bgcolor_map[$css_background];
             }
