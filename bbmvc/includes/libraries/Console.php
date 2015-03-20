@@ -44,9 +44,11 @@ class Console {
     const INVISIBLE     = "\033[8m";
 
     /// Foreground color for ANSI magenta
+    /// CSS> color: magenta;
     const MAGENTA       = "\033[35m";
 
     /// Background color for ANSI magenta
+    
     const MAGENTA_B     = "\033[45m";
 
     /// Foreground color for ANSI red
@@ -90,8 +92,9 @@ class Console {
                 'white'   => self::WHITE  ,
                 'yellow'  => self::YELLOW ,
             );
-            if (isset( $color_map[ $css['color'] ] )) {
-                $text .= $color_map[ $css['color'] ];    
+            $css_color = strtolower($css['color']);
+            if (isset( $color_map[$css_color] )) {
+                $text .= $color_map[$css_color];    
             }
         }
         
@@ -107,24 +110,28 @@ class Console {
                 'yellow'  => self::YELLOW   ,
             );
             
-            if (isset( $bgcolor_map[ $css['background-color'] ] )) {
-                $text .= $bgcolor_map[ $css['background-color'] ];
+            $css_background = strtolower($css['background-color']);
+            if (isset( $bgcolor_map[$css_background] )) {
+                $text .= $bgcolor_map[$css_background];
             }
         }
         
         // font-weight: bold;
-        if ( isset($css['font-weight']) && ('bold' == $css['font-weight']) ) {
-            $text .= self::BOLD;
+        if ( isset($css['font-weight']) ) {
+            $css_font_weight = strtolower($css['font-weight']);
+            if ('bold' == $css_font_weight) {
+                $text .= self::BOLD;
+            }
         }
         
-        
         if ( isset($css['text-decoration']) ) {
-            // text-decoration: underline;    
-            if ('underline' == $css['text-decoration']) {
-                $text .= self::UNDERLINED;    
+            // text-decoration: underline; 
+            $css_text_decoration = strtolower($css['text-decoration']);
+            if ('underline' == $css_text_decoration) {
+                $text .= self::UNDERLINED;
             }
-            
-            if ('blink' == $css['text-decoration']) {
+
+            if ('blink' == $css_text_decoration) {
                 $text .= self::BLINK;
             }
         }
