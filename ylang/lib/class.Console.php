@@ -1,5 +1,7 @@
 <?php
 
+// Please see: bbmvc/includes/libraries/Console.php  - it must be only one file
+
 function println($text='') {
     return Console::println($text);
 }
