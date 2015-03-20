@@ -48,13 +48,15 @@ class Console {
     const MAGENTA       = "\033[35m";
 
     /// Background color for ANSI magenta
-    
+    /// CSS> background-color: magenta;
     const MAGENTA_B     = "\033[45m";
 
     /// Foreground color for ANSI red
+    /// CSS> color: red;
     const RED           = "\033[31m";
 
     /// Background color for ANSI red
+    /// CSS> background-color: red;
     const RED_B         = "\033[41m";
 
     /// Reset ANSI styles
@@ -64,18 +66,23 @@ class Console {
     const REVERSED      = "\033[7m";
 
     /// ANSI underlines
+    /// CSS> text-decoration: underline;
     const UNDERLINED    = "\033[4m";
 
     /// Foreground color for ANSI white
+    /// CSS> color: white;
     const WHITE         = "\033[37m";
 
     /// Background color for ANSI white
+    /// CSS> background-color: white;
     const WHITE_B       = "\033[47m";
 
     /// Foreground color for ANSI yellow
+    /// CSS> color: yellow;
     const YELLOW        = "\033[33m";
 
     /// Background color for ANSI yellow
+    /// CSS> background-color: yellow;
     const YELLOW_B      = "\033[43m";
     
     static public function cssProperties($css)
