@@ -89,13 +89,20 @@ class Console {
     {
         $text = '';
         if (isset($css['color'])) {
+            // Reference: http://en.wikipedia.org/wiki/Web_colors
             $color_map = array(
                 'black'   => self::BLACK  ,
+                '#000000' => self::BLACK  ,
                 'blue'    => self::BLUE   ,
+                '#0000FF' => self::BLUE,
                 'cyan'    => self::CYAN   ,
+                '#00FFFF' => self::CYAN,
                 'green'   => self::GREEN  ,
+                '#008000' => self::GREEN  ,
                 'magenta' => self::MAGENTA,
+                '#FF00FF' => self::MAGENTA,
                 'red'     => self::RED    ,
+                '#FF0000' => self::RED    ,
                 'white'   => self::WHITE  ,
                 'yellow'  => self::YELLOW ,
             );
