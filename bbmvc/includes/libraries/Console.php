@@ -76,4 +76,9 @@ class Console {
     {
         echo self::BOLD . $color . $text . self::RESET;
     }
+    
+    static public function underline($text, $color = '')
+    {
+        echo self::UNDERLINED . $color . $text . self::RESET;
+    }
 }
