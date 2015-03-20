@@ -104,7 +104,9 @@ class Console {
                 'red'     => self::RED    ,
                 '#FF0000' => self::RED    ,
                 'white'   => self::WHITE  ,
+                '#FFFFFF' => self::WHITE  ,
                 'yellow'  => self::YELLOW ,
+                '#FFFF00' => self::YELLOW ,
             );
             $css_color = strtolower($css['color']);
             if (isset( $color_map[$css_color] )) {
@@ -115,13 +117,21 @@ class Console {
         if (isset($css['background-color'])) {
             $bgcolor_map = array(
                 'black'   => self::BLACK_B  ,
+                '#000000' => self::BLACK_B  ,
                 'blue'    => self::BLUE_B   ,
+                '#0000FF' => self::BLUE_B   ,
                 'cyan'    => self::CYAN_B   ,
+                '#00FFFF' => self::CYAN_B   ,
                 'green'   => self::GREEN_B  ,
+                '#008000' => self::GREEN_B,
                 'magenta' => self::MAGENTA_B,
-                'red'     => self::RED      ,
-                'white'   => self::WHITE    ,
-                'yellow'  => self::YELLOW   ,
+                '#FF00FF' => self::MAGENTA_B,
+                'red'     => self::RED_B    ,
+                '#FF0000' => self::RED_B    ,
+                'white'   => self::WHITE_B  ,
+                '#FFFFFF' => self::WHITE_B  ,
+                'yellow'  => self::YELLOW_B ,
+                '#FFFF00' => self::YELLOW_B,
             );
             
             $css_background = strtolower($css['background-color']);
