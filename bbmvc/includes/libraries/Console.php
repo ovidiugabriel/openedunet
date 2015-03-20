@@ -94,9 +94,9 @@ class Console {
                 'black'   => self::BLACK  ,
                 '#000000' => self::BLACK  ,
                 'blue'    => self::BLUE   ,
-                '#0000FF' => self::BLUE,
+                '#0000FF' => self::BLUE   ,
                 'cyan'    => self::CYAN   ,
-                '#00FFFF' => self::CYAN,
+                '#00FFFF' => self::CYAN   ,
                 'green'   => self::GREEN  ,
                 '#008000' => self::GREEN  ,
                 'magenta' => self::MAGENTA,
@@ -123,7 +123,7 @@ class Console {
                 'cyan'    => self::CYAN_B   ,
                 '#00FFFF' => self::CYAN_B   ,
                 'green'   => self::GREEN_B  ,
-                '#008000' => self::GREEN_B,
+                '#008000' => self::GREEN_B  ,
                 'magenta' => self::MAGENTA_B,
                 '#FF00FF' => self::MAGENTA_B,
                 'red'     => self::RED_B    ,
@@ -131,7 +131,7 @@ class Console {
                 'white'   => self::WHITE_B  ,
                 '#FFFFFF' => self::WHITE_B  ,
                 'yellow'  => self::YELLOW_B ,
-                '#FFFF00' => self::YELLOW_B,
+                '#FFFF00' => self::YELLOW_B ,
             );
             
             $css_background = strtolower($css['background-color']);
