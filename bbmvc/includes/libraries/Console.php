@@ -17,6 +17,7 @@ class Console {
     const BLUE          = "\033[34m";
 
     /// Background color for ANSI blue
+    /// CSS> background-color: blue;
     const BLUE_B        = "\033[44m";
 
     /// ANSI bold
@@ -24,15 +25,19 @@ class Console {
     const BOLD          = "\033[1m";
 
     /// Foreground color for ANSI cyan
+    /// CSS> color: cyan;
     const CYAN          = "\033[36m";
 
     /// Background color for ANSI CYAN
+    // CSS> background-color: cyan;
     const CYAN_B        = "\033[46m";
 
     /// Foreground color for ANSI green
+    // CSS> color: green;
     const GREEN         = "\033[32m";
 
     /// Background color for ANSI green
+    // CSS> background-color: green;
     const GREEN_B       = "\033[42m";
 
     /// ANSI invisible
@@ -112,9 +117,15 @@ class Console {
         }
         
         // font-weight: bold;
-        if (isset($css['font-weight']) && ('bold' == $css['font-weight']))
+        if ( isset($css['font-weight']) && ('bold' == $css['font-weight']) )
         {
             $text .= self::BOLD;
+        }
+        
+        // text-decoration: underline;
+        if ( isset($css['text-decoration']) && ('underline' == $css['text-decoration']) )
+        {
+            $text .= self::UNDERLINED;
         }
         
         return $text;
