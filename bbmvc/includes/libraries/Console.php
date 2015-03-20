@@ -67,8 +67,13 @@ class Console {
     /// Background color for ANSI yellow
     const YELLOW_B      = "\033[43m";
     
-    static public function println($value='')
+    static public function println($text = '')
     {
-        echo "$value\n";
-    }    
+        echo "$text\n";
+    }
+    
+    static public function bold($text, $color = '')
+    {
+        echo self::BOLD . $color . $text . self::RESET;
+    }
 }
