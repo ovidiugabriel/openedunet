@@ -2,21 +2,25 @@
 
 class Console {
     /// Foreground color for ANSI black
+    /// CSS> color: black;
     const BLACK         = "\033[30m";
 
     /// Background color for ANSI black
+    /// CSS> background-color: black;
     const BLACK_B       = "\033[40m";
 
     /// ANSI blink
     const BLINK         = "\033[5m";
 
     /// Foreground color for ANSI blue
+    /// CSS> color: blue;
     const BLUE          = "\033[34m";
 
     /// Background color for ANSI blue
     const BLUE_B        = "\033[44m";
 
     /// ANSI bold
+    /// CSS> font-weight: bold;
     const BOLD          = "\033[1m";
 
     /// Foreground color for ANSI cyan
@@ -100,7 +104,19 @@ class Console {
                 'white'   => self::WHITE    ,
                 'yellow'  => self::YELLOW   ,
             );
+            
+            if (isset( $bgcolor_map[ $css['background-color'] ] ))
+            {
+                $text .= $bgcolor_map[ $css['background-color'] ];
+            }
         }
+        
+        // font-weight: bold;
+        if (isset($css['font-weight']) && ('bold' == $css['font-weight']))
+        {
+            $text .= self::BOLD;
+        }
+        
         return $text;
     }
     
