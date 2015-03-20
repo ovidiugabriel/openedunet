@@ -67,6 +67,43 @@ class Console {
     /// Background color for ANSI yellow
     const YELLOW_B      = "\033[43m";
     
+    static public function cssProperties($css)
+    {
+        $text = '';
+        if (isset($css['color']))
+        {
+            $color_map = array(
+                'black'   => self::BLACK  ,
+                'blue'    => self::BLUE   ,
+                'cyan'    => self::CYAN   ,
+                'green'   => self::GREEN  ,
+                'magenta' => self::MAGENTA,
+                'red'     => self::RED    ,
+                'white'   => self::WHITE  ,
+                'yellow'  => self::YELLOW ,
+            );
+            if (isset( $color_map[ $css['color'] ] ))
+            {
+                $text .= $color_map[ $css['color'] ];    
+            }
+        }
+        
+        if (isset($css['background-color']))
+        {
+            $bgcolor_map = array(
+                'black'   => self::BLACK_B  ,
+                'blue'    => self::BLUE_B   ,
+                'cyan'    => self::CYAN_B   ,
+                'green'   => self::GREEN_B  ,
+                'magenta' => self::MAGENTA_B,
+                'red'     => self::RED      ,
+                'white'   => self::WHITE    ,
+                'yellow'  => self::YELLOW   ,
+            );
+        }
+        return $text;
+    }
+    
     static public function println($text = '')
     {
         echo "$text\n";
