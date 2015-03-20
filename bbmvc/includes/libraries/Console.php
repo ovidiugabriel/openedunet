@@ -79,8 +79,7 @@ class Console {
     static public function cssProperties($css)
     {
         $text = '';
-        if (isset($css['color']))
-        {
+        if (isset($css['color'])) {
             $color_map = array(
                 'black'   => self::BLACK  ,
                 'blue'    => self::BLUE   ,
@@ -91,14 +90,12 @@ class Console {
                 'white'   => self::WHITE  ,
                 'yellow'  => self::YELLOW ,
             );
-            if (isset( $color_map[ $css['color'] ] ))
-            {
+            if (isset( $color_map[ $css['color'] ] )) {
                 $text .= $color_map[ $css['color'] ];    
             }
         }
         
-        if (isset($css['background-color']))
-        {
+        if (isset($css['background-color'])) {
             $bgcolor_map = array(
                 'black'   => self::BLACK_B  ,
                 'blue'    => self::BLUE_B   ,
@@ -110,24 +107,27 @@ class Console {
                 'yellow'  => self::YELLOW   ,
             );
             
-            if (isset( $bgcolor_map[ $css['background-color'] ] ))
-            {
+            if (isset( $bgcolor_map[ $css['background-color'] ] )) {
                 $text .= $bgcolor_map[ $css['background-color'] ];
             }
         }
         
         // font-weight: bold;
-        if ( isset($css['font-weight']) && ('bold' == $css['font-weight']) )
-        {
+        if ( isset($css['font-weight']) && ('bold' == $css['font-weight']) ) {
             $text .= self::BOLD;
         }
         
-        // text-decoration: underline;
-        if ( isset($css['text-decoration']) && ('underline' == $css['text-decoration']) )
-        {
-            $text .= self::UNDERLINED;
-        }
         
+        if ( isset($css['text-decoration']) ) {
+            // text-decoration: underline;    
+            if ('underline' == $css['text-decoration']) {
+                $text .= self::UNDERLINED;    
+            }
+            
+            if ('blink' == $css['text-decoration']) {
+                $text .= self::BLINK;
+            }
+        }
         return $text;
     }
     
