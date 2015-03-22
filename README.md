@@ -10,4 +10,4 @@ Automatically exported from `code.google.com/p/openedunet`
   - *Google Code Wiki Syntax* becomes deprecated; from now on the entire documentation will be written using **Markdown**
 
 05.09.2014
-  - We started to add Ch scripting web runtime support [Ch: A C/C++ Interpreter for Script Computing](http://www.drdobbs.com/cpp/ch-a-cc-interpreter-for-script-computing/184402054?pgno=1)
+  - We started to add web runtime support for scripts written in Ch [Ch: A C/C++ Interpreter for Script Computing](http://www.drdobbs.com/cpp/ch-a-cc-interpreter-for-script-computing/184402054?pgno=1)
