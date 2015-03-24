@@ -6,7 +6,7 @@ Automatically exported from `code.google.com/p/openedunet`
   - We moved to get most of dependencies using [composer](https://getcomposer.org/)
 
 20.03.2015 
-  - We moved to [github](https://github.com/)
+  - We moved to [github](https://github.com/) - because Google announced that Project Hosting on Google Code will close on January 25th, 2016
   - [Google Code Wiki Syntax](https://code.google.com/p/support/wiki/WikiSyntax) becomes deprecated; from now on the entire documentation will be written using [Markdown](https://help.github.com/articles/markdown-basics/)
 
 13.02.2015
