@@ -2,12 +2,12 @@
 Automatically exported from `code.google.com/p/openedunet`
 
 22.03.2015
-  - We started using **Travis CI**
-  - We moved to get most of dependencies using **composer**
+  - We started using [Travis CI](https://travis-ci.org)
+  - We moved to get most of dependencies using [composer](https://getcomposer.org/)
 
 20.03.2015 
-  - We moved to **github**
-  - *Google Code Wiki Syntax* becomes deprecated; from now on the entire documentation will be written using **Markdown**
+  - We moved to [github](https://github.com/)
+  - [Google Code Wiki Syntax](https://code.google.com/p/support/wiki/WikiSyntax) becomes deprecated; from now on the entire documentation will be written using [Markdown](https://help.github.com/articles/markdown-basics/)
 
 17.01.2015
   - We integrated **React 1.0** to be used in reactive programming on the client side
