@@ -7,7 +7,7 @@ Automatically exported from `code.google.com/p/openedunet`
 
 20.03.2015 
   - We moved to [github](https://github.com/) - because Google announced that Project Hosting on Google Code will close on January 25th, 2016
-  - [Google Code Wiki Syntax](https://code.google.com/p/support/wiki/WikiSyntax) becomes deprecated; from now on the entire documentation will be written using [Markdown](https://help.github.com/articles/markdown-basics/)
+  - [Google Code Wiki Syntax](https://code.google.com/p/support/wiki/WikiSyntax) becomes deprecated; from now on the entire documentation will be written using [Markdown](https://help.github.com/articles/markdown-basics/) ; [Creole](http://en.wikipedia.org/wiki/Creole_%28markup%29) is also tolerated for the Wiki pages since it is supported by github.
 
 13.02.2015
   - We decided to start using [tup](http://gittup.org/tup/) for our builds
