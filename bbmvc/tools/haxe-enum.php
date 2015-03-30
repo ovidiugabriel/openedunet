@@ -8,6 +8,8 @@
 /*  Email:       ovidiugabriel@gmail.com                                     */
 /*  Copyright:   (C) 2015 ICE Control srl. All Rights Reserved.              */
 /*                                                                           */
+/*  Purpose:     Transforms all static members of a given class into         */
+/*               const members                                               */
 /*  $Id$                                                                     */
 /*                                                                           */
 /* ************************************************************************* */
@@ -76,6 +78,7 @@ function haxe_enum_to_php_class($class_name, $target_dir) {
 
 if ( !isset($argv[1]) || !isset($argv[2]) ) {
     echo "\n";
+    echo "{$argv[0]} - Transforms all static members of a given class into \n";
     echo "Usage: \n\n";
     echo "      {$argv[0]} <target-dir> <class-name> \n\n";
     echo "Examples: \n\n";
