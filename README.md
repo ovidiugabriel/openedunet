@@ -1,11 +1,27 @@
 # openedunet
 Automatically exported from `code.google.com/p/openedunet`
 
+Integrated e-learning platform and content management system, with support for teaching and learning, for tests and evaluations, for managing the educational content, for monitoring the educational system and creating the curricula.
+
+Current license of this project is [Modified BSD License](https://code.google.com/p/openedunet/wiki/License). Content is Licensed under: [Creative Commons Attribution-ShareAlike 3.0 Unported](https://creativecommons.org/licenses/by-sa/3.0/legalcode)
+
+The the core of **openedunet LMS** (Open Education Network Learning Management System) was originally based on **Barebone MVC** and it was called **oencore** (openedunet Core).
+
+This page is also hosting the current version of [Barebone MVC]() Framework.
+
+Official project website is: [http://www.openedunet.org/]([http://www.openedunet.org/)
+
+## Trunk Checkout ##
+
 If you plan to make changes, use this command to check out the code as yourself using HTTPS:
+
 ```
 svn checkout https://github.com/ovidiugabriel/openedunet/trunk
 ```
+
 When prompted, enter your github user and password.
+
+## Changelist ##
 
 22.03.2015
   - We started using [Travis CI](https://travis-ci.org)
