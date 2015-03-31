@@ -25,6 +25,10 @@ When prompted, enter your github user and password.
 
 ### Framework Releases ###
 
+| Release | Date | Requires | File | MD5 checksum |
+|---------|------|----------|------|--------------|
+|         |      |          |      |              |
+
 ### Changelist ###
 
 22.03.2015
