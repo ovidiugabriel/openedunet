@@ -25,9 +25,9 @@ When prompted, enter your github user and password.
 
 ### Framework Releases ###
 
-| Release | Date      | Requires | File                                               | MD5 checksum |
-|---------|-----------|----------|----------------------------------------------------|--------------|
-| 0.2.0   | July 2007 | PHP 5.x  | http://www.icecontrol.eu/downloads/bbmvc-0.2.0.zip | 11310c1c5d8e4ce5404fcaa3fde6fb8b |
+| Release | Date      | Requires | File                                                 | MD5 checksum                     |
+|---------|-----------|----------|------------------------------------------------------|----------------------------------|
+| 0.2.0   | July 2007 | PHP 5.x  | [bbmvc-0.2.0.zip](http://www.icecontrol.eu/downloads/bbmvc-0.2.0.zip) | 11310c1c5d8e4ce5404fcaa3fde6fb8b |
 
 ### Changelist ###
 
