@@ -1,6 +1,12 @@
 # openedunet
 Automatically exported from `code.google.com/p/openedunet`
 
+If you plan to make changes, use this command to check out the code as yourself using HTTPS:
+```
+svn checkout https://github.com/ovidiugabriel/openedunet/trunk
+```
+When prompted, enter your github user and password.
+
 22.03.2015
   - We started using [Travis CI](https://travis-ci.org)
   - We moved to get most of dependencies using [composer](https://getcomposer.org/)
