@@ -33,13 +33,14 @@ When prompted, enter your github user and password.
 
 **Note**: The usage of a database (like MySQL, PostgreSQL, CouchDB, etc) is **not required** for Barebone MVC.
 
-
-Unzip bbmvc-0.2.0.zip in your web-development folder
-Create a database and create the table found at /path-to-bbmvc/sql/tables/cds.sql.
-Edit /path-to-bbmvc/config/config.php and set the following constants: _URL_MAIN, _DIR_PROJECT, _DB_USER, _DB_PASS, _DB_HOST, _DB_NAME.
-Make the /path-to-bbmvc/tmp folder writable by your web server.
-Open your web browser at _URL_MAIN
 However the bundled example and most of the tutorials are based on **mysqli** extension.
+
+1. Unzip [bbmvc-0.2.0.zip](http://www.icecontrol.eu/downloads/bbmvc-0.2.0.zip) in your web-development folder
+2. Create a database and create the table found at `/path-to-bbmvc/sql/tables/cds.sql`.
+Edit `/path-to-bbmvc/config/config.php` and set the following constants: `_URL_MAIN`, `_DIR_PROJECT`, `_DB_USER`, `_DB_PASS`, `_DB_HOST`, `_DB_NAME`.
+3. Make the `/path-to-bbmvc/tmp` folder writable by your web server.
+4. Open your web browser at `_URL_MAIN`
+
 
 ### Changelist ###
 
