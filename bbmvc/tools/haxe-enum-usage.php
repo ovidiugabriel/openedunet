@@ -2,14 +2,12 @@
 
 /* ************************************************************************* */
 /*                                                                           */
-/*  Title:       haxe-enum.php                                               */
+/*  Title:       haxe-enum-usage.php                                         */
 /*                                                                           */
-/*  Created on:  05.03.2015 at 06:14:24                                      */
+/*  Created on:  30.03.2015 at 04:26:02                                      */
 /*  Email:       ovidiugabriel@gmail.com                                     */
 /*  Copyright:   (C) 2015 ICE Control srl. All Rights Reserved.              */
 /*                                                                           */
-/*  Purpose:     Transforms all static members of a given class into         */
-/*               const members                                               */
 /*  $Id$                                                                     */
 /*                                                                           */
 /* ************************************************************************* */
@@ -48,41 +46,27 @@ require_once 'haxe-common.php';
 /*                                                                           */
 
 /**
+ * @param string $used_class
  * @param string $class_name
  * @param string $target_dir
  * @return string
  */
-function haxe_enum_to_php_class($class_name, $target_dir) {
-    $impl_data = haxe_class_to_relpath($class_name);
+function haxe_enum_to_php_usage($used_class, $class_name, $target_dir) {
+    // TODO: Accept a list of classes as used_class
+    $impl_data = haxe_class_to_relpath($class_name, false);
+    $class_file = str_replace('\\', '/', realpath($target_dir)) . '/lib/' . $impl_data['relpath'];
 
-    require  str_replace('\\', '/', realpath($target_dir)) . '/lib/' . $impl_data['relpath'];
-    $refl       = new ReflectionClass($impl_data['full_name']);
-    $properties = $refl->getProperties();
-
-    $echo = "class $init_name {\n";
-    foreach ($properties as $property) {
-        if ($property->isStatic()) {
-            $echo .= '    const '. $property->name . " = " . $property->getValue() .";\n";
-        }
-    }
-    $echo .= "}\n";
-
-    return $echo;
+    $text = file_get_contents($class_file);
+    return preg_replace("/{$used_class}::\\$([A-Za-z0-9_]+)/", $used_class . '::$1', $text);
 }
 
-if ( !isset($argv[1]) || !isset($argv[2]) ) {
+if ( !isset($argv[1]) || !isset($argv[2]) || !isset($argv[3]) ) {
     echo "\n";
-    echo "{$argv[0]} - Transforms all static members of a given class into \n";
     echo "Usage: \n\n";
-    echo "      {$argv[0]} <target-dir> <class-name> \n\n";
-    echo "Examples: \n\n";
-    echo "      php .\haxe-enum.php C:\HaxeToolkit\haxe\index.php play.mvc.http.Status \n";
-    echo "\n\n";
+    echo "      {$argv[0]} <target-dir> <class-file> <used-class> \n\n";
     die;
 }
 
-echo "<?php \n\n";
-echo haxe_enum_to_php_class($argv[2], $argv[1]);
-echo "\n/* EOF */\n";
+echo haxe_enum_to_php_usage($argv[3], $argv[2], $argv[1]);
 
-/* EOF */
+// EOF
