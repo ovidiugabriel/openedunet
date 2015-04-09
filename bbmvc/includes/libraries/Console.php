@@ -1,5 +1,8 @@
 <?php
 
+// Other console utilities:
+//      tput, reset - initialize a terminal or query terminfo database
+
 class Console {
     /// Foreground color for ANSI black
     /// CSS> color: black;
