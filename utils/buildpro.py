@@ -51,9 +51,14 @@ if data['includes'] != None:
         print('Key Error: Undefined environment variable ${' + str(ex).strip("'") + '}')
         exit(1)
         
-final_cmd += ' -DFalse="((gboolean) (0 != 0))" '
-final_cmd += ' -DTrue="((gboolean) (0 == 0))" '
-final_cmd += ' -DNULL_PTR="((void*) 0)" '
+defines = {}
+defines['False'] = '0'
+defines['True']  = '1'
+
+cdefs = []
+for key in defines:
+    cdefs.append('-D' + key + '=' + defines[key])
+final_cmd(' ' +  ' '.join(cdefs) + ' ')
 
 for value in data['sources']:
     final_cmd += value + ' '
@@ -86,3 +91,27 @@ if os.path.isfile('./' + output):
   print(shell_exec('./' + output))
 
 # Scanning dependencies ...
+
+COMMAND = 0;
+OUTPUT  = 1;
+
+# map will be given as input
+deps = {}
+# deps['main.c'] = ['gcc -c main.c -o main.o', 'main.o']
+
+def get_tupfile(deps):
+    tup_out = ''
+
+    for key in deps:
+        tup_out += (': ' + key + ' |> ' + deps[key][COMMAND] + ' |> ' + deps[key][OUTPUT] + "\n")
+
+    return tup_out
+
+# print(get_tupfile(deps))
+
+
+
+
+
+
+
