@@ -4,7 +4,7 @@ The file `project_name.project` is an YAML file, and contains the following sect
 * `sources` : list of strings
 * `library_paths` : list of strings
 * `libraries`: list of strings
-* `artifact` : dictionary (string,string)
+* `artifact` : dictionary (string,string) - `artefact` is also supported since it is more common everywhere outside North America.
 
 [YAML 1.2 Specification](http://www.yaml.org/spec/1.2/spec.html)
 
