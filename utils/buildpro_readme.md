@@ -1,4 +1,8 @@
-http://www.yaml.org/spec/1.2/spec.html
+The file `project_name.project` is an YAML file.
+
+[YAML 1.2 Specification](http://www.yaml.org/spec/1.2/spec.html)
+
+[Online YAML Parser](http://yaml-online-parser.appspot.com/)
 
 
 ```
