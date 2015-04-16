@@ -45,11 +45,14 @@ if 1 == len(sys.argv):
     exit(1)
 
 env = os.environ
+# TODO: `final_cmd` must be formatted as specified in the .project.yml file.
+# The `final_cmd` may be used to run the compiler directly but also to generate Tupfile
 final_cmd = 'gcc '
 project_file = sys.argv[1] + '.project.yml'
 stream = file(project_file, 'r')
 data = yaml.load(stream)
 
+# FIXME: As it is implemented now, it works only with GCC.
 
 # http://scribu.net/blog/python-equivalents-to-phps-foreach.html
 
@@ -116,14 +119,10 @@ m = re.search('(.*):(.*)', text)
 output = m.group(1)
 inputs = m.group(2).strip().split(' ')
 
-
-
 # map will be given as input
 deps = {}
 # TODO: the command must be read from the .project.yml file
 deps[' '.join(inputs)] = ['gcc -c {input} -o {output}'.format(input=inputs[0], output=output), output]
-
-
 
 # print(get_tupfile(deps))
 
