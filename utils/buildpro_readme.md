@@ -31,4 +31,7 @@ libraries:
 artifact:
   name: main
 
+command:
+  gcc -c {input} -o {output}  # TODO: {output} may be replaced with {artifact_name} ...
+
 ```
