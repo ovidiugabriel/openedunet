@@ -21,8 +21,24 @@ import subprocess
 import yaml
 import re
 
+#
+# Executes command via shell and return the complete output as a string
+#
 def shell_exec(cmd):
     return subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True).stdout.read().decode('utf-8').rstrip()
+
+#
+# Generates the Lua Script code for the Tupfile
+# The key in dictionary is the list of inputs while the value is a (command, output) vector
+#
+def get_tupfile(deps):
+    COMMAND = 0;
+    OUTPUT  = 1;
+ 
+    tup_out = ''
+    for key in deps:
+        tup_out += (': ' + key + ' |> ' + deps[key][COMMAND] + ' |> ' + deps[key][OUTPUT] + "\n")
+    return tup_out
 
 if 1 == len(sys.argv):
     print('Error: Invalid command line. Specify the project name.')
@@ -100,19 +116,14 @@ m = re.search('(.*):(.*)', text)
 output = m.group(1)
 inputs = m.group(2).strip().split(' ')
 
-COMMAND = 0;
-OUTPUT  = 1;
+
 
 # map will be given as input
 deps = {}
 # TODO: the command must be read from the .project.yml file
 deps[' '.join(inputs)] = ['gcc -c {input} -o {output}'.format(input=inputs[0], output=output), output]
 
-def get_tupfile(deps):
-    tup_out = ''
-    for key in deps:
-        tup_out += (': ' + key + ' |> ' + deps[key][COMMAND] + ' |> ' + deps[key][OUTPUT] + "\n")
-    return tup_out
+
 
 # print(get_tupfile(deps))
 
