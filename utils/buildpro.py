@@ -19,6 +19,7 @@ import sys
 import os
 import subprocess
 import yaml
+import re
 
 def shell_exec(cmd):
     return subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True).stdout.read().decode('utf-8').rstrip()
@@ -92,19 +93,25 @@ if os.path.isfile('./' + output):
 
 # Scanning dependencies ...
 
+f = open('main.d') # FIXME: remove this hardcoded value
+text = f.read()
+
+m = re.search('(.*):(.*)', text)
+output = m.group(1)
+inputs = m.group(2).strip().split(' ')
+
 COMMAND = 0;
 OUTPUT  = 1;
 
 # map will be given as input
 deps = {}
-# deps['main.c'] = ['gcc -c main.c -o main.o', 'main.o']
+# TODO: the command must be read from the .project.yml file
+deps[' '.join(inputs)] = ['gcc -c {input} -o {output}'.format(input=inputs[0], output=output), output]
 
 def get_tupfile(deps):
     tup_out = ''
-
     for key in deps:
         tup_out += (': ' + key + ' |> ' + deps[key][COMMAND] + ' |> ' + deps[key][OUTPUT] + "\n")
-
     return tup_out
 
 # print(get_tupfile(deps))
