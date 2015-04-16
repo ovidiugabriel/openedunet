@@ -1,4 +1,4 @@
-The file `project_name.project` is an YAML file, and contains the following sections:
+The file `<project_name>.project.yml` is an YAML file, and contains the following sections:
 * `defines` : dictionary (string,string)
 * `includes` : list of strings
 * `sources` : list of strings
