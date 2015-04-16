@@ -29,7 +29,8 @@ def shell_exec(cmd):
 
 #
 # Generates the Lua Script code for the Tupfile
-# The key in dictionary is the list of inputs while the value is a (command, output) vector
+# The key in dictionary is the list of inputs (separated with spaces)
+# while the value is a (command, output) vector
 #
 def get_tupfile(deps):
     COMMAND = 0;
