@@ -2,4 +2,4 @@
 # A simple project just to test buildpro
 
 sources:
-  - main.c
+  -  buildpro_test.c
