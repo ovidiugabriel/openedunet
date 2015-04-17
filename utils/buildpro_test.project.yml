@@ -1,1 +1,5 @@
 
+# A simple project just to test buildpro
+
+sources:
+  - main.c
