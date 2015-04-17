@@ -36,3 +36,5 @@ command:
   # TODO: {output} may be replaced with {artifact_name} ...
 
 ```
+
+For GCC dependencies can be generated with: ` gcc -MM <name>.c -MF <name>.d  `
