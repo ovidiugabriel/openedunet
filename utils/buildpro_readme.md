@@ -37,4 +37,4 @@ command:
 
 ```
 
-For GCC dependencies can be generated with: ` gcc -MM <name>.c -MF <name>.d  `
+For GCC dependencies can be generated with: ` gcc [options] -MM <name>.c -MF <name>.d  `
