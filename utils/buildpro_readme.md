@@ -16,7 +16,7 @@ defines:
   True: 1
   NULL_PTR: 0
 
-includes:
+includes: # in qmake it is called INCLUDEPATH
   - /usr/includes
 
 sources:
