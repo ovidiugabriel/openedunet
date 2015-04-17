@@ -1,6 +1,6 @@
 The file `<project_name>.project.yml` is an YAML file, and contains the following sections:
 * `defines` : dictionary (string,string)
-* `includes` : list of strings
+* `includes` : list of strings (in `qmake` it is called `INCLUDEPATH`)
 * `sources` : list of strings
 * `library_paths` : list of strings
 * `libraries`: list of strings
