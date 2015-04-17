@@ -3,7 +3,7 @@ The file `<project_name>.project.yml` is an YAML file, and contains the followin
 * `includes` : list of strings (in `qmake` it is called `INCLUDEPATH`)
 * `sources` : list of strings
 * `library_paths` : list of strings
-* `libraries`: list of strings
+* `libraries`: list of strings (in `qmake` both `library_paths` and `libraries` were included in `LIBS`)
 * `artifact` : dictionary (string,string) - `artefact` is also supported since it is more common everywhere outside North America.
 
 [YAML 1.2 Specification](http://www.yaml.org/spec/1.2/spec.html)
