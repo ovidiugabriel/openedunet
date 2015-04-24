@@ -8,9 +8,14 @@ class ServerParams {
     /** 
      * This is the main interface function for this class.
      * 
+     * The public interface will expose something like:
+     *      static function php.Web.getParams():Map<String, String>
+     * but much more generic.
+     * 
      * @return array
      */
     public function getParams() {
+        // TODO: Separate function for case when return value is of type Array<String> instead of Map<String, String>
         return $this->params;
     }
 
