@@ -4,6 +4,8 @@ class ServerParams {
     const DEFAULT_PARAMS_ORIGIN = 'Unknown';
     private $params = null;
     private $params_origin = self::DEFAULT_PARAMS_ORIGIN;
+    
+    // TODO: Configure what do you want to collect using getParams() function.
 
     /** 
      * This is the main interface function for this class.
