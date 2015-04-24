@@ -5,15 +5,24 @@ class ServerParams {
     private $params = null;
     private $params_origin = self::DEFAULT_PARAMS_ORIGIN;
 
-    public function saveParams($new_value, $origin = self::DEFAULT_PARAMS_ORIGIN) {
-
-        if (null == $this->params) {
-            $this->params         = $new_value;
-            $this->params_origin  = $origin;
-        }
+    /** 
+     * This is the main interface function for this class.
+     * 
+     * @return array
+     */
+    public function getParams() {
+        return $this->params;
     }
 
+    /** 
+     * Parses the server environment variables for the current request.
+     * Results are stored in the current object.
+     * 
+     * @param boolean $uri_to_assoc
+     * @return null
+     */
     public function parseParams($uri_to_assoc = false) {
+        $uri_to_assoc = (bool) $uri_to_assoc;
         if (isset($_SERVER['PATH_INFO'])) {
             $this->parsePathInfo($uri_to_assoc);
         }
@@ -24,6 +33,14 @@ class ServerParams {
 
         if (count($_REQUEST) > 0) {
             $this->saveParams($_REQUEST, 'REQUEST');
+        }
+    }
+
+    private function saveParams($new_value, $origin = self::DEFAULT_PARAMS_ORIGIN) {
+
+        if (null == $this->params) {
+            $this->params         = $new_value;
+            $this->params_origin  = $origin;
         }
     }
 
@@ -94,10 +111,6 @@ class ServerParams {
             }
 
         }
-    }
-
-    public function getParams() {
-        return $this->params;
     }
 
 /*
