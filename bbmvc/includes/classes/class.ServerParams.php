@@ -1,5 +1,12 @@
 <?php
 
+//
+// | Return Type         | 
+// |---------------------|
+// | Array<String>       |
+// | Map<String, String> |
+//
+
 class ServerParams {
     const DEFAULT_PARAMS_ORIGIN = 'Unknown';
     private $params = null;
