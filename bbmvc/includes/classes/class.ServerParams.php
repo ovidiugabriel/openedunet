@@ -1,16 +1,18 @@
 <?php
 
 //
-// | Return Type         | 
-// |---------------------|
-// | Array<String>       |
-// | Map<String, String> |
-//
+// | Format                | Type                | 
+// |-----------------------|---------------------|
+// | PATH_INFO_JSON        | Map<String, String> |
+// | PATH_INFO_SPLIT_COLON | Array<String>       |
+// | PATH_INFO_SPLIT_SLASH | Array<String>       |
+// | PATH_INFO_SPLIT_ASSOC | Map<String, String> |
+// | 
 
 class ServerParams {
-    const DEFAULT_PARAMS_ORIGIN = 'Unknown';
+
     private $params = null;
-    private $params_origin = self::DEFAULT_PARAMS_ORIGIN;
+    private $params_origin = 'Unknown';
     
     // TODO: Configure what do you want to collect using getParams() function.
 
@@ -50,7 +52,7 @@ class ServerParams {
         }
     }
 
-    private function saveParams($new_value, $origin = self::DEFAULT_PARAMS_ORIGIN) {
+    private function saveParams($new_value, $origin = 'Unknown') {
 
         if (null == $this->params) {
             $this->params         = $new_value;
