@@ -1,13 +1,16 @@
 <?php
 
 //
-// | Format                | Type                | 
-// |-----------------------|---------------------|
-// | PATH_INFO_JSON        | Map<String, String> |
-// | PATH_INFO_SPLIT_COLON | Array<String>       |
-// | PATH_INFO_SPLIT_SLASH | Array<String>       |
-// | PATH_INFO_SPLIT_ASSOC | Map<String, String> |
-// | 
+// | Format                   | Type                | 
+// |--------------------------|---------------------|
+// | PATH_INFO_JSON           | Map<String, String> |
+// | PATH_INFO_SPLIT_COLON    | Array<String>       |
+// | PATH_INFO_SPLIT_SLASH    | Array<String>       |
+// | PATH_INFO_SPLIT_ASSOC    | Map<String, String> |
+// | QUERY_STRING_JSON        | Map<String, String> |
+// | QUERY_STRING_SPLIT_COLON | Array<String>       |
+// | QUERY_STRING_SPLIT_SLASH | Array<String>       |
+//
 
 class ServerParams {
 
