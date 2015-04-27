@@ -13,6 +13,17 @@
 //
 
 class ServerParams {
+    //
+    // For debug only
+    //
+    const DEBUG_REQUEST                  = 'REQUEST';
+    const DEBUG_PATH_INFO_JSON           = 'PATH_INFO_JSON';
+    const DEBUG_PATH_INFO_SPLIT_COLON    = 'PATH_INFO_SPLIT_COLON';
+    const DEBUG_PATH_INFO_SPLIT_SLASH    = 'PATH_INFO_SPLIT_SLASH';
+    const DEBUG_PATH_INFO_SPLIT_ASSOC    = 'PATH_INFO_SPLIT_ASSOC';
+    const DEBUG_QUERY_STRING_JSON        = 'QUERY_STRING_JSON';
+    const DEBUG_QUERY_STRING_SPLIT_COLON = 'QUERY_STRING_SPLIT_COLON';
+    const DEBUG_QUERY_STRING_SPLIT_SLASH = 'QUERY_STRING_SPLIT_SLASH';
 
     private $params = null;
     private $params_origin = 'Unknown';
