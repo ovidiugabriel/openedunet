@@ -12,8 +12,8 @@
 // | QUERY_STRING_SPLIT_COLON | Array<String>       |
 // | QUERY_STRING_SPLIT_SLASH | Array<String>       |
 //
-
 class ServerParams {
+
     //
     // For debug only
     //
@@ -28,16 +28,16 @@ class ServerParams {
 
     private $params = null;
     private $params_origin = 'Unknown';
-    
+
     // TODO: Configure what do you want to collect using getParams() function.
 
-    /** 
+    /**
      * This is the main interface function for this class.
-     * 
+     *
      * The public interface will expose something like:
      *      static function php.Web.getParams():Map<String, String>
      * but much more generic.
-     * 
+     *
      * @return array
      */
     public function getParams() {
@@ -45,10 +45,10 @@ class ServerParams {
         return $this->params;
     }
 
-    /** 
+    /**
      * Parses the server environment variables for the current request.
      * Results are stored in the current object.
-     * 
+     *
      * @param boolean $uri_to_assoc
      * @return null
      */
@@ -129,6 +129,8 @@ class ServerParams {
             unset($_GET[$QUERY_STRING_JSON]);
             unset($_REQUEST[$QUERY_STRING_JSON]);
         } else {
+
+
             if (isset($_GET [$_SERVER['QUERY_STRING']]  )) {
                 if (false !== strpos($_SERVER['QUERY_STRING'], ':')) {
                     $splits = explode(':', $_SERVER['QUERY_STRING']);
@@ -138,12 +140,11 @@ class ServerParams {
                     $this->saveParams($splits, self::DEBUG_QUERY_STRING_SPLIT_SLASH);
                 }
             }
+
         }
     }
 
-/*
     public function getOrigin() {
         return $this->params_origin;
     }
-    */
 }
