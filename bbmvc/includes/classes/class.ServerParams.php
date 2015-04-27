@@ -3,6 +3,7 @@
 //
 // | Format                   | Type                | 
 // |--------------------------|---------------------|
+// | REQUEST                  | Map<String, String> |
 // | PATH_INFO_JSON           | Map<String, String> |
 // | PATH_INFO_SPLIT_COLON    | Array<String>       |
 // | PATH_INFO_SPLIT_SLASH    | Array<String>       |
