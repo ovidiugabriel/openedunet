@@ -62,7 +62,7 @@ class ServerParams {
         }
 
         if (count($_REQUEST) > 0) {
-            $this->saveParams($_REQUEST, 'REQUEST');
+            $this->saveParams($_REQUEST, self::DEBUG_REQUEST);
         }
     }
 
@@ -94,11 +94,11 @@ class ServerParams {
 
         if (null !== $PATH_INFO_FROM_JSON) {
             $PATH_INFO = (array) $PATH_INFO_FROM_JSON;
-            $this->saveParams($PATH_INFO, 'PATH_INFO_JSON');
+            $this->saveParams($PATH_INFO, self::DEBUG_PATH_INFO_JSON);
         } else {
             if (false !== strpos($trimed, ':')) {
                 $splits = explode(':', $trimed);
-                $this->saveParams($splits, 'PATH_INFO_SPLIT_COLON');
+                $this->saveParams($splits, self::DEBUG_PATH_INFO_SPLIT_COLON);
 
             } elseif (false !== strpos($trimed, '/')) {
 
@@ -106,10 +106,10 @@ class ServerParams {
 
                 if (!$uri_to_assoc) {
                     $splits = explode('/', $trimed);
-                    $this->saveParams($splits, 'PATH_INFO_SPLIT_SLASH');
+                    $this->saveParams($splits, self::DEBUG_PATH_INFO_SPLIT_SLASH);
                 } else {
                     $dict = ServerParams::uriToAssoc($trimed);
-                    $this->saveParams($dict, 'PATH_INFO_SPLIT_ASSOC');
+                    $this->saveParams($dict, self::DEBUG_PATH_INFO_SPLIT_ASSOC);
                 }
             }
         }
@@ -120,7 +120,7 @@ class ServerParams {
         $QUERY_STRING_FROM_JOSN = json_decode($QUERY_STRING_JSON);
         if (null !== $QUERY_STRING_FROM_JOSN) {
             $QUERY_STRING = (array) $QUERY_STRING_FROM_JOSN;
-            $this->saveParams($QUERY_STRING, 'QUERY_STRING_JSON');
+            $this->saveParams($QUERY_STRING, self::DEBUG_QUERY_STRING_JSON);
 
             // If query string contains valid JSON encoded data
             // then GET and REQUEST keys must be cleared
@@ -128,18 +128,15 @@ class ServerParams {
             unset($_GET[$QUERY_STRING_JSON]);
             unset($_REQUEST[$QUERY_STRING_JSON]);
         } else {
-
-
             if (isset($_GET [$_SERVER['QUERY_STRING']]  )) {
                 if (false !== strpos($_SERVER['QUERY_STRING'], ':')) {
                     $splits = explode(':', $_SERVER['QUERY_STRING']);
-                    $this->saveParams($splits,'QUERY_STRING_SPLIT_COLON');
+                    $this->saveParams($splits, self::DEBUG_QUERY_STRING_SPLIT_COLON);
                 } elseif (false !== strpos($_SERVER['QUERY_STRING'], '/')) {
                     $splits = explode('/', $_SERVER['QUERY_STRING']);
-                    $this->saveParams($splits, 'QUERY_STRING_SPLIT_SLASH');
+                    $this->saveParams($splits, self::DEBUG_QUERY_STRING_SPLIT_SLASH);
                 }
             }
-
         }
     }
 
