@@ -12,6 +12,10 @@
 // | QUERY_STRING_SPLIT_COLON | Array<String>       |
 // | QUERY_STRING_SPLIT_SLASH | Array<String>       |
 //
+if (!function_exists('safe_count')) {
+    function safe_count(array $a) { return count($a); }
+}
+
 class ServerParams {
 
     const TYPE_NULL = 'null';
