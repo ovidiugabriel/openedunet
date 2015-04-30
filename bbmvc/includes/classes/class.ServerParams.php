@@ -1,16 +1,18 @@
 <?php
 
 //
-// | Format                   | Type                | 
+// | Format                   | Type                |
 // |--------------------------|---------------------|
-// | REQUEST                  | Map<String, String> |
-// | PATH_INFO_JSON           | Map<String, String> |
-// | PATH_INFO_SPLIT_COLON    | Array<String>       |
-// | PATH_INFO_SPLIT_SLASH    | Array<String>       |
+// | REQUEST                  | Map<String, String> | Array<String> not supported
+// | PATH_INFO_JSON           | Map<String, String> | Array<String> also supported
+// | PATH_INFO_SPLIT_COLON    | Array<String>       | Map<String, String> may be supported with separate call??
+// | PATH_INFO_SPLIT_SLASH    | Array<String>       | Map<String, String> may be supported with separate call??
 // | PATH_INFO_SPLIT_ASSOC    | Map<String, String> |
 // | QUERY_STRING_JSON        | Map<String, String> |
-// | QUERY_STRING_SPLIT_COLON | Array<String>       |
-// | QUERY_STRING_SPLIT_SLASH | Array<String>       |
+// | QUERY_STRING_SPLIT_COLON | Array<String>       | Map<String, String> may be supported with separate call??
+// | QUERY_STRING_SPLIT_SLASH | Array<String>       | Map<String, String> may be supported with separate call??
+// | PATH_INFO_CSV            | Array<String>       |
+// | PATH_INFO_INI_ASSOC      | Map<String, String> |
 //
 if (!function_exists('safe_count')) {
     function safe_count(array $a) { return count($a); }
@@ -33,6 +35,8 @@ class ServerParams {
     const DEBUG_QUERY_STRING_JSON        = 'QUERY_STRING_JSON';
     const DEBUG_QUERY_STRING_SPLIT_COLON = 'QUERY_STRING_SPLIT_COLON';
     const DEBUG_QUERY_STRING_SPLIT_SLASH = 'QUERY_STRING_SPLIT_SLASH';
+    const DEBUG_PATH_INFO_CSV            = 'PATH_INFO_CSV';
+    const DEBUG_PATH_INFO_INI_ASSOC      = 'PATH_INFO_INI_ASSOC';
 
     private $params_origin = 'Unknown';
 
@@ -107,7 +111,6 @@ class ServerParams {
 
         if (self::TYPE_LIST == $type) {
             if (null == $this->params_list) {
-                // echo 'list .. ok';
                 $this->params_list = $new_value;
             }
         } elseif (self::TYPE_DICT == $type) {
@@ -146,14 +149,30 @@ class ServerParams {
                 $this->saveParams($splits, self::TYPE_LIST, self::DEBUG_PATH_INFO_SPLIT_COLON);
             } elseif (false !== strpos($trimed, '/')) {
                 // Also called "Segment Array"
+                // TODO: Use separate function call to get...
 
                 if (!$uri_to_assoc) {
                     $splits = explode('/', $trimed);
-                    // var_dump($splits); die;
                     $this->saveParams($splits, self::TYPE_LIST, self::DEBUG_PATH_INFO_SPLIT_SLASH);
                 } else {
                     $dict = ServerParams::uriToAssoc($trimed);
                     $this->saveParams($dict, self::TYPE_DICT, self::DEBUG_PATH_INFO_SPLIT_ASSOC);
+                }
+            } else {
+                // Other formats:
+                if (isset($_SERVER['PATH_INFO'])) {
+                    if (!$uri_to_assoc) {
+                        $splits = explode(',', $trimed);
+                        $this->saveParams($splits, self::TYPE_LIST, self::DEBUG_PATH_INFO_CSV);
+                    } else {
+                        $splits = explode(',', $trimed);
+                        $dict = array();
+                        foreach ($splits as $split) {
+                            list($k, $v) = explode('=', $split);
+                            $dict[$k] = $v;
+                        }
+                        $this->saveParams($dict, self::TYPE_DICT, self::DEBUG_PATH_INFO_INI_ASSOC);
+                    }
                 }
             }
         }
@@ -175,7 +194,6 @@ class ServerParams {
             if (isset($_GET[$_SERVER['QUERY_STRING']]  )) {
                 if (false !== strpos($_SERVER['QUERY_STRING'], ':')) {
                     $splits = explode(':', $_SERVER['QUERY_STRING']);
-                    // var_dump($splits); die;
                     $this->saveParams($splits, self::TYPE_LIST, self::DEBUG_QUERY_STRING_SPLIT_COLON);
                 } elseif (false !== strpos($_SERVER['QUERY_STRING'], '/')) {
                     $splits = explode('/', $_SERVER['QUERY_STRING']);
@@ -188,5 +206,4 @@ class ServerParams {
     public function getOrigin() {
         return $this->params_origin;
     }
-
 }
