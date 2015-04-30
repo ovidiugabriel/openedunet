@@ -7,13 +7,13 @@
 // |------------------------------|---------------------|
 // | Format                       | Type                |
 // |------------------------------|---------------------|
-// |  1) REQUEST                  | dict                | list not supported yet
-// |  2) QUERY_STRING_SPLIT_COLON | list                | Map<String, String> may be supported with separate call??
-// |  3) QUERY_STRING_SPLIT_SLASH | list                | Map<String, String> may be supported with separate call??
-// |  4) PATH_INFO_SPLIT_SLASH    | list                | Map<String, String> may be supported with separate call??
+// |  1) REQUEST                  | dict                |
+// |  2) QUERY_STRING_SPLIT_COLON | list                |
+// |  3) QUERY_STRING_SPLIT_SLASH | list                |
+// |  4) PATH_INFO_SPLIT_SLASH    | list                |
 // |  5) PATH_INFO_SPLIT_ASSOC    | dict                |
-// |  6) PATH_INFO_SPLIT_COLON    |                     | Map<String, String> may be supported with separate call??
-// |  7) PATH_INFO_JSON           | dict                | Array<String> also supported
+// |  6) PATH_INFO_SPLIT_COLON    |                     |
+// |  7) PATH_INFO_JSON           | dict                |
 // | QUERY_STRING_JSON            | dict                |
 // |  9) PATH_INFO_CSV            | list                |
 // | 10) PATH_INFO_INI_ASSOC      | dict                |
