@@ -1,19 +1,20 @@
 <?php
 
 //
-// | Format                       | Type                |
-// |------------------------------|---------------------|
-// |  1) REQUEST                  | Map<String, String> | Array<String> not supported
-// |  2) QUERY_STRING_SPLIT_COLON | Array<String>       | Map<String, String> may be supported with separate call??
-// |  3) QUERY_STRING_SPLIT_SLASH | Array<String>       | Map<String, String> may be supported with separate call??
-// |  4) PATH_INFO_SPLIT_SLASH    | Array<String>       | Map<String, String> may be supported with separate call??
-// |  5) PATH_INFO_SPLIT_ASSOC    | Map<String, String> |
-// |  6) PATH_INFO_SPLIT_COLON    | Array<String>       | Map<String, String> may be supported with separate call??
-// |  7) PATH_INFO_JSON           | Map<String, String> | Array<String> also supported
-// |  ?) QUERY_STRING_JSON        | Map<String, String> |
-
-// |  9) PATH_INFO_CSV            | Array<String>       |
-// | 10) PATH_INFO_INI_ASSOC      | Map<String, String> |
+// |--------------------------|---------------------|---------------------------
+// | Format                   | Type                |
+// |--------------------------|---------------------|---------------------------
+// | REQUEST                  | Map<String, String> | Array<String> not supported
+// | PATH_INFO_JSON           | Map<String, String> | Array<String> also supported
+// | PATH_INFO_SPLIT_COLON    | Array<String>       | Map<String, String> may be supported with separate call??
+// | PATH_INFO_SPLIT_SLASH    | Array<String>       | Map<String, String> may be supported with separate call??
+// | PATH_INFO_SPLIT_ASSOC    | Map<String, String> |
+// | QUERY_STRING_JSON        | Map<String, String> |
+// | QUERY_STRING_SPLIT_COLON | Array<String>       | Map<String, String> may be supported with separate call??
+// | QUERY_STRING_SPLIT_SLASH | Array<String>       | Map<String, String> may be supported with separate call??
+// | PATH_INFO_CSV            | Array<String>       |
+// | PATH_INFO_INI_ASSOC      | Map<String, String> |
+// |--------------------------|---------------------|---------------------------
 //
 if (!function_exists('safe_count')) {
     function safe_count(array $a) { return count($a); }
@@ -29,7 +30,8 @@ class ServerParams {
     // For debug only
     //
     const DEBUG_REQUEST                  = 'REQUEST';
-    const DEBUG_PATH_INFO_JSON           = 'PATH_INFO_JSON';
+    const DEBUG_PATH_INFO_JSON_DICT      = 'PATH_INFO_JSON_DICT';
+    const DEBUG_PATH_INFO_JSON_LIST      = 'PATH_INFO_JSON_LIST';
     const DEBUG_PATH_INFO_SPLIT_COLON    = 'PATH_INFO_SPLIT_COLON';
     const DEBUG_PATH_INFO_SPLIT_SLASH    = 'PATH_INFO_SPLIT_SLASH';
     const DEBUG_PATH_INFO_SPLIT_ASSOC    = 'PATH_INFO_SPLIT_ASSOC';
@@ -143,7 +145,15 @@ class ServerParams {
 
         if (null !== $PATH_INFO_FROM_JSON) {
             $PATH_INFO = (array) $PATH_INFO_FROM_JSON;
-            $this->saveParams($PATH_INFO, self::TYPE_DICT, self::DEBUG_PATH_INFO_JSON);
+            $keys = array_keys($PATH_INFO);
+            $is_dict = (int) (0 !== $keys[0]); // check if array type is dict or list.
+
+            if ($is_dict) {
+                $this->saveParams($PATH_INFO, self::TYPE_DICT, self::DEBUG_PATH_INFO_JSON_DICT);
+            } else {
+                $this->saveParams($PATH_INFO, self::TYPE_LIST, self::DEBUG_PATH_INFO_JSON_LIST);
+            }
+
         } else {
             if (false !== strpos($trimed, ':')) {
                 $splits = explode(':', $trimed);
