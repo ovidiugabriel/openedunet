@@ -1,18 +1,19 @@
 <?php
 
 //
-// | Format                      | Type                |
-// |-----------------------------|---------------------|
-// | 1) REQUEST                  | Map<String, String> | Array<String> not supported
-// | 2) QUERY_STRING_SPLIT_COLON | Array<String>       | Map<String, String> may be supported with separate call??
-// | 4) PATH_INFO_SPLIT_SLASH    | Array<String>       | Map<String, String> may be supported with separate call??
-// | 5) PATH_INFO_SPLIT_ASSOC    | Map<String, String> |
-// | 6) PATH_INFO_SPLIT_COLON    | Array<String>       | Map<String, String> may be supported with separate call??
-// | 7) PATH_INFO_JSON           | Map<String, String> | Array<String> also supported
-// | QUERY_STRING_JSON        | Map<String, String> |
-// | QUERY_STRING_SPLIT_SLASH | Array<String>       | Map<String, String> may be supported with separate call??
-// | PATH_INFO_CSV            | Array<String>       |
-// | PATH_INFO_INI_ASSOC      | Map<String, String> |
+// | Format                       | Type                |
+// |------------------------------|---------------------|
+// |  1) REQUEST                  | Map<String, String> | Array<String> not supported
+// |  2) QUERY_STRING_SPLIT_COLON | Array<String>       | Map<String, String> may be supported with separate call??
+// |  3) QUERY_STRING_SPLIT_SLASH | Array<String>       | Map<String, String> may be supported with separate call??
+// |  4) PATH_INFO_SPLIT_SLASH    | Array<String>       | Map<String, String> may be supported with separate call??
+// |  5) PATH_INFO_SPLIT_ASSOC    | Map<String, String> |
+// |  6) PATH_INFO_SPLIT_COLON    | Array<String>       | Map<String, String> may be supported with separate call??
+// |  7) PATH_INFO_JSON           | Map<String, String> | Array<String> also supported
+// |  ?) QUERY_STRING_JSON        | Map<String, String> |
+
+// |  9) PATH_INFO_CSV            | Array<String>       |
+// | 10) PATH_INFO_INI_ASSOC      | Map<String, String> |
 //
 if (!function_exists('safe_count')) {
     function safe_count(array $a) { return count($a); }
