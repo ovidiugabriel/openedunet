@@ -1,8 +1,8 @@
 <?php 
 
 class CSSBoxModel {
-  public $width;
-  public $height;
+  private $width;
+  private $height;
 
   public $left;
   public $top;
@@ -30,4 +30,18 @@ class CSSBoxModel {
   public $marginLeft;
   public $marginRight;
   public $marginTop;
+  
+  public function width($width = null) {
+  	if (null !== $width) {
+  		$this->width = (float) $width;
+  	}
+  	return (float) $this->width;
+  }
+  
+  public function height($height = null) {
+  	if (null !== $height) {
+  		$this->height = (float) $height;
+  	}
+  	return (float) $this->height;
+  }
 }
