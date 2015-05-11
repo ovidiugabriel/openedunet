@@ -25,8 +25,6 @@ class CSSBoxModel {
   public $borderBottomLeftRadius;
   public $borderBottomRightRadius;
 	
-  // borderSpacing??
-
   // Margin
   public $marginBottom;
   public $marginLeft;
