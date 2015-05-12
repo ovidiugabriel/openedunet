@@ -34,10 +34,20 @@ class CssBoxModel implements IBoxModelAccess {
     {
         return (float) $this->width;
     }
+    
+    public function setWidth($width) 
+    {
+        $this->width = (float) $width;
+    }
 
     public function getHeight()
     {
         return (float) $this->height;
+    }
+    
+    public function setHeight($height)
+    {
+        $this->height = (float) $height;
     }
 
     public function getLeft()
