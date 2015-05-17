@@ -10,3 +10,6 @@
 if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
     define ('_ANONYMOUS_FUNCTIONS', 1);
 }
+
+// For JSON Constants tests you just have to use defined() language construct.
+// And read manual page: http://php.net/manual/en/json.constants.php
