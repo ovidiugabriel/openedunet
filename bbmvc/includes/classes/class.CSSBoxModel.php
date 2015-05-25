@@ -1,6 +1,7 @@
 <?php 
 
-class CssBoxModel implements IBoxModelAccess {
+class CssBoxModel /*implements IBoxModelAccess*/ 
+{
     protected $width;
     protected $height;
     protected $left;
@@ -30,7 +31,7 @@ class CssBoxModel implements IBoxModelAccess {
     protected $marginRight;
     protected $marginTop;
 
-    public function getWidth()
+    public function width()
     {
         return (float) $this->width;
     }
@@ -40,7 +41,7 @@ class CssBoxModel implements IBoxModelAccess {
         $this->width = (float) $width;
     }
 
-    public function getHeight()
+    public function height()
     {
         return (float) $this->height;
     }
@@ -50,93 +51,93 @@ class CssBoxModel implements IBoxModelAccess {
         $this->height = (float) $height;
     }
 
-    public function getLeft()
+    public function left()
     {
         return (float) $this->left;
     }
 
-    public function getTop()
+    public function top()
     {
         return (float) $this->top;
     }
 
-    public function getPaddingBottom()
+    public function paddingBottom()
     {
         return (float) $this->paddingBottom;
     }
 
-    public function getPaddingLeft()
+    public function paddingLeft()
     {
-        return (float) $this->paddingBottom;
+        return (float) $this->paddingLeft;
     }
 
-    public function getPaddingRight()
+    public function paddingRight()
     {
         return (float) $this->paddingRight;
     }
 
-    public function getPaddingTop()
+    public function paddingTop()
     {
         return (float) $this->paddingTop;
     }
 
-    public function getBorderBottomWidth()
+    public function borderBottomWidth()
     {
         return (float) $this->borderBottomWidth;
     }
 
-    public function getBorderLeftWidth()
+    public function borderLeftWidth()
     {
         return (float) $this->borderLeftWidth;
     }
 
-    public function getBorderRightWidth()
+    public function borderRightWidth()
     {
         return (float) $this->borderRightWidth;
     }
 
-    public function getBorderTopWidth()
+    public function borderTopWidth()
     {
         return (float) $this->borderTopWidth;
     }
 
-    public function getBorderTopLeftRadius()
+    public function borderTopLeftRadius()
     {
         return (float) $this->borderTopLeftRadius;
     }
 
 
-    public function getBorderTopRightRadius()
+    public function borderTopRightRadius()
     {
         return (float) $this->borderTopRightRadius;
     }
 
-    public function getBorderBottomLeftRadius()
+    public function borderBottomLeftRadius()
     {
         return (float) $this->borderBottomLeftRadius;
     }
 
-    public function getBorderBottomRightRadius()
+    public function borderBottomRightRadius()
     {
         return (float) $this->borderBottomRightRadius;
     }
 
-    public function getMarginBottom()
+    public function marginBottom()
     {
         return (float) $this->marginBottom;
     }
 
-    public function getMarginLeft()
+    public function marginLeft()
     {
         return (float) $this->marginLeft;
     }
 
-    public function getMarginRight()
+    public function marginRight()
     {
         return (float) $this->marginRight;
     }
 
-    public function getMarginTop()
+    public function marginTop()
     {
         return (float) $this->marginTop;
     }
