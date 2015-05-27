@@ -1,6 +1,6 @@
 # Coral
 
-A beautifull yet efficient language.
+A beautiful yet efficient language.
 
 ###### Delayed Assignment Operator
 
