@@ -44,7 +44,13 @@ var mul2 = function(a, b) {
 };
 ```
 
-
 Note that only pure functions can be memoized, because they have [Referential transparency](http://en.wikipedia.org/wiki/Referential_transparency_%28computer_science%29) 
 
+###### Immediate values
 
+Not that there is no assignment operator used between `x` and `5`.
+This just lets the value of x to be immutable 5 forever.
+
+```
+val x 5
+```
