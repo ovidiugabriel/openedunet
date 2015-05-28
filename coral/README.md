@@ -28,3 +28,18 @@ This is opposite of what we are used with in procedural / object-oriented progra
 Usually you try to store the result of a function into a variable in order to avoid repeated calls to the same function with the same parameters. 
 
 In functional paradigm we have [memoization](http://en.wikipedia.org/wiki/Memoization) for that.
+
+That is, for example a given function `mul2`:
+
+```
+mul2 = (a, b) -> a * b
+```
+
+will be automatically memoized as:
+
+```
+var mul2 = function(a, b) { 
+  return memoize(function(p) { return p[0]*p[1]; }, defaultCache)(Array.slice(arguments));  
+};
+```
+using the `defaultCache`
