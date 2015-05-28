@@ -50,7 +50,7 @@ Note that only pure functions can be memoized, because they have [Referential tr
 
 Note that there is no assignment operator used between `x` and `5`.
 
-This just lets the value of x to be immutable 5 forever.
+This just lets the value of `x` to be immutable `5` forever.
 
 ```
 val x 5
