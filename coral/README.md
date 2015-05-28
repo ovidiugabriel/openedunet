@@ -11,7 +11,7 @@ x := 0
 This is basically automatic [thunking](http://en.wikipedia.org/wiki/Thunk). You can achieve the same thing by doing:
 
 ```
-x = () -> 0
+x() = 0
 ```
 
 If you wish, this can be translated to JavaScript:
@@ -32,7 +32,7 @@ In functional paradigm we have [memoization](http://en.wikipedia.org/wiki/Memoiz
 That is, for example a given function `mul2`:
 
 ```
-mul2 = (a, b) -> a * b
+mul2(a, b) = a * b
 ```
 
 will be automatically memoized as:
