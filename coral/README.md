@@ -35,11 +35,13 @@ That is, for example a given function `mul2`:
 mul2(a, b) = a * b
 ```
 
-will be automatically memoized as:
+will be automatically memoized (using the `defaultCache`) as:
+
+Note that only pure functions can be memoized, because they have [Referential transparency](http://en.wikipedia.org/wiki/Referential_transparency_%28computer_science%29) 
 
 ```
 var mul2 = function(a, b) { 
   return memoize(function(p) { return p[0]*p[1]; }, defaultCache)(Array.slice(arguments));  
 };
 ```
-using the `defaultCache`
+
