@@ -2,6 +2,11 @@
 
 A beautiful yet efficient language.
 
+| Keyword | Description                    |
+|---------|--------------------------------|
+| id      | acts as Identity function      |
+| val     | declares an immutable variable |
+
 ###### Delayed Assignment Operator
 
 ```
@@ -48,7 +53,7 @@ Note that only pure functions can be memoized, because they have [Referential tr
 
 ###### Immediate Values Assignment
 
-This is possible only with literals or other immutable values as **right value** and the immutable value once assigned cannot be changed anymore.
+This is possible only with literals or other immutable values as **right value** and the immutable value once assigned cannot be changed anymore. If the value is a literal, all occurences of the variable will be inlined.
 
 Note that there is no assignment operator used between `x` and `5`.
 
