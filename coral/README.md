@@ -57,3 +57,13 @@ This just lets the value of `x` to be immutable `5` forever.
 ```
 val x 5
 ```
+
+###### The Identity function
+
+The identity function is used as a keyword: **id**
+
+And it is defined as:
+
+```
+id(x) := x
+```
