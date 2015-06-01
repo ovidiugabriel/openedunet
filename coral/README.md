@@ -1,3 +1,8 @@
+<style>
+pre {
+  background: black;
+}
+</style>
 # Coral
 
 A beautiful yet efficient language.
