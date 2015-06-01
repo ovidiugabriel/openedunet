@@ -75,4 +75,4 @@ id(x) := x
 
 ###### Rule Based Transformations
 
-A rule is a key-value pair, and a list of rules is what you usually know as being a dictionary in a general sense, so a list of key-value pairs. In particular this is an object, for some languages like JavaScript.
+A rule is a key-value pair, and a list of rules is what you usually know as being a dictionary in a general sense, so a list of key-value pairs. In particular this is what is known as an object, for some languages like JavaScript.
