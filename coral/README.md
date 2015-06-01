@@ -94,3 +94,7 @@ Compilation results in the following JavaScript:
   textAlign: 'center'
 }
 ```
+
+####### Replace All operator
+
+The `/.` operator is used to replace all ...
