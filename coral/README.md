@@ -95,6 +95,4 @@ Compilation results in the following JavaScript:
 }
 ```
 
-####### Replace All operator
-
-The `/.` operator is used to replace all ...
+The `/.` operator may be used to replace all occurences of "color" with the value "orange".
