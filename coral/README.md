@@ -55,7 +55,7 @@ Note that only pure functions can be memoized, because they have [Referential tr
 
 This is possible only with literals or other immutable values as **right value** and the immutable value once assigned cannot be changed anymore. If the value is a literal, all occurences of the variable will be inlined.
 
-Note that there is no assignment operator used between `x` and `5`.
+Note that there is no assignment operator used between `x` and `5`. Equal sign operator is not used in Coral, to avoid confusion.
 
 This just lets the value of `x` to be immutable `5` forever.
 
