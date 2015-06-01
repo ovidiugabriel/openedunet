@@ -4,7 +4,7 @@ A beautiful yet efficient language.
 
 | Keyword | Description                    |
 |---------|--------------------------------|
-| `id`    | acts as Identity function      |
+| `id`    | acts as `Identity` function  |
 | `val`   | declares an immutable variable |
 
 ###### Delayed Assignment Operator
