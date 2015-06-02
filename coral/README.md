@@ -89,7 +89,7 @@ The syntax is exactly as in CSS. Note that `-` (dash) is supported in the key na
 }
 ```
 
-Compilation results in the following JavaScript:
+Compilation results in the following JSON structure:
 
 ```javascript
 {
