@@ -20,8 +20,7 @@ x() := 0
 ```
 If you are coming from JavaScript (or Python) you maybe know that a function is a type of value which is assigned to a variable, and that's why a function can be redefined at any given time.
 
-This is not possible in Coral, here functions are first class citizens and all variables are functions, 
-and because of automatic thunking in case of variable lazy assignment we can ensure that `x` becomes immutable.
+This is not possible in Coral, here functions are first class citizens and all variables are functions (except immediate assigned values, which are however immutable), and because of automatic thunking in case of variable lazy assignment we can ensure that `x` becomes immutable.
 
 If you wish, this can be translated to JavaScript:
 
