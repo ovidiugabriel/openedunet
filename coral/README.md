@@ -21,7 +21,7 @@ x() := 0
 
 If you wish, this can be translated to JavaScript:
 
-```
+```javascript
 var x;
 
 x = function() {
@@ -43,7 +43,7 @@ mul2(a, b) := a * b
 ```
 will be automatically memoized (using the `defaultCache`) as:
 
-```
+```javascript
 var mul2 = function(a, b) { 
   return memoize(function(p) { return p[0]*p[1]; }, defaultCache)(Array.slice(arguments));  
 };
@@ -79,7 +79,7 @@ A rule is a key-value pair, and a list of rules is what you usually know as bein
 
 The syntax is exactly as in CSS. Note that `-` (dash) is supported in the key name. 
 
-```
+```css
 {
   color: orange;
   text-align: center;
@@ -88,7 +88,7 @@ The syntax is exactly as in CSS. Note that `-` (dash) is supported in the key na
 
 Compilation results in the following JavaScript:
 
-```
+```javascript
 {
   color: 'orange',
   textAlign: 'center'
