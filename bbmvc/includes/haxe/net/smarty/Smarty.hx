@@ -210,7 +210,8 @@ extern class Smarty {
 
     // registerObject() — register an object for use in the templates
     // http://www.smarty.net/docs/en/api.register.object.tpl
-    // void registerObject(string object_name, object object, array allowed_methods_properties, boolean format, array block_methods);
+    // void registerObject(string object_name, object object, array allowed_methods_properties, boolean format,
+    //                      array block_methods);
     public function registerObject(object_name:String, object:Dynamic ):Void;
 
     // registerResource() — dynamically register resources
