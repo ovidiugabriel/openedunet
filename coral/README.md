@@ -18,6 +18,10 @@ This is basically automatic [thunking](http://en.wikipedia.org/wiki/Thunk). You 
 ```
 x() := 0
 ```
+If you are coming from JavaScript (or Python) you maybe know that a function is a type of value which is assigned to a variable, and that's why a function can be redefined at any given time.
+
+This is not possible in Coral, here functions are first class citizens and all variables are functions, 
+and because of automatic thunking in case of variable lazy assignment we can ensure that `x` becomes immutable.
 
 If you wish, this can be translated to JavaScript:
 
