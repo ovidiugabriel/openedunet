@@ -32,11 +32,11 @@ var value : String = untyped __var__('_SERVER', 'REQUEST_METHOD')
 ```
 -------------------------------------------------------------------------------
 
-http://old.haxe.org/doc/php/extern_libraries
+[Wrapping External PHP Libraries](http://old.haxe.org/doc/php/extern_libraries)
 
 Simple.class.php
-
-<?php
+-------------------------------------------------------------------------------
+```php
 function makeSimple($text) {
     return new Simple($text);
 }
@@ -71,10 +71,11 @@ class Simple2 extends Simple{
         changeText($text);
     }
 }
-?>
-
+```
+-------------------------------------------------------------------------------
 src/test/Simple.hx
-
+-------------------------------------------------------------------------------
+```haxe
 package test;
 
 extern class Simple 
