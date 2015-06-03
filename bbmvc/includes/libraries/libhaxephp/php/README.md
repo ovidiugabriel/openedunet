@@ -17,6 +17,7 @@ __var__(global, paramname) has been introduced to easily get the values from glo
 __physeq__(val1, val2) Strict equals test between the two values. Returns a Bool.
 
 -------------------------------------------------------------------------------
+```haxe
 var value:String = "test";
 untyped __php__("echo '<pre>'; print_r($value); echo '</pre>'; ");
 
@@ -30,6 +31,7 @@ var value = untyped __call__("array", 1,2,3);
 // To get the value of $_SERVER['REQUEST_METHOD'] you can write the following
 // (note that the dollar sign is omitted)
 var value : String = untyped __var__('_SERVER', 'REQUEST_METHOD')  
+```
 -------------------------------------------------------------------------------
 
 http://old.haxe.org/doc/php/extern_libraries
