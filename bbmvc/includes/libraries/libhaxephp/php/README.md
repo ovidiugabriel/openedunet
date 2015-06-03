@@ -90,8 +90,11 @@ extern class Simple
     public function doPrint():Void;
     function changeText(text:Dynamic):Void;
 }
+```
+-------------------------------------------------------------------------------
 src/test/Simple2.hx
-
+-------------------------------------------------------------------------------
+```haxe
 package test;
 
 extern class Simple2<T> extends Simple
@@ -104,8 +107,11 @@ extern class Simple2<T> extends Simple
     
     public function makeChange(text:T):Void;
 }
+```
+-------------------------------------------------------------------------------
 src/test/SimpleHelper.hx
-
+-------------------------------------------------------------------------------
+```haxe
 package test;
 
 class SimpleHelper {
@@ -113,3 +119,4 @@ class SimpleHelper {
     public static inline function makeSimple2<T>(vari:T) return new Simple2(vari)
     public static inline function printSimple(simple:Simple) untyped __call__("printSimple", simple)
 }
+```
