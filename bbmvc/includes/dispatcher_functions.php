@@ -163,26 +163,32 @@ function checkVariables(ReflectionClass $class, Security $security, $array) {
  * 
  * @see https://ellislab.com/codeigniter/user-guide/helpers/url_helper.html
  */
-function redirect(array $params) {
+function redirect($params) {
 
     $url_params = '';
-    foreach ($params as $key => $value) {
+    
+    if (is_array($params)) {
+        foreach ($params as $key => $value) {
 
-        if (is_array($value)) {
-            //arrays are also possible, in this case, we are "expanding" the array
-            foreach ($value as $sub_key => $sub_value) {
-                $url_params .= $key . '[' . $sub_key . ']=' . urlencode($sub_value) . '&';
+            if (is_array($value)) {
+                //arrays are also possible, in this case, we are "expanding" the array
+                foreach ($value as $sub_key => $sub_value) {
+                    $url_params .= $key . '[' . $sub_key . ']=' . urlencode($sub_value) . '&';
+                }
+            } else {
+                $url_params .= $key . '='. urlencode($value) .'&';
             }
-        } else {
-            $url_params .= $key . '='. urlencode($value) .'&';
         }
+
+        //removing the last ampersend
+        $url_params = '?' . substr($url_params, 0, strlen($url_params) - 1);
+    } elseif (is_string($params)) {
+        // If string passed as argument ...
+        $url_params = $params;
+    } else {
+        throw new InvalidArgumentException('Wrong type argument passed to redirect()');
     }
-
-    //removing the last ampersend
-    $url_params = substr($url_params, 0, strlen($url_params) - 1);
-
-    $url = _URL_MAIN . '/' . _FILE_MAIN . '?' . $url_params;
-
+    $url = _URL_MAIN . '/' . _FILE_MAIN . $url_params;
 
     //saving session...
     session_write_close();
