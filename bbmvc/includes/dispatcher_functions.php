@@ -158,8 +158,9 @@ function checkVariables(ReflectionClass $class, Security $security, $array) {
 }
 
 /**
- * @param array $params
+ * @param array|string $params
  * @return null
+ * @throws InvalidArgumentException
  * 
  * @see https://ellislab.com/codeigniter/user-guide/helpers/url_helper.html
  */
