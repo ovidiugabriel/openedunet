@@ -58,6 +58,9 @@ if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
 
+// TODO: Remove smarty support from here as long as it will be provided by 
+// the `WebApp extends Controller` class.
+
 /*
  * Smarty setup
  */
@@ -75,6 +78,8 @@ require _DIR_PROJECT . '/includes/smarty_extended/block.a.php';
 $_smarty->register_function('lprintf', 'smarty_function_lprintf');
 $_smarty->register_function('url', 'smarty_function_url');
 $_smarty->register_block('a', 'smarty_block_a');
+
+// --------------------------------------------------------------------
 
 /*
  * Now the dispatcher stuff comes
