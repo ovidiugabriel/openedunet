@@ -44,6 +44,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 08.06.2015           Moved require_object(), etc to class_loader.php      */
 /* 13.06.2014           Added InvalidArgumentException to import()           */
 /* 11.03.2014           Added require_object(), require_class()              */
 /*                      and improved construct().                            */
