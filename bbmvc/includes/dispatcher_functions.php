@@ -57,8 +57,11 @@ if (!defined('_VALID_ACCESS')) {
 }
 
 /**
+ * Part of class loader (not dispatcher).
  * Name respects the format defined by:
  * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md 
+ * 
+ * Acts in a way similar with: https://docs.joomla.org/Jimport
  *
  * @throws InvalidArgumentException
  */
