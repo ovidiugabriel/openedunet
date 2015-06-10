@@ -7,6 +7,15 @@ A beautiful yet efficient language.
 | `id`    | acts as `Identity` function  |
 | `val`   | declares an immutable variable |
 
+##### Features
+
+* strong flavor of [expression orientation](http://en.wikipedia.org/wiki/Expression-oriented_programming_language) ; support for [homoiconic](http://en.wikipedia.org/wiki/Homoiconicity) metaprogramming
+* support for [functional](http://en.wikipedia.org/wiki/Functional_programming) and [reactive](http://en.wikipedia.org/wiki/Reactive_programming) (type of [event driven](http://en.wikipedia.org/wiki/Event-driven_programming) programming)
+* functions are first-class values; [higher-order functions](http://en.wikipedia.org/wiki/Higher-order_function) type support
+* lazy evaluation (delayed assignment by means of automatic thunking)
+* automatic memoization
+* literals inlining; macro inlining; AST- macro (template) based metaprogramming
+
 ###### Delayed Assignment Operator
 
 ```
