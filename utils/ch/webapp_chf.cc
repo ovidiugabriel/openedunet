@@ -10,13 +10,23 @@
 #if defined(_CH_)
     /* Deferred-shape array is created with the syntax of the language */
     #define CREATE_DEFERRED_SHAPE_ARRAY(type, name, num)    type name[0:(num)-1]
+    #define strtok_foreach(token, str, _a, delim)           foreach (token; str; _a; delim)    
  
 #elif !defined(_SCH_)
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <math.h>
+
+    #define NaN  FP_NAN
+    
     /* 
      * Deferred-shape array is created with dynamic allocation of the operating system.
      * When using this, always use RAII pattern. (http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization)
      */
     #define CREATE_DEFERRED_SHAPE_ARRAY(type, name, num)    type* name = (type*) malloc((num) * sizeof(type))
+    #define strtok_foreach(token, str, _a, delim)
 #endif
 
 typedef void* (*FP) (...);
@@ -42,8 +52,8 @@ bool request_scalar(string_t& result, string_t name)
     string_t query_string = Request.getServerVariable("QUERY_STRING");
     int num = parse_string_count(query_string);
     if (num > 0) {
-        string_t names[0:num-1];
-        string_t values[0:num-1];
+        CREATE_DEFERRED_SHAPE_ARRAY( string_t, names, num );
+        CREATE_DEFERRED_SHAPE_ARRAY( string_t, values, num );
 
         parse_str(query_string, names, values);
 
@@ -61,8 +71,8 @@ void parse_str(string_t str, string_t names[], string_t values[])
     string_t n;
     int i = 0;
 
-    foreach (token; str; NULL; "&") {
-        foreach (n; token; NULL; "=") {
+    strtok_foreach (token, str, NULL, "&") {
+        strtok_foreach (n, token, NULL, "=") {
             if (!i) {
                 strcpy(names[pos], n);
             } else {
@@ -78,7 +88,7 @@ int parse_string_count(string_t str)
 {
     int pos = 0;
     string_t token;
-    foreach (token; str; NULL; "&") {        
+    strtok_foreach (token, str, NULL, "&") {    
         pos++;
     }
     return pos;
