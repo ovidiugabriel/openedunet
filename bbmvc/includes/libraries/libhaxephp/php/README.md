@@ -15,3 +15,7 @@ There are four magic identifiers in php target:
  * `__call__("function", arg, arg, arg...)` calls a php function with the desired number of arguments and returns whatever the php function returns.
  * `__var__(global, paramname)` has been introduced to easily get the values from global vars.
  * `__physeq__(val1, val2)` Strict equals test between the two values. Returns a Bool.
+
+
+  * [HaXe Advanced Types](http://old.haxe.org/ref/type_advanced)
+  * [HaXe Web Dispatcher](http://old.haxe.org/manual/dispatch)
