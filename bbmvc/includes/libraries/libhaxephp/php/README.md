@@ -16,6 +16,7 @@ There are four magic identifiers in php target:
  * `__var__(global, paramname)` has been introduced to easily get the values from global vars.
  * `__physeq__(val1, val2)` Strict equals test between the two values. Returns a Bool.
 
+Other important topics (relevant to web development):
 
-* [HaXe Advanced Types](http://old.haxe.org/ref/type_advanced)
+* [HaXe Advanced Types](http://old.haxe.org/ref/type_advanced), most important: [Function Types](http://old.haxe.org/ref/type_advanced#functions)
 * [HaXe Web Dispatcher](http://old.haxe.org/manual/dispatch)
