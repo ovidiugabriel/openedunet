@@ -17,5 +17,5 @@ There are four magic identifiers in php target:
  * `__physeq__(val1, val2)` Strict equals test between the two values. Returns a Bool.
 
 
-  * [HaXe Advanced Types](http://old.haxe.org/ref/type_advanced)
-  * [HaXe Web Dispatcher](http://old.haxe.org/manual/dispatch)
+* [HaXe Advanced Types](http://old.haxe.org/ref/type_advanced)
+* [HaXe Web Dispatcher](http://old.haxe.org/manual/dispatch)
