@@ -11,6 +11,18 @@ Please see:
 * [YAML 1.2 Specification](http://www.yaml.org/spec/1.2/spec.html)
 * [Online YAML Parser](http://yaml-online-parser.appspot.com/)
 
+1. download PyYAML 3.11 from [PyYAML Page](http://pyyaml.org/wiki/PyYAML)
+2. Run `python setup.py install`
+
+```
+wget http://pyyaml.org/download/pyyaml/PyYAML-3.11.tar.gz
+tar -zxvf PyYAML-3.11.tar.gz
+cd PyYAML-3.11/
+
+sudo python setup.py install
+```
+
+
 ```
 defines:
   False: 0
