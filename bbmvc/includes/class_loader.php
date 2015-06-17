@@ -80,7 +80,7 @@ function import($name) {
 }
 
 
-function construct($name, $singleton = false) {
+function get_instance($name, $singleton = false) {
     $class = str_replace('.', '_', $name);
     if (!$singleton) {
         return new $class;
