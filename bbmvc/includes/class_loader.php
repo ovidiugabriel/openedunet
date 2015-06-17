@@ -126,7 +126,7 @@ function singleton($name) {
 
 function require_object($name, $fn = null) {
     import($name);
-    $object = construct($name, true);
+    $object = get_instance($name, true);
     if (null == $fn) {
         return $object;
     }
@@ -135,7 +135,7 @@ function require_object($name, $fn = null) {
 
 function require_class($name, $fn = null) {
     import($name);
-    $object = construct($name, false);
+    $object = get_instance($name, false);
     if (null == $fn) {
         return $object;
     }
