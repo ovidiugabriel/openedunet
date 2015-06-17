@@ -41,7 +41,7 @@ Online Resources:
 
 ###### YAML Library Dependencies
 
-*buildpro* is based on PyYAML library, so you need to install PyYAML before starting with *buildpro*
+**buildpro** is based on PyYAML library, so you need to install **PyYAML** before starting with **buildpro**
 
 1. download PyYAML 3.11 from [PyYAML Page](http://pyyaml.org/wiki/PyYAML)
 2. Run `python setup.py install`
