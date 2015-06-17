@@ -7,6 +7,7 @@ The file `<project_name>.project.yml` is an [YAML](http://www.yaml.org/spec/1.2/
 * `artifact` : dictionary (string,string) - `artefact` is also supported since it is more common everywhere outside North America.
 
 Please see:
+* [Python YAML Parser - pyYAML](http://pyyaml.org/wiki/PyYAMLDocumentation)
 * [YAML 1.2 Specification](http://www.yaml.org/spec/1.2/spec.html)
 * [Online YAML Parser](http://yaml-online-parser.appspot.com/)
 
