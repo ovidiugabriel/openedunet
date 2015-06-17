@@ -7,7 +7,7 @@ The file `<project_name>.project.yml` is an [YAML](http://www.yaml.org/spec/1.2/
 * `sources` : list of strings
 * `library_paths` : list of strings
 * `libraries`: list of strings (in `qmake` both `library_paths` and `libraries` were included in `LIBS`)
-* `artifact` : dictionary (string,string) - `artefact` is also supported since it is more common everywhere outside North America.
+* `artifact` : dictionary (key:string, value:string) - `artefact` is also supported since it is more common everywhere outside North America.
 
 ```yaml
 defines:
