@@ -63,7 +63,8 @@ function __autoload($class_name) {
  * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md 
  * 
  * Acts in a way similar with: https://docs.joomla.org/Jimport
- *
+ * 
+ * @param string $name
  * @throws InvalidArgumentException
  */
 function import($name) {
@@ -79,6 +80,10 @@ function import($name) {
     require_once $path;
 }
 
+/**
+ * @param string $name
+ * @return object
+ */
 function create_instance($name) {
     return get_instance($name, false);
 }
@@ -122,6 +127,10 @@ function get_instance($name = null, $singleton = true) {
     return singleton($name);   
 }
 
+/** 
+ * @param string $name
+ * @return object
+ */
 function singleton($name) {
     static $instances = array();
 
@@ -131,6 +140,14 @@ function singleton($name) {
     return $instances[$name];
 }
 
+/** 
+ * Returns the singleton instance of the given type name.
+ * Returns the instance or the value returned by the callback function.
+ * 
+ * @param string $name
+ * @param callable $fn
+ * @return mixed
+ */
 function require_object($name, $fn = null) {
     import($name);
     $object = get_instance($name);
@@ -140,6 +157,14 @@ function require_object($name, $fn = null) {
     return $fn($object);
 }
 
+/** 
+ * Creates an instance of the given type name.
+ * Returns the instance or the value returned by the callback function.
+ * 
+ * @param string $name
+ * @param callable $fn
+ * @return mixed
+ */
 function require_class($name, $fn = null) {
     import($name);
     $object = create_instance($name);
