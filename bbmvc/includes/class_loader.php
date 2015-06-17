@@ -80,8 +80,11 @@ function import($name) {
 }
 
 /** 
+ * If you feel the need to change object properties prior to use,
+ * please consider using require_object / require_class instead.
+ * 
  * @param string $name
- * @param boolean $singleton
+ * @param boolean $singleton - when FALSE a new instance is created
  * @return object
  */
 function get_instance($name = null, $singleton = true) {
