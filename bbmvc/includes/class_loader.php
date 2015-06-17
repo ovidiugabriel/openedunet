@@ -79,6 +79,10 @@ function import($name) {
     require_once $path;
 }
 
+function create_instance($name) {
+    return get_instance($name, false);
+}
+
 /** 
  * If you feel the need to change object properties prior to use,
  * please consider using require_object / require_class instead.
@@ -129,7 +133,7 @@ function singleton($name) {
 
 function require_object($name, $fn = null) {
     import($name);
-    $object = get_instance($name, true);
+    $object = get_instance($name);
     if (null == $fn) {
         return $object;
     }
@@ -138,7 +142,7 @@ function require_object($name, $fn = null) {
 
 function require_class($name, $fn = null) {
     import($name);
-    $object = get_instance($name, false);
+    $object = create_instance($name);
     if (null == $fn) {
         return $object;
     }
