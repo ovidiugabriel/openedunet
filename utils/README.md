@@ -9,7 +9,7 @@ The file `<project_name>.project.yml` is an [YAML](http://www.yaml.org/spec/1.2/
 * `libraries`: list of strings (in `qmake` both `library_paths` and `libraries` were included in `LIBS`)
 * `artifact` : dictionary (string,string) - `artefact` is also supported since it is more common everywhere outside North America.
 
-```
+```yaml
 defines:
   False: 0
   True: 1
@@ -46,7 +46,7 @@ Online Resources:
 1. download PyYAML 3.11 from [PyYAML Page](http://pyyaml.org/wiki/PyYAML)
 2. Run `python setup.py install`
 
-```
+```bash
 wget http://pyyaml.org/download/pyyaml/PyYAML-3.11.tar.gz
 tar -zxvf PyYAML-3.11.tar.gz
 cd PyYAML-3.11/
