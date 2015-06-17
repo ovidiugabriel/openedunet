@@ -84,7 +84,7 @@ function import($name) {
  * @param boolean $singleton
  * @return object
  */
-function get_instance($name = null, $singleton = false) {
+function get_instance($name = null, $singleton = true) {
     if (null === $name) {
         // TODO: Return the active controller and throw a deprecation warning.
     }
@@ -111,7 +111,8 @@ function get_instance($name = null, $singleton = false) {
     if (method_exists($class, 'getInstance')) {
         return call_user_func(array($class, 'getInstance'));    
     }
-    return null;   
+
+    return singleton($name);   
 }
 
 function singleton($name) {
