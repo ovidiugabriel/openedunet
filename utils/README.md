@@ -1,4 +1,4 @@
-The file `<project_name>.project.yml` is an YAML file, and contains the following sections:
+The file `<project_name>.project.yml` is an [YAML](http://www.yaml.org/spec/1.2/spec.html) file, and contains the following sections:
 * `defines` : dictionary (string,string)
 * `includes` : list of strings (in `qmake` it is called `INCLUDEPATH`)
 * `sources` : list of strings
