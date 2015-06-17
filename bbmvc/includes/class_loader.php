@@ -79,8 +79,16 @@ function import($name) {
     require_once $path;
 }
 
-
-function get_instance($name, $singleton = false) {
+/** 
+ * @param string $name
+ * @param boolean $singleton
+ * @return object
+ */
+function get_instance($name = null, $singleton = false) {
+    if (null === $name) {
+        // TODO: Return the active controller and throw a deprecation warning.
+    }
+    
     $class = str_replace('.', '_', $name);
     if (!$singleton) {
         return new $class;
