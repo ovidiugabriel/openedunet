@@ -46,6 +46,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 18.06.2015           Removed support for default profile                  */
 /* 28.02.2014           Added support for default profile.                   */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* History (END).                                                            */
@@ -66,8 +67,7 @@ if (!defined('_VALID_ACCESS')) {
 
 $file = realpath(dirname(__FILE__)) . '/profile';
 if (!is_file($file)) {
-    // TODO: Remove this ...
-    $profile = strtolower(php_uname('n') . '-' . str_replace(' ', '',  php_uname('s'))) .'-php-' . phpversion() . '-' . $_SERVER['HTTP_HOST'];
+    throw new Exception('Configuration file <b>profile</b> is missing');
 } else {
     $profile = trim(file_get_contents($file));
 }
