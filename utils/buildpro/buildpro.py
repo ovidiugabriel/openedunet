@@ -41,6 +41,12 @@ def get_tupfile(deps):
         tup_out += (': ' + key + ' |> ' + deps[key][COMMAND] + ' |> ' + deps[key][OUTPUT] + "\n")
     return tup_out
 
+#
+# ---------------------------------------------------------------------------------------------------------
+# End functions
+# ---------------------------------------------------------------------------------------------------------
+#
+
 if 1 == len(sys.argv):
     print('Error: Invalid command line. Specify the project name.')
     exit(1)
