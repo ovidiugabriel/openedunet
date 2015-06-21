@@ -108,3 +108,25 @@ Compilation results in the following JSON structure:
 ```
 
 The `/.` operator may be used to replace all occurences of "color" with the value "orange".
+
+###### Anonymous function
+
+```haxe
+[] => true /* Tinkerbell Language Extensions: Short Lambda */
+```
+
+###### Key-value loops
+
+```haxe
+for (key => value in target) body;
+```
+
+###### Traits 
+
+###### Abstract Classes
+
+###### Lazy
+
+```haxe
+@:lazy var x = [1, 2, 3, 4];
+```
