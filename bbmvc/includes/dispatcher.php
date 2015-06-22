@@ -71,6 +71,21 @@ if (!defined('_VALID_ACCESS')) {
 // $_smarty->cache_dir     = _DIR_CACHE;
 
 // TODO: These are basically just configuration lines (to be moved to configuration file)
+
+$smarty_ext_config = require_once _DIR_PROJECT . '/includes/smarty_extended/config.php';
+foreach ($smarty_ext_config as $plugin) {
+    require_once _DIR_PROJECT . '/includes/smarty_extended/' . $plugin['type'] . '.' . $plugin['name'] . '.php';
+    // @see http://www.smarty.net/docs/en/api.register.plugin.tpl
+    $fn_name = 'smarty_' . $plugin['type'] . '_' . $plugin['name'];
+    $smarty->registerPlugin($plugin['type'], $plugin['name'], $fn_name);
+}
+
+return array(
+    array('type' => Smarty::PLUGIN_BLOCK,    'name' => 'a'),
+    array('type' => Smarty::PLUGIN_FUNCTION, 'name' => 'lprintf'),
+    array('type' => Smarty::PLUGIN_FUNCTION, 'name' => 'url')
+);
+
 // require _DIR_PROJECT . '/includes/smarty_extended/function.lprintf.php';
 // require _DIR_PROJECT . '/includes/smarty_extended/function.url.php';
 // require _DIR_PROJECT . '/includes/smarty_extended/block.a.php';
