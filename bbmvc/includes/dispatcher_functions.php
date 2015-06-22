@@ -57,32 +57,34 @@ if (!defined('_VALID_ACCESS')) {
     throw new Execption('Access denied!');
 }
 
-/**
- * @param ReflectionClass $class
- * @param Security $security
- * @param string $array
- * @return null
- */
-function checkVariables(ReflectionClass $class, Security $security, $array) {
-    //$array should be $_GET, $_POST, $_COOKIE
-    global $$array;
-    if (empty($$array)) {
-        return;
-    }
-
-    foreach ($$array as $key => $value) {
-        if ($key == 'module' || $key == 'action') {
-            //skipping module and action parameters
-            continue;
+class Dispatcher {
+    /**
+     * @param ReflectionClass $class
+     * @param Security $security
+     * @param string $array
+     * @return null
+     */
+    static public function checkVariables(ReflectionClass $class, Security $security, $array) {
+        //$array should be $_GET, $_POST, $_COOKIE
+        global $$array;
+        if (empty($$array)) {
+            return;
         }
-
-        //the security class should have a method called check_GET_variableName (just an example)
-        $function_name = 'check' . $array . '_' . $key;
-        $method = $class->getMethod($function_name); //if the method does not exist, an exception will be thrown
-        //finally, calling the function
-        $security->$function_name($value);
+    
+        foreach ($$array as $key => $value) {
+            if ($key == 'module' || $key == 'action') {
+                //skipping module and action parameters
+                continue;
+            }
+    
+            //the security class should have a method called check_GET_variableName (just an example)
+            $function_name = 'check' . $array . '_' . $key;
+            $method = $class->getMethod($function_name); //if the method does not exist, an exception will be thrown
+            //finally, calling the function
+            $security->$function_name($value);
+        }
     }
-}
+} // end class Dispatcher
 
 /**
  * @param array|string $params
