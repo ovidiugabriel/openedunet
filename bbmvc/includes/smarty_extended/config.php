@@ -1,7 +1,7 @@
 <?php
 
-return json_decode('[
-    {"type": "block"   , "name": "a"}
-  , {"type": "function", "name": "lprintf"}
-  , {"type": "function", "name": "url"}
-]');
+return array(
+    array('type' => 'block',    'name' => 'a'),
+    array('type' => 'function', 'name' => 'lprintf'),
+    array('type' => 'function', 'name' => 'url')
+);
