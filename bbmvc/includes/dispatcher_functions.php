@@ -84,6 +84,61 @@ class Dispatcher {
             $security->$function_name($value);
         }
     }
+        
+    /**
+     * @param array $params
+     * @return string
+     */
+    static public function getSeoUrl(array $params) {
+    
+        if (isset($params['href'])) {
+            return _URL_MAIN . '/' . $params['href'];
+        }
+    
+        if (empty($params['module'])) {
+            throw new Exception('getSeoUrl - no module');
+            return;
+        }
+    
+        $href = _FILE_MAIN . '?'; // URL to be used if SEO is not enabled.
+        foreach ($params as $key => $value) {
+            if (substr($key, 0, 4) == 'seo_') { // ignoring seo_* params
+                continue;
+            }
+            $href .= $key . '=' .$value . '&amp;';
+        }
+    
+        $href = substr($href, 0, strlen($href) - 5);
+        // done building $href
+    
+        if (!_USE_SEO_LINKS) {
+            return _URL_MAIN . '/' . $href;
+        }
+    
+        if (empty($params['action'])) {
+            $params['action'] = 'defaultAction';
+        }
+    
+        // calling the seo functions of the module
+        $seo_class = $params['module'] . 'Seo';
+    
+        if (is_file(_DIR_MODULES . '/' . $params['module'] . '/class.' . $seo_class . '.php')) { // module file check
+            include_once(_DIR_MODULES . '/' . $params['module'] . '/class.' . $seo_class . '.php');
+            try {
+                $class = new ReflectionClass($seo_class); //throws exception if the class is not existing
+                $action = 'seo_' . $params['action'];
+                $method = $class->getMethod($action); //check for public method
+                if ($method->isPublic()) {
+                    $obj = new $seo_class();
+                    return _URL_MAIN . '/' . $obj->$action($params); //calling the seo method
+                }
+            } catch (Exception $e) {
+                // no seo_class or method not existing
+            }
+        }
+    
+        return _URL_MAIN . '/' . $href;
+    }    
 } // end class Dispatcher
 
 /**
@@ -127,59 +182,6 @@ function redirect($params) {
     die;
 }
 
-/**
- * @param array $params
- * @return string
- */
-function getSeoUrl(array $params) {
 
-    if (isset($params['href'])) {
-        return _URL_MAIN . '/' . $params['href'];
-    }
-
-    if (empty($params['module'])) {
-        throw new Exception('getSeoUrl - no module');
-        return;
-    }
-
-    $href = _FILE_MAIN . '?'; // URL to be used if SEO is not enabled.
-    foreach ($params as $key => $value) {
-        if (substr($key, 0, 4) == 'seo_') { // ignoring seo_* params
-            continue;
-        }
-        $href .= $key . '=' .$value . '&amp;';
-    }
-
-    $href = substr($href, 0, strlen($href) - 5);
-    // done building $href
-
-    if (!_USE_SEO_LINKS) {
-        return _URL_MAIN . '/' . $href;
-    }
-
-    if (empty($params['action'])) {
-        $params['action'] = 'defaultAction';
-    }
-
-    // calling the seo functions of the module
-    $seo_class = $params['module'] . 'Seo';
-
-    if (is_file(_DIR_MODULES . '/' . $params['module'] . '/class.' . $seo_class . '.php')) { // module file check
-        include_once(_DIR_MODULES . '/' . $params['module'] . '/class.' . $seo_class . '.php');
-        try {
-            $class = new ReflectionClass($seo_class); //throws exception if the class is not existing
-            $action = 'seo_' . $params['action'];
-            $method = $class->getMethod($action); //check for public method
-            if ($method->isPublic()) {
-                $obj = new $seo_class();
-                return _URL_MAIN . '/' . $obj->$action($params); //calling the seo method
-            }
-        } catch (Exception $e) {
-            // no seo_class or method not existing
-        }
-    }
-
-    return _URL_MAIN . '/' . $href;
-}
 
 // EOF
