@@ -71,6 +71,10 @@ function redirect($params) {
     return Dispatcher::redirect($params);
 }
 
+function no_cache() {
+    
+}
+
 class Dispatcher {
     /**
      * @param array|string $params
