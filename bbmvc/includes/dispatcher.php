@@ -120,7 +120,13 @@ if (_ENABLE_MULTILANGUAGE) {
     if (is_file($file = (_DIR_LANGUAGES . '/' . $_module_path . '/' . _LANGUAGE_DEFAULT . '.php'))) {
         $_lang = array();
         require_once $file;
-        $_smarty->assign('_lang', $_lang);
+        
+        
+        // TODO: Remove smarty support from here as long as it will be provided by 
+        // the `WebApp extends Controller` class.
+
+        // FIXME: Most likely don't have to use this because we have {translate} in smarty.
+        // $_smarty->assign('_lang', $_lang);
     } else {
         throw new Exception($file);
     }
@@ -128,9 +134,13 @@ if (_ENABLE_MULTILANGUAGE) {
 
 $class = new ReflectionClass($module_classname); // throws exception if the class is not existing
 
-$_smarty->assign('_module', $module);
-$_smarty->assign('_module_path', $_module_path);
-$_smarty->assign('_module_classname', $module_classname);
+
+// TODO: Remove smarty support from here as long as it will be provided by 
+// the `WebApp extends Controller` class.
+
+// $_smarty->assign('_module', $module);
+// $_smarty->assign('_module_path', $_module_path);
+// $_smarty->assign('_module_classname', $module_classname);
 
 
 // next we check the action parameter
@@ -190,7 +200,7 @@ if (_SECURITY_ENFORCE) {
 $obj = new $module_classname;
 $obj->$action();
 
-$_smarty->assign('_action', $action);
-$_smarty->display('index.tpl');
+// $_smarty->assign('_action', $action);
+// $_smarty->display('index.tpl');
 
 // EOF
