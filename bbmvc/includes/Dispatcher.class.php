@@ -72,6 +72,7 @@ function redirect($params) {
     return Dispatcher::redirect($params);
 }
 
+// TODO: Consider moving to a `headers` class or something like that.
 function no_cache() {
     header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');
     header('Cache-Control: no-store, no-cache, must-revalidate');
