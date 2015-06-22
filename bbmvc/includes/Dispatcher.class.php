@@ -1,7 +1,7 @@
 <?php
 
 /* * *************************************************************************
- *                            dispatcher_functions.php
+ *                            Dispatcher.class.php
  *                    ------------------------------------
  *            begin     : Oct 30, 2006
  *            copyright : (C) Brehar Mihai-Tudor
