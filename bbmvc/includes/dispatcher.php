@@ -80,20 +80,6 @@ foreach ($smarty_ext_config as $plugin) {
     $smarty->registerPlugin($plugin['type'], $plugin['name'], $fn_name);
 }
 
-return array(
-    array('type' => Smarty::PLUGIN_BLOCK,    'name' => 'a'),
-    array('type' => Smarty::PLUGIN_FUNCTION, 'name' => 'lprintf'),
-    array('type' => Smarty::PLUGIN_FUNCTION, 'name' => 'url')
-);
-
-// require _DIR_PROJECT . '/includes/smarty_extended/function.lprintf.php';
-// require _DIR_PROJECT . '/includes/smarty_extended/function.url.php';
-// require _DIR_PROJECT . '/includes/smarty_extended/block.a.php';
-
-// $_smarty->register_function('lprintf', 'smarty_function_lprintf');
-// $_smarty->register_function('url', 'smarty_function_url');
-// $_smarty->register_block('a', 'smarty_block_a');
-
 // --------------------------------------------------------------------
 
 /*
