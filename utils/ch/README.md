@@ -82,15 +82,15 @@ Does the same thing as **COUNT( )** but returns an **unsigned** value.
 
 ###### request_scalar()
 
-Returns the value associated with the key `name`.
+Returns the value associated with the key **name**.
 
-```
+```c++
 bool request_scalar(string_t& result, string_t name)
 ```
 
 | **`name`** | the name of the key |
 |:-----------|:--------------------|
-| **returns** | Returns the value associated with the key `name`.  Returns an empty string if the key is not found. |
+| **returns** | Returns the value associated with the key **name**.  Returns an empty string if the key is not found. |
 
 It is the same as `$_REQUEST[name]` in PHP. This is recommended instead of calling `Request.getForm(name)` - because `Request::getForm()` has a known limitation and a bug.
 
