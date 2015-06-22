@@ -70,8 +70,6 @@ if (!defined('_VALID_ACCESS')) {
 // $_smarty->compile_dir   = _DIR_CACHE;
 // $_smarty->cache_dir     = _DIR_CACHE;
 
-// TODO: These are basically just configuration lines (to be moved to configuration file)
-
 $smarty_ext_config = require_once _DIR_PROJECT . '/includes/smarty_extended/config.php';
 foreach ($smarty_ext_config as $plugin) {
     require_once _DIR_PROJECT . '/includes/smarty_extended/' . $plugin['type'] . '.' . $plugin['name'] . '.php';
