@@ -64,20 +64,20 @@ if (!defined('_VALID_ACCESS')) {
 /*
  * Smarty setup
  */
-$_smarty                = new Smarty();
-$_smarty->caching       = _SMARTY_CACHING;
-$_smarty->template_dir  = _DIR_TEMPLATES;
-$_smarty->compile_dir   = _DIR_CACHE;
-$_smarty->cache_dir     = _DIR_CACHE;
+// $_smarty                = new Smarty();
+// $_smarty->caching       = _SMARTY_CACHING;
+// $_smarty->template_dir  = _DIR_TEMPLATES;
+// $_smarty->compile_dir   = _DIR_CACHE;
+// $_smarty->cache_dir     = _DIR_CACHE;
 
+// TODO: These are basically just configuration lines (to be moved to configuration file)
+// require _DIR_PROJECT . '/includes/smarty_extended/function.lprintf.php';
+// require _DIR_PROJECT . '/includes/smarty_extended/function.url.php';
+// require _DIR_PROJECT . '/includes/smarty_extended/block.a.php';
 
-require _DIR_PROJECT . '/includes/smarty_extended/function.lprintf.php';
-require _DIR_PROJECT . '/includes/smarty_extended/function.url.php';
-require _DIR_PROJECT . '/includes/smarty_extended/block.a.php';
-
-$_smarty->register_function('lprintf', 'smarty_function_lprintf');
-$_smarty->register_function('url', 'smarty_function_url');
-$_smarty->register_block('a', 'smarty_block_a');
+// $_smarty->register_function('lprintf', 'smarty_function_lprintf');
+// $_smarty->register_function('url', 'smarty_function_url');
+// $_smarty->register_block('a', 'smarty_block_a');
 
 // --------------------------------------------------------------------
 
