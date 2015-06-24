@@ -68,11 +68,11 @@ This concept is borrowed from FORTRAN and it is especially useful when the C cod
 #define CREATE_DEFERRED_SHAPE_ARRAY(type, name, num)
 ```
 
-| | |
-|---------	|-------------	|
-| type | a token representing the type of the values being stored in each array cell | 
-| name | a token representing the name of the array variable | 
-| num | an integer representing the number of elements in the array | 
+| | | |
+|---------	|------------- 	|-------------	|
+| type | token | representing the type of the values being stored in each array cell | 
+| name | token | representing the name of the array variable | 
+| num | integer | representing the number of elements in the array | 
 
 ```c++
 /**
