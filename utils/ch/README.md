@@ -95,7 +95,7 @@ bool request_scalar(string_t& result, string_t name)
 It is the same as `$_REQUEST[name]` in PHP. This is recommended instead of calling `Request.getForm(name)` - because `Request::getForm()` has a known limitation and a bug.
 
 
-### `parse_str()` ###
+###### parse_str()
 
 Parses `str` as if it were the query string passed via a URL and sets key names into `names` and values associated with the keys into `values`.
 
@@ -118,13 +118,13 @@ int parse_string_count(string_t str)
 |:------|:----|
 | returns | ... |
 
-### `str_array_search()` ###
+###### str_array_search()
 
 ```
 int str_array_search(string_t needle, string_t haystack[], int num)
 ```
 
-### `request_array()` ###
+###### request_array()
 
 ```c++
 int request_array(string_t key, string_t*& values)
@@ -139,7 +139,7 @@ This is the same as calling `Request.getForms(strcat(key, "[]"), vals)`.
 
 And it is also the same as `$_REQUEST[name]` in PHP - but where it is automatically detected that `$_REQUEST[name]` is an array while in Ch CGI you have to assume (although you would say it is written it is part of an interface contract) that `name` is an array to decide to use `request_array()`.
 
-### `doubleval()` ###
+###### doubleval()
 
 ```c++
 gdouble doubleval(string_t str)
@@ -151,7 +151,7 @@ gdouble doubleval(string_t str)
 
 It is the same as `doubleval()` or `floatval()` in PHP - where both `float` and `double` are on 64-bits. Here in Ch, like in C/C++, only `double` is on 64-bits.
 
-### `get_double_values()` ###
+###### get_double_values()
 
 ```c++
 void get_double_values(gdouble* result, string_t* values, int num)
@@ -165,19 +165,19 @@ void get_double_values(gdouble* result, string_t* values, int num)
 
 Of course this is the same as running `doubleval()` on `values` with `array_map()` and storing the output in `result`.
 
-### `array_map()` ###
+###### array_map()
 
 ```c++
 void array_map(void* result, FP callback, void* values, int count)
 ```
 
-### `double_value_array()` ###
+###### double_value_array()
 
 ```c++
 void double_value_array(gdouble* result, string_t* values, int index)
 ```
 
-### `var_dump_double()` ###
+###### var_dump_double()
 
 ```c++
 void var_dump_double(double* var, int num)
@@ -201,7 +201,7 @@ if the first argument is of the type **`string t`**.
 As it is mentioned above, one of the advantages of type string t is that Ch can handle the memory for variables of type string t automatically. For every operations on these variables, Ch will figure out the size
 of the memory required, and then allocate enough memory for the variables. At the end of the lifetimes of these variables, Ch will free their memory automatically.
 
-### `strcasecmp()` ###
+###### strcasecmp()
 
 Compare two strings, ignoring case.
 
@@ -209,19 +209,19 @@ Compare two strings, ignoring case.
 int strcasecmp(char *s1, char *s2);
 ```
 
-### `strconcat()` ###
+###### strconcat()
 
 ```c++
 char* strconcat (const char *string1, ...);
 ```
 
-### `strjoin()` ###
+###### strjoin()
 
 ```c++
 char* strjoin(const char *separator, ...);
 ```
 
-### `strncasecmp()` ###
+###### strncasecmp()
 
 Compare part of two strings, ignoring case.
 
@@ -229,39 +229,39 @@ Compare part of two strings, ignoring case.
 int strncasecmp(char *s1, char *s2, int n);
 ```
 
-### `str2ascii()` ###
+###### str2ascii()
 
 ```c++
 unsigned int str2ascii(char *s);
 ```
 
-### `str2mat()` ###
+###### str2mat()
 
 ```c++
 int str2mat(char mat[:][:], string_t s1, ...);
 ```
 
-### `strgetc()` ###
+###### strgetc()
 
 ```c++
 char strgetc(string_t &s, int i);
 ```
 
-### `strputc()` ###
+###### strputc()
 
 ```c++
 int strputc(string_t &s, int i, char c);
 ```
 
-### `strrep()` ###
+###### strrep()
 
 ```c++
 string_t strrep(string_t s1, string_t s2, string_t s3);
 ```
 
-### `stradd()` ###
+###### stradd()
 
-### `foreach` ###
+###### foreach
 
 In Ch the `foreach` loop is limited to the specific string tokenization that otherwise is usually done with `strtok()`.
 
