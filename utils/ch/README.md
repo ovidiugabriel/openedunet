@@ -70,9 +70,9 @@ This concept is borrowed from FORTRAN and it is especially useful when the C cod
 
 | | | |
 |---------	|------------- 	|-------------	|
-| type | token | representing the type of the values being stored in each array cell | 
-| name | token | representing the name of the array variable | 
-| num | integer | representing the number of elements in the array | 
+| type | token | the type of the values being stored in each array cell | 
+| name | token | the name of the array variable | 
+| num | integer | the number of elements in the array | 
 
 ```c++
 /**
