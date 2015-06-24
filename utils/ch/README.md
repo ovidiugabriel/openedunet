@@ -384,3 +384,9 @@ foreach (explode($delimiter, $S) as $token) {
     // ...
 }
 ```
+
+You may want to use the C++ macro:
+
+```c++
+#define strtok_foreach(token, str, _a, delim)
+```
