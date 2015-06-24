@@ -99,7 +99,7 @@ It is the same as `$_REQUEST[name]` in PHP. This is recommended instead of calli
 
 Parses `str` as if it were the query string passed via a URL and sets key names into `names` and values associated with the keys into `values`.
 
-```
+```c++
 void parse_str(string_t str, string_t names[], string_t values[])
 ```
 
@@ -110,7 +110,7 @@ void parse_str(string_t str, string_t names[], string_t values[])
 
 You have to use `parse_string_count()` to know how much space to allocate for `names` and `values`.
 
-```
+```c++
 int parse_string_count(string_t str)
 ```
 
@@ -126,7 +126,7 @@ int str_array_search(string_t needle, string_t haystack[], int num)
 
 ### `request_array()` ###
 
-```
+```c++
 int request_array(string_t key, string_t*& values)
 ```
 
@@ -141,7 +141,7 @@ And it is also the same as `$_REQUEST[name]` in PHP - but where it is automatica
 
 ### `doubleval()` ###
 
-```
+```c++
 gdouble doubleval(string_t str)
 ```
 
@@ -153,7 +153,7 @@ It is the same as `doubleval()` or `floatval()` in PHP - where both `float` and 
 
 ### `get_double_values()` ###
 
-```
+```c++
 void get_double_values(gdouble* result, string_t* values, int num)
 ```
 
@@ -167,19 +167,19 @@ Of course this is the same as running `doubleval()` on `values` with `array_map(
 
 ### `array_map()` ###
 
-```
+```c++
 void array_map(void* result, FP callback, void* values, int count)
 ```
 
 ### `double_value_array()` ###
 
-```
+```c++
 void double_value_array(gdouble* result, string_t* values, int index)
 ```
 
 ### `var_dump_double()` ###
 
-```
+```c++
 void var_dump_double(double* var, int num)
 ```
 
@@ -205,19 +205,19 @@ of the memory required, and then allocate enough memory for the variables. At th
 
 Compare two strings, ignoring case.
 
-```
+```c++
 int strcasecmp(char *s1, char *s2);
 ```
 
 ### `strconcat()` ###
 
-```
+```c++
 char* strconcat (const char *string1, ...);
 ```
 
 ### `strjoin()` ###
 
-```
+```c++
 char* strjoin(const char *separator, ...);
 ```
 
@@ -225,37 +225,37 @@ char* strjoin(const char *separator, ...);
 
 Compare part of two strings, ignoring case.
 
-```
+```c++
 int strncasecmp(char *s1, char *s2, int n);
 ```
 
 ### `str2ascii()` ###
 
-```
+```c++
 unsigned int str2ascii(char *s);
 ```
 
 ### `str2mat()` ###
 
-```
+```c++
 int str2mat(char mat[:][:], string_t s1, ...);
 ```
 
 ### `strgetc()` ###
 
-```
+```c++
 char strgetc(string_t &s, int i);
 ```
 
 ### `strputc()` ###
 
-```
+```c++
 int strputc(string_t &s, int i, char c);
 ```
 
 ### `strrep()` ###
 
-```
+```c++
 string_t strrep(string_t s1, string_t s2, string_t s3);
 ```
 
@@ -265,13 +265,13 @@ string_t strrep(string_t s1, string_t s2, string_t s3);
 
 In Ch the `foreach` loop is limited to the specific string tokenization that otherwise is usually done with `strtok()`.
 
-```
+```c++
 char* strtok(char* str, const char* delim);
 ```
 
-This way the following Ch code:
+This way the following **Ch** code:
 
-```
+```c++
 foreach (token; s; NULL; delimiter) {
     // ...
 }
@@ -279,7 +279,7 @@ foreach (token; s; NULL; delimiter) {
 
 Is equivalent with the following PHP code:
 
-```
+```php
 foreach (explode($delimiter, $S) as $token) {
     // ...
 }
