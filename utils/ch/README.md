@@ -61,11 +61,18 @@ Does the same thing as **COUNT( )** but returns an **unsigned** value.
 
 ######  CREATE_DEFERRED_SHAPE_ARRAY ( )
 
+Creates a deferred shape array.
+This concept is borrowed from FORTRAN and it is especially useful when the C code is used for numerical computing purposes.
+
+```c++
+#define CREATE_DEFERRED_SHAPE_ARRAY(type, name, num)
+```
+
 | | |
 |---------	|-------------	|
-| type | - | 
-| name | - | 
-| num | - | 
+| type | a token representing the type of the values being stored in each array cell | 
+| name | a token representing the name of the array variable | 
+| num | an integer representing the number of elements in the array | 
 
 ```c++
 /**
@@ -95,9 +102,9 @@ Returns the value associated with the key **name**.
 ```c++
 bool request_scalar(string_t& result, string_t name)
 ```
-
-| **`name`** | the name of the key |
-|:-----------|:--------------------|
+| | |
+|---------	|-------------	|
+| `name` | the name of the key |
 | **returns** | Returns the value associated with the key **name**.  Returns an empty string if the key is not found. |
 
 It is the same as `$_REQUEST[name]` in PHP. This is recommended instead of calling `Request.getForm(name)` - because `Request::getForm()` has a known limitation and a bug.
