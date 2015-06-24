@@ -123,6 +123,8 @@ void parse_str(string_t str, string_t names[], string_t values[])
 | `names` | ... |
 | `values` | ... |
 
+###### parse_string_count()
+
 You have to use `parse_string_count()` to know how much space to allocate for `names` and `values`.
 
 ```c++
@@ -135,7 +137,7 @@ int parse_string_count(string_t str)
 
 ###### str_array_search()
 
-```
+```c++
 int str_array_search(string_t needle, string_t haystack[], int num)
 ```
 
@@ -144,6 +146,7 @@ int str_array_search(string_t needle, string_t haystack[], int num)
 | `needle` | |
 | `haystack` | |
 | `num` | |
+| **returns** | |
 
 ###### request_array()
 
@@ -195,17 +198,36 @@ Of course this is the same as running `doubleval()` on `values` with `array_map(
 void array_map(void* result, FP callback, void* values, int count)
 ```
 
+| | |
+|:-------------|:----|
+| `result` | |
+| `callback` | |
+| `values` | |
+| `count` | | 
+| **returns** | ... |
+
 ###### double_value_array()
 
 ```c++
 void double_value_array(gdouble* result, string_t* values, int index)
 ```
+| | |
+|:-------------|:----|
+| `result` | |
+| `values` | | 
+| `index` | | 
+| **returns** | |
 
 ###### var_dump_double()
 
 ```c++
 void var_dump_double(double* var, int num)
 ```
+| | |
+|:-------------|:----|
+| `var` | |
+| `num` | |
+| **returns** | |
 
 ## Strings ##
 
@@ -234,17 +256,33 @@ Compare two strings, ignoring case.
 int strcasecmp(char *s1, char *s2)
 ```
 
+| | |
+|:--|:------|
+| `s1` | |
+| `s2` | |
+| **returns** | |
+
 ###### strconcat()
 
 ```c++
 char* strconcat (const char *string1, ...)
 ```
+| | |
+|:--|:------|
+| `string1` | |
+| `...` | **DEPRECATED** |
+| **returns** | |
 
 ###### strjoin()
 
 ```c++
 char* strjoin(const char *separator, ...)
 ```
+| | |
+|:--|:------|
+| `separator` | |
+| `...` | **DEPRECATED** |
+| **returns** | |
 
 ###### strncasecmp()
 
@@ -254,23 +292,45 @@ Compare part of two strings, ignoring case.
 int strncasecmp(char *s1, char *s2, int n)
 ```
 
+| | |
+|:--|:------|
+| `s1` | |
+| `s2` | |
+| `n` | |
+| **returns** | |
+
 ###### str2ascii()
 
 ```c++
 unsigned int str2ascii(char *s)
 ```
+| | |
+|:--|:------|
+| `s` | | 
+| **returns** | |
 
 ###### str2mat()
 
 ```c++
 int str2mat(char mat[:][:], string_t s1, ...)
 ```
+| | |
+|:--|:------|
+| `mat` | |
+| `s1` | |
+| `...` | |
+| **returns** | |
 
 ###### strgetc()
 
 ```c++
 char strgetc(string_t &s, int i)
 ```
+| | |
+|:--|:------|
+| `s` | |
+| `i` | |
+| **returns** | |
 
 ###### strputc()
 
@@ -278,13 +338,28 @@ char strgetc(string_t &s, int i)
 int strputc(string_t &s, int i, char c)
 ```
 
+| | |
+|:--|:------|
+| `s` | |
+| `i` | |
+| `c` | |
+| **returns** | |
+
 ###### strrep()
 
 ```c++
 string_t strrep(string_t s1, string_t s2, string_t s3)
 ```
+| | |
+|:--|:------|
+| `s1` | |
+| `s2` | |
+| `s3` | |
+| **returns** | |
 
 ###### stradd()
+
+....
 
 ###### foreach
 
