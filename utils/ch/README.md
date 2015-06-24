@@ -225,19 +225,19 @@ of the memory required, and then allocate enough memory for the variables. At th
 Compare two strings, ignoring case.
 
 ```c++
-int strcasecmp(char *s1, char *s2);
+int strcasecmp(char *s1, char *s2)
 ```
 
 ###### strconcat()
 
 ```c++
-char* strconcat (const char *string1, ...);
+char* strconcat (const char *string1, ...)
 ```
 
 ###### strjoin()
 
 ```c++
-char* strjoin(const char *separator, ...);
+char* strjoin(const char *separator, ...)
 ```
 
 ###### strncasecmp()
@@ -245,37 +245,37 @@ char* strjoin(const char *separator, ...);
 Compare part of two strings, ignoring case.
 
 ```c++
-int strncasecmp(char *s1, char *s2, int n);
+int strncasecmp(char *s1, char *s2, int n)
 ```
 
 ###### str2ascii()
 
 ```c++
-unsigned int str2ascii(char *s);
+unsigned int str2ascii(char *s)
 ```
 
 ###### str2mat()
 
 ```c++
-int str2mat(char mat[:][:], string_t s1, ...);
+int str2mat(char mat[:][:], string_t s1, ...)
 ```
 
 ###### strgetc()
 
 ```c++
-char strgetc(string_t &s, int i);
+char strgetc(string_t &s, int i)
 ```
 
 ###### strputc()
 
 ```c++
-int strputc(string_t &s, int i, char c);
+int strputc(string_t &s, int i, char c)
 ```
 
 ###### strrep()
 
 ```c++
-string_t strrep(string_t s1, string_t s2, string_t s3);
+string_t strrep(string_t s1, string_t s2, string_t s3)
 ```
 
 ###### stradd()
@@ -285,7 +285,7 @@ string_t strrep(string_t s1, string_t s2, string_t s3);
 In Ch the `foreach` loop is limited to the specific string tokenization that otherwise is usually done with `strtok()`.
 
 ```c++
-char* strtok(char* str, const char* delim);
+char* strtok(char* str, const char* delim)
 ```
 
 This way the following **Ch** code:
