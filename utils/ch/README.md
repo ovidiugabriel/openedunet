@@ -167,7 +167,7 @@ And it is also the same as `$_REQUEST[name]` in PHP - but where it is automatica
 ###### doubleval()
 
 ```c++
-gdouble doubleval(string_t str)
+double doubleval(string_t str)
 ```
 
 | | |
@@ -180,7 +180,7 @@ It is the same as `doubleval()` or `floatval()` in PHP - where both `float` and 
 ###### get_double_values()
 
 ```c++
-void get_double_values(gdouble* result, string_t* values, int num)
+void get_double_values(double* result, string_t* values, int num)
 ```
 
 | | |
@@ -209,7 +209,7 @@ void array_map(void* result, FP callback, void* values, int count)
 ###### double_value_array()
 
 ```c++
-void double_value_array(gdouble* result, string_t* values, int index)
+void double_value_array(double* result, string_t* values, int index)
 ```
 | | |
 |:-------------|:----|
