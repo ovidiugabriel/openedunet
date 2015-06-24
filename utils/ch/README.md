@@ -59,7 +59,13 @@ Does the same thing as **COUNT( )** but returns an **unsigned** value.
 
 ####  Deferred-Shape array 
 
-######  CREATE_DEFERRED_SHAPE_ARRAY(type, name, num)
+######  CREATE_DEFERRED_SHAPE_ARRAY ( )
+
+| | |
+|---------	|-------------	|
+| type | - | 
+| name | - | 
+| num | - | 
 
 ```c++
 /**
