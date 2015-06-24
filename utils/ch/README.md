@@ -131,13 +131,19 @@ int parse_string_count(string_t str)
 | | |
 |:------|:----|
 | `str` | ... |
-| returns | ... |
+| **returns** | ... |
 
 ###### str_array_search()
 
 ```
 int str_array_search(string_t needle, string_t haystack[], int num)
 ```
+
+| | |
+|:------|:----|
+| `needle` | |
+| `haystack` | |
+| `num` | |
 
 ###### request_array()
 
