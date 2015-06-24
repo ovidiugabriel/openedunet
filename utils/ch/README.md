@@ -5,7 +5,7 @@ Ch is a C/C++ dialect. It is an interpretive implementation of C with salient (p
 #### Includes
 
 ```c++
-#include "webapp.chf"
+#include "webapp_chf.cc"
 ```
 
 
