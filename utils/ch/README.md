@@ -117,9 +117,9 @@ Parses `str` as if it were the query string passed via a URL and sets key names 
 ```c++
 void parse_str(string_t str, string_t names[], string_t values[])
 ```
-
-| `str` | ... |
+| | |
 |:------|:----|
+| `str` | ... |
 | `names` | ... |
 | `values` | ... |
 
@@ -128,9 +128,9 @@ You have to use `parse_string_count()` to know how much space to allocate for `n
 ```c++
 int parse_string_count(string_t str)
 ```
-
-| `str` | ... |
+| | |
 |:------|:----|
+| `str` | ... |
 | returns | ... |
 
 ###### str_array_search()
@@ -145,9 +145,10 @@ int str_array_search(string_t needle, string_t haystack[], int num)
 int request_array(string_t key, string_t*& values)
 ```
 
-| **`key`** | ... |
+|  |  |
 |:----------|:----|
-| **`values`** | ... |
+| `key` | ... |
+| `values` | ... |
 | **returns** | ... |
 
 This is the same as calling `Request.getForms(strcat(key, "[]"), vals)`.
@@ -160,8 +161,9 @@ And it is also the same as `$_REQUEST[name]` in PHP - but where it is automatica
 gdouble doubleval(string_t str)
 ```
 
-| **`str`** | ... |
+| | |
 |:----------|:----|
+| `str` | ... |
 | **returns** | ... |
 
 It is the same as `doubleval()` or `floatval()` in PHP - where both `float` and `double` are on 64-bits. Here in Ch, like in C/C++, only `double` is on 64-bits.
@@ -172,10 +174,11 @@ It is the same as `doubleval()` or `floatval()` in PHP - where both `float` and 
 void get_double_values(gdouble* result, string_t* values, int num)
 ```
 
-| **`result`** | ... |
+| | |
 |:-------------|:----|
-| **`values`** | ... |
-| **`num`** | ... |
+| `result` | ... |
+| `values` | ... |
+| `num` | ... |
 | **returns** | ... |
 
 Of course this is the same as running `doubleval()` on `values` with `array_map()` and storing the output in `result`.
@@ -206,8 +209,9 @@ The value of a variable of type `char` is a single character or escape sequence 
 as in `'x'`. A character constant has type `int` in C. Like C++, a character constant has type `char` in
 Ch.
 
-| C | `int` |
+| | |
 |:--|:------|
+| C | `int` |
 | C++, Ch | `char` |
 
 In Ch: For string functions **`strcpy()`**, **`strncpy()`**, **`strcat()`**, and **`strncat()`**, the memory will be automatically handled
