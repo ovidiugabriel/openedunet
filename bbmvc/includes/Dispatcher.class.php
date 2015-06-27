@@ -44,6 +44,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 27.06.2015           Added HaXe anonymous structure support               */
 /* 22.06.2015           Replaced dispatcher function with Dispatcher class   */
 /* 08.06.2015           Moved require_object(), etc to class_loader.php      */
 /* 13.06.2014           Added InvalidArgumentException to import()           */
@@ -61,12 +62,13 @@ if (!defined('_VALID_ACCESS')) {
 /**
  * Public interface function to allow usage of redirect() function,
  * without using resolution operator.
- * 
+ *
+ * The controller class also defines a redirect() method that can be used
+ * from children Controller classes in HaXe without referincing the Dispatcher.
+ *
  * @param array|string $params
  * @return null
  * @throws InvalidArgumentException
- * 
- * @see https://ellislab.com/codeigniter/user-guide/helpers/url_helper.html
  */
 function redirect($params) {
     return Dispatcher::redirect($params);
@@ -74,13 +76,18 @@ function redirect($params) {
 
 // TODO: Consider moving to a `headers` class or something like that.
 function no_cache() {
-    header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-    header('Cache-Control: no-store, no-cache, must-revalidate');
-    header('Cache-Control: post-check=0, pre-check=0', false /* replace=false */);
-    header('Pragma: no-cache');
+    Dispatcher::header('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
+    Dispatcher::header('Cache-Control', 'no-store, no-cache, must-revalidate');
+    Dispatcher::header('Cache-Control', 'post-check=0, pre-check=0', Dispatcher::HEADER_REPLACE_NO);
+    Dispatcher::header('Pragma', 'no-cache');
 }
 
 class Dispatcher {
+    const HEADER_REPLACE_NO  = false;
+    const HEADER_REPLACE_YES = true;
+
+    private function __construct() {}
+
     /**
      * @param array|string $params
      * @return null
@@ -89,7 +96,10 @@ class Dispatcher {
      * @see https://ellislab.com/codeigniter/user-guide/helpers/url_helper.html
      */
     static public function redirect($params) {
-    
+        // If HaXe Runtime is loaded and the argument is an anonymous structure
+        // it is automatically converted to a native array
+        $params = NativeArray::fromAnonymousStruct($params);
+
         $url_params = '';
         
         if (is_array($params)) {
@@ -118,8 +128,21 @@ class Dispatcher {
         //saving session...
         session_write_close();
     
-        header('Location: ' . $url);
+        self::header('Location', $url);
         die;
+    }
+
+    /**
+     * @param string $name
+     * @param string $value
+     * @param boolean $replace
+     * @param integer $http_response_code
+     */
+    static public function header($name, $value, $replace = true, $http_response_code = 0) {
+        $hdr = $name . ': ' . $value;
+
+        // TODO: Log message
+        header($hdr, $replace, $http_response_code);
     }
     
     /**
@@ -153,8 +176,14 @@ class Dispatcher {
      * @param array $params
      * @return string
      */
-    static public function getSeoUrl(array $params) {
-    
+    static public function getSeoUrl($params) {
+        $params = NativeArray::fromAnonymousStruct($params);
+        if (class_exists('_hx_anonymous') && $params instanceof _hx_anonymous) {
+            $params = (array) $params;
+        }
+
+        assert(is_array($params));
+
         if (isset($params['href'])) {
             return _URL_MAIN . '/' . $params['href'];
         }
@@ -180,7 +209,7 @@ class Dispatcher {
         }
     
         if (empty($params['action'])) {
-            $params['action'] = 'defaultAction';
+            $params['action'] = _DEFAULT_ACTION;
         }
     
         // calling the seo functions of the module
