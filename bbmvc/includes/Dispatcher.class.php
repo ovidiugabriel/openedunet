@@ -55,7 +55,7 @@
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 if (!defined('_VALID_ACCESS')) {
-    throw new Execption('Access denied!');
+    throw new Exception('Access denied!');
 }
 
 /**
