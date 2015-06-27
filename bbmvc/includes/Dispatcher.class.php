@@ -181,8 +181,6 @@ class Dispatcher {
         $params = NativeArray::fromHaxeType($params);
         assert( is_array($params) || ($params instanceof ArrayAccess) );
 
-        $params = (array) $params;  // Convert ArrayObject to array
-
         if (isset($params['href'])) {
             return _URL_MAIN . '/' . $params['href'];
         }
