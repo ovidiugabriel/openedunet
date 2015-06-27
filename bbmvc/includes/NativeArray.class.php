@@ -2,7 +2,7 @@
 
 /* ************************************************************************* */
 /*                                                                           */
-/*  Title:       NativeArray.class.php                                      */
+/*  Title:       NativeArray.class.php                                       */
 /*                                                                           */
 /*  Created on:  27.06.2015 at 12:20:59                                      */
 /*  Email:       ovidiugabriel@gmail.com                                     */
@@ -15,6 +15,8 @@
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* History (Start).                                                          */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* 27.06.2015           Removed NativeArray::fromAnonymousStruct()           */
+/*                      Added fromHaxeType()                                 */
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
@@ -24,9 +26,25 @@
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 class NativeArray {
-    static public function fromAnonymousStruct($var) {
-        if (class_exists('_hx_anonymous') && ('_hx_anonymous' == get_class($var))) {
-            $var = (array) $var;
+    /** 
+     * Converts Haxe types to PHP native ArrayObject.
+     */
+    static public function fromHaxeType($var) {
+        $type = get_class($var);
+
+        switch ($type) {
+            case '_hx_anonymous':
+                $var = new ArrayObject($var);
+            break;
+
+            case 'haxe_ds_StringMap':
+                // Particular case for StringMap is that member h is needed.
+                $var = new ArrayObject($var->h);
+            break;
+
+            default:
+                # code...
+            break;
         }
         return $var;
     }
