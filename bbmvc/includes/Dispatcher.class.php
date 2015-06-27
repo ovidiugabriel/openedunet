@@ -176,7 +176,7 @@ class Dispatcher {
      * @param array $params
      * @return string
      */
-    static public function getSeoUrl($params) {
+    static public function getSeoUrl($params, $html_entity = false) {
         $params = NativeArray::fromAnonymousStruct($params);
         if (class_exists('_hx_anonymous') && $params instanceof _hx_anonymous) {
             $params = (array) $params;
@@ -198,7 +198,7 @@ class Dispatcher {
             if (substr($key, 0, 4) == 'seo_') { // ignoring seo_* params
                 continue;
             }
-            $href .= $key . '=' .$value . '&amp;';
+            $href .= $key . '=' .$value . ($html_entity ? '&amp;' : '&');
         }
     
         $href = substr($href, 0, strlen($href) - 5);
