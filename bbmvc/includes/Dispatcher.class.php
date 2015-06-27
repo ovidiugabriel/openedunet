@@ -44,6 +44,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 27.06.2015           Added HaXe StringMap support                         */
 /* 27.06.2015           Added HaXe anonymous structure support               */
 /* 22.06.2015           Replaced dispatcher function with Dispatcher class   */
 /* 08.06.2015           Moved require_object(), etc to class_loader.php      */
@@ -98,11 +99,11 @@ class Dispatcher {
     static public function redirect($params) {
         // If HaXe Runtime is loaded and the argument is an anonymous structure
         // it is automatically converted to a native array
-        $params = NativeArray::fromAnonymousStruct($params);
+        $params =  NativeArray::fromHaxeType($params);
 
         $url_params = '';
         
-        if (is_array($params)) {
+        if (is_array($params) || ($params instanceof ArrayAccess)) {
             foreach ($params as $key => $value) {
     
                 if (is_array($value)) {
@@ -159,7 +160,7 @@ class Dispatcher {
         }
     
         foreach ($$array as $key => $value) {
-            if ($key == 'module' || $key == 'action') {
+            if (('module' == $key) || ('action' == $key)) {
                 //skipping module and action parameters
                 continue;
             }
@@ -177,12 +178,10 @@ class Dispatcher {
      * @return string
      */
     static public function getSeoUrl($params, $html_entity = false) {
-        $params = NativeArray::fromAnonymousStruct($params);
-        if (class_exists('_hx_anonymous') && $params instanceof _hx_anonymous) {
-            $params = (array) $params;
-        }
+        $params = NativeArray::fromHaxeType($params);
+        assert( is_array($params) || ($params instanceof ArrayAccess) );
 
-        assert(is_array($params));
+        $params = (array) $params;  // Convert ArrayObject to array
 
         if (isset($params['href'])) {
             return _URL_MAIN . '/' . $params['href'];
@@ -194,14 +193,15 @@ class Dispatcher {
         }
     
         $href = _FILE_MAIN . '?'; // URL to be used if SEO is not enabled.
+        $parts = array();
         foreach ($params as $key => $value) {
             if (substr($key, 0, 4) == 'seo_') { // ignoring seo_* params
                 continue;
             }
-            $href .= $key . '=' .$value . ($html_entity ? '&amp;' : '&');
+            $parts[] = $key . '=' .$value;
         }
-    
-        $href = substr($href, 0, strlen($href) - 5);
+
+        $href = implode(($html_entity ? '&amp;' : '&'), $parts);
         // done building $href
     
         if (!_USE_SEO_LINKS) {
