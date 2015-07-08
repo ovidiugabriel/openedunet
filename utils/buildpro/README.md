@@ -2,10 +2,10 @@
 
 ```bash
 # Build a project with no-clean mode
-python buildpro.py <projectname>
+python buildpro.py _projectname_
 
 # Build a project with clean enabled
-clean=1 python buildpro.py <projectname>
+clean=1 python buildpro.py _projectname_
 ```
 
 ###### Project File
