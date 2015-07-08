@@ -73,6 +73,55 @@ RESET = shell_exec('tput sgr0', False)
 
 env = os.environ
 
+# TODO: Create a function for this proto feature
+if '-proto' == sys.argv[1]:
+    if len(sys.argv) < 4:
+        print('Error: Invalid command line.')
+        print('Usage: -proto <lang> <class>')
+        buildpro_exit(1)
+
+    lang       = sys.argv[2]
+    class_name = sys.argv[3]
+    filename   = sys.argv[4]
+    buildpro_print('proto ' + lang)
+    print('file: ' + filename)
+
+    # Read all @proto annotations
+    functions = []
+    with open(filename, 'r') as fileh:
+        for line in fileh:
+            m = re.search('@proto\s+(static|\.?)\s*(public|private|[\+\#\~\-]?)\s*(.*)', line.rstrip())
+            if None != m:
+                static = m.group(1)
+                if '.' == static:
+                    static = 'static'
+
+                if static != '':
+                    static += ' '
+                visibility = m.group(2)
+                if ('#' == m.group(2)) or ('-' == m.group(2)) or ('~' == m.group(2)):
+                    visibility = 'private'
+                if '+' == m.group(2):
+                    visibility = 'public'
+
+                if visibility != '':
+                    visibility += ' '
+
+                proto = m.group(3)
+                # print('proto: ', m.groups())
+                functions.append(static + visibility + 'function ' + proto)
+
+    print('extern class ' + class_name + ' {')
+    for func in functions:
+        print('    ' + func + ';')
+    print('} /* end class ' + class_name +' */')
+
+    exit(0)
+
+#
+# Continue for non-proto usage
+#
+
 project_file = sys.argv[1] + '.project.yml'
 stream = file(project_file, 'r')
 data = yaml.load(stream)
