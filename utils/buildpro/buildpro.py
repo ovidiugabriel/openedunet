@@ -99,7 +99,7 @@ if 'includes' in data:
             include_paths = []
             for (key, value) in enumerate(data['includes']):
                 value = value.format(**env).replace('$', '')
-                data['includes'][key] = value
+                # data['includes'][key] = value
                 include_paths.append('-I' + value)
 
             final_cmd += (' '.join(include_paths) + ' ')
@@ -115,7 +115,7 @@ if len(defines) > 0:
     cdefs = []
     for key in defines:
         cdefs.append('-D' + key + '=' + defines[key])
-    final_cmd += (' ' +  ' '.join(cdefs) + ' ')
+    final_cmd += (' '.join(cdefs) + ' ')
 
 if 'sources' in data:
     for value in data['sources']:
@@ -140,7 +140,7 @@ if ('libraries' in data) and (data['libraries'] != None):
     libraries = []
     for value in data['libraries']:
         libraries.append('-l' + value)
-    final_cmd += (' ' + ' '.join(libraries) + ' ')
+    final_cmd += (' '.join(libraries) + ' ')
 
 # append artifact name
 output = 'a.out'
