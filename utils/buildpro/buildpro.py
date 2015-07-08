@@ -24,7 +24,9 @@ import re
 #
 # Executes command via shell and return the complete output as a string
 #
-def shell_exec(cmd):
+def shell_exec(cmd, show_echo):
+    if show_echo:
+        print(cmd)
     return subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True).stdout.read().decode('utf-8').rstrip()
 
 #
@@ -42,6 +44,20 @@ def get_tupfile(deps):
     return tup_out
 
 #
+# Prints a stage name using the buildpro banner
+#
+def buildpro_print(text):
+    print(BOLD + '[buildpro] ' + text + RESET);
+
+#
+# Prints the goodbye message and exits the script
+#
+def buildpro_exit(code):
+    print('Bye. [exit ' + str(code) + ']')
+    exit(code)
+
+
+#
 # ---------------------------------------------------------------------------------------------------------
 # End functions
 # ---------------------------------------------------------------------------------------------------------
@@ -49,21 +65,29 @@ def get_tupfile(deps):
 
 if 1 == len(sys.argv):
     print('Error: Invalid command line. Specify the project name.')
-    exit(1)
+    buildpro_exit(1)
+
+# Some 'contants' definitions
+BOLD  = shell_exec('tput bold', False)
+RESET = shell_exec('tput sgr0', False)
 
 env = os.environ
-# TODO: `final_cmd` must be formatted as specified in the .project.yml file.
-# The `final_cmd` may be used to run the compiler directly but also to generate Tupfile
-final_cmd = 'gcc'
+
 project_file = sys.argv[1] + '.project.yml'
 stream = file(project_file, 'r')
 data = yaml.load(stream)
 
 if data == None:
     print('Error: Invalid project file.')
-    exit(1)
+    buildpro_exit(1)
+
+# TODO: `final_cmd` must be formatted as specified in the .project.yml file.
+# The `final_cmd` may be used to run the compiler directly but also to generate Tupfile
 
 # FIXME: As it is implemented now, it works only with GCC.
+final_cmd = 'gcc'
+if 'var' in data and 'CC' in data['var'] and data['var']['CC'] != None:
+    final_cmd = data['var']['CC']   # maybe cc is not an inspired name
 
 # http://scribu.net/blog/python-equivalents-to-phps-foreach.html
 
@@ -81,32 +105,38 @@ if 'includes' in data:
             final_cmd += (' '.join(include_paths) + ' ')
         except KeyError, ex:
             print('Key Error: Undefined environment variable ${' + str(ex).strip("'") + '}')
-            exit(1)
+            buildpro_exit(1)
 
 defines = {}
-defines['False'] = '0'
-defines['True']  = '1'
+# defines['False'] = '0'
+# defines['True']  = '1'
 
-cdefs = []
-for key in defines:
-    cdefs.append('-D' + key + '=' + defines[key])
-final_cmd += (' ' +  ' '.join(cdefs) + ' ')
+if len(defines) > 0:
+    cdefs = []
+    for key in defines:
+        cdefs.append('-D' + key + '=' + defines[key])
+    final_cmd += (' ' +  ' '.join(cdefs) + ' ')
 
 if 'sources' in data:
     for value in data['sources']:
+        value = value.format(**env).replace('$', '')
         final_cmd += value + ' '
 
 if 'library_paths' in data:
     libpaths = []
-    for value in data['library_paths']:
+
+    for (key, value) in enumerate(data['library_paths']):
+        value = value.format(**env).replace('$', '')
+        # data['library_paths'][key] = value
         libpaths.append('-L' + value)
-    final_cmd += (' ' + ' '.join(libpaths) + ' ')
+
+    final_cmd += (' '.join(libpaths) + ' ')
 
 #
 # the libs have to go after sources list
 # don't ask me why, I don't know, but the order seems to be required
 #
-if 'libraries' in data:
+if ('libraries' in data) and (data['libraries'] != None):
     libraries = []
     for value in data['libraries']:
         libraries.append('-l' + value)
@@ -124,12 +154,42 @@ else:
 # GDB can work with this debugging information.
 final_cmd += '-g -o ' + output
 
-print(final_cmd)
-print(shell_exec(final_cmd))
+# By default the build is no-clean
+# but clean may be enforced with an environment variable
+clean = 'clean' in env and env['clean']
+if clean:
+    buildpro_print('Removing old artifact(s) ...')
+    rmscript = 'if [ -f ./' + output + ' ] ; then rm ./' + output + ' ; fi'
+    print(shell_exec(rmscript, True))
+else:
+    buildpro_print('"No clean" build')
+    print('To clean artifacts prepend clean=1 \n')
 
-if os.path.isfile('./' + output):
-  print('### Running ' + output + ' ... ###');
-  print(shell_exec('./' + output))
+buildpro_print('Building ...')
+final_cmd_result = shell_exec(final_cmd + ' > buildpro.log 2>&1 ; echo $?', True)
+
+print(shell_exec('cat buildpro.log', False))
+if "0" != final_cmd_result:
+
+    buildpro_print('Build FAILED. Bailing out.')
+    buildpro_exit(1)
+
+artifact_exists = shell_exec('if [ -f ./' + output + ' ] ; then echo "1" ; fi', False)
+
+if "1" == artifact_exists:
+    for cmd in data['deploy']:
+        cmd = cmd.replace('{artifact.name}', './' + output)
+        cmd = cmd.format(**env).replace('$', '')
+
+        buildpro_print('Deploying ...')
+        print(shell_exec(cmd, True))
+else:
+    print(output + ' does not exists.')
+    buildpro_exit(1)
+
+# if os.path.isfile('./' + output):
+#  print('### Running ' + output + ' ... ###');
+#  print(shell_exec('./' + output))
 
 exit(0)
 
