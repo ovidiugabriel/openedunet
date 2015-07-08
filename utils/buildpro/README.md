@@ -6,6 +6,8 @@ python buildpro.py _projectname_
 
 # Build a project with clean enabled
 clean=1 python buildpro.py _projectname_
+
+python buildpro.py -proto _lang_ _classfile_
 ```
 
 ###### Project File
