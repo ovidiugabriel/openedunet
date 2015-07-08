@@ -1,3 +1,13 @@
+###### Usages
+
+```bash
+# Build a project with no-clean mode
+python buildpro.py <projectname>
+
+# Build a project with clean enabled
+clean=1 python buildpro.py <projectname>
+```
+
 ###### Project File
 
 The file `<project_name>.project.yml` is an [YAML](http://www.yaml.org/spec/1.2/spec.html) file, and contains the following sections:
