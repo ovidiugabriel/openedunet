@@ -84,7 +84,7 @@ class CCookie {
      * @proto public getName():String
      */
     public function getName() {
-        return $this->Name;
+        return (string) $this->Name;
     }
     
     /** 
@@ -93,7 +93,7 @@ class CCookie {
      * @proto public getPath():String
      */
     public function getPath() {
-        return $this->Path;
+        return (string) $this->Path;
     }
     
     /**	
@@ -112,7 +112,7 @@ class CCookie {
      * @proto public getSecure():Bool
      */
     public function getSecure() {
-        return $this->Secure;
+        return (bool) $this->Secure;
     }
     
     /** 
@@ -121,7 +121,7 @@ class CCookie {
      * @proto public getValue():String
      */
     public function getValue() {
-        return $this->Value;
+        return (string) $this->Value;
     }
     
     /** 
@@ -130,7 +130,7 @@ class CCookie {
      * @proto public getVersion():Int
      */
     public function getVersion() {
-        return $this->Version;
+        return (int) $this->Version;
     }
     
     /** 
@@ -139,7 +139,8 @@ class CCookie {
      * @proto public setComment(comment:String):Int
      */
     public function setComment($comment) {
-        $this->Comment = $comment;
+        $this->Comment = (string) $comment;
+        return 0;
     }
     
     /** 
@@ -148,7 +149,8 @@ class CCookie {
      * @proto public setCommentURL(comment:String):Int
      */
     public function setCommentURL($comment) {
-        $this->CommentURL = $comment;
+        $this->CommentURL = (string) $comment;
+        return 0;
     }
     
     /** 
@@ -157,7 +159,8 @@ class CCookie {
      * @proto public setDiscard(discard:Bool):Int
      */
     public function setDiscard($discard) {
-        $this->Discard = $discard;
+        $this->Discard = (bool) $discard;
+        return 0;
     }
     
     /** 
@@ -166,7 +169,8 @@ class CCookie {
      * @proto public setDomain(domain:String):Int
      */
     public function setDomain($domain) {
-        $this->Domain = $domain;
+        $this->Domain = (string) $domain;
+        return 0;
     }
     
     /**
@@ -175,7 +179,8 @@ class CCookie {
      * @proto public setMaxAge(maxAge:Int):Int
      */
     public function setMaxAge($maxAge) {
-        $this->MaxAge = $maxAge;
+        $this->MaxAge = (int) $maxAge;
+        return 0;
     }
     
     /** 
@@ -184,7 +189,8 @@ class CCookie {
      * @proto public setName(name:String):Int
      */
     public function setName($name) {
-        $this->Name = $name;
+        $this->Name = (string) $name;
+        return 0;
     }
     
     /** 
@@ -193,7 +199,8 @@ class CCookie {
      * @proto public setPath(path:String):Int
      */
     public function setPath($path) {
-        $this->Path = $path;
+        $this->Path = (string) $path;
+        return 0;
     }
     
     /**	
@@ -202,7 +209,8 @@ class CCookie {
      * @proto public setSecure(secure:Bool):Int
      */
     public function setSecure($secure) {
-        $this->Secure = $secure;
+        $this->Secure = (bool) $secure;
+        return 0;
     }
     
     /** 
@@ -211,7 +219,8 @@ class CCookie {
      * @proto public setValue(value:String):Int
      */
     public function setValue($value) {
-        $this->Value = $value;
+        $this->Value = (string) $value;
+        return 0;
     }
     
     /** 
@@ -220,6 +229,7 @@ class CCookie {
      * @proto public setVersion(version:Int):Int
      */
     public function setVersion($version) {
-        $this->Version = $version;
+        $this->Version = (int) $version;
+        return 0;
     }
 }
