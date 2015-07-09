@@ -10,6 +10,8 @@ class CResponse {
     /**
      * Adds a specified cookie with attributes  
      * 
+     * @param Cookie $cookie
+     * @return integer
      * @proto public addCookie(cookie:CCookie):Int
      */
     public function addCookie($cookie){}
@@ -74,32 +76,60 @@ class CResponse {
     
     /** 
      * Retrieves the value for the CacheControl property. 
+     * 
+     * @return string
+     * @proto public getCacheControl():String
      */
     public function getCacheControl(){
         return $this->CacheControl;
     }
     
-    /** Retrieves the value for the CharSet property. */
+    /** 
+     * Retrieves the value for the CharSet property. 
+     * 
+     * @return string
+     * @proto public getCharSet():String
+     */
     public function getCharSet(){
         return $this->CharSet;
     }
     
-    /** Retrieves the value of the ContentType property. */
+    /** 
+     * Retrieves the value of the ContentType property. 
+     * 
+     * @return string
+     * @proto public getContentType():String
+     */
     public function getContentType(){
         return $this->ContentType;
     }
     
-    /**	Retrieves the value of the Expires property. */
+    /**	
+     * Retrieves the value of the Expires property. 
+     * 
+     * @return integer
+     * @proto public getExpires():Int
+     */
     public function getExpires(){
         return $this->Expires;
     }
     
-    /** Retrieves the value of the ExpiresAbsolute property. */
+    /** 
+     * Retrieves the value of the ExpiresAbsolute property. 
+     * 
+     * @return string
+     * @proto public getExpiresAbsolute():String
+     */
     public function getExpiresAbsolute(){
         return $this->ExpiresAbsolute;
     }
     
-    /** Retrieves the value of the Status property. */
+    /** 
+     * Retrieves the value of the Status property. 
+     * 
+     * @return string
+     * @proto public getStatus():String
+     */
     public function getStatus(){
         return $this->Status;
     }
