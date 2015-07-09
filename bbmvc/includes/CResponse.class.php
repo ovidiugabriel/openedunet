@@ -140,40 +140,94 @@ class CResponse {
      */
     public function PICS($headerValue){}
     
-    /** Causes the browser to attempt to connect to a different URL. */
+    /** 
+     * Causes the browser to attempt to connect to a different URL. 
+     * 
+     * @param string $url
+     * @return integer
+     * @proto public redirect(url:String):Int
+     */
     public function redirect($url){}
     
-    /** Sets the value of the Buffer property. */
+    /** 
+     * Sets the value of the Buffer property. 
+     * 
+     * @param boolean $buffering
+     * @return integer
+     * @proto public setBuffer(buffering:Bool):Int
+     */
     public function setBuffer($buffering){
         $this->Buffer = $buffering;
+        return 0;
     }
-    
-    /** Sets the value of the CacheControl property. */
+
+    /** 
+     * Sets the value of the CacheControl property. 
+     * 
+     * @param string $cacheControl
+     * @return integer
+     * @proto public setCacheControl(cacheControl:String):Int
+     */
     public function setCacheControl($cacheControl){
         this->CacheControl = $cacheControl;
+        return 0;
     }
     
-    /** Sets the value of the Charset property. */
+    /** 
+     * Sets the value of the Charset property. 
+     * 
+     * @param string $charSet
+     * @return integer
+     * @proto public setCharSet(charSet:String):Int
+     */
     public function setCharSet($charSet){
         $this->Charset = $charSet;
+        return 0;
     }
     
-    /**	Sets the value of the ContentType property. */
+    /**	
+     * Sets the value of the ContentType property. 
+     * 
+     * @param string $contentType
+     * @return integer
+     * @proto public setContentType(contentType:String):Int
+     */
     public function setContentType($contentType){
         $this->ContentType = $contentType;
+        return 0;
     }
     
-    /** Sets the value of the Expires property. */
+    /** 
+     * Sets the value of the Expires property. 
+     * 
+     * @param integer expiresMinutes
+     * @return integer
+     * @proto public setExpires(expiresMinutes:Int):Int
+     */
     public function setExpires($expiresMinutes){
-        $this->Expires = $expiresMinutes;   
+        $this->Expires = $expiresMinutes;
+        return 0;
     }
     
-    /** Sets the value of the ExpiresAbsolute property. */
+    /** 
+     * Sets the value of the ExpiresAbsolute property. 
+     * 
+     * @param string $expiresAbsolute
+     * @return integer
+     * @proto public setExpiresAbsolute(expiresAbsolute:String):Int
+     */
     public function setExpiresAbsolute($expiresAbsolute){
         $this->ExpiresAbsolute = $expiresAbsolute;
+        return 0;
     }
     
-    /** Sets the value of the Status property. */
+    /** 
+     * Sets the value of the Status property. 
+     * 
+     * @param string $status
+     * @return integer
+     * @proto public setStatus(status:String):Int
+     */
     public function setStatus($status){
         $this->Status = $status;
     }
