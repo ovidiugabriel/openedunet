@@ -18,6 +18,7 @@ class CResponse {
      * Adds a HTTP header to the HTTP response. 
      * 
      * @param array $headers
+     * @return integer
      * @proto public addHeader(headers:StringMap):Int
      */
     public function addHeader($headers) {
@@ -28,25 +29,52 @@ class CResponse {
      * Begins to send output. 
      * 
      * @deprecated
+     * @return integer
      * @proto public begin():Int
      */
     public function begin(){}
     
-    /**	Ends standard output. */
+    /**	
+     * Ends standard output. 
+     * 
+     * @return nulltype
+     * @proto public end():Void
+     */
     public function end(){}
     
-    /** Causes the server to stop processing a script and return. */
+    /** 
+     * Causes the server to stop processing a script and return. 
+     * 
+     * @proto public exit():Void
+     * @return nulltype
+     */
     public function exit(){}
     
-    /** Sends buffered HTML output immediately. */
+    /** 
+     * Sends buffered HTML output immediately. 
+     * 
+     * @return integer
+     * @proto public flush():Int
+     */
     public function flush(){}
     
-    /** Retrieves the value of the Buffer property. */
+    /** 
+     * Retrieves the value of the Buffer property. 
+     * 
+     * When page output is buffered, the server does not send a response 
+     * to the client until all of the server scripts on the current page have been processed, 
+     * or until the CResponse::flush, CResponse::end or CResponse::exit function has been called.
+     * 
+     * @return boolean
+     * @proto public getBuffer():Bool
+     */
     public function getBuffer(){
         return $this->Buffer;
     }
     
-    /** Retrieves the value for the CacheControl property. */
+    /** 
+     * Retrieves the value for the CacheControl property. 
+     */
     public function getCacheControl(){
         return $this->CacheControl;
     }
