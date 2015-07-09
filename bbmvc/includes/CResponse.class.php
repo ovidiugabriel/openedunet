@@ -5,13 +5,31 @@
  * https://www.softintegration.com/docs/ch/cgi/chcgi/CResponse.html
  */
 class CResponse {
-    /** Adds a specified cookie with attributes  */
+    // Member functions of CResponse class implement the methods of the Response object.
+    
+    /**
+     * Adds a specified cookie with attributes  
+     * 
+     * @proto public addCookie(cookie:CCookie):Int
+     */
     public function addCookie($cookie){}
     
-    /** Adds a HTTP header to the HTTP response. */
-    public function addHeader($headerName, $headerValue) {}
+    /** 
+     * Adds a HTTP header to the HTTP response. 
+     * 
+     * @param array $headers
+     * @proto public addHeader(headers:StringMap):Int
+     */
+    public function addHeader($headers) {
+        
+    }
     
-    /**	Begins to send output. */
+    /**	
+     * Begins to send output. 
+     * 
+     * @deprecated
+     * @proto public begin():Int
+     */
     public function begin(){}
     
     /**	Ends standard output. */
