@@ -39,26 +39,39 @@ class CResponse {
     /**	
      * Ends standard output. 
      * 
+     * This function will flush the buffer if the the Buffering is true and print out </body> and </html> 
+     * tags to end an HTML page if its content type is text/html.
+     * 
      * @return nulltype
      * @proto public end():Void
      */
-    public function end(){}
+    public function end() {
+        
+    }
     
     /** 
      * Causes the server to stop processing a script and return. 
      * 
+     * This function will causes the server to stop processing a script and return the current response. 
+     * When this function is called, the remaining contents of the file are not processed, 
+     * and the buffer are flushed if the Buffering is true.
+     * 
      * @proto public exit():Void
      * @return nulltype
      */
-    public function exit(){}
+    public function exit() {
+        
+    }
     
     /** 
      * Sends buffered HTML output immediately. 
      * 
-     * @return integer
+     * @return integer - Upon successful completion, zero is returned. Otherwise, a value of non-zero is returned. 
      * @proto public flush():Int
      */
-    public function flush(){}
+    public function flush() {
+        return 0;
+    }
     
     /** 
      * Retrieves the value of the Buffer property. 
@@ -70,7 +83,7 @@ class CResponse {
      * @return boolean
      * @proto public getBuffer():Bool
      */
-    public function getBuffer(){
+    public function getBuffer() {
         return $this->Buffer;
     }
     
@@ -80,7 +93,7 @@ class CResponse {
      * @return string
      * @proto public getCacheControl():String
      */
-    public function getCacheControl(){
+    public function getCacheControl() {
         return $this->CacheControl;
     }
     
@@ -90,7 +103,7 @@ class CResponse {
      * @return string
      * @proto public getCharSet():String
      */
-    public function getCharSet(){
+    public function getCharSet() {
         return $this->CharSet;
     }
     
@@ -100,7 +113,7 @@ class CResponse {
      * @return string
      * @proto public getContentType():String
      */
-    public function getContentType(){
+    public function getContentType() {
         return $this->ContentType;
     }
     
@@ -110,7 +123,7 @@ class CResponse {
      * @return integer
      * @proto public getExpires():Int
      */
-    public function getExpires(){
+    public function getExpires() {
         return $this->Expires;
     }
     
@@ -120,7 +133,7 @@ class CResponse {
      * @return string
      * @proto public getExpiresAbsolute():String
      */
-    public function getExpiresAbsolute(){
+    public function getExpiresAbsolute() {
         return $this->ExpiresAbsolute;
     }
     
@@ -130,7 +143,7 @@ class CResponse {
      * @return string
      * @proto public getStatus():String
      */
-    public function getStatus(){
+    public function getStatus() {
         return $this->Status;
     }
     
@@ -138,7 +151,9 @@ class CResponse {
      * PICS has been superseded by the Protocol for Web Description Resources (POWDER)
      * @deprecated
      */
-    public function PICS($headerValue){}
+    public function PICS($headerValue) {
+        
+    }
     
     /** 
      * Causes the browser to attempt to connect to a different URL. 
@@ -147,7 +162,9 @@ class CResponse {
      * @return integer
      * @proto public redirect(url:String):Int
      */
-    public function redirect($url){}
+    public function redirect($url) {
+        
+    }
     
     /** 
      * Sets the value of the Buffer property. 
@@ -156,7 +173,7 @@ class CResponse {
      * @return integer
      * @proto public setBuffer(buffering:Bool):Int
      */
-    public function setBuffer($buffering){
+    public function setBuffer($buffering) {
         $this->Buffer = $buffering;
         return 0;
     }
@@ -168,7 +185,7 @@ class CResponse {
      * @return integer
      * @proto public setCacheControl(cacheControl:String):Int
      */
-    public function setCacheControl($cacheControl){
+    public function setCacheControl($cacheControl) {
         this->CacheControl = $cacheControl;
         return 0;
     }
@@ -180,7 +197,7 @@ class CResponse {
      * @return integer
      * @proto public setCharSet(charSet:String):Int
      */
-    public function setCharSet($charSet){
+    public function setCharSet($charSet) {
         $this->Charset = $charSet;
         return 0;
     }
@@ -192,7 +209,7 @@ class CResponse {
      * @return integer
      * @proto public setContentType(contentType:String):Int
      */
-    public function setContentType($contentType){
+    public function setContentType($contentType) {
         $this->ContentType = $contentType;
         return 0;
     }
@@ -204,7 +221,7 @@ class CResponse {
      * @return integer
      * @proto public setExpires(expiresMinutes:Int):Int
      */
-    public function setExpires($expiresMinutes){
+    public function setExpires($expiresMinutes) {
         $this->Expires = $expiresMinutes;
         return 0;
     }
@@ -216,7 +233,7 @@ class CResponse {
      * @return integer
      * @proto public setExpiresAbsolute(expiresAbsolute:String):Int
      */
-    public function setExpiresAbsolute($expiresAbsolute){
+    public function setExpiresAbsolute($expiresAbsolute) {
         $this->ExpiresAbsolute = $expiresAbsolute;
         return 0;
     }
@@ -228,13 +245,20 @@ class CResponse {
      * @return integer
      * @proto public setStatus(status:String):Int
      */
-    public function setStatus($status){
+    public function setStatus($status) {
         $this->Status = $status;
+        return 0;
     }
     
     /** 
-     * Set the title of an HTML page  
+     * Set the title of an HTML page.
+     * 
      * @deprecated
+     * @param string $title
+     * @return nulltype
+     * @proto public title(title:String):Void
      */
-    public function title($title){}
+    public function title($title) {
+        
+    }
 }
