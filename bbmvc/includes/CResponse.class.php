@@ -7,6 +7,14 @@
 class CResponse {
     // Member functions of CResponse class implement the methods of the Response object.
     
+    private $Buffer;
+    private $CacheControl;
+    private $CharSet;
+    private $ContentType;
+    private $Expires;
+    private $ExpiresAbsolute;
+    private $Status;
+    
     /**
      * Adds a specified cookie with attributes.
      * 
@@ -33,22 +41,34 @@ class CResponse {
     /** 
      * Adds a HTTP header to the HTTP response. 
      * 
+     * This function adds an HTTP header to the HTTP response. 
+     * It always adds a new HTTP header to the response. 
+     * It will not replace an existing header of the same name. 
+     * Once a header has been added, it cannot be removed.
+     * 
      * @param array $headers
-     * @return integer
+     * @return integer - Upon successful completion, zero is returned. Otherwise, a value of non-zero is returned. 
      * @proto public addHeader(headers:StringMap):Int
      */
     public function addHeader($headers) {
-        
+        foreach ($headers as $name => $value) {
+            header($name . ': ' . $value, false);
+        }
+        return 0;
     }
     
     /**	
      * Begins to send output. 
      * 
+     * It is not mandatory for PHP version.
+     * 
      * @deprecated
      * @return integer
      * @proto public begin():Int
      */
-    public function begin(){}
+    public function begin() {
+        
+    }
     
     /**	
      * Ends standard output. 
@@ -84,6 +104,7 @@ class CResponse {
      * @proto public flush():Int
      */
     public function flush() {
+        flush();
         return 0;
     }
     
@@ -98,7 +119,7 @@ class CResponse {
      * @proto public getBuffer():Bool
      */
     public function getBuffer() {
-        return $this->Buffer;
+        return (bool) $this->Buffer;
     }
     
     /** 
@@ -108,7 +129,7 @@ class CResponse {
      * @proto public getCacheControl():String
      */
     public function getCacheControl() {
-        return $this->CacheControl;
+        return (string) $this->CacheControl;
     }
     
     /** 
@@ -118,7 +139,7 @@ class CResponse {
      * @proto public getCharSet():String
      */
     public function getCharSet() {
-        return $this->CharSet;
+        return (string) $this->CharSet;
     }
     
     /** 
@@ -128,7 +149,7 @@ class CResponse {
      * @proto public getContentType():String
      */
     public function getContentType() {
-        return $this->ContentType;
+        return (string) $this->ContentType;
     }
     
     /**	
@@ -138,7 +159,7 @@ class CResponse {
      * @proto public getExpires():Int
      */
     public function getExpires() {
-        return $this->Expires;
+        return (int) $this->Expires;
     }
     
     /** 
@@ -148,7 +169,7 @@ class CResponse {
      * @proto public getExpiresAbsolute():String
      */
     public function getExpiresAbsolute() {
-        return $this->ExpiresAbsolute;
+        return (string) $this->ExpiresAbsolute;
     }
     
     /** 
@@ -158,7 +179,7 @@ class CResponse {
      * @proto public getStatus():String
      */
     public function getStatus() {
-        return $this->Status;
+        return (string) $this->Status;
     }
     
     /** 
@@ -188,7 +209,7 @@ class CResponse {
      * @proto public setBuffer(buffering:Bool):Int
      */
     public function setBuffer($buffering) {
-        $this->Buffer = $buffering;
+        $this->Buffer = (bool) $buffering;
         return 0;
     }
 
@@ -200,7 +221,7 @@ class CResponse {
      * @proto public setCacheControl(cacheControl:String):Int
      */
     public function setCacheControl($cacheControl) {
-        this->CacheControl = $cacheControl;
+        this->CacheControl = (string) $cacheControl;
         return 0;
     }
     
@@ -212,7 +233,7 @@ class CResponse {
      * @proto public setCharSet(charSet:String):Int
      */
     public function setCharSet($charSet) {
-        $this->Charset = $charSet;
+        $this->Charset = (string) $charSet;
         return 0;
     }
     
@@ -224,7 +245,7 @@ class CResponse {
      * @proto public setContentType(contentType:String):Int
      */
     public function setContentType($contentType) {
-        $this->ContentType = $contentType;
+        $this->ContentType = (string) $contentType;
         return 0;
     }
     
@@ -236,7 +257,7 @@ class CResponse {
      * @proto public setExpires(expiresMinutes:Int):Int
      */
     public function setExpires($expiresMinutes) {
-        $this->Expires = $expiresMinutes;
+        $this->Expires = (int) $expiresMinutes;
         return 0;
     }
     
@@ -248,7 +269,7 @@ class CResponse {
      * @proto public setExpiresAbsolute(expiresAbsolute:String):Int
      */
     public function setExpiresAbsolute($expiresAbsolute) {
-        $this->ExpiresAbsolute = $expiresAbsolute;
+        $this->ExpiresAbsolute = (string) $expiresAbsolute;
         return 0;
     }
     
@@ -260,14 +281,14 @@ class CResponse {
      * @proto public setStatus(status:String):Int
      */
     public function setStatus($status) {
-        $this->Status = $status;
+        $this->Status = (string) $status;
         return 0;
     }
     
     /** 
      * Set the title of an HTML page.
      * 
-     * @deprecated
+     * @deprecated Not needed in PHP version.
      * @param string $title
      * @return nulltype
      * @proto public title(title:String):Void
