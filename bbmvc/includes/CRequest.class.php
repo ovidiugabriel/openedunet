@@ -14,7 +14,10 @@ class CRequest {
      * @return string
      * @proto public binaryRead(count:Int):String
      */
-    public function binaryRead($count) {}
+    public function binaryRead($count) {
+        $in = file_get_contents('php://input');
+        return str_split(substr($in, 0, $count));
+    }
     
     /** 
      * Retrieves a cookie value by its name.
