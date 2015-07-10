@@ -11,8 +11,8 @@ class CRequest {
      * Retrieves the bytes that were read by an HTTP POST.
      * 
      * @param integer $count
-     * @return string
-     * @proto public binaryRead(count:Int):String
+     * @return array
+     * @proto public binaryRead(count:Int):array
      */
     public function binaryRead($count) {
         $in = file_get_contents('php://input');
