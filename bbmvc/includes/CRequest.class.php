@@ -45,7 +45,14 @@ class CRequest {
      * @proto public getForm(name:String):String
      */
     public function getForm($name) {
-        
+        //
+        // If the same parameter is sent in GET and POST arrays, then value of parameter
+        // in POST array will overwrite the value received from GET array.
+        //
+        if (isset($_GET[$name])) {
+            return $_GET[$name];
+        }
+        return $_POST[$name];
     }
     
     /** 
