@@ -24,7 +24,7 @@ class CRequest {
      * @proto public getCookie(cookieName:String):String
      */
     public function getCookie($cookieName) {
-        // TODO: Return a Cookie object? (need cookies dict?)
+        return $_COOKIE[$cookieName];
     }
     
     /**
