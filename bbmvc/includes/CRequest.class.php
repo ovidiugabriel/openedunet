@@ -87,7 +87,8 @@ class CRequest {
      * @proto public getTotalBytes():Int
      */
     public function getTotalBytes() {
-        
+        // TODO: Store result of file_get_contents() for further use?
+        return strlen(file_get_contents('php://input'));
     }
 }
 
