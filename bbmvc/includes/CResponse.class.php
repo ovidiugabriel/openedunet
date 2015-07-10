@@ -8,13 +8,27 @@ class CResponse {
     // Member functions of CResponse class implement the methods of the Response object.
     
     /**
-     * Adds a specified cookie with attributes  
+     * Adds a specified cookie with attributes.
+     * 
+     * PHP Version is using Expires instead of MaxAge.
      * 
      * @param Cookie $cookie
+     * @param boolean $httponly
      * @return integer
      * @proto public addCookie(cookie:CCookie):Int
      */
-    public function addCookie($cookie){}
+    public function addCookie(CCookie $cookie, $http_only = false) {
+        $result = setcookie($cookie->getName(), 
+            $cookie->getValue(),
+            $cookie->getExpires(),  // instead of MaxAge
+            $cookie->getPath(),
+            $cookie->getDomain(),
+            $cookie->getSecure(),
+            $http_only
+        );
+        $errcd = 1; // 0=success
+        return (($result) ? 0 : $errcd);
+    }
     
     /** 
      * Adds a HTTP header to the HTTP response. 
