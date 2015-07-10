@@ -63,10 +63,11 @@ class CRequest {
     /** 
      * Retrieves all pairs of name and value that were read by POST or GET method. 
      * 
-     * @return array(0->names:array, 1->values:array)
+     * @return array
+     * @proto public getFormNameValue():StringMap
      */
     public function getFormNameValue() {
-        
+        return array_merge($_GET, $_POST);
     }
     
     /** 
