@@ -40,6 +40,7 @@ class CRequest {
     /** 
      * Retrieves the value of a specified name which was read by POST or GET method. 
      * 
+     * @deprecated This function has a bug: https://github.com/ovidiugabriel/openedunet/blob/master/utils/ch/README.md
      * @param string $name
      * @return string
      * @proto public getForm(name:String):String
