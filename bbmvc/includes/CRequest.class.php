@@ -70,13 +70,20 @@ class CRequest {
     
     /** 
      * Retrieves a specified ServerVariable value. 
+     * 
+     * 
+     * @param string $variableName
+     * @return string
+     * @proto public getServerVariable(variableName:String):String
      */
     public function getServerVariable($variableName) {
-        
+        return $_SERVER[$variableName];
     }
     
     /** 
      * Returns the size, in bytes, of the current request. 
+     * 
+     * @proto public getTotalBytes():Int
      */
     public function getTotalBytes() {
         
