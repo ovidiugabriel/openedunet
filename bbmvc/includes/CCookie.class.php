@@ -30,7 +30,7 @@ class CCookie {
      * @proto public addPort(portNum:Int):Int
      */
     public function addPort($portNum) {
-        
+        $this->portlist[] = (int) $portNum;
     }
     
     /** 
