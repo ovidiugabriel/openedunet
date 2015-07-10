@@ -58,11 +58,15 @@ class CRequest {
     public function getForms($name) {
         $forms = array();
         if (isset($_GET[$name])) {
-            
+            foreach ($_GET[$name] as $value) {
+                $forms[] = $value;
+            }
         }
         
         if (isset($_POST[$name])) {
-            
+            foreach ($_POST[$name] as $value) {
+                $forms[] = $value;
+            }
         }
         return $form;
     }
