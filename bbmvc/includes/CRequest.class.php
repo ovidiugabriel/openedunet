@@ -31,10 +31,10 @@ class CRequest {
      * Retrieves all cookies.
      * 
      * @return array - array of cookies
-     * @proto public getCookies():Array<String>
+     * @proto public getCookies():StringMap
      */
     public function getCookies() {
-        
+        return $_COOKIE;
     }
     
     /** 
