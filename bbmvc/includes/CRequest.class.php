@@ -56,7 +56,15 @@ class CRequest {
      * @proto public getForms(name:string):Array<String>
      */
     public function getForms($name) {
+        $forms = array();
+        if (isset($_GET[$name])) {
+            
+        }
         
+        if (isset($_POST[$name])) {
+            
+        }
+        return $form;
     }
     
     /** 
