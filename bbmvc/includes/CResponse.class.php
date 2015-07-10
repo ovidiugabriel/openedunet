@@ -76,6 +76,7 @@ class CResponse {
      * This function will flush the buffer if the the Buffering is true and print out </body> and </html> 
      * tags to end an HTML page if its content type is text/html.
      * 
+     * @deprecated
      * @return nulltype
      * @proto public end():Void
      */
