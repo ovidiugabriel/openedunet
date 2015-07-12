@@ -199,7 +199,14 @@ class Response {
     
     /** 
      * PICS (Platform for Internet Content Selection)
-     * has been superseded by the Protocol for Web Description Resources (POWDER)
+     * has been superseded by the Protocol for Web Description Resources (PWDR)
+     * *
+     * The POWDER Working Group is specifying a protocol for publishing descriptions of 
+     * (e.g. metadata about) Web resources using RDF, OWL, and HTTP
+     * 
+     * RDF - Resource Description Framework - http://www.w3.org/RDF/
+     * OWL - Web Ontology Language - http://www.w3.org/2001/sw/wiki/OWL
+     * 
      * @deprecated
      */
     // public function PICS($headerValue) {
