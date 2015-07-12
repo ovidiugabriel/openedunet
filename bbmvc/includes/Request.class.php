@@ -4,7 +4,7 @@
  * This is a port of the class described at:
  * https://www.softintegration.com/docs/ch/cgi/chcgi/CRequest.html
  */
-class CRequest {
+class Request {
     // Member functions of CRequest class implement the methods of the Request object.
     
     private $input = null;    
