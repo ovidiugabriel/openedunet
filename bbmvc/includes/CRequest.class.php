@@ -7,6 +7,8 @@
 class CRequest {
     // Member functions of CRequest class implement the methods of the Request object.
     
+    private $input = null;    
+    
     /** 
      * Retrieves the bytes that were read by an HTTP POST.
      * 
@@ -15,8 +17,10 @@ class CRequest {
      * @proto public binaryRead(count:Int):array
      */
     public function binaryRead($count) {
-        $in = file_get_contents('php://input');
-        return str_split(substr($in, 0, $count));
+        if (null === $this->input) {
+            $this->input = file_get_contents('php://input');
+        }
+        return str_split(substr($this->input, 0, $count));
     }
     
     /** 
@@ -109,8 +113,10 @@ class CRequest {
      * @proto public getTotalBytes():Int
      */
     public function getTotalBytes() {
-        // TODO: Store result of file_get_contents() for further use?
-        return strlen(file_get_contents('php://input'));
+        if (null === $this->input) {
+            $this->input = file_get_contents('php://input');
+        }
+        return strlen($this->input);
     }
 }
 
