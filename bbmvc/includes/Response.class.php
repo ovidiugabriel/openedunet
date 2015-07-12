@@ -59,15 +59,16 @@ class Response {
      * It will not replace an existing header of the same name. 
      * Once a header has been added, it cannot be removed.
      * 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
+     * 
      * @param array $headers
      * @return integer - Upon successful completion, zero is returned. Otherwise, a value of non-zero is returned. 
-     * @proto public addHeader(headers:StringMap):Int
+     * @proto public addHeader(headers:StringMap):Void
      */
     public function addHeader($headers) {
         foreach ($headers as $name => $value) {
             header($name . ': ' . $value, false);
         }
-        return 0;
     }
     
     /**	
@@ -209,94 +210,94 @@ class Response {
      * 
      * @param string $url
      * @return integer
-     * @proto public redirect(url:String):Int
+     * @proto public redirect(url:String):Void
      */
     public function redirect($url) {
-        
+        die;
     }
     
     /** 
      * Sets the value of the Buffer property. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @param boolean $buffering
      * @return integer
-     * @proto public setBuffer(buffering:Bool):Int
+     * @proto public setBuffer(buffering:Bool):Void
      */
     public function setBuffer($buffering) {
         $this->Buffer = (bool) $buffering;
-        return 0;
     }
 
     /** 
      * Sets the value of the CacheControl property. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @param string $cacheControl
      * @return integer
-     * @proto public setCacheControl(cacheControl:String):Int
+     * @proto public setCacheControl(cacheControl:String):Void
      */
     public function setCacheControl($cacheControl) {
-        this->CacheControl = (string) $cacheControl;
-        return 0;
+        $this->CacheControl = (string) $cacheControl;
     }
     
     /** 
      * Sets the value of the Charset property. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @param string $charSet
      * @return integer
-     * @proto public setCharSet(charSet:String):Int
+     * @proto public setCharSet(charSet:String):Void
      */
     public function setCharSet($charSet) {
         $this->Charset = (string) $charSet;
-        return 0;
     }
     
     /**	
-     * Sets the value of the ContentType property. 
+     * Sets the value of the ContentType property.
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @param string $contentType
      * @return integer
-     * @proto public setContentType(contentType:String):Int
+     * @proto public setContentType(contentType:String):Void
      */
     public function setContentType($contentType) {
         $this->ContentType = (string) $contentType;
-        return 0;
     }
     
     /** 
      * Sets the value of the Expires property. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @param integer expiresMinutes
      * @return integer
-     * @proto public setExpires(expiresMinutes:Int):Int
+     * @proto public setExpires(expiresMinutes:Int):Void
      */
     public function setExpires($expiresMinutes) {
         $this->Expires = (int) $expiresMinutes;
-        return 0;
     }
     
     /** 
      * Sets the value of the ExpiresAbsolute property. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @param string $expiresAbsolute
      * @return integer
-     * @proto public setExpiresAbsolute(expiresAbsolute:String):Int
+     * @proto public setExpiresAbsolute(expiresAbsolute:String):Void
      */
     public function setExpiresAbsolute($expiresAbsolute) {
         $this->ExpiresAbsolute = (string) $expiresAbsolute;
-        return 0;
     }
     
     /** 
      * Sets the value of the Status property. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @param string $status
      * @return integer
-     * @proto public setStatus(status:String):Int
+     * @proto public setStatus(status:String):Void
      */
     public function setStatus($status) {
         $this->Status = (string) $status;
-        return 0;
     }
     
     /** 
