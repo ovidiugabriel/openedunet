@@ -7,12 +7,25 @@
 class Response {
     // Member functions of CResponse class implement the methods of the Response object.
     
+    /** @var bool */
     private $Buffer;
+    
+    /** @var string */
     private $CacheControl;
+    
+    /** @var string */
     private $CharSet;
+    
+    /** @var string */
     private $ContentType;
+    
+    /** @var int */
     private $Expires;
+    
+    /** @var string */
     private $ExpiresAbsolute;
+    
+    /** @var string */
     private $Status;
     
     /**
