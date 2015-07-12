@@ -4,7 +4,7 @@
  * This is a port of the class described at:
  * https://www.softintegration.com/docs/ch/cgi/chcgi/CCookie.html
  */
-class CCookie {
+class Cookie {
     //
     // Member functions of CCookie class set or get the name and value of a cookie, as well as optional attributes. 
     //
