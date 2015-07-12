@@ -198,12 +198,13 @@ class Response {
     }
     
     /** 
-     * PICS has been superseded by the Protocol for Web Description Resources (POWDER)
+     * PICS (Platform for Internet Content Selection)
+     * has been superseded by the Protocol for Web Description Resources (POWDER)
      * @deprecated
      */
-    public function PICS($headerValue) {
+    // public function PICS($headerValue) {
         
-    }
+    // }
     
     /** 
      * Causes the browser to attempt to connect to a different URL. 
@@ -308,7 +309,7 @@ class Response {
      * @return nulltype
      * @proto public title(title:String):Void
      */
-    public function title($title) {
+    // public function title($title) {
         
-    }
+    // }
 }
