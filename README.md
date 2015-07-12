@@ -23,6 +23,11 @@ svn checkout https://github.com/ovidiugabriel/openedunet/trunk
 
 When prompted, enter your github user and password.
 
+To use the HaXe toolkit
+```
+wget https://raw.githubusercontent.com/ovidiugabriel/openedunet/master/utils/buildpro/buildpro.py
+```
+
 ### Framework Releases ###
 
 | Release | Date      | Requires | File                                                 | MD5 checksum                     |
