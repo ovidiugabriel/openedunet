@@ -11,16 +11,37 @@ class Cookie {
     // https://msdn.microsoft.com/en-us/library/system.net.cookie_properties%28v=vs.110%29.aspx
     //
     
+    /** @var string */
     private $Comment;
+    
+    /** @var string  */
     private $CommentURL;
+    
+    /** @var bool */
     private $Discard;
+    
+    /** @var string */
     private $Domain;
+    
+    /** @var int */
     private $MaxAge;
+    
+    /** @var string */
     private $Name;
+    
+    /** @var string */
     private $Path;
+    
+    /** @var array */
     private $portlist = array();
+    
+    /** @var bool */
     private $Secure;
+    
+    /** @var string */
     private $Value;
+    
+    /** @var int */
     private $Version;
 
     /** 
@@ -135,101 +156,101 @@ class Cookie {
     
     /** 
      * Set the Comment attribute of the cookie. For version 1 only .
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @proto public setComment(comment:String):Int
      */
     public function setComment($comment) {
         $this->Comment = (string) $comment;
-        return 0;
     }
     
     /** 
      * Set the CommentURL attribute of the cookie. For version 1 only .
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @proto public setCommentURL(comment:String):Int
      */
     public function setCommentURL($comment) {
         $this->CommentURL = (string) $comment;
-        return 0;
     }
     
     /** 
      * Set the Discard attribute of the cookie. For version 1 only .
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @proto public setDiscard(discard:Bool):Int
      */
     public function setDiscard($discard) {
         $this->Discard = (bool) $discard;
-        return 0;
     }
     
     /** 
      * Set the Domain attribute of the cookie. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @proto public setDomain(domain:String):Int
      */
     public function setDomain($domain) {
         $this->Domain = (string) $domain;
-        return 0;
     }
     
     /**
      * Set maximum age of the cookie. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @proto public setMaxAge(maxAge:Int):Int
      */
     public function setMaxAge($maxAge) {
         $this->MaxAge = (int) $maxAge;
-        return 0;
     }
     
     /** 
      * Set the name of the cookie. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @proto public setName(name:String):Int
      */
     public function setName($name) {
         $this->Name = (string) $name;
-        return 0;
     }
     
     /** 
      * Set the path on the server to which browser returns the cookie. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @proto public setPath(path:String):Int
      */
     public function setPath($path) {
         $this->Path = (string) $path;
-        return 0;
     }
     
     /**	
      * Set the Secure attribute of the cookie. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @proto public setSecure(secure:Bool):Int
      */
     public function setSecure($secure) {
         $this->Secure = (bool) $secure;
-        return 0;
     }
     
     /** 
      * Set the value of the cookie. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
-     * @proto public setValue(value:String):Int
+     * @proto public setValue(value:String):Void
      */
     public function setValue($value) {
         $this->Value = (string) $value;
-        return 0;
     }
     
     /** 
      * Set the version of the protocol the cookie complies with. 
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
-     * @proto public setVersion(version:Int):Int
+     * @proto public setVersion(version:Int):Void
      */
     public function setVersion($version) {
         $this->Version = (int) $version;
-        return 0;
     }
 }
