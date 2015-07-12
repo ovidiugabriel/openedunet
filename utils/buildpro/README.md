@@ -10,7 +10,8 @@ clean=1 python buildpro.py $ProjectName
 
 python buildpro.py -proto language $QualifiedClass $InputFile $OutputFile
 # Example:
-python buildpro.py -proto haxe barebone.Cookie Cookie.class.php 0
+# (will convert barebone/Cookie.class.php to Cookie.hx)
+python buildpro.py -proto haxe barebone.Cookie Cookie.class.php Cookie.hx
 ```
 
 ###### Project File
