@@ -2,12 +2,14 @@
 
 ```bash
 # Build a project with no-clean mode
-python buildpro.py _projectname_
+python buildpro.py projectname
 
 # Build a project with clean enabled
-clean=1 python buildpro.py _projectname_
+clean=1 python buildpro.py projectname
 
-python buildpro.py -proto _lang_ _classfile_
+python buildpro.py -proto language classfilepath
+# Example:
+python buildpro.py -proto haxe barebone/Cookie.class.php
 ```
 
 ###### Project File
