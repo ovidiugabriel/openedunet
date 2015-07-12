@@ -8,8 +8,6 @@ python buildpro.py projectname
 clean=1 python buildpro.py projectname
 
 python buildpro.py -proto language classfilepath
-# Example:
-python buildpro.py -proto haxe barebone/Cookie.class.php
 ```
 
 ###### Project File
