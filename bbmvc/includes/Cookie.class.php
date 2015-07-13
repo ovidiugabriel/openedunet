@@ -23,7 +23,6 @@ class Cookie {
       and its value is VALUE.  NAMEs that begin with $ are reserved for
       other uses and must not be used by applications.
       
-      
       The VALUE is opaque to the user agent and may be anything the
       origin server chooses to send, possibly in a server-selected
       printable ASCII encoding.  "Opaque" implies that the content is of
@@ -42,7 +41,7 @@ class Cookie {
       cookie is valid.  An explicitly specified domain must always start
       with a dot.
 
-   Max-Age=delta-seconds
+    Max-Age=delta-seconds
       Optional.  The Max-Age attribute defines the lifetime of the
       cookie, in seconds.  The delta-seconds value is a decimal non-
       negative integer.  After delta-seconds seconds elapse, the client
@@ -73,8 +72,6 @@ class Cookie {
 
     
     /**
-     * Optional.  
-     * 
      * Because cookies can contain private information about a
      * user, the Cookie attribute allows an origin server to document its
      * intended use of a cookie.  The user can inspect the information to
@@ -84,19 +81,35 @@ class Cookie {
      */
     private $Comment;
     
-    /** @var bool */
-    private $Discard;
-    
-    /** @var string (Optional) */
+    /**
+     * The Domain attribute specifies the domain for which the
+     * cookie is valid.  An explicitly specified domain must always start
+     * with a dot.
+     * 
+     * @var string (Optional) 
+     */
     private $Domain;
     
-    /** @var int */
+    /** 
+     * The Max-Age attribute defines the lifetime of the
+     * cookie, in seconds.  The delta-seconds value is a decimal non-
+     * negative integer.  After delta-seconds seconds elapse, the client
+     * should discard the cookie.  A value of zero means the cookie
+     * should be discarded immediately.
+     * 
+     * @var int 
+     */
     private $MaxAge;
     
     /** @var string (required) */
     private $Name;
     
-    /** @var string */
+    /**
+     * The Path attribute specifies the subset of URLs to
+     * which this cookie applies.
+     * 
+     * @var string 
+     */
     private $Path;
     
     /** @var array */
@@ -130,15 +143,6 @@ class Cookie {
         return (string) $this->Comment;
     }
 
-    /** 
-     * Retrieve the Discard attribute of the cookie.
-     * 
-     * @proto public getDiscard():Bool
-     */
-    public function getDiscard() {
-        return (bool) $this->Discard;
-    }
-    
     /** 
      * Retrieve the Domain attribute of the cookie. 
      * 
@@ -218,17 +222,6 @@ class Cookie {
      */
     public function setComment($comment) {
         $this->Comment = (string) $comment;
-    }
-    
-
-    /** 
-     * Set the Discard attribute of the cookie.
-     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
-     * 
-     * @proto public setDiscard(discard:Bool):Int
-     */
-    public function setDiscard($discard) {
-        $this->Discard = (bool) $discard;
     }
     
     /** 
