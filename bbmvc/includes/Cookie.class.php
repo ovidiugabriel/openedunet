@@ -63,11 +63,6 @@ class Cookie {
       advice from the server to the user agent, indicating that it is in
       the session's interest to protect the cookie contents.
 
-    Version=version
-      Required.  The Version attribute, a decimal integer, identifies to
-      which version of the state management specification the cookie
-      conforms.  For this specification, Version=1 applies.
-      
     */
 
     
@@ -121,9 +116,6 @@ class Cookie {
     /** @var string (required) */
     private $Value;
     
-    /** @var int (required)  */
-    private $Version = 1;
-
     /** 
      * Adds a new port into the portlist of the cookie.
      * 
@@ -205,13 +197,6 @@ class Cookie {
      */
     public function getValue() {
         return (string) $this->Value;
-    }
-    
-    /**
-     * @proto public getVersion():Int
-     */
-    public function getVersion() {
-        return (int) $this->Version;
     }
     
     /** 
