@@ -30,12 +30,6 @@ class Cookie {
       may, in fact, be readable by anyone that examines the Set-Cookie
       header.
 
-    Comment=comment
-      Optional.  Because cookies can contain private information about a
-      user, the Cookie attribute allows an origin server to document its
-      intended use of a cookie.  The user can inspect the information to
-      decide whether to initiate or continue a session with this cookie.
-
     Domain=domain
       Optional.  The Domain attribute specifies the domain for which the
       cookie is valid.  An explicitly specified domain must always start
@@ -65,17 +59,6 @@ class Cookie {
 
     */
 
-    
-    /**
-     * Because cookies can contain private information about a
-     * user, the Cookie attribute allows an origin server to document its
-     * intended use of a cookie.  The user can inspect the information to
-     * decide whether to initiate or continue a session with this cookie.
-     *
-     * @var string (Optional) 
-     */
-    private $Comment;
-    
     /**
      * The Domain attribute specifies the domain for which the
      * cookie is valid.  An explicitly specified domain must always start
@@ -126,15 +109,6 @@ class Cookie {
         $this->portlist[] = (int) $portNum;
     }
     
-    /** 
-     * Retrieve the Comment attribute of the cookie.
-     * 
-     * @proto public getComment():php.NativeString
-     */
-    public function getComment() {
-        return (string) $this->Comment;
-    }
-
     /** 
      * Retrieve the Domain attribute of the cookie. 
      * 
@@ -197,16 +171,6 @@ class Cookie {
      */
     public function getValue() {
         return (string) $this->Value;
-    }
-    
-    /** 
-     * Set the Comment attribute of the cookie. 
-     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
-     * 
-     * @proto public setComment(comment:String):Int
-     */
-    public function setComment($comment) {
-        $this->Comment = (string) $comment;
     }
     
     /** 
