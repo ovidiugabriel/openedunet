@@ -3,6 +3,10 @@
 /**
  * This is a port of the class described at:
  * https://www.softintegration.com/docs/ch/cgi/chcgi/CCookie.html
+ * 
+ * [RFC 2616 - HTTP/1.1 Hypertext Transfer Protocol](https://www.ietf.org/rfc/rfc2616.txt)
+ * [RFC 2109 - HTTP State Management Mechanism](https://www.ietf.org/rfc/rfc2109.txt)
+ * [Key Differences between HTTP/1.0 and HTTP/1.1](http://www8.org/w8-papers/5c-protocols/key/key.html)
  */
 class Cookie {
     //
@@ -40,12 +44,9 @@ class Cookie {
     
     /** @var string */
     private $Value;
-    
-    /** @var int */
-    private $Version;
 
     /** 
-     * Adds a new port into the portlist of the cookie. For version 1 only .
+     * Adds a new port into the portlist of the cookie.
      * 
      * @param integer $portNum  indicates the new port to be added
      * @proto public addPort(portNum:Int):Int
@@ -55,7 +56,7 @@ class Cookie {
     }
     
     /** 
-     * Retrieve the Comment attribute of the cookie. For version 1 only .
+     * Retrieve the Comment attribute of the cookie.
      * 
      * @proto public getComment():php.NativeString
      */
@@ -64,7 +65,7 @@ class Cookie {
     }
     
     /** 
-     * Retrieve the CommentURL attribute of the cookie. For version 1 only .
+     * Retrieve the CommentURL attribute of the cookie. 
      * 
      * @proto public getCommentURL():php.NativeString
      */
@@ -73,7 +74,7 @@ class Cookie {
     }
     
     /** 
-     * Retrieve the Discard attribute of the cookie. For version 1 only .
+     * Retrieve the Discard attribute of the cookie.
      * 
      * @proto public getDiscard():Bool
      */
@@ -118,7 +119,7 @@ class Cookie {
     }
     
     /**	
-     * Retrieve all ports in the portlist of the cookie. For version 1 only .
+     * Retrieve all ports in the portlist of the cookie.
      * 
      * @return array containing all ports in the portlist
      * @proto public getPorts():php.NativeArray
@@ -146,16 +147,7 @@ class Cookie {
     }
     
     /** 
-     * Retrieve the version of the protocol the cookie complies with. 
-     * 
-     * @proto public getVersion():Int
-     */
-    public function getVersion() {
-        return (int) $this->Version;
-    }
-    
-    /** 
-     * Set the Comment attribute of the cookie. For version 1 only .
+     * Set the Comment attribute of the cookie. 
      * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @proto public setComment(comment:String):Int
@@ -165,7 +157,7 @@ class Cookie {
     }
     
     /** 
-     * Set the CommentURL attribute of the cookie. For version 1 only .
+     * Set the CommentURL attribute of the cookie.
      * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @proto public setCommentURL(comment:String):Int
@@ -175,7 +167,7 @@ class Cookie {
     }
     
     /** 
-     * Set the Discard attribute of the cookie. For version 1 only .
+     * Set the Discard attribute of the cookie.
      * There is no reason to have a return code. Runtime errors must be handled by exception handling.
      * 
      * @proto public setDiscard(discard:Bool):Int
@@ -242,15 +234,5 @@ class Cookie {
      */
     public function setValue($value) {
         $this->Value = (string) $value;
-    }
-    
-    /** 
-     * Set the version of the protocol the cookie complies with. 
-     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
-     * 
-     * @proto public setVersion(version:Int):Void
-     */
-    public function setVersion($version) {
-        $this->Version = (int) $version;
     }
 }
