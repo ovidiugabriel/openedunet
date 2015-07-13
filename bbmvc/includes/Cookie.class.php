@@ -84,9 +84,6 @@ class Cookie {
      */
     private $Comment;
     
-    /** @var string  */
-    private $CommentURL;
-    
     /** @var bool */
     private $Discard;
     
@@ -132,16 +129,7 @@ class Cookie {
     public function getComment() {
         return (string) $this->Comment;
     }
-    
-    /** 
-     * Retrieve the CommentURL attribute of the cookie. 
-     * 
-     * @proto public getCommentURL():php.NativeString
-     */
-    public function getCommentURL() {
-        return (string) $this->CommentURL;
-    }
-    
+
     /** 
      * Retrieve the Discard attribute of the cookie.
      * 
@@ -232,16 +220,7 @@ class Cookie {
         $this->Comment = (string) $comment;
     }
     
-    /** 
-     * Set the CommentURL attribute of the cookie.
-     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
-     * 
-     * @proto public setCommentURL(comment:String):Int
-     */
-    public function setCommentURL($comment) {
-        $this->CommentURL = (string) $comment;
-    }
-    
+
     /** 
      * Set the Discard attribute of the cookie.
      * There is no reason to have a return code. Runtime errors must be handled by exception handling.
