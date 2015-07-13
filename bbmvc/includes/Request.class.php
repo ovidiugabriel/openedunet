@@ -7,6 +7,7 @@
 class Request {
     // Member functions of CRequest class implement the methods of the Request object.
     
+    /** @var string */
     private $input = null;    
     
     /** 
