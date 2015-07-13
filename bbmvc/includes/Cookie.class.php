@@ -79,7 +79,9 @@ class Cookie {
      */
     private $MaxAge;
     
-    /** @var string (required) */
+    /** 
+     * @var string (required) 
+     */
     private $Name;
     
     /**
@@ -90,10 +92,23 @@ class Cookie {
      */
     private $Path;
     
-    /** @var bool */
+    /** 
+     * The Secure attribute (with no value) directs the user
+     * agent to use only (unspecified) secure means to contact the origin
+     * server whenever it sends back this cookie.
+     * The user agent (possibly under the user's control) may determine
+     * what level of security it considers appropriate for "secure"
+     * cookies.  The Secure attribute should be considered security
+     * advice from the server to the user agent, indicating that it is in
+     * the session's interest to protect the cookie contents.
+     * 
+     * @var bool 
+     */
     private $Secure;
     
-    /** @var string (required) */
+    /** 
+     * @var string (required) 
+     */
     private $Value;
     
     /** 
