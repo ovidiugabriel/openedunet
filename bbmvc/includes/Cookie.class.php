@@ -15,7 +15,73 @@ class Cookie {
     // https://msdn.microsoft.com/en-us/library/system.net.cookie_properties%28v=vs.110%29.aspx
     //
     
-    /** @var string */
+    // According to: RFC 2109, Page 4:
+    /* 
+
+    NAME=VALUE
+      Required.  The name of the state information ("cookie") is NAME,
+      and its value is VALUE.  NAMEs that begin with $ are reserved for
+      other uses and must not be used by applications.
+      
+      
+      The VALUE is opaque to the user agent and may be anything the
+      origin server chooses to send, possibly in a server-selected
+      printable ASCII encoding.  "Opaque" implies that the content is of
+      interest and relevance only to the origin server.  The content
+      may, in fact, be readable by anyone that examines the Set-Cookie
+      header.
+
+    Comment=comment
+      Optional.  Because cookies can contain private information about a
+      user, the Cookie attribute allows an origin server to document its
+      intended use of a cookie.  The user can inspect the information to
+      decide whether to initiate or continue a session with this cookie.
+
+    Domain=domain
+      Optional.  The Domain attribute specifies the domain for which the
+      cookie is valid.  An explicitly specified domain must always start
+      with a dot.
+
+   Max-Age=delta-seconds
+      Optional.  The Max-Age attribute defines the lifetime of the
+      cookie, in seconds.  The delta-seconds value is a decimal non-
+      negative integer.  After delta-seconds seconds elapse, the client
+      should discard the cookie.  A value of zero means the cookie
+      should be discarded immediately.
+
+    Path=path
+      Optional.  The Path attribute specifies the subset of URLs to
+      which this cookie applies.
+
+    Secure
+      Optional.  The Secure attribute (with no value) directs the user
+      agent to use only (unspecified) secure means to contact the origin
+      server whenever it sends back this cookie.
+
+      The user agent (possibly under the user's control) may determine
+      what level of security it considers appropriate for "secure"
+      cookies.  The Secure attribute should be considered security
+      advice from the server to the user agent, indicating that it is in
+      the session's interest to protect the cookie contents.
+
+    Version=version
+      Required.  The Version attribute, a decimal integer, identifies to
+      which version of the state management specification the cookie
+      conforms.  For this specification, Version=1 applies.
+      
+    */
+
+    
+    /**
+     * Optional.  
+     * 
+     * Because cookies can contain private information about a
+     * user, the Cookie attribute allows an origin server to document its
+     * intended use of a cookie.  The user can inspect the information to
+     * decide whether to initiate or continue a session with this cookie.
+     *
+     * @var string (Optional) 
+     */
     private $Comment;
     
     /** @var string  */
@@ -24,13 +90,13 @@ class Cookie {
     /** @var bool */
     private $Discard;
     
-    /** @var string */
+    /** @var string (Optional) */
     private $Domain;
     
     /** @var int */
     private $MaxAge;
     
-    /** @var string */
+    /** @var string (required) */
     private $Name;
     
     /** @var string */
@@ -42,8 +108,11 @@ class Cookie {
     /** @var bool */
     private $Secure;
     
-    /** @var string */
+    /** @var string (required) */
     private $Value;
+    
+    /** @var int (required)  */
+    private $Version = 1;
 
     /** 
      * Adds a new port into the portlist of the cookie.
@@ -144,6 +213,13 @@ class Cookie {
      */
     public function getValue() {
         return (string) $this->Value;
+    }
+    
+    /**
+     * @proto public getVersion():Int
+     */
+    public function getVersion() {
+        return (int) $this->Version;
     }
     
     /** 
