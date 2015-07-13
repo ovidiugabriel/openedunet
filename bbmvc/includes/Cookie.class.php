@@ -90,24 +90,11 @@ class Cookie {
      */
     private $Path;
     
-    /** @var array */
-    private $portlist = array();
-    
     /** @var bool */
     private $Secure;
     
     /** @var string (required) */
     private $Value;
-    
-    /** 
-     * Adds a new port into the portlist of the cookie.
-     * 
-     * @param integer $portNum  indicates the new port to be added
-     * @proto public addPort(portNum:Int):Int
-     */
-    public function addPort($portNum) {
-        $this->portlist[] = (int) $portNum;
-    }
     
     /** 
      * Retrieve the Domain attribute of the cookie. 
@@ -143,16 +130,6 @@ class Cookie {
      */
     public function getPath() {
         return (string) $this->Path;
-    }
-    
-    /**	
-     * Retrieve all ports in the portlist of the cookie.
-     * 
-     * @return array containing all ports in the portlist
-     * @proto public getPorts():php.NativeArray
-     */
-    public function getPorts() {
-        return (array) $this->portlist;
     }
     
     /** 
