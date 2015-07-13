@@ -57,7 +57,7 @@ class Cookie {
     /** 
      * Retrieve the Comment attribute of the cookie. For version 1 only .
      * 
-     * @proto public getComment():String
+     * @proto public getComment():php.NativeString
      */
     public function getComment() {
         return (string) $this->Comment;
@@ -66,7 +66,7 @@ class Cookie {
     /** 
      * Retrieve the CommentURL attribute of the cookie. For version 1 only .
      * 
-     * @proto public getCommentURL():String
+     * @proto public getCommentURL():php.NativeString
      */
     public function getCommentURL() {
         return (string) $this->CommentURL;
@@ -84,7 +84,7 @@ class Cookie {
     /** 
      * Retrieve the Domain attribute of the cookie. 
      * 
-     * @proto public getDomain():String
+     * @proto public getDomain():php.NativeString
      */
     public function getDomain() {
         return (string) $this->Domain;
@@ -102,7 +102,7 @@ class Cookie {
     /** 
      * Retrieve the name of the cookie. 
      * 
-     * @proto public getName():String
+     * @proto public getName():php.NativeString
      */
     public function getName() {
         return (string) $this->Name;
@@ -111,7 +111,7 @@ class Cookie {
     /** 
      * Retrieve the path on the server to which browser returns the cookie. 
      * 
-     * @proto public getPath():String
+     * @proto public getPath():php.NativeString
      */
     public function getPath() {
         return (string) $this->Path;
@@ -121,7 +121,7 @@ class Cookie {
      * Retrieve all ports in the portlist of the cookie. For version 1 only .
      * 
      * @return array containing all ports in the portlist
-     * @proto public getPorts():Array<Int>
+     * @proto public getPorts():php.NativeArray
      */
     public function getPorts() {
         return (array) $this->portlist;
@@ -139,7 +139,7 @@ class Cookie {
     /** 
      * Retrieve the value of the cookie. 
      * 
-     * @proto public getValue():String
+     * @proto public getValue():php.NativeString
      */
     public function getValue() {
         return (string) $this->Value;
