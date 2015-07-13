@@ -206,6 +206,14 @@ class Database extends mysqli {
         $this->query($query);
     }
 
+    public function get() {
+        // TODO: Implement
+    }
+    
+    public function delete() {
+        // TODO: Implement
+    }
+
     /**
      *
      * @param type $sp
