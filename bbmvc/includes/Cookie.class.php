@@ -121,7 +121,7 @@ class Cookie {
      * Retrieve all ports in the portlist of the cookie. For version 1 only .
      * 
      * @return array containing all ports in the portlist
-     * @proto public getPorts():Array
+     * @proto public getPorts():Array<Int>
      */
     public function getPorts() {
         return (array) $this->portlist;
