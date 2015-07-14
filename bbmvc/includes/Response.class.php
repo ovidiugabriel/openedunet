@@ -39,11 +39,11 @@ class Response {
      * @param Cookie $cookie
      * @param boolean $httponly
      * @return integer
-     * @proto public addCookie(cookie:CCookie):Int
+     * @proto public addCookie(cookie:CCookie):Bool
      */
     public function addCookie(CCookie $cookie, $http_only = false) {
         $this->Expires = $cookie->getExpires();
-        $result = setcookie($cookie->getName(),
+        return setcookie($cookie->getName(),
             $cookie->getValue(),
             $this->Expires,  // instead of MaxAge
             $cookie->getPath(),
@@ -51,8 +51,6 @@ class Response {
             $cookie->getSecure(),
             $http_only
         );
-        $errcd = 1; // 0=success
-        return (($result) ? 0 : $errcd);
     }
     
     /** 
