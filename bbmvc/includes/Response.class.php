@@ -39,9 +39,9 @@ class Response {
      * @param Cookie $cookie
      * @param boolean $httponly
      * @return integer
-     * @proto public addCookie(cookie:CCookie):Bool
+     * @proto public addCookie(cookie:Cookie):Bool
      */
-    public function addCookie(CCookie $cookie, $http_only = false) {
+    public function addCookie(Cookie $cookie, $http_only = false) {
         $this->Expires = $cookie->getExpires();
         return setcookie($cookie->getName(),
             $cookie->getValue(),
