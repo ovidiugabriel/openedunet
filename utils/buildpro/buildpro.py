@@ -75,16 +75,20 @@ env = os.environ
 
 # TODO: Create a function for this proto feature
 if '-proto' == sys.argv[1]:
-    if len(sys.argv) < 4:
+    if len(sys.argv) < 5:
         print('Error: Invalid command line.')
         print('Usage: -proto <lang> <class>')
         buildpro_exit(1)
 
     lang       = sys.argv[2]
-    class_name = sys.argv[3]
+    full_class_name = sys.argv[3]
+    pkg = sys.argv[3].split('.')
+    
+    class_name = pkg.pop()
+    package_name = '.'.join(pkg)
+    
     filename   = sys.argv[4]
     buildpro_print('proto ' + lang)
-    print('file: ' + filename)
 
     # Read all @proto annotations
     functions = []
@@ -110,12 +114,19 @@ if '-proto' == sys.argv[1]:
                 proto = m.group(3)
                 # print('proto: ', m.groups())
                 functions.append(static + visibility + 'function ' + proto)
+    
+    outfile = sys.argv[5]
+    
+    outfd = open(outfile, 'w')
+    
+    outfd.write('package ' + package_name + ';\n\n')
 
-    print('extern class ' + class_name + ' {')
+    outfd.write('extern class ' + class_name + ' {\n')
     for func in functions:
-        print('    ' + func + ';')
-    print('} /* end class ' + class_name +' */')
+        outfd.write('    ' + func + ';\n')
+    outfd.write('} /* end class ' + full_class_name +' */')
 
+    outfd.close()
     exit(0)
 
 #
