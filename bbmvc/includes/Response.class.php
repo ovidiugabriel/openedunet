@@ -142,6 +142,7 @@ class Response {
     
     /** 
      * Retrieves the value for the CacheControl property. 
+     * RFC 2616 - 14.9 Cache-Control
      * 
      * @return string
      * @proto public getCacheControl():php.NativeString
@@ -152,6 +153,7 @@ class Response {
     
     /** 
      * Retrieves the value for the CharSet property. 
+     * RFC 2616 - 14.17 Content-Type
      * 
      * @return string
      * @proto public getCharSet():php.NativeString
@@ -162,6 +164,7 @@ class Response {
     
     /** 
      * Retrieves the value of the ContentType property. 
+     * RFC 2616 - 14.17 Content-Type
      * 
      * @return string
      * @proto public getContentType():php.NativeString
@@ -172,6 +175,7 @@ class Response {
     
     /**	
      * Retrieves the value of the Expires property. 
+     * RFC 2616 - 14.21 Expires
      * 
      * @return integer
      * @proto public getExpires():Int
@@ -182,6 +186,9 @@ class Response {
     
     /** 
      * Retrieves the value of the ExpiresAbsolute property. 
+     * RFC 2616 - 14.21 Expires
+     * The format is an absolute date and time as defined by HTTP-date in section 3.3.1; 
+     * it MUST be in RFC 1123 date format: 
      * 
      * @return string
      * @proto public getExpiresAbsolute():php.NativeString
@@ -226,6 +233,7 @@ class Response {
     /** 
      * Sets the value of the CacheControl property. 
      * There is no reason to have a return code. Runtime errors must be handled by exception handling.
+     * RFC 2616 - 14.9 Cache-Control
      * 
      * @param string $cacheControl
      * @return integer
@@ -238,6 +246,7 @@ class Response {
     /** 
      * Sets the value of the Charset property. 
      * There is no reason to have a return code. Runtime errors must be handled by exception handling.
+     *  RFC 2616 - 14.17 Content-Type
      * 
      * @param string $charSet
      * @return integer
@@ -250,6 +259,7 @@ class Response {
     /**	
      * Sets the value of the ContentType property.
      * There is no reason to have a return code. Runtime errors must be handled by exception handling.
+     * RFC 2616 - 14.17 Content-Type
      * 
      * @param string $contentType
      * @return integer
@@ -262,6 +272,7 @@ class Response {
     /** 
      * Sets the value of the Expires property. 
      * There is no reason to have a return code. Runtime errors must be handled by exception handling.
+     * RFC 2616 - 14.21 Expires
      * 
      * @param integer expiresMinutes
      * @return integer
@@ -274,6 +285,7 @@ class Response {
     /** 
      * Sets the value of the ExpiresAbsolute property. 
      * There is no reason to have a return code. Runtime errors must be handled by exception handling.
+     * RFC 2616 - 14.21 Expires
      * 
      * @param string $expiresAbsolute
      * @return integer
