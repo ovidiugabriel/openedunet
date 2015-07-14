@@ -15,7 +15,7 @@ class Request {
      * 
      * @param integer $count
      * @return array
-     * @proto public binaryRead(count:Int):array
+     * @proto public binaryRead(count:Int):php.NativeArray
      */
     public function binaryRead($count) {
         if (null === $this->input) {
@@ -29,7 +29,7 @@ class Request {
      * 
      * @param string $cookieName
      * @return string
-     * @proto public getCookie(cookieName:String):String
+     * @proto public getCookie(cookieName:String):php.NativeString
      */
     public function getCookie($cookieName) {
         return $_COOKIE[$cookieName];
@@ -39,7 +39,7 @@ class Request {
      * Retrieves all cookies.
      * 
      * @return array - array of cookies
-     * @proto public getCookies():StringMap
+     * @proto public getCookies():php.NativeArray
      */
     public function getCookies() {
         return $_COOKIE;
@@ -50,7 +50,7 @@ class Request {
      * 
      * @param string $name
      * @return string
-     * @proto public getForm(name:String):String
+     * @proto public getForm(name:String):php.NativeString
      */
     public function getForm($name) {
         //
@@ -68,7 +68,7 @@ class Request {
      * 
      * @param string $name - containing the name of the specified item
      * @return array - containing the multiple values of the specified name
-     * @proto public getForms(name:string):Array<String>
+     * @proto public getForms(name:string):php.NativeArray
      */
     public function getForms($name) {
         $forms = array();
@@ -90,7 +90,7 @@ class Request {
      * Retrieves all pairs of name and value that were read by POST or GET method. 
      * 
      * @return array
-     * @proto public getFormNameValue():StringMap
+     * @proto public getFormNameValue():php.NativeArray
      */
     public function getFormNameValue() {
         return array_merge($_GET, $_POST);
@@ -102,7 +102,7 @@ class Request {
      * 
      * @param string $variableName
      * @return string
-     * @proto public getServerVariable(variableName:String):String
+     * @proto public getServerVariable(variableName:String):php.NativeString
      */
     public function getServerVariable($variableName) {
         return $_SERVER[$variableName];
