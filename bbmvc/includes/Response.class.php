@@ -72,7 +72,7 @@ class Response {
     }
     
     /** 
-     * @proto public addHeaders(headers:haxe.ds.StringMap):Void
+     * @proto public addHeaders(headers:haxe.ds.StringMap<String>):Void
      */
     public function addHeaders($headers) {
         foreach ($headers as $name => $value) {
