@@ -3,11 +3,13 @@
 ```bash
 # Build a project with no-clean mode
 # Where the project file is $ProjectName.project.yml
-python buildpro.py $ProjectName 
+python buildpro.py project-name
 
 # Build a project with clean enabled
-clean=1 python buildpro.py $ProjectName
+clean=1 python buildpro.py project-name
+```
 
+```bash
 python buildpro.py -proto language $QualifiedClass $InputFile $OutputFile
 # Example:
 # (will convert barebone/Cookie.class.php to Cookie.hx)
