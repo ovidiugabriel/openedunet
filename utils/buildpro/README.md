@@ -10,8 +10,9 @@ clean=1 python buildpro.py project-name
 ```
 
 ```bash
+# python buildpro.py -proto language class-name input-file output-file
 python buildpro.py -proto haxe barebone.$1 $1.class.php barebone/$1.hx
-haxe -php output barebone/$1.hx
+haxe -php output barebone/$1.hx # other haxe files may follow
 cat -n barebone/$1.hx
 ```
 
