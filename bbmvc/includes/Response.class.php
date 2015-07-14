@@ -9,6 +9,9 @@ class Response {
     
     // RFC 2616 - Section 14. Header Field Definitions
     // http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+    // Headers:
+    //      - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+    //      - https://en.wikipedia.org/wiki/List_of_HTTP_header_fields
     
     /** @var bool */
     private $Buffer;
