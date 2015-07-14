@@ -7,6 +7,9 @@
 class Response {
     // Member functions of CResponse class implement the methods of the Response object.
     
+    // RFC 2616 - Section 14. Header Field Definitions
+    // http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+    
     /** @var bool */
     private $Buffer;
     
