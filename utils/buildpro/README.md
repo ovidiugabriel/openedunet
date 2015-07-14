@@ -35,6 +35,7 @@ The file `<project_name>.project.yml` is an [YAML](http://www.yaml.org/spec/1.2/
 
 * `require` :
 * `ensure` :
+* `invariant` :
 
 ```yaml
 defines:
