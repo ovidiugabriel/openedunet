@@ -10,12 +10,9 @@ clean=1 python buildpro.py project-name
 ```
 
 ```bash
-python buildpro.py -proto language $QualifiedClass $InputFile $OutputFile
-# Example:
-# (will convert barebone/Cookie.class.php to Cookie.hx)
-wget https://raw.githubusercontent.com/ovidiugabriel/openedunet/master/utils/buildpro/buildpro.py
-wget https://raw.githubusercontent.com/ovidiugabriel/openedunet/master/bbmvc/includes/Cookie.class.php
-python buildpro.py -proto haxe barebone.Cookie Cookie.class.php Cookie.hx
+python buildpro.py -proto haxe barebone.$1 $1.class.php barebone/$1.hx
+haxe -php output barebone/$1.hx
+cat -n barebone/$1.hx
 ```
 
 ###### Project File
