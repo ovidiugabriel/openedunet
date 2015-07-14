@@ -68,7 +68,7 @@ class Request {
      * 
      * @param string $name - containing the name of the specified item
      * @return array - containing the multiple values of the specified name
-     * @proto public getForms(name:string):php.NativeArray
+     * @proto public getForms(name:String):php.NativeArray
      */
     public function getForms($name) {
         $forms = array();
