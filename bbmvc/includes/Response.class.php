@@ -65,9 +65,16 @@ class Response {
      * 
      * @param array $headers
      * @return integer - Upon successful completion, zero is returned. Otherwise, a value of non-zero is returned. 
-     * @proto public addHeader(headers:StringMap):Void
+     * @proto public addHeader(name:String, value:String):Void
      */
-    public function addHeader($headers) {
+    public function addHeader($name, $value) {
+        header($name . ': ' . $value, false);
+    }
+    
+    /** 
+     * @proto public addHeaders(headers:haxe.ds.StringMap):Void
+     */
+    public function addHeaders($headers) {
         foreach ($headers as $name => $value) {
             header($name . ': ' . $value, false);
         }
