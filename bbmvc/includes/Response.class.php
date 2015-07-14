@@ -39,9 +39,10 @@ class Response {
      * @proto public addCookie(cookie:CCookie):Int
      */
     public function addCookie(CCookie $cookie, $http_only = false) {
-        $result = setcookie($cookie->getName(), 
+        $this->Expires = $cookie->getExpires();
+        $result = setcookie($cookie->getName(),
             $cookie->getValue(),
-            $cookie->getExpires(),  // instead of MaxAge
+            $this->Expires,  // instead of MaxAge
             $cookie->getPath(),
             $cookie->getDomain(),
             $cookie->getSecure(),
@@ -115,12 +116,11 @@ class Response {
     /** 
      * Sends buffered HTML output immediately. 
      * 
-     * @return integer - Upon successful completion, zero is returned. Otherwise, a value of non-zero is returned. 
-     * @proto public flush():Int
+     * There is no reason to have a return code. Runtime errors must be handled by exception handling.
+     * @proto public flush():Void
      */
     public function flush() {
         flush();
-        return 0;
     }
     
     /** 
@@ -141,7 +141,7 @@ class Response {
      * Retrieves the value for the CacheControl property. 
      * 
      * @return string
-     * @proto public getCacheControl():String
+     * @proto public getCacheControl():php.NativeString
      */
     public function getCacheControl() {
         return (string) $this->CacheControl;
@@ -151,7 +151,7 @@ class Response {
      * Retrieves the value for the CharSet property. 
      * 
      * @return string
-     * @proto public getCharSet():String
+     * @proto public getCharSet():php.NativeString
      */
     public function getCharSet() {
         return (string) $this->CharSet;
@@ -161,7 +161,7 @@ class Response {
      * Retrieves the value of the ContentType property. 
      * 
      * @return string
-     * @proto public getContentType():String
+     * @proto public getContentType():php.NativeString
      */
     public function getContentType() {
         return (string) $this->ContentType;
@@ -181,7 +181,7 @@ class Response {
      * Retrieves the value of the ExpiresAbsolute property. 
      * 
      * @return string
-     * @proto public getExpiresAbsolute():String
+     * @proto public getExpiresAbsolute():php.NativeString
      */
     public function getExpiresAbsolute() {
         return (string) $this->ExpiresAbsolute;
@@ -191,28 +191,12 @@ class Response {
      * Retrieves the value of the Status property. 
      * 
      * @return string
-     * @proto public getStatus():String
+     * @proto public getStatus():php.NativeString
      */
     public function getStatus() {
         return (string) $this->Status;
     }
-    
-    /** 
-     * PICS (Platform for Internet Content Selection)
-     * has been superseded by the Protocol for Web Description Resources (PWDR)
-     * *
-     * The POWDER Working Group is specifying a protocol for publishing descriptions of 
-     * (e.g. metadata about) Web resources using RDF, OWL, and HTTP
-     * 
-     * RDF - Resource Description Framework - http://www.w3.org/RDF/
-     * OWL - Web Ontology Language - http://www.w3.org/2001/sw/wiki/OWL
-     * 
-     * @deprecated
-     */
-    // public function PICS($headerValue) {
-        
-    // }
-    
+
     /** 
      * Causes the browser to attempt to connect to a different URL. 
      * 
@@ -307,16 +291,4 @@ class Response {
     public function setStatus($status) {
         $this->Status = (string) $status;
     }
-    
-    /** 
-     * Set the title of an HTML page.
-     * 
-     * @deprecated Not needed in PHP version.
-     * @param string $title
-     * @return nulltype
-     * @proto public title(title:String):Void
-     */
-    // public function title($title) {
-        
-    // }
 }
