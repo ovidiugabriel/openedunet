@@ -31,6 +31,10 @@ The file `<project_name>.project.yml` is an [YAML](http://www.yaml.org/spec/1.2/
 * `command` :
 * `deploy` :
 
+
+* `require` :
+* `ensure` :
+
 ```yaml
 defines:
   False: 0
