@@ -174,4 +174,37 @@ function require_class($name, $fn = null) {
     return $fn($object);
 }
 
+/** @access public */
+class ClassLoader {
+    /** @proto static public import(name:String) */
+    static public function import($name) {
+        return import($name);
+    }
+    
+    /** @proto static public createInstance(name:String) */
+    static public function createInstance($name) {
+        return create_instance($name);
+    }
+    
+    /** @proto static public getInstance(name:String, singleton:Bool) */
+    static public function getInstance($name = null, $singleton = true) {
+        return get_instance($name, $singleton);
+    }
+    
+    /** @proto static public singleton(name:String) */
+    static public function singleton($name) {
+        return singleton($name);
+    }
+    
+    /** @proto static public requireObject<F>(name:String, fn:F) */
+    static public function requireObject($name, $fn = null) {
+        return require_object($name, $fn);
+    }
+    
+    /** @proto static public requireClass<F>(name:String, fn:F) */
+    static public function requireClass($name, $fn = null) {
+        return require_class($name, $fn);
+    }
+}
+
 // EOF
