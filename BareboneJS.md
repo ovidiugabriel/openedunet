@@ -98,7 +98,7 @@ nulltype reactive::listen(string id, string event_type, string call)
 
 **Example:**
 
-```
+```javascript
 reactive.set('price', 0);               // initial value of variable price
 reactive.bind('price', 'price', 'val'); // first HTML element with id="price" is bound to changes of variable "price"
 
