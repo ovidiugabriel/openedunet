@@ -35,6 +35,9 @@ if (!defined('_VALID_ACCESS')) {
 
 /**
  *
+ * @see http://php.net/manual/en/function.spl-autoload.php
+ * @see http://php.net/manual/en/function.spl-autoload-register.php
+ * 
  * @param string $class_name
  * @return null
  */
@@ -58,152 +61,174 @@ function __autoload($class_name) {
 }
 
 /**
- * Part of class loader (not dispatcher).
- * Name respects the format defined by:
- * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md 
- * 
- * Acts in a way similar with: https://docs.joomla.org/Jimport
- * 
- * @param string $name
- * @throws InvalidArgumentException
+ * Alias of ClassLoader::import()
  */
 function import($name) {
-    $pieces = explode('.', $name);
-    $class = array_pop($pieces);
-
-    $st = substr($class, 0, 1);
-    if ((!ctype_alpha($st)) && ('_' != $st)) {
-        throw new InvalidArgumentException('Illegal identifier: ' . $class, 1);        
-    }
-
-    $path = implode('/', $pieces) . '/class.' . $class . '.php' ;
-    require_once $path;
+    return ClassLoader::import($name);
 }
 
 /**
- * @param string $name
- * @return object
+ * Alias of ClassLoader::createInstance()
  */
 function create_instance($name) {
-    return get_instance($name, false);
+    return ClassLoader::createInstance($instance);
 }
 
 /** 
- * If you feel the need to change object properties prior to use,
- * please consider using require_object / require_class instead.
- * 
- * @param string $name
- * @param boolean $singleton - when FALSE a new instance is created
- * @return object
+ * Alias of ClassLoader::getInstance()
  */
 function get_instance($name = null, $singleton = true) {
-    if (null === $name) {
-        // TODO: Return the active controller and throw a deprecation warning.
-    }
-    
-    $class = str_replace('.', '_', $name);
-    if (!$singleton) {
-        return new $class;
-    }   
-
-    // otherwise is singleton and we are searching for Class()
-
-    if (function_exists($class)) {
-        return $class();    
-    }
-
-    // search for Class::instance()
-
-    if (method_exists($class, 'instance')) {
-        return call_user_func(array($class, 'getInstance'));
-    }
-
-    // search for Class::getInstance()
-
-    if (method_exists($class, 'getInstance')) {
-        return call_user_func(array($class, 'getInstance'));    
-    }
-
-    return singleton($name);   
+   return ClassLoader::getInstance($name, $singleton);
 }
 
 /** 
- * @param string $name
- * @return object
+ * Alias of ClassLoader::singleton()
  */
 function singleton($name) {
-    static $instances = array();
-
-    if (!isset($instances[$name])) {
-        $instances[$name] = new $name();
-    }
-    return $instances[$name];
+    return ClassLoader::singleton($name);
 }
 
 /** 
- * Returns the singleton instance of the given type name.
- * Returns the instance or the value returned by the callback function.
- * 
- * @param string $name
- * @param callable $fn
- * @return mixed
+ * Alias of ClassLoader::requireObject()
  */
 function require_object($name, $fn = null) {
-    import($name);
-    $object = get_instance($name);
-    if (null == $fn) {
-        return $object;
-    }
-    return $fn($object);
+    return ClassLoader::requireObject($name, $fn);
 }
 
 /** 
- * Creates an instance of the given type name.
- * Returns the instance or the value returned by the callback function.
- * 
- * @param string $name
- * @param callable $fn
- * @return mixed
+ * Alias of ClassLoader::requireClass()
  */
 function require_class($name, $fn = null) {
-    import($name);
-    $object = create_instance($name);
-    if (null == $fn) {
-        return $object;
-    }
-    return $fn($object);
+    return ClassLoader::requireClass($name, $fn);
 }
 
 /** @access public */
 class ClassLoader {
-    /** @proto static public import(name:String) */
+    static public function autoload() {
+        
+    }
+    
+    /** 
+     * Part of class loader (not dispatcher).
+     * Name respects the format defined by:
+     * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md 
+     * 
+     * Acts in a way similar with: https://docs.joomla.org/Jimport
+     * 
+     * @param string $name
+     * @throws InvalidArgumentException
+     * @proto static public import(name:String) 
+     */
     static public function import($name) {
-        return import($name);
+        $pieces = explode('.', $name);
+        $class = array_pop($pieces);
+
+        $st = substr($class, 0, 1);
+        if ((!ctype_alpha($st)) && ('_' != $st)) {
+            throw new InvalidArgumentException('Illegal identifier: ' . $class, 1);        
+        }
+
+        $path = implode('/', $pieces) . '/class.' . $class . '.php' ;
+        require_once $path;
     }
     
-    /** @proto static public createInstance(name:String) */
+    /** 
+     * @proto static public createInstance(name:String) 
+     * @param string $name
+     * @return object
+     */
     static public function createInstance($name) {
-        return create_instance($name);
+        return get_instance($name, false);
     }
     
-    /** @proto static public getInstance(name:String, singleton:Bool) */
+    /** 
+     * If you feel the need to change object properties prior to use,
+     * please consider using require_object / require_class instead.
+     * 
+     * @param string $name
+     * @param boolean $singleton - when FALSE a new instance is created
+     * @return object
+     * @proto static public getInstance(name:String, singleton:Bool) 
+     */
     static public function getInstance($name = null, $singleton = true) {
-        return get_instance($name, $singleton);
+        if (null === $name) {
+            // TODO: Return the active controller and throw a deprecation warning.
+        }
+    
+        $class = str_replace('.', '_', $name);
+        if (!$singleton) {
+            return new $class;
+        }   
+
+        // otherwise is singleton and we are searching for Class()
+
+        if (function_exists($class)) {
+            return $class();    
+        }
+
+        // search for Class::instance()
+
+        if (method_exists($class, 'instance')) {
+            return call_user_func(array($class, 'getInstance'));
+        }
+
+        // search for Class::getInstance()
+
+        if (method_exists($class, 'getInstance')) {
+            return call_user_func(array($class, 'getInstance'));    
+        }
+
+        return self::singleton($name);   
     }
     
-    /** @proto static public singleton(name:String) */
+    /** 
+     * @param string $name
+     * @return object
+     * @proto static public singleton(name:String) 
+     */
     static public function singleton($name) {
-        return singleton($name);
+        static $instances = array();
+
+        if (!isset($instances[$name])) {
+            $instances[$name] = new $name();
+        }
+        return $instances[$name];
     }
-    
-    /** @proto static public requireObject<F>(name:String, fn:F) */
+
+    /** 
+     * Returns the singleton instance of the given type name.
+     * Returns the instance or the value returned by the callback function.
+     * 
+     * @param string $name
+     * @param callable $fn
+     * @return mixed
+     * @proto static public requireObject<F>(name:String, fn:F)
+     */    
     static public function requireObject($name, $fn = null) {
-        return require_object($name, $fn);
+        self::import($name);
+        $object = self::getInstance($name);
+        if (null == $fn) {
+            return $object;
+        }
+        return $fn($object);
     }
-    
-    /** @proto static public requireClass<F>(name:String, fn:F) */
+
+    /** 
+     * Creates an instance of the given type name.
+     * Returns the instance or the value returned by the callback function.
+     * 
+     * @param string $name
+     * @param callable $fn
+     * @return mixed
+     * @proto static public requireClass<F>(name:String, fn:F)
+     */
     static public function requireClass($name, $fn = null) {
-        return require_class($name, $fn);
+        self::import($name);
+        $object = self::createInstance($name);
+        if (null == $fn) {
+            return $object;
+        }
+        return $fn($object);
     }
 }
 
