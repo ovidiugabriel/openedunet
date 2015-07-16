@@ -29,6 +29,18 @@
  *
  * ************************************************************************* */
 
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* History (Start).                                                          */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*                                                                           */
+/* Date         Name    Reason                                               */
+/* ------------------------------------------------------------------------- */
+/*                                                                           */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* History (END).                                                            */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
 if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
@@ -58,48 +70,6 @@ function __autoload($class_name) {
         default:
             require_once _DIR_PROJECT . '/includes/classes/class.' . $class_name . '.php';
     }
-}
-
-/**
- * Alias of ClassLoader::import()
- */
-function import($name) {
-    return ClassLoader::import($name);
-}
-
-/**
- * Alias of ClassLoader::createInstance()
- */
-function create_instance($name) {
-    return ClassLoader::createInstance($instance);
-}
-
-/** 
- * Alias of ClassLoader::getInstance()
- */
-function get_instance($name = null, $singleton = true) {
-   return ClassLoader::getInstance($name, $singleton);
-}
-
-/** 
- * Alias of ClassLoader::singleton()
- */
-function singleton($name) {
-    return ClassLoader::singleton($name);
-}
-
-/** 
- * Alias of ClassLoader::requireObject()
- */
-function require_object($name, $fn = null) {
-    return ClassLoader::requireObject($name, $fn);
-}
-
-/** 
- * Alias of ClassLoader::requireClass()
- */
-function require_class($name, $fn = null) {
-    return ClassLoader::requireClass($name, $fn);
 }
 
 /** @access public */
@@ -231,5 +201,27 @@ class ClassLoader {
         return $fn($object);
     }
 }
+
+/*                                                                    */
+/* --- ALIAS FUNCTIONS ---                                            */
+/*                                                                    */
+
+/** Alias of ClassLoader::import() */
+function import($name) { return ClassLoader::import($name); }
+
+/** Alias of ClassLoader::createInstance() */
+function create_instance($name) { return ClassLoader::createInstance($instance); }
+
+/** Alias of ClassLoader::getInstance() */
+function get_instance($name = null, $singleton = true) { return ClassLoader::getInstance($name, $singleton); }
+
+/** Alias of ClassLoader::singleton() */
+function singleton($name) { return ClassLoader::singleton($name); }
+
+/** Alias of ClassLoader::requireObject() */
+function require_object($name, $fn = null) { return ClassLoader::requireObject($name, $fn); }
+
+/** Alias of ClassLoader::requireClass() */
+function require_class($name, $fn = null) { return ClassLoader::requireClass($name, $fn); }
 
 // EOF
