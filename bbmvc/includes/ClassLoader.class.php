@@ -1,7 +1,7 @@
 <?php
 
 /* * *************************************************************************
- *                            class_loader.php
+ *                            ClassLoader.class.php
  *                    ------------------------------------
  *            begin     : Apr 10, 2007
  *            copyright : (C) Brehar Mihai-Tudor
