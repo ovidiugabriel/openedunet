@@ -108,7 +108,7 @@ class ClassLoader {
      * @return object
      */
     static public function createInstance($name) {
-        return get_instance($name, false);
+        return self::getInstance($name, false);
     }
     
     /** 
