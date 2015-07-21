@@ -1,7 +1,7 @@
 <?php
 
 // Allows to write REST web-services
-class AbstractHttpController {
+class HttpController {
   // @proto private new()
   private function __construct() {}
   
