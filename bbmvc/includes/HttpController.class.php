@@ -17,13 +17,13 @@ class HttpController {
     // @proto protected doOptions(request:Request):Response
     protected function doOptions(Request $request) {}
   
-    // @proto protected doPost():Resposne
+    // @proto protected doPost(request:Request):Resposne
     protected function doPost(Request $request) {}
   
-    // @proto protected doPut():Response
+    // @proto protected doPut(request:Request):Response
     protected function doPut(Request $request) {}
   
-    // @proto protected doTrace():Response
+    // @proto protected doTrace(request:Request):Response
     protected function doTrace(Request $request) {}
   
     // @proto protected getLastModified(request:Request):Int
