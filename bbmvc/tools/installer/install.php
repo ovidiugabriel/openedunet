@@ -121,7 +121,13 @@ function typed_field($name, $value) {
     $type = explode(':', $types_labels[$name][TYPE]);
 
     switch (array_shift($type)) {
-        case "string": return "<input name=\"{$name}\" value=\"{$value}\" style=\"width: 100%;\" size=\"".strlen($value)."\" type=\"text\" />";
+        case "string": 
+            return "<input name=\"{$name}\" 
+                value=\"{$value}\" 
+                style=\"width: 100%;\" 
+                size=\"".strlen($value)."\" 
+                type=\"text\" />";
+                
         case "enum":
             $str = '<select name="'.$name.'">';
             $v = constant($name);
