@@ -30,7 +30,7 @@
  * ************************************************************************* */
 
 /**
- * @package	com.bmrweb.dispatcher
+ * @package	barebone
  * @version SVN: $Id:class.Security.php 262 2007-06-07 18:38:47Z mihai $
  * @author Ovidiu Farauanu <ovidiugabriel@gmail.com>
  */

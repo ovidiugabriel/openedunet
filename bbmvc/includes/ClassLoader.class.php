@@ -40,6 +40,10 @@
 /* History (END).                                                            */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
+/**
+ * @package barebone
+ */
+
 
 if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
@@ -49,7 +53,7 @@ if (!defined('_VALID_ACCESS')) {
  *
  * @see http://php.net/manual/en/function.spl-autoload.php
  * @see http://php.net/manual/en/function.spl-autoload-register.php
- * 
+ *
  * @param string $class_name
  * @return null
  */
@@ -72,22 +76,25 @@ function __autoload($class_name) {
     }
 }
 
-/** @access public */
+/**
+ * @package barebone
+ * @access public
+ */
 class ClassLoader {
     static public function autoload() {
-        
+
     }
-    
-    /** 
+
+    /**
      * Part of class loader (not dispatcher).
      * Name respects the format defined by:
-     * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md 
-     * 
+     * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
+     *
      * Acts in a way similar with: https://docs.joomla.org/Jimport
-     * 
+     *
      * @param string $name
      * @throws InvalidArgumentException
-     * @proto static public import(name:String) 
+     * @proto static public import(name:String)
      */
     static public function import($name) {
         $pieces = explode('.', $name);
@@ -95,45 +102,45 @@ class ClassLoader {
 
         $st = substr($class, 0, 1);
         if ((!ctype_alpha($st)) && ('_' != $st)) {
-            throw new InvalidArgumentException('Illegal identifier: ' . $class, 1);        
+            throw new InvalidArgumentException('Illegal identifier: ' . $class, 1);
         }
 
         $path = implode('/', $pieces) . '/class.' . $class . '.php' ;
         require_once $path;
     }
-    
-    /** 
-     * @proto static public createInstance(name:String) 
+
+    /**
+     * @proto static public createInstance(name:String)
      * @param string $name
      * @return object
      */
     static public function createInstance($name) {
         return self::getInstance($name, false);
     }
-    
-    /** 
+
+    /**
      * If you feel the need to change object properties prior to use,
      * please consider using require_object / require_class instead.
-     * 
+     *
      * @param string $name
      * @param boolean $singleton - when FALSE a new instance is created
      * @return object
-     * @proto static public getInstance(name:String, singleton:Bool) 
+     * @proto static public getInstance(name:String, singleton:Bool)
      */
     static public function getInstance($name = null, $singleton = true) {
         if (null === $name) {
             // TODO: Return the active controller and throw a deprecation warning.
         }
-    
+
         $class = str_replace('.', '_', $name);
         if (!$singleton) {
             return new $class;
-        }   
+        }
 
         // otherwise is singleton and we are searching for Class()
 
         if (function_exists($class)) {
-            return $class();    
+            return $class();
         }
 
         // search for Class::instance()
@@ -145,16 +152,16 @@ class ClassLoader {
         // search for Class::getInstance()
 
         if (method_exists($class, 'getInstance')) {
-            return call_user_func(array($class, 'getInstance'));    
+            return call_user_func(array($class, 'getInstance'));
         }
 
-        return self::singleton($name);   
+        return self::singleton($name);
     }
-    
-    /** 
+
+    /**
      * @param string $name
      * @return object
-     * @proto static public singleton(name:String) 
+     * @proto static public singleton(name:String)
      */
     static public function singleton($name) {
         static $instances = array();
@@ -165,15 +172,15 @@ class ClassLoader {
         return $instances[$name];
     }
 
-    /** 
+    /**
      * Returns the singleton instance of the given type name.
      * Returns the instance or the value returned by the callback function.
-     * 
+     *
      * @param string $name
      * @param callable $fn
      * @return mixed
      * @proto static public requireObject<F>(name:String, fn:F)
-     */    
+     */
     static public function requireObject($name, $fn = null) {
         self::import($name);
         $object = self::getInstance($name);
@@ -183,10 +190,10 @@ class ClassLoader {
         return $fn($object);
     }
 
-    /** 
+    /**
      * Creates an instance of the given type name.
      * Returns the instance or the value returned by the callback function.
-     * 
+     *
      * @param string $name
      * @param callable $fn
      * @return mixed

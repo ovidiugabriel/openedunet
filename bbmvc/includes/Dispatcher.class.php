@@ -56,6 +56,9 @@
 /* History (END).                                                            */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
+/**
+ * @package barebone
+ */
 if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
@@ -93,7 +96,7 @@ class Dispatcher {
      * @param array|string $params
      * @return null
      * @throws InvalidArgumentException
-     * 
+     *
      * @see https://ellislab.com/codeigniter/user-guide/helpers/url_helper.html
      */
     static public function redirect($params) {
@@ -102,10 +105,10 @@ class Dispatcher {
         $params =  NativeArray::fromHaxeType($params);
 
         $url_params = '';
-        
+
         if (is_array($params) || ($params instanceof ArrayAccess)) {
             foreach ($params as $key => $value) {
-    
+
                 if (is_array($value)) {
                     //arrays are also possible, in this case, we are "expanding" the array
                     foreach ($value as $sub_key => $sub_value) {
@@ -115,7 +118,7 @@ class Dispatcher {
                     $url_params .= $key . '='. urlencode($value) .'&';
                 }
             }
-    
+
             //removing the last ampersend
             $url_params = '?' . substr($url_params, 0, strlen($url_params) - 1);
         } elseif (is_string($params)) {
@@ -125,10 +128,10 @@ class Dispatcher {
             throw new InvalidArgumentException('Wrong type argument passed to redirect()');
         }
         $url = _URL_MAIN . '/' . _FILE_MAIN . $url_params;
-    
+
         //saving session...
         session_write_close();
-    
+
         self::header('Location', $url);
         die;
     }
@@ -145,7 +148,7 @@ class Dispatcher {
         // TODO: Log message
         header($hdr, $replace, $http_response_code);
     }
-    
+
     /**
      * @param ReflectionClass $class
      * @param Security $security
@@ -158,13 +161,13 @@ class Dispatcher {
         if (empty($$array)) {
             return;
         }
-    
+
         foreach ($$array as $key => $value) {
             if (('module' == $key) || ('action' == $key)) {
                 //skipping module and action parameters
                 continue;
             }
-    
+
             //the security class should have a method called check_GET_variableName (just an example)
             $function_name = 'check' . $array . '_' . $key;
             $method = $class->getMethod($function_name); //if the method does not exist, an exception will be thrown
@@ -172,7 +175,7 @@ class Dispatcher {
             $security->$function_name($value);
         }
     }
-        
+
     /**
      * @param array $params
      * @return string
@@ -184,12 +187,12 @@ class Dispatcher {
         if (isset($params['href'])) {
             return _URL_MAIN . '/' . $params['href'];
         }
-    
+
         if (empty($params['module'])) {
             throw new Exception('getSeoUrl - no module');
             return;
         }
-    
+
         $href = _FILE_MAIN . '?'; // URL to be used if SEO is not enabled.
         $parts = array();
         foreach ($params as $key => $value) {
@@ -201,18 +204,18 @@ class Dispatcher {
 
         $href = implode(($html_entity ? '&amp;' : '&'), $parts);
         // done building $href
-    
+
         if (!_USE_SEO_LINKS) {
             return _URL_MAIN . '/' . $href;
         }
-    
+
         if (empty($params['action'])) {
             $params['action'] = _DEFAULT_ACTION;
         }
-    
+
         // calling the seo functions of the module
         $seo_class = $params['module'] . 'Seo';
-    
+
         if (is_file(_DIR_MODULES . '/' . $params['module'] . '/class.' . $seo_class . '.php')) { // module file check
             include_once(_DIR_MODULES . '/' . $params['module'] . '/class.' . $seo_class . '.php');
             try {
@@ -227,9 +230,9 @@ class Dispatcher {
                 // no seo_class or method not existing
             }
         }
-    
+
         return _URL_MAIN . '/' . $href;
-    }    
+    }
 } // end class Dispatcher
 
 // EOF

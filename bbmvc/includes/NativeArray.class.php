@@ -25,9 +25,15 @@
 /* History (END).                                                            */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
+/**
+ * @package barebone
+ */
 class NativeArray {
-    /** 
+    /**
      * Converts Haxe types to PHP native ArrayObject.
+     *
+     * @param mixed $var
+     * @return array
      */
     static public function fromHaxeType($var) {
         $type = get_class($var);
