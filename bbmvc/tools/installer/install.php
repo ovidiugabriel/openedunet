@@ -156,14 +156,25 @@ if (!file_exists(DIR_PROJECT_BBMVC)) {
 
 if (!empty($_POST)) {
     if (config_submitted()) {
-        echo '<div style="width: 650px; border: 1px solid orange; background-color: #FFFACD; padding: 10px; margin-bottom: 5px;">Configuration file saved.</div>';
+        echo '<div style="width: 650px; 
+            border: 1px solid orange; 
+            background-color: #FFFACD; 
+            padding: 10px; 
+            margin-bottom: 5px;">Configuration file saved.</div>';
     }
 }
 
 // Extract variables on global space
 extract(on_files_extracted());
 
-echo "<style>input[type=text] { font-family: monospace; font-size: 12px; border: 1px solid #CCCCCC; padding: 5px; background: ivory; }
+echo "<style>input[type=text] { 
+    font-family: monospace; 
+    font-size: 12px; 
+    border: 1px solid #CCCCCC; 
+    padding: 5px; 
+    background: ivory; 
+}
+
 td {
     /* font-family: Arial;  */
     height: 26px;
