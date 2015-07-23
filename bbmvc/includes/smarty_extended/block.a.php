@@ -39,21 +39,22 @@ if (!defined('_VALID_ACCESS')) {
  * @param type $content
  * @param type $smarty
  * @param type $repeat
- * @return type 
+ * @return type
+ * @internal
  */
 function smarty_block_a($params, $content, &$smarty, &$repeat) {
 
     // only output on the closing tag
     if (!$repeat) {
 
-        //do we have the 'rel' attribute? Eg: <a href="..." rel="nofollow">...</a> 
+        //do we have the 'rel' attribute? Eg: <a href="..." rel="nofollow">...</a>
         $rel = "";
         if (!empty($params["rel"])) {
             $rel = "rel=\"$params[rel]\"";
             unset($params["rel"]);
         }
 
-        //do we have the 'target' attribute? Eg: <a href="..." target="_blank">...</a> 
+        //do we have the 'target' attribute? Eg: <a href="..." target="_blank">...</a>
         $target = "";
         if (!empty($params["target"])) {
             $target = "target=\"$params[target]\"";

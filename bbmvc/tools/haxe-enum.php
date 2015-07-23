@@ -51,6 +51,7 @@ require_once 'haxe-common.php';
  * @param string $class_name
  * @param string $target_dir
  * @return string
+ * @internal
  */
 function haxe_enum_to_php_class($class_name, $target_dir) {
     $impl_data = haxe_class_to_relpath($class_name);

@@ -55,7 +55,7 @@ if (!defined('_VALID_ACCESS')) {
  * @see http://php.net/manual/en/function.spl-autoload-register.php
  *
  * @param string $class_name
- * @return null
+ * @return void
  */
 function __autoload($class_name) {
 
@@ -77,11 +77,19 @@ function __autoload($class_name) {
 }
 
 /**
+ * The building block of the framework that makes runtime magic possible. ClassLoader
+ * is responsible with loading classes at runtime based on their package path.
+ * Along with the ClassLoader, the Dispatcher creates the foundation of this framework.
+ *
  * @package barebone
  * @access public
  */
 class ClassLoader {
-    static public function autoload() {
+    /**
+     * @param string $class_name
+     * @return void
+     */
+    static public function autoload($class_name) {
 
     }
 
@@ -93,6 +101,7 @@ class ClassLoader {
      * Acts in a way similar with: https://docs.joomla.org/Jimport
      *
      * @param string $name
+     * @return void
      * @throws InvalidArgumentException
      * @proto static public import(name:String)
      */
@@ -120,7 +129,7 @@ class ClassLoader {
 
     /**
      * If you feel the need to change object properties prior to use,
-     * please consider using require_object / require_class instead.
+     * please consider using ClassLoader::requireObject() or ClassLoader::requireClass() instead.
      *
      * @param string $name
      * @param boolean $singleton - when FALSE a new instance is created
@@ -174,7 +183,7 @@ class ClassLoader {
 
     /**
      * Returns the singleton instance of the given type name.
-     * Returns the instance or the value returned by the callback function.
+     * If a callable is specified, then it returns the instance or the value returned by the callback function.
      *
      * @param string $name
      * @param callable $fn
@@ -213,22 +222,67 @@ class ClassLoader {
 /* --- ALIAS FUNCTIONS ---                                            */
 /*                                                                    */
 
-/** Alias of ClassLoader::import() */
-function import($name) { return ClassLoader::import($name); }
+/**
+ * Alias of ClassLoader::import()
+ *
+ * @param string $name
+ * @return void
+ */
+function import($name) {
+    ClassLoader::import($name);
+}
 
-/** Alias of ClassLoader::createInstance() */
-function create_instance($name) { return ClassLoader::createInstance($instance); }
+/**
+ * Alias of ClassLoader::createInstance()
+ *
+ * @param string $name
+ * @return object
+ */
+function create_instance($name) {
+    return ClassLoader::createInstance($instance);
+}
 
-/** Alias of ClassLoader::getInstance() */
-function get_instance($name = null, $singleton = true) { return ClassLoader::getInstance($name, $singleton); }
+/**
+ * Alias of ClassLoader::getInstance()
+ *
+ * @param string $name
+ * @param boolean $singleton
+ * @return object
+ */
+function get_instance($name = null, $singleton = true) {
+    return ClassLoader::getInstance($name, $singleton);
+}
 
-/** Alias of ClassLoader::singleton() */
-function singleton($name) { return ClassLoader::singleton($name); }
+/**
+ * Alias of ClassLoader::singleton()
+ *
+ * @param string $name
+ * @return object
+ */
+function singleton($name) {
+    return ClassLoader::singleton($name);
+}
 
-/** Alias of ClassLoader::requireObject() */
-function require_object($name, $fn = null) { return ClassLoader::requireObject($name, $fn); }
+/**
+ * Alias of ClassLoader::requireObject()
+ *
+ * @param string $name
+ * @param callable $fn
+ * @return mixed
+ */
+function require_object($name, $fn = null) {
+    return ClassLoader::requireObject($name, $fn);
+}
 
-/** Alias of ClassLoader::requireClass() */
-function require_class($name, $fn = null) { return ClassLoader::requireClass($name, $fn); }
+/**
+ * Alias of ClassLoader::requireClass()
+ *
+ * @param string $name
+ * @param callable $fn
+ * @return mixed
+ */
+function require_class($name, $fn = null) {
+    return ClassLoader::requireClass($name, $fn);
+}
 
 // EOF

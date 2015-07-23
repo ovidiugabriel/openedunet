@@ -34,7 +34,8 @@
  * @global type $_lang
  * @param type $params
  * @param type $smarty
- * @return type 
+ * @return type
+ * @internal
  */
 function smarty_function_lprintf($params, &$smarty) {
     global $_lang;

@@ -50,6 +50,7 @@ require_once 'haxe-common.php';
  * @param string $class_name
  * @param string $target_dir
  * @return string
+ * @internal
  */
 function haxe_enum_to_php_usage($used_class, $class_name, $target_dir) {
     // TODO: Accept a list of classes as used_class

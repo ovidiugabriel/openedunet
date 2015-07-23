@@ -3,6 +3,7 @@
 /**
  * @param string $class_name
  * @return array
+ * @internal
  */
 function haxe_class_to_relpath($class_name, $impl = true) {
     $init_name  = str_replace('.', '_', $class_name);

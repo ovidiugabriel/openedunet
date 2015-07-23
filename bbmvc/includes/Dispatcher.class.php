@@ -70,9 +70,10 @@ if (!defined('_VALID_ACCESS')) {
  *
  * The controller class also defines a redirect() method that can be used
  * from children Controller classes in HaXe without referincing the Dispatcher.
+ * Althought this is not a recommended practice.
  *
  * @param array|string $params
- * @return null
+ * @return void
  * @throws InvalidArgumentException
  */
 function redirect($params) {
@@ -88,6 +89,9 @@ function no_cache() {
 }
 
 /**
+ * The Core building block of the framework. Along with the ClassLoader, the
+ * Dispatcher creates the foundation of this framework.
+ *
  * @package barebone
  */
 class Dispatcher {
@@ -106,11 +110,19 @@ class Dispatcher {
     const HEADER_REPLACE_YES = true;
 
     /**
-     * This makes the Dispatcher be abstract
-     *
+     * @internal
+     * @var Response
+     */
+    static protected $response;
+
+    /**
+     * @internal
      * @proto private new()
      */
-    private function __construct() {}
+    static private function init() {
+        // Static initialization
+        self::$response = require_object('barebone.Response');
+    }
 
     /**
      * Sends header to instruct the client to execute a redirect.
@@ -155,24 +167,8 @@ class Dispatcher {
         //saving session...
         session_write_close();
 
-        self::header('Location', $url);
+        self::$response->addHeader('Location', $url);
         die;
-    }
-
-    /**
-     * Sends a custom header to the HTTP client.
-     *
-     * @param string $name header name
-     * @param string $value header value
-     * @param boolean $replace whether to replace the existing header
-     * @param integer $http_response_code the response code
-     * @return void
-     */
-    static public function header($name, $value, $replace = true, $http_response_code = 0) {
-        $hdr = $name . ': ' . $value;
-
-        // TODO: Log message
-        header($hdr, $replace, $http_response_code);
     }
 
     /**
@@ -183,7 +179,7 @@ class Dispatcher {
      * @param Security $security an instance of the Security class
      * @param string $array the name of the superglobal to check: _GET, _POST, _COOKIE
      * @return void
-     * @throws Exception
+     * @throws Exception throws SecurityException if something strange has been found in the input
      */
     static public function checkVariables(ReflectionClass $class, Security $security, $array) {
         //$array should be $_GET, $_POST, $_COOKIE

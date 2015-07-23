@@ -20,7 +20,11 @@
 // |------------------------------|---------------------|
 //
 if (!function_exists('safe_count')) {
-    function safe_count(array $a) { return count($a); }
+    /**
+     * @param array $array
+     * @return integer
+     */
+    function safe_count(array $array) { return (int) count($array); }
 }
 
 class ServerParams {

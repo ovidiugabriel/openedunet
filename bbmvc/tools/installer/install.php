@@ -3,9 +3,19 @@
 error_reporting(E_ALL|E_STRICT);
 ini_set('display_errors', 1);
 
+/**
+ * @internal
+ */
 define ('TYPE',         0);
+
+/**
+ * @internal
+ */
 define ('DESCRIPTION',  1);
 
+/**
+ * @internal
+ */
 define ('DIR_PROJECT_BBMVC', dirname(__FILE__) . '/bbmvc-0.2.0');
 
 //
@@ -37,12 +47,18 @@ $types_labels = array(
     '_USE_SEO_LINKS'            => array('boolean', 'Use SEO Links Engine'),
 );
 
+/**
+ * @internal
+ */
 function get_cfg_file_path() {
     $profile = file_get_contents(DIR_PROJECT_BBMVC . '/profile');
     $cfg_file = DIR_PROJECT_BBMVC . "/config/config_{$profile}.php";
     return array($profile, $cfg_file);
 }
 
+/**
+ * @internal
+ */
 function on_files_extracted() {
     $vars = array();
 
@@ -52,6 +68,9 @@ function on_files_extracted() {
     $matches = array();
 
     preg_match_all('/define\((.*),(.*)\)/', $contents, $matches);
+    /**
+     * @internal
+     */
     define ('_VALID_ACCESS', 1);
     require_once DIR_PROJECT_BBMVC . '/includes/constdef.php';
     require_once $cfg_file;
@@ -67,6 +86,9 @@ function on_files_extracted() {
     return $vars;
 }
 
+/**
+ * @internal
+ */
 function config_submitted() {
     global $types_labels;
 
@@ -115,19 +137,22 @@ function config_submitted() {
     return true;
 }
 
+/**
+ * @internal
+ */
 function typed_field($name, $value) {
     global $types_labels;
 
     $type = explode(':', $types_labels[$name][TYPE]);
 
     switch (array_shift($type)) {
-        case "string": 
-            return "<input name=\"{$name}\" 
-                value=\"{$value}\" 
-                style=\"width: 100%;\" 
-                size=\"".strlen($value)."\" 
+        case "string":
+            return "<input name=\"{$name}\"
+                value=\"{$value}\"
+                style=\"width: 100%;\"
+                size=\"".strlen($value)."\"
                 type=\"text\" />";
-                
+
         case "enum":
             $str = '<select name="'.$name.'">';
             $v = constant($name);
@@ -162,10 +187,10 @@ if (!file_exists(DIR_PROJECT_BBMVC)) {
 
 if (!empty($_POST)) {
     if (config_submitted()) {
-        echo '<div style="width: 650px; 
-            border: 1px solid orange; 
-            background-color: #FFFACD; 
-            padding: 10px; 
+        echo '<div style="width: 650px;
+            border: 1px solid orange;
+            background-color: #FFFACD;
+            padding: 10px;
             margin-bottom: 5px;">Configuration file saved.</div>';
     }
 }
@@ -173,12 +198,12 @@ if (!empty($_POST)) {
 // Extract variables on global space
 extract(on_files_extracted());
 
-echo "<style>input[type=text] { 
-    font-family: monospace; 
-    font-size: 12px; 
-    border: 1px solid #CCCCCC; 
-    padding: 5px; 
-    background: ivory; 
+echo "<style>input[type=text] {
+    font-family: monospace;
+    font-size: 12px;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    background: ivory;
 }
 
 td {
