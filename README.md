@@ -34,7 +34,7 @@ wget https://raw.githubusercontent.com/ovidiugabriel/openedunet/master/utils/bui
 |---------|-----------|----------|------------------------------------------------------|----------------------------------|
 | 0.2.0   | July 2007 | PHP 5.x  | [bbmvc-0.2.0.zip](http://www.icecontrol.eu/downloads/bbmvc-0.2.0.zip) | 11310c1c5d8e4ce5404fcaa3fde6fb8b |
 
-### Quick Installation ###
+### Manual Installation ###
 
 **Note**: The usage of a database (like MySQL, PostgreSQL, CouchDB, etc) is **not required** for Barebone MVC.
 
