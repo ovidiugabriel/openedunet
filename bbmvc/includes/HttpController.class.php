@@ -6,7 +6,7 @@
  * @package barebone
  * @access public
  */
-abstract class AbstractHttpController {
+abstract class HttpController {
     /**
      * @proto private new()
      */
