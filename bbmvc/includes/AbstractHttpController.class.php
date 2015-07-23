@@ -6,7 +6,7 @@
  * @package barebone
  * @access public
  */
-class HttpController {
+abstract class AbstractHttpController {
     /**
      * @proto private new()
      */
@@ -17,56 +17,56 @@ class HttpController {
      * @return Response
      * @proto protected doDelete(request:Request):Response
      */
-    protected function doDelete(Request $request) {}
+    abstract protected function doDelete(Request $request);
 
     /**
      * @param Request $request
      * @return Response
      * @proto protected doGet(request:Request):Response
      */
-    protected function doGet(Request $request) {}
+    abstract protected function doGet(Request $request);
 
     /**
      * @param Request $request
      * @return Response
      * @proto protected doHead(request:Request):Response
      */
-    protected function doHead(Request $request) {}
+    abstract protected function doHead(Request $request);
 
     /**
      * @param Request $request
      * @return Response
      * @proto protected doOptions(request:Request):Response
      */
-    protected function doOptions(Request $request) {}
+    abstract protected function doOptions(Request $request);
 
     /**
      * @param Request $request
      * @return Response
      * @proto protected doPost(request:Request):Resposne
      */
-    protected function doPost(Request $request) {}
+    abstract protected function doPost(Request $request);
 
     /**
      * @param Request $request
      * @return Response
      * @proto protected doPut(request:Request):Response
      */
-    protected function doPut(Request $request) {}
+    abstract protected function doPut(Request $request);
 
     /**
      * @param Request $request
      * @return Response
      * @proto protected doTrace(request:Request):Response
      */
-    protected function doTrace(Request $request) {}
+    abstract protected function doTrace(Request $request);
 
     /**
      * @param Request $request
      * @return integer
      * @proto protected getLastModified(request:Request):Int
      */
-    protected function getLastModified(Request $request) {}
+    abstract protected function getLastModified(Request $request);
 
     /**
      * @param Request $request
