@@ -146,7 +146,9 @@ abstract class play_mvc_Controller
 
 }
 
+/*
 class Dispatcher {
+    // IMPORTANT: Keep this
     static public function getResponseCode(play_mvc_Result $result) {
         $refl = new ReflectionClass($result);
         $property = $refl->getProperty('status');
@@ -157,3 +159,4 @@ class Dispatcher {
     }
 }
 
+*/

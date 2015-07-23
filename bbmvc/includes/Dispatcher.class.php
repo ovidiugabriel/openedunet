@@ -59,6 +59,7 @@
 /**
  * @package barebone
  */
+
 if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
@@ -86,18 +87,40 @@ function no_cache() {
     Dispatcher::header('Pragma', 'no-cache');
 }
 
+/**
+ * @package barebone
+ */
 class Dispatcher {
+    /**
+     * Do not replace existing header.
+     *
+     * Used as 3rd parameter for Dispatcher::header()
+     */
     const HEADER_REPLACE_NO  = false;
+
+    /**
+     * Replace existing header.
+     *
+     * Used as 3rd parameter for Dispatcher::header()
+     */
     const HEADER_REPLACE_YES = true;
 
+    /**
+     * This makes the Dispatcher be abstract
+     *
+     * @proto private new()
+     */
     private function __construct() {}
 
     /**
-     * @param array|string $params
-     * @return null
+     * Sends header to instruct the client to execute a redirect.
+     *
+     * @param array|string $params The list of parameters used to build a query string. <br/>
+     *      If a string is given then it is used as is. <br/>
+     *      Haxe types are supported. <br/>
+     * @return void
      * @throws InvalidArgumentException
      *
-     * @see https://ellislab.com/codeigniter/user-guide/helpers/url_helper.html
      */
     static public function redirect($params) {
         // If HaXe Runtime is loaded and the argument is an anonymous structure
@@ -137,10 +160,13 @@ class Dispatcher {
     }
 
     /**
-     * @param string $name
-     * @param string $value
-     * @param boolean $replace
-     * @param integer $http_response_code
+     * Sends a custom header to the HTTP client.
+     *
+     * @param string $name header name
+     * @param string $value header value
+     * @param boolean $replace whether to replace the existing header
+     * @param integer $http_response_code the response code
+     * @return void
      */
     static public function header($name, $value, $replace = true, $http_response_code = 0) {
         $hdr = $name . ': ' . $value;
@@ -150,10 +176,14 @@ class Dispatcher {
     }
 
     /**
-     * @param ReflectionClass $class
-     * @param Security $security
-     * @param string $array
-     * @return null
+     * Performs a security check on the contents of superglobal variables and throws
+     * an exception if suspicious input is found.
+     *
+     * @param ReflectionClass $class a reflection of the Security class instance
+     * @param Security $security an instance of the Security class
+     * @param string $array the name of the superglobal to check: _GET, _POST, _COOKIE
+     * @return void
+     * @throws Exception
      */
     static public function checkVariables(ReflectionClass $class, Security $security, $array) {
         //$array should be $_GET, $_POST, $_COOKIE
@@ -177,8 +207,12 @@ class Dispatcher {
     }
 
     /**
-     * @param array $params
-     * @return string
+     * Creates an URL string using Seo classes specified in a module.
+     * This functionality is in reverse of what routers do in a web application.
+     *
+     * @param array $params the list of parameters. Haxe types are supported.
+     * @param boolean $html_entity whether to encode HTML entities
+     * @return string the URL using _URL_MAIN as base
      */
     static public function getSeoUrl($params, $html_entity = false) {
         $params = NativeArray::fromHaxeType($params);
