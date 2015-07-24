@@ -94,7 +94,7 @@ if '-proto' == sys.argv[1]:
     functions = []
     with open(filename, 'r') as fileh:
         for line in fileh:
-            m = re.search('@proto\s+(static|\.?)\s*(public|private|[\+\#\~\-]?)\s*(.*)', line.rstrip())
+            m = re.search('@proto\s+(static?)\s*(public|private?)\s*(.*)', line.rstrip())
             if None != m:
                 static = m.group(1)
                 if '.' == static:
