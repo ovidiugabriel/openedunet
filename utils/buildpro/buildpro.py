@@ -56,25 +56,7 @@ def buildpro_exit(code):
     print('Bye. [exit ' + str(code) + ']')
     exit(code)
 
-
-#
-# ---------------------------------------------------------------------------------------------------------
-# End functions
-# ---------------------------------------------------------------------------------------------------------
-#
-
-if 1 == len(sys.argv):
-    print('Error: Invalid command line. Specify the project name.')
-    buildpro_exit(1)
-
-# Some 'contants' definitions
-BOLD  = shell_exec('tput bold', False)
-RESET = shell_exec('tput sgr0', False)
-
-env = os.environ
-
-# TODO: Create a function for this proto feature
-if '-proto' == sys.argv[1]:
+def proto():
     if len(sys.argv) < 5:
         print('Error: Invalid command line.')
         print('Usage: -proto <lang> <class>')
@@ -83,10 +65,10 @@ if '-proto' == sys.argv[1]:
     lang       = sys.argv[2]
     full_class_name = sys.argv[3]
     pkg = sys.argv[3].split('.')
-    
+
     class_name = pkg.pop()
     package_name = '.'.join(pkg)
-    
+
     filename   = sys.argv[4]
     buildpro_print('proto ' + lang)
 
@@ -94,7 +76,7 @@ if '-proto' == sys.argv[1]:
     functions = []
     with open(filename, 'r') as fileh:
         for line in fileh:
-            m = re.search('@proto\s+(static?)\s*(public|private?)\s*(.*)', line.rstrip())
+            m = re.search('@proto\s+(static|\.?)\s*(public|private|[\+\#\~\-]?)\s*(.*)', line.rstrip())
             if None != m:
                 static = m.group(1)
                 if '.' == static:
@@ -112,13 +94,12 @@ if '-proto' == sys.argv[1]:
                     visibility += ' '
 
                 proto = m.group(3)
-                # print('proto: ', m.groups())
                 functions.append(static + visibility + 'function ' + proto)
-    
+
     outfile = sys.argv[5]
-    
+
     outfd = open(outfile, 'w')
-    
+
     outfd.write('package ' + package_name + ';\n\n')
 
     outfd.write('extern class ' + class_name + ' {\n')
@@ -127,6 +108,25 @@ if '-proto' == sys.argv[1]:
     outfd.write('} /* end class ' + full_class_name +' */')
 
     outfd.close()
+
+#
+# ---------------------------------------------------------------------------------------------------------
+# End functions
+# ---------------------------------------------------------------------------------------------------------
+#
+
+if 1 == len(sys.argv):
+    print('Error: Invalid command line. Specify the project name.')
+    buildpro_exit(1)
+
+# Some 'contants' definitions
+BOLD  = shell_exec('tput bold', False)
+RESET = shell_exec('tput sgr0', False)
+
+env = os.environ
+
+if '-proto' == sys.argv[1]:
+    proto()
     exit(0)
 
 #
