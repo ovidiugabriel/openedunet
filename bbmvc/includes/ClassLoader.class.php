@@ -63,7 +63,7 @@ class ClassLoader {
         if (function_exists('__autoload')) {
             spl_autoload_register('__autoload');
         }
-        // spl_autoload_register();
+        spl_autoload_register(array('ClassLoader', 'autoload'));
     }
     
     /**
