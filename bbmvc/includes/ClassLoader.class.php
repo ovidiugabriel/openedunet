@@ -103,7 +103,7 @@ class ClassLoader {
      * @param string $name
      * @return void
      * @throws InvalidArgumentException
-     * @proto static public import(name:String)
+     * @proto static public import(name:String):Void
      */
     static public function import($name) {
         $pieces = explode('.', $name);
@@ -119,9 +119,9 @@ class ClassLoader {
     }
 
     /**
-     * @proto static public createInstance(name:String)
      * @param string $name
      * @return object
+     * @proto static public createInstance(name:String):Dynamic
      */
     static public function createInstance($name) {
         return self::getInstance($name, false);
@@ -134,7 +134,7 @@ class ClassLoader {
      * @param string $name
      * @param boolean $singleton - when FALSE a new instance is created
      * @return object
-     * @proto static public getInstance(name:String, singleton:Bool)
+     * @proto static public getInstance(name:String, singleton:Bool):Dynamic
      */
     static public function getInstance($name = null, $singleton = true) {
         if (null === $name) {
@@ -170,7 +170,7 @@ class ClassLoader {
     /**
      * @param string $name
      * @return object
-     * @proto static public singleton(name:String)
+     * @proto static public singleton(name:String):Dynamic
      */
     static public function singleton($name) {
         static $instances = array();
@@ -188,7 +188,7 @@ class ClassLoader {
      * @param string $name
      * @param callable $fn
      * @return mixed
-     * @proto static public requireObject<F>(name:String, fn:F)
+     * @proto static public requireObject<F>(name:String, fn:F):Dynamic
      */
     static public function requireObject($name, $fn = null) {
         self::import($name);
@@ -206,7 +206,7 @@ class ClassLoader {
      * @param string $name
      * @param callable $fn
      * @return mixed
-     * @proto static public requireClass<F>(name:String, fn:F)
+     * @proto static public requireClass<F>(name:String, fn:F):Dynamic
      */
     static public function requireClass($name, $fn = null) {
         self::import($name);
