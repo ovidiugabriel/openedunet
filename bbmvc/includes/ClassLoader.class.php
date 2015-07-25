@@ -49,32 +49,6 @@ if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
 
-/**
- *
- * @see http://php.net/manual/en/function.spl-autoload.php
- * @see http://php.net/manual/en/function.spl-autoload-register.php
- *
- * @param string $class_name
- * @return void
- */
-function __autoload($class_name) {
-
-    switch ($class_name) {
-
-        case 'Smarty':
-            if (is_file($file = (_DIR_LIBRARIES . '/Smarty-' . _SMARTY_VERSION . '/libs/Smarty.class.php'))) {
-                // smarty is bundled in bbmvc package
-                require_once $file;
-            } else {
-                // smarty is not bundled in bbmvc package, maybe it is bundled in php distro
-                require_once 'Smarty.class.php';
-            }
-            return;
-
-        default:
-            require_once _DIR_PROJECT . '/includes/classes/class.' . $class_name . '.php';
-    }
-}
 
 /**
  * The building block of the framework that makes runtime magic possible. ClassLoader
@@ -85,12 +59,36 @@ function __autoload($class_name) {
  * @access public
  */
 class ClassLoader {
+    static public function register() {
+        if (function_exists('__autoload')) {
+            spl_autoload_register('__autoload');
+        }
+        // spl_autoload_register();
+    }
+    
     /**
+     *
+     * @see http://php.net/manual/en/function.spl-autoload.php
+     * @see http://php.net/manual/en/function.spl-autoload-register.php
+     *
      * @param string $class_name
      * @return void
      */
     static public function autoload($class_name) {
-
+        switch ($class_name) {
+            case 'Smarty':
+                if (is_file($file = (_DIR_LIBRARIES . '/Smarty-' . _SMARTY_VERSION . '/libs/Smarty.class.php'))) {
+                    // smarty is bundled in bbmvc package
+                    require_once $file;
+                } else {
+                    // smarty is not bundled in bbmvc package, maybe it is bundled in php distro
+                    require_once 'Smarty.class.php';
+                }
+                return;
+        
+            default:
+                require_once _DIR_PROJECT . '/includes/classes/class.' . $class_name . '.php';
+        }
     }
 
     /**
