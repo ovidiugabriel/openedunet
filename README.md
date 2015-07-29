@@ -39,6 +39,7 @@ wget https://raw.githubusercontent.com/ovidiugabriel/openedunet/master/utils/bui
 ```bash
 wget http://www.icecontrol.eu/downloads/bbmvc-0.2.0.zip
 unzip bbmvc-0.2.0.zip
+wget https://raw.githubusercontent.com/ovidiugabriel/openedunet/master/bbmvc/tools/installer/install.php
 ```
 
 ### Manual Installation ###
