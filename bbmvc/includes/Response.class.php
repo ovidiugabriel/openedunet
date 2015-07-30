@@ -13,6 +13,20 @@ class Response {
     //      - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
     //      - https://en.wikipedia.org/wiki/List_of_HTTP_header_fields
 
+    /**
+     * Do not replace existing header.
+     *
+     * Used as 3rd parameter for Dispatcher::header()
+     */
+    const HEADER_REPLACE_NO  = false;
+
+    /**
+     * Replace existing header.
+     *
+     * Used as 3rd parameter for Dispatcher::header()
+     */
+    const HEADER_REPLACE_YES = true;
+
     /** @var bool */
     private $Buffer;
 

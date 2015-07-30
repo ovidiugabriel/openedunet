@@ -93,7 +93,7 @@ function redirect($params) {
 function no_cache() {
     Dispatcher::header('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
     Dispatcher::header('Cache-Control', 'no-store, no-cache, must-revalidate');
-    Dispatcher::header('Cache-Control', 'post-check=0, pre-check=0', Dispatcher::HEADER_REPLACE_NO);
+    Dispatcher::header('Cache-Control', 'post-check=0, pre-check=0', Response::HEADER_REPLACE_NO);
     Dispatcher::header('Pragma', 'no-cache');
 }
 
@@ -104,19 +104,6 @@ function no_cache() {
  * @package barebone
  */
 class Dispatcher {
-    /**
-     * Do not replace existing header.
-     *
-     * Used as 3rd parameter for Dispatcher::header()
-     */
-    const HEADER_REPLACE_NO  = false;
-
-    /**
-     * Replace existing header.
-     *
-     * Used as 3rd parameter for Dispatcher::header()
-     */
-    const HEADER_REPLACE_YES = true;
 
     /**
      * Sends header to instruct the client to execute a redirect.
@@ -161,6 +148,7 @@ class Dispatcher {
         //saving session...
         session_write_close();
 
+        // TODO: load barebone.Response here instead of Response
         require_object('Response')->addHeader('Location', $url);
         die;
     }
