@@ -1,5 +1,58 @@
 <?php
 
+/* ************************************************************************* */
+/*                                                                           */
+/*  Title:       install.php                                                 */
+/*                                                                           */
+/*  Created on:  30.07.2015 at 08:38:31                                      */
+/*  Email:       ovidiugabriel@gmail.com                                     */
+/*  Copyright:   (C) 2015 ICE Control srl. All Rights Reserved.              */
+/*                                                                           */
+/*  $Id$                                                                     */
+/*                                                                           */
+/* ************************************************************************* */
+
+/* * *************************************************************************
+ *  Copyright (c) 2015 ICE Control srl
+ *  All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions are met:
+ *      # Redistributions of source code must retain the above copyright
+ *        notice, this list of conditions and the following disclaimer.
+ *
+ *      # Redistributions in binary form must reproduce the above copyright
+ *        notice, this list of conditions and the following disclaimer in the
+ *        documentation and/or other materials provided with the distribution.
+ *
+ *      # Neither the name of the <organization> nor the
+ *        names of its contributors may be used to endorse or promote products
+ *        derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * ************************************************************************* */
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* History (Start).                                                          */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*                                                                           */
+/* Date         Name    Reason                                               */
+/* ------------------------------------------------------------------------- */
+/* 30.07.2015           Adjusted to fit git repo structure                   */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* History (END).                                                            */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
 error_reporting(E_ALL|E_STRICT);
 ini_set('display_errors', 1);
 
@@ -16,43 +69,67 @@ define ('DESCRIPTION',  1);
 /**
  * @internal
  */
-define ('DIR_PROJECT_BBMVC', dirname(__FILE__) . '/bbmvc-0.2.0');
+define ('DIR_PROJECT_BBMVC', str_replace('\\', '/', realpath(__DIR__ . '/../../..'))  .'/bbmvc');
 
 //
 // Adds a little description to constants we generate
 //
+$request_uri_parent = dirname(dirname(dirname($_SERVER['REQUEST_URI'])));
 $types_labels = array(
-    '_URL_MAIN'                 => array('string', 'Main URL'),
-    '_FILE_MAIN'                => array('string', 'Main File'),
-    '_DIR_PROJECT'              => array('string', 'Project Directory'),
-    '_DIR_MODULES'              => array('string', 'Modules Directory'),
-    '_DIR_LIBRARIES'            => array('string', 'Libraries Directory'),
-    '_DIR_TEMPLATES'            => array('string', 'Templates Directory'),
-    '_DIR_LANGUAGES'            => array('string', 'Languages Directory'),
-    '_DIR_CACHE'                => array('string', 'Cache Directory'),
-    '_DEBUG'                    => array('enum:_DEBUG_OFF:_DEBUG_BROWSER:_DEBUG_LOG', 'Debug option'),
-    '_SMARTY_VERSION'           => array('string', 'Smarty Version'),
-    '_SMARTY_CACHING'           => array('boolean', 'Smarty Caching'),
-    '_SECURITY_ENFORCE'         => array('boolean', 'Use Security Engine'),
-    '_SECURITY_ENFORCE_GET'     => array('boolean', 'Enforce Security on GET'),
-    '_SECURITY_ENFORCE_POST'    => array('boolean', 'Enforce Security on POST'),
-    '_SECURITY_ENFORCE_COOKIE'  => array('boolean', 'Enforce Security on COOKIE'),
-    '_DEFAULT_MODULE'           => array('string', 'Default Module'),
-    '_DEFAULT_ACTION'           => array('string', 'Default Action'),
-    '_LANGUAGE_DEFAULT'         => array('string', 'Default Language'),
-    '_DB_USER'                  => array('string', 'Database User'),
-    '_DB_PASS'                  => array('string', 'Database Password'),
-    '_DB_HOST'                  => array('string', 'Database Host'),
-    '_DB_NAME'                  => array('string', 'Database Name'),
-    '_USE_SEO_LINKS'            => array('boolean', 'Use SEO Links Engine'),
+    '_URL_MAIN'                 => array('string', 'Main URL',
+        'http://' . $_SERVER['HTTP_HOST'] . $request_uri_parent),
+    '_FILE_MAIN'                => array('string', 'Main File',
+        'index.php'),
+    '_DIR_PROJECT'              => array('string', 'Project Directory',
+        DIR_PROJECT_BBMVC),
+    '_DIR_MODULES'              => array('string', 'Modules Directory',
+        DIR_PROJECT_BBMVC . '/modules'),
+    '_DIR_LIBRARIES'            => array('string', 'Libraries Directory',
+        DIR_PROJECT_BBMVC . '/libraries'),
+    '_DIR_TEMPLATES'            => array('string', 'Templates Directory',
+        DIR_PROJECT_BBMVC . '/templates'),
+    '_DIR_LANGUAGES'            => array('string', 'Languages Directory',
+        DIR_PROJECT_BBMVC . '/languages'),
+    '_DIR_CACHE'                => array('string', 'Cache Directory',
+        DIR_PROJECT_BBMVC . '/cache'),
+    '_DEBUG'                    => array('enum:_DEBUG_OFF:_DEBUG_BROWSER:_DEBUG_LOG', 'Debug option',
+        1 /* _DEBUG_BROWSER */),
+    '_SMARTY_VERSION'           => array('string', 'Smarty Version',
+        '2.6.18'),
+    '_SMARTY_CACHING'           => array('boolean', 'Smarty Caching',
+        ''),
+    '_SECURITY_ENFORCE'         => array('boolean', 'Use Security Engine',
+        ''),
+    '_SECURITY_ENFORCE_GET'     => array('boolean', 'Enforce Security on GET',
+        ''),
+    '_SECURITY_ENFORCE_POST'    => array('boolean', 'Enforce Security on POST',
+        ''),
+    '_SECURITY_ENFORCE_COOKIE'  => array('boolean', 'Enforce Security on COOKIE',
+        ''),
+    '_DEFAULT_MODULE'           => array('string', 'Default Module',
+        'CdCollections'),
+    '_DEFAULT_ACTION'           => array('string', 'Default Action',
+        'index'),
+    '_LANGUAGE_DEFAULT'         => array('string', 'Default Language',
+        ''),
+    '_DB_USER'                  => array('string', 'Database User',
+        ''),
+    '_DB_PASS'                  => array('string', 'Database Password',
+        ''),
+    '_DB_HOST'                  => array('string', 'Database Host',
+        ''),
+    '_DB_NAME'                  => array('string', 'Database Name',
+        ''),
+    '_USE_SEO_LINKS'            => array('boolean', 'Use SEO Links Engine',
+        ''),
 );
 
 /**
  * @internal
  */
 function get_cfg_file_path() {
-    $profile = file_get_contents(DIR_PROJECT_BBMVC . '/profile');
-    $cfg_file = DIR_PROJECT_BBMVC . "/config/config_{$profile}.php";
+    $profile = trim(file_get_contents(DIR_PROJECT_BBMVC . '/profile'));
+    $cfg_file = DIR_PROJECT_BBMVC . "/config/{$profile}.php";
     return array($profile, $cfg_file);
 }
 
@@ -64,7 +141,14 @@ function on_files_extracted() {
 
     list($profile, $cfg_file) = get_cfg_file_path();
     $vars['profile'] = $profile;
-    $contents = file_get_contents ($cfg_file);
+
+
+    if (file_exists($cfg_file)) {
+        $contents = file_get_contents ($cfg_file);
+    } else {
+        $contents  = '';
+        $cfg_file = null;
+    }
     $matches = array();
 
     preg_match_all('/define\((.*),(.*)\)/', $contents, $matches);
@@ -73,7 +157,7 @@ function on_files_extracted() {
      */
     define ('_VALID_ACCESS', 1);
     require_once DIR_PROJECT_BBMVC . '/includes/constdef.php';
-    require_once $cfg_file;
+    if (null !== $cfg_file) { require_once $cfg_file; }
 
     $cfg = array();
     foreach ($matches[1] as $m) {
@@ -155,9 +239,10 @@ function typed_field($name, $value) {
 
         case "enum":
             $str = '<select name="'.$name.'">';
-            $v = constant($name);
+            $v = (defined($name)) ? constant($name) : '';
             foreach ($type as $t) {
-                $selected =  (constant($t) == $v) ? ' selected="selected"' : '';
+                $t_val = defined($t) ? constant($t) : '';
+                $selected =  ($t_val == $v) ? ' selected="selected"' : '';
                 $str .= '<option value="'.constant($t).'"'.$selected.'>'.$t.'</option>';
             }
             $str .= '</select>';
@@ -165,7 +250,8 @@ function typed_field($name, $value) {
         break;
 
         case "boolean":
-            $checked = (constant($name)) ? 'checked="checked"' : '';
+            $name_val = defined($name) ? constant($name) : '';
+            $checked = $name_val ? 'checked="checked"' : '';
             return '<input name="'. $name .'" type="checkbox" '.$checked.' value="1" />';
         default: die("Invalid type for {$name}");
     }
@@ -215,9 +301,19 @@ echo "<form method=\"post\"><table>
     <tr><td>Profile name:</td><td><input type=\"text\" value=\"{$profile}\" /></td></tr>
 ";
 
-foreach ($cfg as $def_name => $def_value) {
-    echo "<tr><td>" . $types_labels[$def_name][1]. ":</td><td>" . typed_field($def_name, $def_value) . "</td></tr>\n";
+
+if (count($cfg) > 0) {
+    foreach ($cfg as $def_name => $def_value) {
+        echo "<tr><td>" . $types_labels[$def_name][1]. ":</td><td>" . typed_field($def_name, $def_value) . "</td></tr>\n";
+    }
+} else {
+    foreach ($types_labels as $def_name => $def_value ) {
+        // print_r($def_value);
+        echo "<tr><td>" . $types_labels[$def_name][1]. ":</td><td>" . typed_field($def_name, $def_value[2]) . "</td></tr>\n";
+    }
+
 }
+
 echo "</table>";
 
 echo "  <div><input type=\"submit\" value=\"Save Preferences\" /></div>

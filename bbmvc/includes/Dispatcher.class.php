@@ -64,6 +64,15 @@ if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
 
+
+/*                                                                           */
+/* INCLUDE FILES (DEPENDENCIES)                                              */
+/*                                                                           */
+
+require_once __DIR__ . '/NativeArray.class.php';
+
+
+
 /**
  * Public interface function to allow usage of redirect() function,
  * without using resolution operator.
@@ -110,21 +119,6 @@ class Dispatcher {
     const HEADER_REPLACE_YES = true;
 
     /**
-     * @internal
-     * @var Response
-     */
-    static protected $response;
-
-    /**
-     * @internal
-     * @proto private new()
-     */
-    static private function init() {
-        // Static initialization
-        self::$response = require_object('barebone.Response');
-    }
-
-    /**
      * Sends header to instruct the client to execute a redirect.
      *
      * @param array|string $params The list of parameters used to build a query string. <br/>
@@ -167,7 +161,7 @@ class Dispatcher {
         //saving session...
         session_write_close();
 
-        self::$response->addHeader('Location', $url);
+        require_object('Response')->addHeader('Location', $url);
         die;
     }
 

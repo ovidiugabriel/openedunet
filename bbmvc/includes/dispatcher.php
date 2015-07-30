@@ -19,11 +19,11 @@
  *  modification, are permitted provided that the following conditions are met:
  *      # Redistributions of source code must retain the above copyright
  *        notice, this list of conditions and the following disclaimer.
- *          
+ *
  *      # Redistributions in binary form must reproduce the above copyright
  *        notice, this list of conditions and the following disclaimer in the
  *        documentation and/or other materials provided with the distribution.
- *          
+ *
  *      # Neither the name of the <organization> nor the
  *        names of its contributors may be used to endorse or promote products
  *        derived from this software without specific prior written permission.
@@ -47,6 +47,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 30.07.2015           Guarded Smarty usage                                 */
 /* 28.02.2014           Guarded multilanguage support.                       */
 /*                      Removed useless variables.                           */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -58,7 +59,7 @@ if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
 
-// TODO: Remove smarty support from here as long as it will be provided by 
+// TODO: Remove smarty support from here as long as it will be provided by
 // the `WebApp extends Controller` class.
 
 /*
@@ -70,12 +71,14 @@ if (!defined('_VALID_ACCESS')) {
 // $_smarty->compile_dir   = _DIR_CACHE;
 // $_smarty->cache_dir     = _DIR_CACHE;
 
-$smarty_ext_config = require_once _DIR_PROJECT . '/includes/smarty_extended/config.php';
-foreach ($smarty_ext_config as $plugin) {
-    require_once _DIR_PROJECT . '/includes/smarty_extended/' . $plugin['type'] . '.' . $plugin['name'] . '.php';
-    // @see http://www.smarty.net/docs/en/api.register.plugin.tpl
-    $fn_name = 'smarty_' . $plugin['type'] . '_' . $plugin['name'];
-    $smarty->registerPlugin($plugin['type'], $plugin['name'], $fn_name);
+if (defined('_USE_SMARTY') && _USE_SMARTY) {
+    $smarty_ext_config = require_once _DIR_PROJECT . '/includes/smarty_extended/config.php';
+    foreach ($smarty_ext_config as $plugin) {
+        require_once _DIR_PROJECT . '/includes/smarty_extended/' . $plugin['type'] . '.' . $plugin['name'] . '.php';
+        // @see http://www.smarty.net/docs/en/api.register.plugin.tpl
+        $fn_name = 'smarty_' . $plugin['type'] . '_' . $plugin['name'];
+        $smarty->registerPlugin($plugin['type'], $plugin['name'], $fn_name);
+    }
 }
 
 // --------------------------------------------------------------------
@@ -84,7 +87,7 @@ foreach ($smarty_ext_config as $plugin) {
  * Now the dispatcher stuff comes
  */
 
-require_once _DIR_PROJECT . '/includes/dispatcher_functions.php';
+require_once _DIR_PROJECT . '/includes/Dispatcher.class.php';
 
 /*
  * no module, redirecting to default module
@@ -120,9 +123,9 @@ if (_ENABLE_MULTILANGUAGE) {
     if (is_file($file = (_DIR_LANGUAGES . '/' . $_module_path . '/' . _LANGUAGE_DEFAULT . '.php'))) {
         $_lang = array();
         require_once $file;
-        
-        
-        // TODO: Remove smarty support from here as long as it will be provided by 
+
+
+        // TODO: Remove smarty support from here as long as it will be provided by
         // the `WebApp extends Controller` class.
 
         // FIXME: Most likely don't have to use this because we have {translate} in smarty.
@@ -135,7 +138,7 @@ if (_ENABLE_MULTILANGUAGE) {
 $class = new ReflectionClass($module_classname); // throws exception if the class is not existing
 
 
-// TODO: Remove smarty support from here as long as it will be provided by 
+// TODO: Remove smarty support from here as long as it will be provided by
 // the `WebApp extends Controller` class.
 
 // $_smarty->assign('_module', $module);

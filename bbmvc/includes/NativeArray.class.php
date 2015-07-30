@@ -15,6 +15,7 @@
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 /* History (Start).                                                          */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* 30.07.2015           Added primitive type handling                        */
 /* 27.06.2015           Removed NativeArray::fromAnonymousStruct()           */
 /*                      Added fromHaxeType()                                 */
 /*                                                                           */
@@ -36,7 +37,7 @@ class NativeArray {
      * @return array
      */
     static public function fromHaxeType($var) {
-        $type = get_class($var);
+        $type = is_object($var) ? get_class($var) : gettype($var);
 
         switch ($type) {
             case '_hx_anonymous':

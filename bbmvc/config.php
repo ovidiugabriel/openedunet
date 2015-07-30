@@ -46,6 +46,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 30.07.2015           Added redirect to installer in missing profile case  */
 /* 18.06.2015           Removed support for default profile                  */
 /* 28.02.2014           Added support for default profile.                   */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -65,19 +66,27 @@ if (!defined('_VALID_ACCESS')) {
  * in the root of this project.
  */
 
-$file = realpath(dirname(__FILE__)) . '/profile';
+$file = __DIR__ . '/profile';
 if (!is_file($file)) {
-    throw new Exception('Configuration file <b>profile</b> is missing');
+    // Here we do not use exception handling yet. Dispatcher is not fully loaded.
+    die ('Configuration file <b>profile</b> is missing');
 } else {
     $profile = trim(file_get_contents($file));
 }
 
-$file = dirname(__FILE__) . '/config/'.$profile.'.php';
+$file = __DIR__ . '/config/'.$profile.'.php';
 if (file_exists($file)) {
     require_once $file;
 } else {
-    die('<b>configuration:</b> <u>' . $profile . '</u> is missing');
+    // Configuration profile is missing.
+    $installer_path = '/tools/installer/install.php';
+    if ( file_exists(__DIR__ . $installer_path )) {
+        header ( 'Location: ' . (rtrim($_SERVER['REQUEST_URI'], '/') . $installer_path ));
+        die;
+    } else {
+        // And the installer has been removed.
+        die ('Configuration file <b>config/' . $profile . '.php</b> is missing');
+    }
 }
-
 
 // EOF

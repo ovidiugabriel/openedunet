@@ -79,20 +79,6 @@ class Response {
     }
 
     /**
-     * Causes the server to stop processing a script and return.
-     *
-     * This function will causes the server to stop processing a script and return the current response.
-     * When this function is called, the remaining contents of the file are not processed,
-     * and the buffer are flushed if the Buffering is true.
-     *
-     * @proto public exit():Void
-     * @return nulltype
-     */
-    public function exit() {
-        exit(0);
-    }
-
-    /**
      * Sends buffered HTML output immediately.
      *
      * There is no reason to have a return code. Runtime errors must be handled by exception handling.
