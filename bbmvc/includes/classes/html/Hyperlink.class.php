@@ -21,7 +21,7 @@
  * @return Hyperlink
  */
 function hyperlink($href, $text) {
-  return new Hyperlink($href, $text);
+    return new Hyperlink($href, $text);
 }
 
 class Hyperlink {
