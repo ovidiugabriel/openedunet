@@ -1,21 +1,21 @@
 
 Author: Mihai Brehar (Released: 20.07.2007)
 
-##### What is Barebone MVC (BBMVC)? 
+##### What is Barebone MVC? 
 
 Barebone MVC is a very simple framework which enables **clear, rapid and secure** development of PHP applications.
 It is **modular, object oriented** and uses a **template system**.
 
 Long story short: all parameters will be automatically checked for security. The required modules, functions and templates will be automatically called and loaded.
 
-#####  How BBMVC works?
+#####  How Barebone MVC works?
 
 Basically, I want every single webpage to be called via index.php, so that I (and you) can have a better control of everything.
 For this, I suggest the following URL "format":
 ```
 http://domain.com/index.php?module=CdCollection&action=cdEdit&cd_id=3&other_param=1
 ```
-Mark the module and action parameters, BBMVC will be looking for these.
+Mark the module and action parameters, Barebone MVC will be looking for these.
 
 First, let's talk about the module.
 One module consists of 4 components:
@@ -29,7 +29,7 @@ The security and SEO part are not mandatory.
 
 Every `ClassName.class.php` file should hold the `ClassName` class.
 
-The dispatcher(BBMVC) checks for the existence of the above mentioned folders, files and classes.
+The dispatcher checks for the existence of the above mentioned folders, files and classes.
 
 The `CdCollection` class should have a public method called `cdEdit`.
 
@@ -39,7 +39,7 @@ If no error occurs, then the `CdCollection->cdEdit()` method is called and the `
 
 #####   Security checks
 
-BBMVC provides you a way to automatically check all `_GET`, `_POST` and `_COOKIE` parameters. You can enable/disable security checks using the `_SECURITY_ENFORCE` constants defined in the configuration file.
+Barebone MVC provides you a way to automatically check all `_GET`, `_POST` and `_COOKIE` parameters. You can enable/disable security checks using the `_SECURITY_ENFORCE` constants defined in the configuration file.
 
 In order to check the above **`cd_id`** parameter, you must have a public function called **`check_GET_cd_id`** in the `CdCollectionSecurity` class. Same for **`other_param`**, you need a function called **`check_GET_other_param`**.
 
@@ -47,11 +47,11 @@ To check a `_POST` parameter, you will need a **`check_POST_paramName`** functio
 
 #####   Template special functions
 
-In order to be more flexible and allow easy integration of the SEO part, bbmvc has a smarty block function called **`a`** which should be used everywhere you have links.
+In order to be more flexible and allow easy integration of the SEO part, Barebone MVC has a smarty block function called **`a`** which should be used everywhere you have links.
 
 Eg: Instead of inserting a link like
 ```html
-<a href="index.php?module=CdCollection&action=cdEdit&amp;cd_id=5">...</a>
+<a href="index.php?module=CdCollection&amp;action=cdEdit&amp;cd_id=5">...</a>
 ```
 the **`url`** function should be used like this:
 ```smarty
