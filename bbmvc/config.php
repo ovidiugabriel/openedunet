@@ -66,10 +66,24 @@ if (!defined('_VALID_ACCESS')) {
  * in the root of this project.
  */
 
+define ('INSTALLER_PATH', '/tools/installer/install.php');
+
+/**
+ * @internal
+ */
+function goto_installer() {
+    header ( 'Location: ' . (rtrim($_SERVER['REQUEST_URI'], '/') . INSTALLER_PATH ));
+    die;
+}
+
 $file = __DIR__ . '/profile';
 if (!is_file($file)) {
-    // Here we do not use exception handling yet. Dispatcher is not fully loaded.
-    die ('Configuration file <b>profile</b> is missing');
+    if ( file_exists(__DIR__ . INSTALLER_PATH )) {
+        return goto_installer();
+    } else {
+        // Here we do not use exception handling yet. Dispatcher is not fully loaded.
+        die ('Configuration file <b>profile</b> is missing');
+    }
 } else {
     $profile = trim(file_get_contents($file));
 }
@@ -79,10 +93,8 @@ if (file_exists($file)) {
     require_once $file;
 } else {
     // Configuration profile is missing.
-    $installer_path = '/tools/installer/install.php';
-    if ( file_exists(__DIR__ . $installer_path )) {
-        header ( 'Location: ' . (rtrim($_SERVER['REQUEST_URI'], '/') . $installer_path ));
-        die;
+    if ( file_exists(__DIR__ . INSTALLER_PATH )) {
+        return goto_installer();
     } else {
         // And the installer has been removed.
         die ('Configuration file <b>config/' . $profile . '.php</b> is missing');

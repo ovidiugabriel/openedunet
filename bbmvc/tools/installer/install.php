@@ -48,6 +48,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 31.07.2015           Fixed default profile setup                          */
 /* 30.07.2015           Adjusted to fit git repo structure                   */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* History (END).                                                            */
@@ -97,11 +98,11 @@ $types_labels = array(
     '_SMARTY_VERSION'           => array('string', 'Smarty Version',
         '2.6.18'),
     '_SMARTY_CACHING'           => array('boolean', 'Smarty Caching',
-        ''),
+        0),
     '_SECURITY_ENFORCE'         => array('boolean', 'Use Security Engine',
-        ''),
+        0),
     '_SECURITY_ENFORCE_GET'     => array('boolean', 'Enforce Security on GET',
-        ''),
+        0),
     '_SECURITY_ENFORCE_POST'    => array('boolean', 'Enforce Security on POST',
         ''),
     '_SECURITY_ENFORCE_COOKIE'  => array('boolean', 'Enforce Security on COOKIE',
@@ -111,7 +112,7 @@ $types_labels = array(
     '_DEFAULT_ACTION'           => array('string', 'Default Action',
         'index'),
     '_LANGUAGE_DEFAULT'         => array('string', 'Default Language',
-        ''),
+        'english'),
     '_DB_USER'                  => array('string', 'Database User',
         ''),
     '_DB_PASS'                  => array('string', 'Database Password',
@@ -128,7 +129,8 @@ $types_labels = array(
  * @internal
  */
 function get_cfg_file_path() {
-    $profile = trim(file_get_contents(DIR_PROJECT_BBMVC . '/profile'));
+    $file = DIR_PROJECT_BBMVC . '/profile';
+    $profile = file_exists($file) ? trim(file_get_contents($file)) : 'default';
     $cfg_file = DIR_PROJECT_BBMVC . "/config/{$profile}.php";
     return array($profile, $cfg_file);
 }
@@ -152,6 +154,7 @@ function on_files_extracted() {
     $matches = array();
 
     preg_match_all('/define\((.*),(.*)\)/', $contents, $matches);
+
     /**
      * @internal
      */
@@ -166,7 +169,7 @@ function on_files_extracted() {
         // TODO: Must use reflection to get the real value of constants
         $cfg[$m] = constant($m);
     }
-    $vars["cfg"] = $cfg;
+    $vars['cfg'] = $cfg;
     return $vars;
 }
 
@@ -217,6 +220,9 @@ function config_submitted() {
             break;
         }
     }
+
+    file_put_contents(DIR_PROJECT_BBMVC . '/profile', $profile);
+
     fclose($fp);
     return true;
 }
@@ -239,9 +245,9 @@ function typed_field($name, $value) {
 
         case "enum":
             $str = '<select name="'.$name.'">';
-            $v = (defined($name)) ? constant($name) : '';
+            $v = (defined($name)) ? constant($name) : $value;
             foreach ($type as $t) {
-                $t_val = defined($t) ? constant($t) : '';
+                $t_val = defined($t) ? constant($t) : $value;
                 $selected =  ($t_val == $v) ? ' selected="selected"' : '';
                 $str .= '<option value="'.constant($t).'"'.$selected.'>'.$t.'</option>';
             }
@@ -250,7 +256,7 @@ function typed_field($name, $value) {
         break;
 
         case "boolean":
-            $name_val = defined($name) ? constant($name) : '';
+            $name_val = defined($name) ? constant($name) : $value;
             $checked = $name_val ? 'checked="checked"' : '';
             return '<input name="'. $name .'" type="checkbox" '.$checked.' value="1" />';
         default: die("Invalid type for {$name}");
@@ -273,49 +279,95 @@ if (!file_exists(DIR_PROJECT_BBMVC)) {
 
 if (!empty($_POST)) {
     if (config_submitted()) {
-        echo '<div style="width: 650px;
-            border: 1px solid orange;
-            background-color: #FFFACD;
-            padding: 10px;
-            margin-bottom: 5px;">Configuration file saved.</div>';
+        config_file_saved();
     }
 }
 
 // Extract variables on global space
-extract(on_files_extracted());
+$vars = on_files_extracted();
+extract($vars);
 
-echo "<style>input[type=text] {
-    font-family: monospace;
-    font-size: 12px;
-    border: 1px solid #CCCCCC;
-    padding: 5px;
-    background: ivory;
+
+function html_tag($name, $attrs, $cdata = null) {
+    $echo = '<'.$name;
+    if (is_array($attrs)) {
+        foreach ($attrs as $k => $v) {
+            $echo .= ' '.$k.'="'.$v.'"';
+        }
+    } elseif (null === $cdata) {
+        $cdata = $attrs;
+    }
+    $echo .= ('>'.$cdata .'</'.$name.'>');
+    return $echo;
 }
 
-td {
-    /* font-family: Arial;  */
-    height: 26px;
+function css_style(array $attrs = array()) {
+    $echo = '';
+    foreach ($attrs as $key => $value) {
+        $echo .= $key.': '.$value.';';
+    }
+    return $echo;
 }
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// HTML Code Follows
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+function config_file_saved() {
+    echo html_tag('div', array(
+            'style' =>  css_style(array(
+                    'width'             => '650px',
+                    'border'            => '1px solid orange',
+                    'background-color'  => '#FFFACD',
+                    'padding'           => '10px',
+                    'margin-bottom'     => '5px',
+                )),
+        ), 'Configuration file saved.');
+}
+
+echo "<style>
+    input[type=text] {
+        font-family:    monospace;
+        font-size:      12px;
+        border:         1px solid #CCCCCC;
+        padding:        5px;
+        background:     ivory;
+    }
+
+    td {
+        /* font-family: Arial;  */
+        height: 26px;
+    }
 </style>";
-echo "<form method=\"post\"><table>
-    <tr><td>Profile name:</td><td><input type=\"text\" value=\"{$profile}\" /></td></tr>
-";
 
+echo "<form method=\"post\">";
+echo "<table>";
+
+echo html_tag('tr', html_tag('td', 'Profile name:').
+    html_tag('td', html_tag('input', array(
+        'type'  =>  'text',
+        'value' =>  $profile,
+))));
 
 if (count($cfg) > 0) {
     foreach ($cfg as $def_name => $def_value) {
-        echo "<tr><td>" . $types_labels[$def_name][1]. ":</td><td>" . typed_field($def_name, $def_value) . "</td></tr>\n";
+        echo html_tag('tr', html_tag('td', $types_labels[$def_name][1]) .
+                html_tag('td', typed_field($def_name, $def_value))
+            );
     }
 } else {
     foreach ($types_labels as $def_name => $def_value ) {
-        // print_r($def_value);
-        echo "<tr><td>" . $types_labels[$def_name][1]. ":</td><td>" . typed_field($def_name, $def_value[2]) . "</td></tr>\n";
+        echo html_tag('tr', html_tag('td', $types_labels[$def_name][1] ) .
+               html_tag('td', typed_field($def_name, $def_value[2]) )
+            );
     }
-
 }
 
 echo "</table>";
 
-echo "  <div><input type=\"submit\" value=\"Save Preferences\" /></div>
-</form>
-";
+echo html_tag('div', html_tag('input', array(
+        'type'  =>  'submit',
+        'value' => 'Save Preferences',
+    )));
+
+echo "</form>";
