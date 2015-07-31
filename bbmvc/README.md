@@ -1,14 +1,14 @@
 
 Author: Mihai Brehar (Released: 20.07.2007)
 
-# What is Barebone MVC (BBMVC)? #
+##### What is Barebone MVC (BBMVC)? 
 
-It is a very simple framework which enables clear, rapid and secure development of PHP applications.
-It is **modular, object oriented** and uses Smarty as a **template system**.
+Barebone MVC is a very simple framework which enables **clear, rapid and secure** development of PHP applications.
+It is **modular, object oriented** and uses a **template system**.
 
 Long story short: all parameters will be automatically checked for security. The required modules, functions and templates will be automatically called and loaded.
 
-# How BBMVC works? #
+#####  How BBMVC works?
 
 Basically, I want every single webpage to be called via index.php, so that I (and you) can have a better control of everything.
 For this, I suggest the following URL "format":
@@ -37,7 +37,7 @@ Security checks are done, see below:
 
 If no error occurs, then the `CdCollection->cdEdit()` method is called and the `/templates/CdCollection/cdEdit.tpl` template is displayed.
 
-# Security checks #
+#####   Security checks
 
 BBMVC provides you a way to automatically check all `_GET`, `_POST` and `_COOKIE` parameters. You can enable/disable security checks using the `_SECURITY_ENFORCE` constants defined in the configuration file.
 
@@ -45,7 +45,7 @@ In order to check the above **`cd_id`** parameter, you must have a public functi
 
 To check a `_POST` parameter, you will need a **`check_POST_paramName`** function.
 
-# Template special functions #
+#####   Template special functions
 
 In order to be more flexible and allow easy integration of the SEO part, bbmvc has a smarty block function called **`a`** which should be used everywhere you have links.
 
@@ -70,7 +70,7 @@ Some other things about the **`a`**/**`url`** smarty functions:
   * If a parameter's name starts with `seo_`, then the parameter will only be used internally and it will not be passed to the resulting URL
   * The `rel` and the `target` parameter given to the a block function, will be treated as their html counterparts.
 
-# SEO component #
+#####  SEO component 
 
 Barebone MVC can help you build search engine friendly URLs very easy.
 The first step is to use the above mentiond **`a`**/**`url`** smarty functions.
