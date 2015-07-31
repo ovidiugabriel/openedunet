@@ -59,6 +59,18 @@ if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
 
+//
+// If _MODULE_KEY and _ACTION_KEY are not defined in the configuration files
+// they get a default value from here.
+//
+if (!defined('_MODULE_KEY')) {
+    define ('_MODULE_KEY', 'module');
+}
+
+if (!defined('_ACTION_KEY')) {
+    define ('_ACTION_KEY', 'action');
+}
+
 // TODO: Remove smarty support from here as long as it will be provided by
 // the `WebApp extends Controller` class.
 
@@ -92,11 +104,11 @@ require_once _DIR_PROJECT . '/includes/Dispatcher.class.php';
 /*
  * no module, redirecting to default module
  */
-if (empty($_GET['module'])) {
-    redirect(array("module" => _DEFAULT_MODULE));
+if (empty($_GET[_MODULE_KEY])) {
+    redirect(array(_MODULE_KEY => _DEFAULT_MODULE));
 }
 
-$module = $_GET['module']; // eg. Module_SubModule_SubSubModule
+$module = $_GET[_MODULE_KEY]; // eg. Module_SubModule_SubSubModule
 //module security check
 if (!@ereg('^[a-zA-Z_0-9]+$', $module)) {
     throw new Exception('Invalid module: Module name contains invalid characters!');
@@ -112,11 +124,11 @@ if (!is_dir($folder = (_DIR_MODULES . '/' . $_module_path))) {
 }
 
 //module file check
-if (!is_file($file = (_DIR_MODULES . '/' . $_module_path . '/class.' . $module_classname . '.php'))) {
+if (!is_file($file = (_DIR_MODULES . '/' . $_module_path . '/' . $module_classname . '.class.php'))) {
     throw new Exception('Invalid module: File ' . $file . ' doesn\'t exists!');
 }
 
-require_once _DIR_MODULES . '/' . $_module_path . '/class.' . $module_classname . '.php';
+require_once _DIR_MODULES . '/' . $_module_path . '/' . $module_classname . '.class.php';
 
 if (_ENABLE_MULTILANGUAGE) {
     //enabling multilanguage support
@@ -147,19 +159,19 @@ $class = new ReflectionClass($module_classname); // throws exception if the clas
 
 
 // next we check the action parameter
-if (empty($_GET['action'])) {
+if (empty($_GET[_ACTION_KEY])) {
     $action = _DEFAULT_ACTION;
 } else {
-    $action = $_GET['action'];
+    $action = $_GET[_ACTION_KEY];
 }
 
 //action security check
 
-if (!@ereg('^[a-zA-Z_]+$', $action)) {
+if (!@ereg('^[a-zA-Z_]+$', $action)) { // TODO: ereg is deprecated, replace it
     throw new Exception('Invalid action! Unsuitable characters detected in action name!');
 }
 //what if is a special function? (eg: __construct, __set, __get)
-if (@ereg("^_{2}", $action)) {
+if (@ereg("^_{2}", $action)) { // TODO: ereg is deprecated, replace it
     throw new Exception('Action is a special function. Access denied!');
 }
 
@@ -189,18 +201,21 @@ if (_SECURITY_ENFORCE) {
     $security = new $security_class ();
 
     //checking _GET, _POST and _COOKIE variables
-    if (_SECURITY_ENFORCE_GET)
+    if (_SECURITY_ENFORCE_GET) {
         checkVariables($class, $security, '_GET');
-    if (_SECURITY_ENFORCE_POST)
+    }
+    if (_SECURITY_ENFORCE_POST) {
         checkVariables($class, $security, '_POST');
-    if (_SECURITY_ENFORCE_COOKIE)
+    }
+    if (_SECURITY_ENFORCE_COOKIE) {
         checkVariables($class, $security, '_COOKIE');
+    }
 
     unset($class); // we don't need this anymore
 }
 
 // params are ok. calling the requested action
-$obj = new $module_classname;
+$obj = new $module_classname();
 $obj->$action();
 
 // $_smarty->assign('_action', $action);
