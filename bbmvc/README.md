@@ -13,21 +13,21 @@ Long story short: all parameters will be automatically checked for security. The
 Basically, I want every single webpage to be called via index.php, so that I (and you) can have a better control of everything.
 For this, I suggest the following URL "format":
 ```
-http://domain.com/index.php?module=CdCollection&amp;action=cdEdit&cd_id=3&other_param=1
+http://domain.com/index.php?module=CdCollection&action=cdEdit&cd_id=3&other_param=1
 ```
 Mark the module and action parameters, BBMVC will be looking for these.
 
 First, let's talk about the module.
 One module consists of 4 components:
 
-  1. `/modules/CdCollection/class.CdCollection.php` - main PHP code for the module
-  1. `/modules/CdCollection/class.CdCollectionSecurity.php` - PHP code responsible for module security
-  1. `/modules/CdCollection/class.CdCollectionSeo.php` - PHP code responsible for SEO (search engine friendly URLs, for now)
+  1. `/modules/CdCollection/CdCollection.class.php` - main PHP code for the module
+  1. `/modules/CdCollection/CdCollectionSecurity.class.php` - PHP code responsible for module security
+  1. `/modules/CdCollection/CdCollectionSeo.class.php` - PHP code responsible for SEO (search engine friendly URLs, for now)
   1. `/templates/CdCollection/` - if it's not clear yet, templates of the module are located here
 
 The security and SEO part are not mandatory.
 
-Every `class.ClassName.php` file should hold the `ClassName` class.
+Every `ClassName.class.php` file should hold the `ClassName` class.
 
 The dispatcher(BBMVC) checks for the existence of the above mentioned folders, files and classes.
 
