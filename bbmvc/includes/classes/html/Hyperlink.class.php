@@ -20,11 +20,11 @@
  * @param string $text
  * @return Hyperlink
  */
-function hyperlink($href, $text) {
-    return new Hyperlink($href, $text);
+function html_hyperlink($href, $text) {
+    return new html_Hyperlink($href, $text);
 }
 
-class Hyperlink {
+class html_Hyperlink {
     public function __construct($href, $text) {
         $this->href = $href;
         $this->text = $text;
