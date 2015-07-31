@@ -47,6 +47,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 31.07.2015           Added configurable module and action keys.           */
 /* 30.07.2015           Guarded Smarty usage                                 */
 /* 28.02.2014           Guarded multilanguage support.                       */
 /*                      Removed useless variables.                           */
