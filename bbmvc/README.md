@@ -13,7 +13,7 @@ Long story short: all parameters will be automatically checked for security. The
 Basically, I want every single webpage to be called via index.php, so that I (and you) can have a better control of everything.
 For this, I suggest the following URL "format":
 ```
-http://domain.com/index.php?module=CdCollection&action=cdEdit&cd_id=3&other_param=1
+http://domain.com/index.php?module=CdCollection&amp;action=cdEdit&cd_id=3&other_param=1
 ```
 Mark the module and action parameters, BBMVC will be looking for these.
 
@@ -50,16 +50,16 @@ To check a `_POST` parameter, you will need a **`check_POST_paramName`** functio
 In order to be more flexible and allow easy integration of the SEO part, bbmvc has a smarty block function called **`a`** which should be used everywhere you have links.
 
 Eg: Instead of inserting a link like
-```
-<a href="index.php?module=CdCollection&action=cdEdit&cd_id=5">...</a>
+```html
+<a href="index.php?module=CdCollection&action=cdEdit&amp;cd_id=5">...</a>
 ```
 the **`url`** function should be used like this:
-```
+```smarty
 {a module=CdCollection action=cdEdit cd_id=5}...{/a}
 ```
 
 If you have a form, then you should use the similar **`url`** smarty function, like this:
-```
+```html
 <form action="{url module=CdCollection action=cdUpdate}" method="post">
 ```
 
@@ -76,20 +76,20 @@ Barebone MVC can help you build search engine friendly URLs very easy.
 The first step is to use the above mentiond **`a`**/**`url`** smarty functions.
 
 Let's take this as an example:
-```
+```smarty
 {a module=CdCollection action=cdEdit cd_id=5}Abc def{/a}
 ```
 The resulting link will look like
-```
-<a href="http://www.domain.com/index.php?module=CdCollection&action=cdEdit&cdId=5">Abc def</a>
+```html
+<a href="http://www.domain.com/index.php?module=CdCollection&amp;action=cdEdit&amp;cdId=5">Abc def</a>
 ```
 but we want something like this:
-```
+```html
 <a href="http://www.domain.com/abc-def.html">Abc def</a>
 ```
 
 Now the second step comes. You need to create the `/modules/CdCollection/class.CdCollectionSeo.php` file containing the **`CdCollectionSeo`** class. The **`CdCollectionSeo`** needs to have a public function called **`seo_cdEdit`**. This **`seo_cdEdit`** has an array as a parameter. For the given example, the array looks like this:
-```
+```php
 array("module" => "CdCollection", "action" => "cdEdit", "cdId" => "5");
 ```
 Basically, you have all the parameters passed to the **`a`**/**`url`** smarty function. Now it's a matter of choice on how you handle the parameters and how you return the string used in the SEF URLs.
