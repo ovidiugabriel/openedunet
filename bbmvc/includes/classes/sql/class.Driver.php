@@ -5,19 +5,19 @@
  * Documentation of Java version at: http://doc.qt.digia.com/qtjambi-4.5.2_01/index.html
  * See: Package com.trolltech.qt.sql
  */
-namespace sql;
+declare_namespace('sql');
 
 /** 
  * Abstract base class for accessing specific SQL databases 
  */
-abstract class Driver {
+abstract class sql_Driver {
   /* 
     public abstract class QSqlDriver
       extends QObject
   */
 }
 
-class Driver_DriverFeature extends Enumeration {
+class sql_Driver_DriverFeature extends Enumeration {
   const Transactions           = 1;
   const QuerySize              = 2;
   const BLOB                   = 3;
@@ -45,7 +45,7 @@ class Driver_DriverFeature extends Enumeration {
   }
 }
 
-class Driver_IdentifierType {
+class sql_Driver_IdentifierType {
   const FieldName = 1;
   const TableName = 2;
   
@@ -64,7 +64,7 @@ class Driver_IdentifierType {
   }  
 }
 
-class Driver_StatementType {
+class sql_Driver_StatementType {
   const DeleteStatement = 1;
   const InsertStatement = 2;
   const SelectStatement = 3;
