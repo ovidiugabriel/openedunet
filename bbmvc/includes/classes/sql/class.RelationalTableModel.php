@@ -1,9 +1,9 @@
 <?php
 
-namespace sql;
+declare_namespace('sql');
 
 /** 
  * Editable data model for a single database table, with foreign key support
  */
-class RelationalTableModel extends TableModel {
+class sql_RelationalTableModel extends sql_TableModel {
 }
