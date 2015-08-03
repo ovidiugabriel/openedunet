@@ -2,7 +2,7 @@
 
 /** 
  * Design inspired by: http://qt-jambi.org/
- * Documentation of Java version at: https://doc.qt.io/archives/qtjambi-4.5.2_01/index.html
+ * Documentation of Java version at: https://doc.qt.io/archives/qtjambi-4.5.2_01/com/trolltech/qt/sql/QSqlDatabase.html
  * See: Package com.trolltech.qt.sql 
  *
  * IMPORTANT!
