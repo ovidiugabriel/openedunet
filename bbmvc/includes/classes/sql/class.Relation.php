@@ -1,6 +1,6 @@
 <?php
 
-namespace sql;
+// namespace sql;
 
-class Relation {
+class sql_Relation {
 }
