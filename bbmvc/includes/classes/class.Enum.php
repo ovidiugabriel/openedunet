@@ -1,7 +1,8 @@
 <?php
 
 class Enum {
-    static public function values($class_name) {
+    public function values() {
+        $class_name = get_class($this);
         $reflection = new ReflectionClass($class_name);
         return $reflection->getConstants();
     }
