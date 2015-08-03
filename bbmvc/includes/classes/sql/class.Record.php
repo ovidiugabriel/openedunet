@@ -1,7 +1,7 @@
 <?php
 
-namespace sql;
+// namespace sql;
 
 /** Encapsulates a database record */
-class Record {
+class sql_Record {
 }
