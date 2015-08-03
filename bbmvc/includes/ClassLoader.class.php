@@ -229,6 +229,11 @@ class ClassLoader {
     }
 }
 
+function declare_namespace($package) {
+    $bt = debug_backtrace();
+    $file = $bt[0]['file'];
+}
+
 /*                                                                    */
 /* --- ALIAS FUNCTIONS ---                                            */
 /*                                                                    */
