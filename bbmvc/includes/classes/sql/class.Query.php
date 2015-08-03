@@ -1,6 +1,6 @@
 <?php
 
-// namespace sql;
+declare_namespace('sql');
 
 /** 
  * Means of executing and manipulating SQL statements 
