@@ -1,6 +1,6 @@
 <?php
 
-namespace sql;
+declare_namespace('sql');
 
-class RelationalDelegate {
+class sql_RelationalDelegate {
 }
