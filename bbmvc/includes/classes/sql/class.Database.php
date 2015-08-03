@@ -144,16 +144,6 @@ class sql_Database {
 class sql_Location extends Enum {
     const BeforeFirstRow = 0;
     const AfterLastRow   = 1;
-  
-    /** 
-     * @param string $name
-     * @return integer
-     * @proto static public valueOf(name:String):Int
-     */
-    static public function valueOf($name) {
-        $values = get_instance('sql.Location')->values();
-        return $values[$name];
-    }
 }
 
 /** 
@@ -165,15 +155,6 @@ class sql_NumericalPrecisionPolicy extends Enum {
     const LowPrecisionInt64  = 1;
     const LowPrecisionDouble = 2;
     const HighPrecision      = 3;
-  
-    /**
-     * @param string $name
-     * @return integer
-     */
-    static public function valueOf($name) {
-        $values = get_instance('sql.NumericalPrecisionPolicy')->values();
-        return $values[$name];
-    }  
 }
 
 class sql_ParamType {
@@ -183,15 +164,6 @@ class sql_ParamTypeFlag extends Enum {
     const Binary = 0;
     const In     = 1;
     const InOut  = 2;
-
-    /** 
-     *  @param   string $name
-     * @return integer
-     */
-    static public function valueOf($name) {
-        $values = get_instance('sql.ParamTypeFlag')->values();
-        return $values[$name];
-    }
 }
 
 class sql_TableType extends Enum {
@@ -199,15 +171,6 @@ class sql_TableType extends Enum {
     const SystemTables = 2;
     const Tables       = 3;
     const Views        = 4;
-
-    /** 
-     * @param string $name
-     * @return integer
-     */
-    static public function valueOf($name) {
-        $values = get_instance('sql.TableType')->values();
-        return $values[$name];
-    }   
 }
 
 // EOF
