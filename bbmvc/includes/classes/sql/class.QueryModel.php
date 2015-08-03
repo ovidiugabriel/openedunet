@@ -1,7 +1,7 @@
 <?php
 
-namespace sql;
+// namespace sql;
 
 /** Read-only data model for SQL result sets */
-class QueryModel {
+class sql_QueryModel {
 }
