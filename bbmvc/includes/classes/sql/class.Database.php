@@ -146,21 +146,14 @@ class sql_Location extends Enum {
     const AfterLastRow   = 1;
   
     /** 
-     * @return dictionary
-     */
-    static public function values() {
-        return parent::values(__CLASS__);
-    }
-  
-    /** 
      * @param string $name
      * @return integer
      * @proto static public valueOf(name:String):Int
      */
     static public function valueOf($name) {
-        $values = self::values();
+        $values = get_instance('sql.Location')->values();
         return $values[$name];
-    }  
+    }
 }
 
 /** 
@@ -173,21 +166,12 @@ class sql_NumericalPrecisionPolicy extends Enum {
     const LowPrecisionDouble = 2;
     const HighPrecision      = 3;
   
-    /** 
-     * @return dictionary
-     */
-    static public function values()
-    {
-        return parent::values(__CLASS__);
-    }
-
     /**
      * @param string $name
      * @return integer
      */
-    static public function valueOf($name)
-    {
-        $values = self::values();
+    static public function valueOf($name) {
+        $values = get_instance('sql.NumericalPrecisionPolicy')->values();
         return $values[$name];
     }  
 }
@@ -201,20 +185,13 @@ class sql_ParamTypeFlag extends Enum {
     const InOut  = 2;
 
     /** 
-     * @return dictionary
-     */
-    static public function values() {
-        return parent::values(__CLASS__);
-    }
-
-    /** 
      *  @param   string $name
      * @return integer
      */
     static public function valueOf($name) {
-        $values = self::values();
+        $values = get_instance('sql.ParamTypeFlag')->values();
         return $values[$name];
-    } 
+    }
 }
 
 class sql_TableType extends Enum {
@@ -224,18 +201,11 @@ class sql_TableType extends Enum {
     const Views        = 4;
 
     /** 
-     * @return dictionary
-     */
-    static public function values() {
-        return parent::values(__CLASS__);
-    }
-
-    /** 
      * @param string $name
      * @return integer
      */
     static public function valueOf($name) {
-        $values = self::values();
+        $values = get_instance('sql.TableType')->values();
         return $values[$name];
     }   
 }
