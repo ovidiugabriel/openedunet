@@ -55,8 +55,7 @@ class sql_Database {
      * @proto public final boolean open(java.lang.String user, java.lang.String password)
      * @proto public final boolean open()   
      */
-    public final function open($user = null, $password = null) 
-    {
+    public final function open($user = null, $password = null) {
         // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000886 begin
         // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000886 end
     }
@@ -64,8 +63,7 @@ class sql_Database {
     /**
      * @param string $name
      */
-    public final function databaseName($name = null) 
-    {
+    public final function databaseName($name = null) {
         // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088E begin
         if ($name !== null) {      // called as a setter
             $this->databaseName = $name;
