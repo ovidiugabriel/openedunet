@@ -8,7 +8,7 @@
  * IMPORTANT!
  * >>> IT IS NOT ALLOWED TO COPY THE IMPLEMENTATION OF THE QT-JAMBI. <<<
  */
-namespace sql;
+// namespace sql;
 
 /* user defined includes */
 // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000866-includes begin
@@ -25,7 +25,7 @@ namespace sql;
  * @author firstname and lastname of author, <author@example.org>
  * @see http://doc.qt.digia.com/qtjambi-4.5.2_01/com/trolltech/qt/sql/QSqlDatabase.html
  */
-class Database { 
+class sql_Database { 
   // --- ASSOCIATIONS ---
 
   // --- ATTRIBUTES ---
@@ -144,15 +144,14 @@ class Database {
  * @access public
  * @see http://doc.qt.digia.com/qtjambi-4.5.2_01/com/trolltech/qt/sql/QSql.Location.html
  */
-class Location extends Enum {
+class sql_Location extends Enum {
   const BeforeFirstRow = 0;
   const AfterLastRow   = 1;
   
   /** 
    * @return dictionary
    */
-  static 
-  public function values()
+  static public function values()
   {
     return parent::values(__CLASS__);
   }
@@ -161,8 +160,7 @@ class Location extends Enum {
    * @param string $name
    * @return integer
    */
-  static 
-  public function valueOf($name)
+  static public function valueOf($name)
   {
     $values = self::values();
     return $values[$name];
@@ -173,7 +171,7 @@ class Location extends Enum {
  * @access public
  * @see http://doc.qt.digia.com/qtjambi-4.5.2_01/com/trolltech/qt/sql/QSql.NumericalPrecisionPolicy.html
  */
-class NumericalPrecisionPolicy extends Enum {
+class sql_NumericalPrecisionPolicy extends Enum {
   const LowPrecisionInt32  = 0;
   const LowPrecisionInt64  = 1;
   const LowPrecisionDouble = 2;
@@ -182,8 +180,7 @@ class NumericalPrecisionPolicy extends Enum {
   /** 
    * @return dictionary
    */
-  static
-  public function values()
+  static public function values()
   {
     return parent::values(__CLASS__);
   }
@@ -192,18 +189,17 @@ class NumericalPrecisionPolicy extends Enum {
    * @param string $name
    * @return integer
    */
-  static 
-  public function valueOf($name)
+  static public function valueOf($name)
   {
     $values = self::values();
     return $values[$name];
   }  
 }
 
-class ParamType {
+class sql_ParamType {
 }
 
-class ParamTypeFlag extends Enum {
+class sql_ParamTypeFlag extends Enum {
   const Binary = 0;
   const In     = 1;
   const InOut  = 2;
@@ -211,8 +207,7 @@ class ParamTypeFlag extends Enum {
   /** 
    * @return dictionary
    */
-  static 
-  public function values()
+  static public function values()
   {
     return parent::values(__CLASS__);
   }
@@ -221,15 +216,14 @@ class ParamTypeFlag extends Enum {
    * @param string $name
    * @return integer
    */
-  static 
-  public function valueOf($name)
+  static public function valueOf($name)
   {
     $values = self::values();
     return $values[$name];
   } 
 }
 
-class TableType extends Enum {
+class sql_TableType extends Enum {
   const AllTables    = 1;
   const SystemTables = 2;
   const Tables       = 3;
@@ -238,8 +232,7 @@ class TableType extends Enum {
   /** 
    * @return dictionary
    */
-  static 
-  public function values()
+  static public function values()
   {
     return parent::values(__CLASS__);
   }
@@ -248,8 +241,7 @@ class TableType extends Enum {
    * @param string $name
    * @return integer
    */
-  static 
-  public function valueOf($name)
+  static public function valueOf($name)
   {
     $values = self::values();
     return $values[$name];
