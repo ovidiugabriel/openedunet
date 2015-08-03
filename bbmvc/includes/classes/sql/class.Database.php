@@ -52,8 +52,7 @@ class sql_Database {
      * @param string $password
      * @return boolean
      *
-     * @proto public final boolean open(java.lang.String user, java.lang.String password)
-     * @proto public final boolean open()   
+     * @proto public open(?user:String, ?password:String):Bool
      */
     public final function open($user = null, $password = null) {
         // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000886 begin
@@ -62,76 +61,81 @@ class sql_Database {
   
     /**
      * @param string $name
+     * @proto public setDatabaseName(name:String):Void
      */
-    public final function databaseName($name = null) {
-        // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088E begin
-        if ($name !== null) {      // called as a setter
-            $this->databaseName = $name;
-            return $this;
-        }    
-        // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:000000000000088E end
+    public final function setDatabaseName($name) {
+        $this->databaseName = $name;
+    }
     
-        // called as a getter
+    /** 
+     * @return string
+     * @proto public databaseName():String 
+     */
+    public final function databaseName() {
         return $this->databaseName;
     }
   
     /** 
      * @param string $host
+     * @proto public setHostName(host:String):Void
      */
-    public final function hostName($host = null) {
-        // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000892 begin
-        if ($host !== null) {       // called as a setter
-            $this->hostName = $host;
-            return $this;
-        }
-        // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000892 end
+    public final function setHostName($host) {
+        $this->hostName = $host;
+    }
 
-        // called as a getter
+    /** 
+     * @return string
+     * @proto public hostName():String
+     */    
+    public final function hostName() {
         return $this->hostName;
     }
 
     /**
      * @param string $password
+     * @proto public setPassword(password:String):Void
      */
-    public final function password($password = null) {
-        // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000895 begin
-        if ($password !== null) {       // called as a setter
-            $this->password = $password;
-            return $this;
-        }
-        // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000895 end
+    public final function setPassword($password) {
+        $this->password = $password;
+    }
 
-        // called as a getter
+    /** 
+     * @return string
+     * @proto public password():String
+     */    
+    public final function password() {
         return $this->password;
     }
   
     /**
-     * @param integer $p
+     * @param integer $port
+     * @proto public setPort(port:Int):Void
      */
-    public final function port($p = null) {
-        // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000897 begin
-        if ($p !== null) {       // called as a setter
-            $this->port = intval($p);
-            return $this;
-        }
-        // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000897 end
+    public final function setPort($port) {
+        $this->port = intval($port);
+    }
     
-        // called as a getter
+    /** 
+     * @return integer
+     * @proto public port():Int
+     */
+    public final function port() {
         return intval($this->port);
     }
    
     /**
      * @param string $name
+     * @proto public function setUserName(name:String):Void
      */
-    public final function userName($name = null) {
-        // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000899 begin
-        if ($name !== null) {       // called as a setter
-            $this->userName = $name;
-            return $this;
-        }
-        // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000899 end
+    public final function setUserName($name) {
+        $this->userName = $name;
+    }
 
-        // called as a getter
+    /** 
+     * @return string
+     * @proto public userName():String
+     */    
+    public final function userName() {
         return $this->userName;
     }
   
