@@ -1,6 +1,6 @@
 <?php
 
-// namespace sql;
+declare_namespace('sql');
 
 /** 
  * Manipulates the fields in database tables and views 
