@@ -8,7 +8,7 @@
  * IMPORTANT!
  * >>> IT IS NOT ALLOWED TO COPY THE IMPLEMENTATION OF THE QT-JAMBI. <<<
  */
-declare_namespace('sql', __FILE__);
+declare_namespace('sql');
 
 /* user defined includes */
 // section 10--39--78-17-7cd388f4:14a19eaa541:-8000:0000000000000866-includes begin
