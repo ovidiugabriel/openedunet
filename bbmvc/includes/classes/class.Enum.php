@@ -6,4 +6,9 @@ class Enum {
         $reflection = new ReflectionClass($class_name);
         return $reflection->getConstants();
     }
+    
+    public function valueOf($name) {
+        $values = $this->values();
+        return $values[$name];
+    }
 }
