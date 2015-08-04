@@ -58,7 +58,7 @@ function ifdef($def, $yes, $no, $fn = null) {
  * @param mixed $neq
  */
 function ifeqelse($s1, $s2, $eq, $neq, $fn = null) {
-    $val = ($s1 === $s2) ? $eq : $neq;
+    $val = ($s1 == $s2) ? $eq : $neq;
     if (null !== $fn) {
         $val = $fn($val);
     }
