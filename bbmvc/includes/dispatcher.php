@@ -219,7 +219,7 @@ if (_SECURITY_ENFORCE) {
 $obj = new $module_classname();
 $obj->$action();
 
-$elapsed_time = (float) sprintf('%.2f', microtime(true) - $start_microtime);
+$elapsed_time = (float) $benchmark->stop();
 
 // $_smarty->assign('_action', $action);
 // $_smarty->display('index.tpl');
