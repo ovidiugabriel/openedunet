@@ -52,7 +52,8 @@
  * Count in how much time is generated each page
  * @since Tuesday, June 13, 2006
  */
-$start_microtime = microtime(true);
+$benchmark = new Benchmark();
+$benchmark->start();
 
 /*
  * Files should not be accessed without entering throught this file.
