@@ -55,6 +55,10 @@ class NativeArray {
         }
         return $var;
     }
+    
+    //
+    // TOPOLOGICAL TRANSFORMATIONS
+    //
 }
 
 // EOF
