@@ -3,7 +3,8 @@ Author: Mihai Brehar (Released: 20.07.2007)
 
 ```
 Note: Smarty tags used in this project are <% and %> instead of { and }.
-That is because we want to avoid usage of {literal} when using JavaScript and CSS inside Smarty templates.
+That is because we want to avoid usage of {literal} 
+when using JavaScript and CSS inside Smarty templates.
 ```
 
 ##### What is Barebone MVC? 
