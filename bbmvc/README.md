@@ -61,7 +61,7 @@ Eg: Instead of inserting a link like
 ```
 the **`url`** function should be used like this:
 ```jsp
-<%a module=CdCollection action=cdEdit cd_id=5%>...<%/a%>
+<%a module="CdCollection" action="cdEdit" cd_id="5"%>...<%/a%>
 ```
 
 If you have a form, then you should use the similar **`url`** smarty function, like this:
