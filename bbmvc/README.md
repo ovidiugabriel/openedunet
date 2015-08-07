@@ -1,6 +1,11 @@
 
 Author: Mihai Brehar (Released: 20.07.2007)
 
+```
+Note: Smarty tags used in this project are <% and %> instead of { and }.
+That is because we want to avoid usage of {literal} when using JavaScript and CSS inside Smarty templates.
+```
+
 ##### What is Barebone MVC? 
 
 Barebone MVC is a very simple framework which enables **clear, rapid and secure** development of PHP applications.
@@ -54,13 +59,13 @@ Eg: Instead of inserting a link like
 <a href="index.php?module=CdCollection&amp;action=cdEdit&amp;cd_id=5">...</a>
 ```
 the **`url`** function should be used like this:
-```smarty
-{a module=CdCollection action=cdEdit cd_id=5}...{/a}
+```jsp
+<%a module=CdCollection action=cdEdit cd_id=5%>...<%/a%>
 ```
 
 If you have a form, then you should use the similar **`url`** smarty function, like this:
-```html
-<form action="{url module="CdCollection" action="cdUpdate"}" method="post">
+```jsp
+<form action="<%url module="CdCollection" action="cdUpdate"%>" method="post">
 ```
 
 Some other things about the **`a`**/**`url`** smarty functions:
@@ -76,8 +81,8 @@ Barebone MVC can help you build search engine friendly URLs very easy.
 The first step is to use the above mentiond **`a`**/**`url`** smarty functions.
 
 Let's take this as an example:
-```smarty
-{a module="CdCollection" action="cdEdit" cd_id="5"}Abc def{/a}
+```jsp
+<%a module="CdCollection" action="cdEdit" cd_id="5"%>Abc def<%/a%>
 ```
 The resulting link will look like
 ```html
@@ -90,7 +95,7 @@ but we want something like this:
 
 Now the second step comes. You need to create the `/modules/CdCollection/class.CdCollectionSeo.php` file containing the **`CdCollectionSeo`** class. The **`CdCollectionSeo`** needs to have a public function called **`seo_cdEdit`**. This **`seo_cdEdit`** has an array as a parameter. For the given example, the array looks like this:
 ```php
-array(
+array (
     "module" => "CdCollection", 
     "action" => "cdEdit", 
     "cdId"   => "5"
