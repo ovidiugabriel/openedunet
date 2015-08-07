@@ -60,7 +60,7 @@ the **`url`** function should be used like this:
 
 If you have a form, then you should use the similar **`url`** smarty function, like this:
 ```html
-<form action="{url module=CdCollection action=cdUpdate}" method="post">
+<form action="{url module="CdCollection" action="cdUpdate"}" method="post">
 ```
 
 Some other things about the **`a`**/**`url`** smarty functions:
@@ -77,7 +77,7 @@ The first step is to use the above mentiond **`a`**/**`url`** smarty functions.
 
 Let's take this as an example:
 ```smarty
-{a module=CdCollection action=cdEdit cd_id=5}Abc def{/a}
+{a module="CdCollection" action="cdEdit" cd_id="5"}Abc def{/a}
 ```
 The resulting link will look like
 ```html
@@ -93,7 +93,7 @@ Now the second step comes. You need to create the `/modules/CdCollection/class.C
 array(
     "module" => "CdCollection", 
     "action" => "cdEdit", 
-    "cdId"   => 5
+    "cdId"   => "5"
 );
 ```
 Basically, you have all the parameters passed to the **`a`**/**`url`** smarty function. Now it's a matter of choice on how you handle the parameters and how you return the string used in the SEF URLs.
