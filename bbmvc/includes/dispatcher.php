@@ -78,7 +78,7 @@ if (!defined('_ACTION_KEY')) {
 if (defined('_USE_SMARTY') && _USE_SMARTY) {
     /*
      * Smarty setup
-    */
+     */
     
     $_smarty                = new Smarty();
     $_smarty->caching       = _SMARTY_CACHING;
