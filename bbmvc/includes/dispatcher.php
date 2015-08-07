@@ -150,14 +150,14 @@ if (_ENABLE_MULTILANGUAGE) {
 
 $class = new ReflectionClass($module_classname); // throws exception if the class is not existing
 
-
 // TODO: Remove smarty support from here as long as it will be provided by
 // the `WebApp extends Controller` class.
 
-// $_smarty->assign('_module', $module);
-// $_smarty->assign('_module_path', $_module_path);
-// $_smarty->assign('_module_classname', $module_classname);
-
+if (defined('_USE_SMARTY') && _USE_SMARTY) {
+    $_smarty->assign('_module', $module);
+    $_smarty->assign('_module_path', $_module_path); // ??
+    $_smarty->assign('_module_classname', $module_classname); // ??
+}
 
 // next we check the action parameter
 if (empty($_GET[_ACTION_KEY])) {
@@ -186,7 +186,6 @@ if (!$method->isPublic()) {
 
 unset($class);
 unset($method);
-
 
 //action is ok
 //next, we do a security check for all other params
@@ -221,7 +220,10 @@ $obj->$action();
 
 $elapsed_time = (float) $benchmark->stop();
 
-// $_smarty->assign('_action', $action);
-// $_smarty->display('index.tpl');
+if (defined('_USE_SMARTY') && _USE_SMARTY) {
+    $_smarty->assign('elapsed_time', $elapsed_time);
+    $_smarty->assign('_action', $action);
+    $_smarty->display('index.tpl');
+}
 
 // EOF
