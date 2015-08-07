@@ -15,51 +15,58 @@ abstract class HttpController {
     /**
      * @param Request $request
      * @return Response
-     * @proto protected doDelete(request:Request):Response
+     * @proto protected delete(request:Request):Response
      */
-    abstract protected function doDelete(Request $request);
+    abstract protected function delete(Request $request);
 
     /**
      * @param Request $request
      * @return Response
-     * @proto protected doGet(request:Request):Response
+     * @proto protected get(request:Request):Response
      */
-    abstract protected function doGet(Request $request);
+    abstract protected function get(Request $request);
 
     /**
      * @param Request $request
      * @return Response
-     * @proto protected doHead(request:Request):Response
+     * @proto protected head(request:Request):Response
      */
-    abstract protected function doHead(Request $request);
+    abstract protected function head(Request $request);
 
     /**
      * @param Request $request
      * @return Response
-     * @proto protected doOptions(request:Request):Response
+     * @proto protected options(request:Request):Response
      */
-    abstract protected function doOptions(Request $request);
+    abstract protected function options(Request $request);
 
     /**
      * @param Request $request
      * @return Response
-     * @proto protected doPost(request:Request):Resposne
+     * @proto protected post(request:Request):Resposne
      */
-    abstract protected function doPost(Request $request);
+    abstract protected function post(Request $request);
 
     /**
      * @param Request $request
      * @return Response
-     * @proto protected doPut(request:Request):Response
+     * @proto protected put(request:Request):Response
      */
-    abstract protected function doPut(Request $request);
+    abstract protected function put(Request $request);
 
     /**
      * @param Request $request
      * @return Response
-     * @proto protected doTrace(request:Request):Response
+     * @proto protected trace(request:Request):Response
      */
-    abstract protected function doTrace(Request $request);
+    abstract protected function trace(Request $request);
+
+    /**
+     * @param Request $request
+     * @return Response
+     * @proto protected connect(request:Request):Response
+     */
+    abstract protected function connect(Request $request);
 
     /**
      * @param Request $request
