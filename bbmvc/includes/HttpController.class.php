@@ -10,7 +10,6 @@ abstract class HttpController {
     /**
      * @proto private new()
      */
-    private function __construct() {}
 
     /**
      * @param Request $request
