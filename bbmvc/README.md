@@ -90,7 +90,11 @@ but we want something like this:
 
 Now the second step comes. You need to create the `/modules/CdCollection/class.CdCollectionSeo.php` file containing the **`CdCollectionSeo`** class. The **`CdCollectionSeo`** needs to have a public function called **`seo_cdEdit`**. This **`seo_cdEdit`** has an array as a parameter. For the given example, the array looks like this:
 ```php
-array("module" => "CdCollection", "action" => "cdEdit", "cdId" => "5");
+array(
+    "module" => "CdCollection", 
+    "action" => "cdEdit", 
+    "cdId"   => 5
+);
 ```
 Basically, you have all the parameters passed to the **`a`**/**`url`** smarty function. Now it's a matter of choice on how you handle the parameters and how you return the string used in the SEF URLs.
 
