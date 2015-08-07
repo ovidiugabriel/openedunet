@@ -75,16 +75,17 @@ if (!defined('_ACTION_KEY')) {
 // TODO: Remove smarty support from here as long as it will be provided by
 // the `WebApp extends Controller` class.
 
-/*
- * Smarty setup
- */
-// $_smarty                = new Smarty();
-// $_smarty->caching       = _SMARTY_CACHING;
-// $_smarty->template_dir  = _DIR_TEMPLATES;
-// $_smarty->compile_dir   = _DIR_CACHE;
-// $_smarty->cache_dir     = _DIR_CACHE;
-
 if (defined('_USE_SMARTY') && _USE_SMARTY) {
+    /*
+     * Smarty setup
+    */
+    
+    $_smarty                = new Smarty();
+    $_smarty->caching       = _SMARTY_CACHING;
+    $_smarty->template_dir  = _DIR_TEMPLATES;
+    $_smarty->compile_dir   = _DIR_CACHE;
+    $_smarty->cache_dir     = _DIR_CACHE;
+    
     $smarty_ext_config = require_once _DIR_PROJECT . '/includes/smarty_extended/config.php';
     foreach ($smarty_ext_config as $plugin) {
         require_once _DIR_PROJECT . '/includes/smarty_extended/' . $plugin['type'] . '.' . $plugin['name'] . '.php';
