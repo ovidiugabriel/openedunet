@@ -19,13 +19,6 @@
 // | 10) PATH_INFO_INI_ASSOC      | dict                |
 // |------------------------------|---------------------|
 //
-if (!function_exists('safe_count')) {
-    /**
-     * @param array $array
-     * @return integer
-     */
-    function safe_count(array $array) { return (int) count($array); }
-}
 
 class ServerParams {
 
