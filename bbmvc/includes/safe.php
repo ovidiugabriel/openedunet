@@ -55,6 +55,10 @@ if (!function_exists('safe_count')) {
 
 if (!function_exists('safe_assert')) {
     /** 
+     * For the original assert() function, if the assertion is given as a string 
+     * it will be evaluated as PHP code by assert(). To prevent this, the safe_assert()
+     * version casts the assertion to be always a boolean value.
+     * 
      * @param bool $assertion
      * @param string $description
      * @return void
