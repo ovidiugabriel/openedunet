@@ -45,6 +45,20 @@
 
 if (!function_exists('safe_count')) {
     /**
+     * For the original count() function, if the parameter is not an array or 
+     * not an object with implemented Countable interface, 1 will be returned. 
+     * There is one exception, if array_or_countable is NULL, 0 will be returned.
+     * 
+     * We find this unfortunate inconsistent. To avoid this behavior, safe_count()
+     * accepts only array argument. You can use is_array() and is_object() to check 
+     * if the value is not an array or an object. If the object is Countable you 
+     * can simply call the Countable::count() method on the object or just cast the object
+     * to array in the call.
+     * 
+     * <code>
+     *      safe_count((array) $object)
+     * </code>
+     * 
      * @param array $array
      * @return integer
      */
