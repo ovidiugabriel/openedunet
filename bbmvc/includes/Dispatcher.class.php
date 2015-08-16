@@ -247,7 +247,8 @@ class Dispatcher {
     }
     
     static public function dispatch() {
-        
+        // We are running the old code for a while.
+        require __DIR__ . '/dispatcher.php';
     }
 } // end class Dispatcher
 
