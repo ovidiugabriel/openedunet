@@ -60,18 +60,6 @@ if (!defined('_VALID_ACCESS')) {
     throw new Exception('Access denied!');
 }
 
-//
-// If _MODULE_KEY and _ACTION_KEY are not defined in the configuration files
-// they get a default value from here.
-//
-if (!defined('_MODULE_KEY')) {
-    define ('_MODULE_KEY', 'module');
-}
-
-if (!defined('_ACTION_KEY')) {
-    define ('_ACTION_KEY', 'action');
-}
-
 // TODO: Remove smarty support from here as long as it will be provided by
 // the `WebApp extends Controller` class.
 
