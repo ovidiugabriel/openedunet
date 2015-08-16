@@ -67,13 +67,13 @@ if (defined('_USE_SMARTY') && _USE_SMARTY) {
     /*
      * Smarty setup
      */
-    
+
     $_smarty                = new Smarty();
     $_smarty->caching       = _SMARTY_CACHING;
     $_smarty->template_dir  = _DIR_TEMPLATES;
     $_smarty->compile_dir   = _DIR_CACHE;
     $_smarty->cache_dir     = _DIR_CACHE;
-    
+
     $smarty_ext_config = require_once _DIR_PROJECT . '/includes/smarty_extended/config.php';
     foreach ($smarty_ext_config as $plugin) {
         require_once _DIR_PROJECT . '/includes/smarty_extended/' . $plugin['type'] . '.' . $plugin['name'] . '.php';
@@ -118,7 +118,7 @@ if (!is_file($file = (_DIR_MODULES . '/' . $_module_path . '/' . $module_classna
 
 require_once _DIR_MODULES . '/' . $_module_path . '/' . $module_classname . '.class.php';
 
-if (_ENABLE_MULTILANGUAGE) {
+if (defined('_ENABLE_MULTILANGUAGE') && _ENABLE_MULTILANGUAGE) {
     //enabling multilanguage support
     if (is_file($file = (_DIR_LANGUAGES . '/' . $_module_path . '/' . _LANGUAGE_DEFAULT . '.php'))) {
         $_lang = array();

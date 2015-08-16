@@ -15,11 +15,11 @@
  *  modification, are permitted provided that the following conditions are met:
  *      # Redistributions of source code must retain the above copyright
  *        notice, this list of conditions and the following disclaimer.
- *          
+ *
  *      # Redistributions in binary form must reproduce the above copyright
  *        notice, this list of conditions and the following disclaimer in the
  *        documentation and/or other materials provided with the distribution.
- *          
+ *
  *      # Neither the name of the <organization> nor the
  *        names of its contributors may be used to endorse or promote products
  *        derived from this software without specific prior written permission.
@@ -43,6 +43,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 17.08.2015           Created working benchmark + dispatcher usage         */
 /* 30.07.2015           Placed ClassLoader class intead of class_loader.php  */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* History (END).                                                            */
@@ -52,8 +53,7 @@
  * Count in how much time is generated each page
  * @since Tuesday, June 13, 2006
  */
-$benchmark = new Benchmark();
-$benchmark->start();
+$start_microtime = microtime(true);
 
 /*
  * Files should not be accessed without entering throught this file.
@@ -63,8 +63,12 @@ if (!defined('_VALID_ACCESS')) {
 }
 
 require_once __DIR__ . '/includes/constdef.php';
+require_once __DIR__ . '/includes/Benchmark.class.php';
 
-//we have output buffering...
+// Attach start_microtime value to a benchmark object.
+$benchmark = new Benchmark($start_microtime);
+
+// we have output buffering...
 ob_start();
 session_start();
 
@@ -78,6 +82,7 @@ try {
     }
     require_once _DIR_PROJECT . '/includes/ClassLoader.class.php';
     require_once _DIR_PROJECT . '/includes/Dispatcher.class.php';
+    Dispatcher::dispatch();
 } catch (Exception $exception) {
     if (_DEBUG == _DEBUG_BROWSER) {
         if (isset($_smarty)) {
@@ -89,7 +94,11 @@ try {
             $_smarty->display('error.tpl');
         } else {
             // no smarty
-            echo $exception->getMessage();
+
+            echo '<b>'.get_class($exception).'</b>: ' . $exception->getMessage();
+            echo '<pre>';
+            echo $exception->getTraceAsString();
+            echo '</pre>';
         }
     } else if (_DEBUG == _DEBUG_LOG) {
         /*
