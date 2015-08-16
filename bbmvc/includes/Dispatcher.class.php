@@ -245,6 +245,10 @@ class Dispatcher {
 
         return _URL_MAIN . '/' . $href;
     }
+    
+    static public function dispatch() {
+        
+    }
 } // end class Dispatcher
 
 // EOF
