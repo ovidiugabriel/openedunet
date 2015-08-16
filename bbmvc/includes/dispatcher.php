@@ -89,8 +89,6 @@ if (defined('_USE_SMARTY') && _USE_SMARTY) {
  * Now the dispatcher stuff comes
  */
 
-require_once _DIR_PROJECT . '/includes/Dispatcher.class.php';
-
 /*
  * no module, redirecting to default module
  */
