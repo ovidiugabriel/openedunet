@@ -37,4 +37,11 @@ define('_DEBUG_OFF', 0);
 define('_DEBUG_BROWSER', 1);
 define('_DEBUG_LOG', 2);
 
+//
+// If _MODULE_KEY and _ACTION_KEY are not defined in the configuration files
+// they get a default value from here.
+//
+if (!defined('_MODULE_KEY')) { define ('_MODULE_KEY', 'module'); }
+if (!defined('_ACTION_KEY')) { define ('_ACTION_KEY', 'action'); }
+
 // EOF
