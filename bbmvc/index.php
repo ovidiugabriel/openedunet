@@ -77,7 +77,7 @@ try {
         error_reporting(0);
     }
     require_once _DIR_PROJECT . '/includes/ClassLoader.class.php';
-    require_once _DIR_PROJECT . '/includes/dispatcher.php';
+    require_once _DIR_PROJECT . '/includes/Dispatcher.class.php';
 } catch (Exception $exception) {
     if (_DEBUG == _DEBUG_BROWSER) {
         if (isset($_smarty)) {
