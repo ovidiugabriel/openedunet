@@ -253,12 +253,13 @@ class Dispatcher {
      *
      * If there is no such action, and exception will be thrown.
      *
+     * @param Controller $controller
      * @param string $func_name
      * @param array $param_arr
      * @return mixed
      * @throws Exception
      */
-    public function executeAction($func_name, array $param_arr) {
+    public function executeAction(Controller $controller, $func_name, array $param_arr) {
         //
         // - "action_" prefix is used in Kohana and FuelPHP
         // - "do" prefix is used by the HaXe web dispatcher (See package: http://api.haxe.org/haxe/web/)
@@ -271,10 +272,10 @@ class Dispatcher {
         foreach ($this->formats as $format) {
             if (preg_match('/' . $format . '/i', $func_name, $matches)) {
                 $method_name = $matches[1];
-                if ( !method_exists($this, $method_name) ) {
+                if ( !method_exists($controller, $method_name) ) {
                     throw new Exception('Method ' . __CLASS__."::$method_name() does not exists.", 1);
                 }
-                return call_user_func_array(array($this, $method_name), $param_arr);
+                return call_user_func_array(array($controller, $method_name), $param_arr);
             }
         }
 
