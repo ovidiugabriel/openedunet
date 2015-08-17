@@ -104,6 +104,7 @@ function no_cache() {
  * @package barebone
  */
 class Dispatcher {
+    private $formats = array();
 
     /**
      * Sends header to instruct the client to execute a redirect.
@@ -246,6 +247,40 @@ class Dispatcher {
         return _URL_MAIN . '/' . $href;
     }
     
+    /**
+     * Runs the `action` method. Dispatches the call into the current object
+     * trying to invoke a function that can respond to the `action` request.
+     *
+     * If there is no such action, and exception will be thrown.
+     *
+     * @param string $func_name
+     * @param array $param_arr
+     * @return mixed
+     * @throws Exception
+     */
+    public function executeAction($func_name, array $param_arr) {
+        //
+        // - "action_" prefix is used in Kohana and FuelPHP
+        // - "do" prefix is used by the HaXe web dispatcher (See package: http://api.haxe.org/haxe/web/)
+        // - Barebone MVC and CodeIgniter, CakePHP, etc. used no prefix;
+        // - Phalcon uses "Action" suffix.
+        //
+
+        // BareboneMVC solves this issue with case insensitive elegant pattern matching
+        // You just have to register other formats if needded.
+        foreach ($this->formats as $format) {
+            if (preg_match('/' . $format . '/i', $func_name, $matches)) {
+                $method_name = $matches[1];
+                if ( !method_exists($this, $method_name) ) {
+                    throw new Exception('Method ' . __CLASS__."::$method_name() does not exists.", 1);
+                }
+                return call_user_func_array(array($this, $method_name), $param_arr);
+            }
+        }
+
+        throw new Exception('Method ' . __CLASS__ . "::$func_name() does not exists.", 1);
+
+    }    
     static public function dispatch() {
         // We are running the old code for a while.
         require __DIR__ . '/dispatcher.php';
