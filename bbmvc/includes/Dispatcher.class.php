@@ -105,6 +105,10 @@ function no_cache() {
  */
 class Dispatcher {
     private $formats = array();
+    
+    public function __construct(array $formats = array()) {
+        $this->formats = $formats;
+    }
 
     /**
      * Sends header to instruct the client to execute a redirect.
@@ -281,7 +285,8 @@ class Dispatcher {
 
         throw new Exception('Method ' . __CLASS__ . "::$func_name() does not exists.", 1);
 
-    }    
+    }
+
     static public function dispatch() {
         // We are running the old code for a while.
         require __DIR__ . '/dispatcher.php';
