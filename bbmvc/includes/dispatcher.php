@@ -203,7 +203,7 @@ if (_SECURITY_ENFORCE) {
 
 // params are ok. calling the requested action
 $obj = new $module_classname();
-$obj->$action();
+get_instance('Dispatcher')->executeAction($obj, $action);
 
 $elapsed_time = (float) $benchmark->stop();
 
