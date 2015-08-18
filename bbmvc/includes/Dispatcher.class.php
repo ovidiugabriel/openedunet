@@ -263,7 +263,7 @@ class Dispatcher {
      * @return mixed
      * @throws Exception
      */
-    public function executeAction(Controller $controller, $func_name, array $param_arr) {
+    public function executeAction(Controller $controller, $func_name, array $param_arr = array()) {
         //
         // - "action_" prefix is used in Kohana and FuelPHP
         // - "do" prefix is used by the HaXe web dispatcher (See package: http://api.haxe.org/haxe/web/)
