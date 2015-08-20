@@ -310,6 +310,9 @@ function require_class($name, $fn = null) {
  * @param callable $fn
  */
 function ns_import($class_name, $fn = null) {
+    // There is no reason to have this function as a method in ClassLoader
+    // since it is possible to call it as a function from PHP code, and it won't be called from Haxe code.
+    
     if (version_compare(PHP_VERSION, '5.3.0') < 0) {
         // Before PHP 5.3.0, so there is no namespace support
         $p = explode('.', $class_name);
