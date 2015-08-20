@@ -305,4 +305,27 @@ function require_class($name, $fn = null) {
     return ClassLoader::requireClass($name, $fn);
 }
 
+/** 
+ * @param string $class_name
+ * @param callable $fn
+ */
+function ns_import($class_name, $fn = null) {
+    if (version_compare(PHP_VERSION, '5.3.0') < 0) {
+        // Before PHP 5.3.0, so there is no namespace support
+        $p = explode('.', $class_name);
+        
+        // Class is not already loaded and there is a function
+        // that creates and alias; The function must be defined in the class's package.
+        if (!class_exists($p[count($p)-1]) && (null !== $fn )) {
+            $fn();
+        }
+    } else {
+        // Otherwise will use natvie namespace.
+        $file = str_replace('.', '/', $class_name) . '.class.php';
+        if (file_exists($file)) {
+            require_once $file;
+        }
+    }
+}
+
 // EOF
