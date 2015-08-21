@@ -257,13 +257,13 @@ class Dispatcher {
      *
      * If there is no such action, and exception will be thrown.
      *
-     * @param Controller $controller
+     * @param string $module_classname
      * @param string $func_name
      * @param array $param_arr
      * @return mixed
      * @throws Exception
      */
-    public function executeAction(Controller $controller, $func_name, array $param_arr = array()) {
+    public function executeAction($module_classname, $func_name, array $param_arr = array()) {
         //
         // - "action_" prefix is used in Kohana and FuelPHP
         // - "do" prefix is used by the HaXe web dispatcher (See package: http://api.haxe.org/haxe/web/)
@@ -273,6 +273,8 @@ class Dispatcher {
 
         // BareboneMVC solves this issue with case insensitive elegant pattern matching
         // You just have to register other formats if needded.
+
+        $controller = new $module_classname()
         foreach ($this->formats as $format) {
             if (preg_match('/' . $format . '/i', $func_name, $matches)) {
                 $method_name = $matches[1];
