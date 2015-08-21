@@ -12,7 +12,8 @@ class Reflect {
     public static function getReflectionMethod($class, $method) {
         static $reflections = array();
         if (!isset($reflections[$class][$method])) {
-            $reflections[$class][$method] = new ReflectionMethod ( $class, $method );
+            $reflection_class = self::getReflectionClass($class);
+            $reflections[$class][$method] = $reflection_class->getMethod($method);
         }
         return $reflections[$class][$method];
     }
