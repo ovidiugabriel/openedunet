@@ -171,8 +171,7 @@ if (!$method->isPublic()) {
     throw new Exception('Invalid action! Method ' . $module_classname . '.' . $action . '() is not public!');
 }
 
-unset($class);
-unset($method);
+unset($class); unset($method);
 
 //action is ok
 //next, we do a security check for all other params
@@ -188,16 +187,9 @@ if (_SECURITY_ENFORCE) {
     $security = new $security_class ();
 
     //checking _GET, _POST and _COOKIE variables
-    if (_SECURITY_ENFORCE_GET) {
-        checkVariables($class, $security, '_GET');
-    }
-    if (_SECURITY_ENFORCE_POST) {
-        checkVariables($class, $security, '_POST');
-    }
-    if (_SECURITY_ENFORCE_COOKIE) {
-        checkVariables($class, $security, '_COOKIE');
-    }
-
+    if (_SECURITY_ENFORCE_GET) { checkVariables($class, $security, '_GET'); }
+    if (_SECURITY_ENFORCE_POST) { checkVariables($class, $security, '_POST'); }
+    if (_SECURITY_ENFORCE_COOKIE) { checkVariables($class, $security, '_COOKIE'); }
     unset($class); // we don't need this anymore
 }
 
