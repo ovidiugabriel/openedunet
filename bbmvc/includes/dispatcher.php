@@ -185,9 +185,9 @@ if (_SECURITY_ENFORCE) {
     $security = new $security_class ();
 
     //checking _GET, _POST and _COOKIE variables
-    if (_SECURITY_ENFORCE_GET) { checkVariables($class, $security, '_GET'); }
-    if (_SECURITY_ENFORCE_POST) { checkVariables($class, $security, '_POST'); }
-    if (_SECURITY_ENFORCE_COOKIE) { checkVariables($class, $security, '_COOKIE'); }
+    if (_SECURITY_ENFORCE_GET)    { Dispatcher::checkVariables($class, $security, '_GET');    }
+    if (_SECURITY_ENFORCE_POST)   { Dispatcher::checkVariables($class, $security, '_POST');   }
+    if (_SECURITY_ENFORCE_COOKIE) { Dispatcher::checkVariables($class, $security, '_COOKIE'); }
     unset($class); // we don't need this anymore
 }
 
