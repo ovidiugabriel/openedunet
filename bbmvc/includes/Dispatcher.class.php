@@ -240,7 +240,7 @@ class Dispatcher {
                 $action = 'seo_' . $params['action'];
                 $method = $class->getMethod($action); //check for public method
                 if ($method->isPublic()) {
-                    $obj = new $seo_class();
+                    $obj = Factory::getSecurityClass($params['module']);
                     return _URL_MAIN . '/' . $obj->$action($params); //calling the seo method
                 }
             } catch (Exception $e) {
