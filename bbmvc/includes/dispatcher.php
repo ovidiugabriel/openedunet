@@ -184,7 +184,7 @@ if (_SECURITY_ENFORCE) {
     }
     require_once $file;
 
-    $class = Reflect::ReflectionClass($security_class); // throws exception if the class is not existing
+    $class = Reflect::getReflectionClass($security_class); // throws exception if the class is not existing
     $security = new $security_class ();
 
     //checking _GET, _POST and _COOKIE variables
