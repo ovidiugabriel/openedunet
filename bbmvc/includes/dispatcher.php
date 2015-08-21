@@ -135,8 +135,6 @@ if (defined('_ENABLE_MULTILANGUAGE') && _ENABLE_MULTILANGUAGE) {
     }
 }
 
-$class = Reflect::getReflectionClass($module_classname); // throws exception if the class is not existing
-
 // TODO: Remove smarty support from here as long as it will be provided by
 // the `WebApp extends Controller` class.
 
@@ -163,15 +161,15 @@ if (@ereg("^_{2}", $action)) { // TODO: ereg is deprecated, replace it
     throw new Exception('Action is a special function. Access denied!');
 }
 
-//action method exists?
-$method = $class->getMethod($action);
+// action method exists?
+$method = Reflect::getReflectionMethod($module_classname, $action);
 
 //method is public?
 if (!$method->isPublic()) {
     throw new Exception('Invalid action! Method ' . $module_classname . '.' . $action . '() is not public!');
 }
 
-unset($class); unset($method);
+unset($method);
 
 //action is ok
 //next, we do a security check for all other params
