@@ -231,22 +231,20 @@ class Dispatcher {
         }
 
         // calling the seo functions of the module
-        $seo_class = $params['module'] . 'Seo';
+        try {
+            $action = 'seo_' . $params['action'];
 
-        if (is_file(_DIR_MODULES . '/' . $params['module'] . '/class.' . $seo_class . '.php')) { // module file check
-            include_once(_DIR_MODULES . '/' . $params['module'] . '/class.' . $seo_class . '.php');
-            try {
-                $class = Reflect::getReflectionClass($seo_class); //throws exception if the class is not existing
-                $action = 'seo_' . $params['action'];
-                $method = $class->getMethod($action); //check for public method
-                if ($method->isPublic()) {
-                    $obj = Factory::getSecurityClass($params['module']);
-                    return _URL_MAIN . '/' . $obj->$action($params); //calling the seo method
-                }
-            } catch (Exception $e) {
-                // no seo_class or method not existing
+            $obj = Factory::getSeoClass($params['module']);
+            $method = Reflect::getReflectionMethod($obj, $action);
+            
+            if ($method->isPublic()) {
+                
+                return _URL_MAIN . '/' . $obj->$action($params); //calling the seo method
             }
+        } catch (Exception $e) {
+            // no seo_class or method not existing
         }
+
 
         return _URL_MAIN . '/' . $href;
     }
