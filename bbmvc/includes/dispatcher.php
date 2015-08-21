@@ -135,7 +135,7 @@ if (defined('_ENABLE_MULTILANGUAGE') && _ENABLE_MULTILANGUAGE) {
     }
 }
 
-$class = new ReflectionClass($module_classname); // throws exception if the class is not existing
+$class = Reflect::getReflectionClass($module_classname); // throws exception if the class is not existing
 
 // TODO: Remove smarty support from here as long as it will be provided by
 // the `WebApp extends Controller` class.
@@ -184,7 +184,7 @@ if (_SECURITY_ENFORCE) {
     }
     require_once $file;
 
-    $class = new ReflectionClass($security_class); // throws exception if the class is not existing
+    $class = Reflect::ReflectionClass($security_class); // throws exception if the class is not existing
     $security = new $security_class ();
 
     //checking _GET, _POST and _COOKIE variables
