@@ -236,7 +236,7 @@ class Dispatcher {
         if (is_file(_DIR_MODULES . '/' . $params['module'] . '/class.' . $seo_class . '.php')) { // module file check
             include_once(_DIR_MODULES . '/' . $params['module'] . '/class.' . $seo_class . '.php');
             try {
-                $class = new ReflectionClass($seo_class); //throws exception if the class is not existing
+                $class = Reflect::getReflectionClass($seo_class); //throws exception if the class is not existing
                 $action = 'seo_' . $params['action'];
                 $method = $class->getMethod($action); //check for public method
                 if ($method->isPublic()) {
@@ -281,7 +281,7 @@ class Dispatcher {
                 if ( !method_exists($controller, $method_name) ) {
                     throw new Exception('Method ' . __CLASS__."::$method_name() does not exists.", 1);
                 }
-                return call_user_func_array(array($controller, $method_name), $param_arr);
+                return Reflect::invoke($controller, $method_name, $param_arr);
             }
         }
 
