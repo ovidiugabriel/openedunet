@@ -72,6 +72,11 @@ define ('DESCRIPTION',  1);
  */
 define ('DIR_PROJECT_BBMVC', str_replace('\\', '/', realpath(__DIR__ . '/../../..'))  .'/bbmvc');
 
+/** 
+ * @internal 
+ */
+define ('ARCHIVE_RELEASE_BBMVC', 'bbmvc-0.2.0.zip');
+
 //
 // Adds a little description to constants we generate
 //
@@ -79,48 +84,70 @@ $request_uri_parent = dirname(dirname(dirname($_SERVER['REQUEST_URI'])));
 $types_labels = array(
     '_URL_MAIN'                 => array('string', 'Main URL',
         'http://' . $_SERVER['HTTP_HOST'] . $request_uri_parent),
+    
     '_FILE_MAIN'                => array('string', 'Main File',
         'index.php'),
+    
     '_DIR_PROJECT'              => array('string', 'Project Directory',
         DIR_PROJECT_BBMVC),
+    
     '_DIR_MODULES'              => array('string', 'Modules Directory',
         DIR_PROJECT_BBMVC . '/modules'),
+    
     '_DIR_LIBRARIES'            => array('string', 'Libraries Directory',
         DIR_PROJECT_BBMVC . '/libraries'),
+    
     '_DIR_TEMPLATES'            => array('string', 'Templates Directory',
         DIR_PROJECT_BBMVC . '/templates'),
+    
     '_DIR_LANGUAGES'            => array('string', 'Languages Directory',
         DIR_PROJECT_BBMVC . '/languages'),
+    
     '_DIR_CACHE'                => array('string', 'Cache Directory',
         DIR_PROJECT_BBMVC . '/cache'),
+    
     '_DEBUG'                    => array('enum:_DEBUG_OFF:_DEBUG_BROWSER:_DEBUG_LOG', 'Debug option',
         1 /* _DEBUG_BROWSER */),
+    
     '_SMARTY_VERSION'           => array('string', 'Smarty Version',
         '2.6.18'),
+    
     '_SMARTY_CACHING'           => array('boolean', 'Smarty Caching',
         0),
+    
     '_SECURITY_ENFORCE'         => array('boolean', 'Use Security Engine',
         0),
+    
     '_SECURITY_ENFORCE_GET'     => array('boolean', 'Enforce Security on GET',
         0),
+    
     '_SECURITY_ENFORCE_POST'    => array('boolean', 'Enforce Security on POST',
         ''),
+    
     '_SECURITY_ENFORCE_COOKIE'  => array('boolean', 'Enforce Security on COOKIE',
         ''),
+    
     '_DEFAULT_MODULE'           => array('string', 'Default Module',
         'CdCollections'),
+    
     '_DEFAULT_ACTION'           => array('string', 'Default Action',
         'index'),
+    
     '_LANGUAGE_DEFAULT'         => array('string', 'Default Language',
         'english'),
+    
     '_DB_USER'                  => array('string', 'Database User',
         ''),
+    
     '_DB_PASS'                  => array('string', 'Database Password',
         ''),
+    
     '_DB_HOST'                  => array('string', 'Database Host',
         ''),
+    
     '_DB_NAME'                  => array('string', 'Database Name',
         ''),
+    
     '_USE_SEO_LINKS'            => array('boolean', 'Use SEO Links Engine',
         ''),
 );
@@ -179,7 +206,7 @@ function on_files_extracted() {
 function config_submitted() {
     global $types_labels;
 
-    list($profile, $filepath) = get_cfg_file_path();
+    list ($profile, $filepath) = get_cfg_file_path();
 
     $fp = fopen($filepath, 'w');
 
@@ -236,14 +263,14 @@ function typed_field($name, $value) {
     $type = explode(':', $types_labels[$name][TYPE]);
 
     switch (array_shift($type)) {
-        case "string":
+        case 'string':
             return "<input name=\"{$name}\"
                 value=\"{$value}\"
                 style=\"width: 100%;\"
                 size=\"".strlen($value)."\"
                 type=\"text\" />";
 
-        case "enum":
+        case 'enum':
             $str = '<select name="'.$name.'">';
             $v = (defined($name)) ? constant($name) : $value;
             foreach ($type as $t) {
@@ -255,7 +282,7 @@ function typed_field($name, $value) {
             return $str;
         break;
 
-        case "boolean":
+        case 'boolean':
             $name_val = defined($name) ? constant($name) : $value;
             $checked = $name_val ? 'checked="checked"' : '';
             return '<input name="'. $name .'" type="checkbox" '.$checked.' value="1" />';
@@ -270,9 +297,9 @@ $vars = array();
 //
 if (!file_exists(DIR_PROJECT_BBMVC)) {
     $zip = new ZipArchive;
-    $res = $zip->open('bbmvc-0.2.0.zip');
+    $res = $zip->open(ARCHIVE_RELEASE_BBMVC);
     if ($res === TRUE) {
-        $zip->extractTo(dirname(__FILE__));
+        $zip->extractTo(__DIR__);
         $zip->close();
     }
 }
