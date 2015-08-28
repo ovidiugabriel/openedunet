@@ -318,12 +318,12 @@ function ns_import($class_name, $fn = null) {
         $p = explode('.', $class_name);
         
         // Class is not already loaded and there is a function
-        // that creates and alias; The function must be defined in the class's package.
+        // that creates and alias; The function must be defined in the class package.
         if (!class_exists($p[count($p)-1]) && (null !== $fn )) {
             $fn();
         }
     } else {
-        // Otherwise will use natvie namespace.
+        // Otherwise will use native namespace.
         $file = str_replace('.', '/', $class_name) . '.class.php';
         if (file_exists($file)) {
             require_once $file;
