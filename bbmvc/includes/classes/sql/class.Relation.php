@@ -9,10 +9,10 @@ class sql_Relation {
      * @param string $aTableName
      * @param string $indexCol
      * @param string $displayCol
-     * @proto public new(aTableName:String, indexCol:String, displayCol:string)
+     * @proto public new(?aTableName:String, ?indexCol:String, ?displayCol:string)
      */
-    public function __construct($aTableName, $indexCol, $displayCol) {
-        
+    public function __construct($aTableName = null, $indexCol = null, $displayCol = null) {
+        $this->is_valid = true;
     }
     
     /**
