@@ -296,7 +296,7 @@ $vars = array();
 // First extracts all files from the archive
 //
 if (!file_exists(DIR_PROJECT_BBMVC)) {
-    $zip = new ZipArchive;
+    $zip = new ZipArchive();
     $res = $zip->open(ARCHIVE_RELEASE_BBMVC);
     if ($res === TRUE) {
         $zip->extractTo(__DIR__);
