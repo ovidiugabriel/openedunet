@@ -4,6 +4,9 @@ declare_namespace('sql');
 
 class sql_Relation {
     private $is_valid = false;
+    private $table_name;
+    private $index_column;
+    private $display_column;
     
     /**
      * @param string $aTableName
@@ -12,7 +15,13 @@ class sql_Relation {
      * @proto public new(?aTableName:String, ?indexCol:String, ?displayCol:string)
      */
     public function __construct($aTableName = null, $indexCol = null, $displayCol = null) {
-        $this->is_valid = true;
+        $this->table_name     = $aTableName;
+        $this->index_column   = $indexCol;
+        $this->display_column = $displayCol;
+        
+        if ($aTableName && $indexCol && $displayCol) {
+            $this->is_valid = true;
+        }
     }
     
     /**
@@ -22,7 +31,7 @@ class sql_Relation {
      * @proto public displayColumn():String
      */
     public function displayColumn() {
-        
+        return $this->display_column;
     }
     
     /**
@@ -32,7 +41,7 @@ class sql_Relation {
      * @proto public indexColumn():String
      */
     public function indexColumn() {
-        
+        return $this->index_column;
     }
     
     /**
@@ -52,6 +61,6 @@ class sql_Relation {
      * @proto public tableName():String
      */
     public function tableName() {
-        
+        return $this->table_name;
     }
 }
