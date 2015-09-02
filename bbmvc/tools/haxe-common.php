@@ -5,6 +5,7 @@
  * to be used by the Haxe runtime for PHP target.
  * 
  * @param string $class_name
+ * @param boolean $impl whether to use Haxe _Impl_ type class
  * @return array ('full_name' => 'string', 'relpath' => 'string')
  * @internal
  */
