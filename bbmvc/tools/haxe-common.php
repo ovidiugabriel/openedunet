@@ -1,8 +1,11 @@
 <?php
 
 /**
+ * Transforms a dot-style fully specified class name into a file path suitable
+ * to be used by the Haxe runtime for PHP target.
+ * 
  * @param string $class_name
- * @return array
+ * @return array ('full_name' => 'string', 'relpath' => 'string')
  * @internal
  */
 function haxe_class_to_relpath($class_name, $impl = true) {
