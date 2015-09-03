@@ -3,7 +3,7 @@
 /**
  * @uuid {dc279e15-f07a-4d04-9220-38975eb545aa}
  */
-class play_mvc_http_Status {
+class play_mvc_http_Status extends Enum {
     const ACCEPTED = 202;
     const BAD_GATEWAY = 502;
     const BAD_REQUEST = 400;
