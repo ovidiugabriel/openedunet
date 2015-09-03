@@ -2,6 +2,10 @@
 
 class play_mvc_Results {
 	public function __construct(){}
+	
+	/**
+	 * @proto static public badRequest(?content:Dynamic): play.mvc.results.Status 
+	 */
 	static function badRequest($content = null) {
 		return new play_mvc_results_Status(play_mvc_results_Status::BAD_REQUEST, $content);
 	}
