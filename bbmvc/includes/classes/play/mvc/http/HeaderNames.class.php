@@ -3,7 +3,7 @@
 /* 
  * @uuid {abd7327f-d75e-467c-8566-8a4a554c4016}
  */
-class play_mvc_http_HeaderNames {
+class play_mvc_http_HeaderNames extends Enum {
     const ACCEPT = "Accept";
     const ACCEPT_CHARSET = "Accept-Charset";
     const ACCEPT_ENCODING = "Accept-Encoding";
