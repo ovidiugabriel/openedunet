@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @uuid {dc279e15-f07a-4d04-9220-38975eb545aa}
+ */
 class play_mvc_http_Status {
     const ACCEPTED = 202;
     const BAD_GATEWAY = 502;
