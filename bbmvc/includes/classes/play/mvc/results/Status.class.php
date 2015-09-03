@@ -1,6 +1,6 @@
 <?php
 
-class play_mvc_results_Status implements play_mvc_Result{
+class play_mvc_results_Status implements play_mvc_Result {
 	
 	# https://www.playframework.com/documentation/2.4.x/api/java/play/mvc/Results.Status.html
 
