@@ -4,17 +4,29 @@ class play_mvc_Results {
 	public function __construct(){}
 	
 	/**
-	 * @proto static public badRequest(?content:Dynamic): play.mvc.results.Status 
+	 * @proto static public badRequest(?content:Dynamic):play.mvc.results.Status 
 	 */
 	static function badRequest($content = null) {
 		return new play_mvc_results_Status(play_mvc_results_Status::BAD_REQUEST, $content);
 	}
+	
+	/** 
+	 * @proto static public created(?content:Dynamic):play.mvc.results.Status
+	 */
 	static function created($content = null) {
 		return new play_mvc_results_Status(play_mvc_results_Status::CREATED, $content);
 	}
+	
+	/** 
+	 * @proto static public forbidden(?content:Dynamic):play.mvc.results.Status
+	 */
 	static function forbidden($content = null) {
 		return new play_mvc_results_Status(play_mvc_results_Status::FORBIDDEN, $content);
 	}
+	
+	/** 
+	 * @proto static public found(url:String):play.mvc.results.Status
+	 */
 	static function found($url) {
 		return new play_mvc_results_Redirect(play_mvc_results_Redirect::FOUND, $url);
 	}
