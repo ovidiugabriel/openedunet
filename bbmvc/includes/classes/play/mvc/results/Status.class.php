@@ -1,16 +1,16 @@
 <?php
 
 class play_mvc_results_Status implements play_mvc_Result{
-	const BAD_REQUEST = 400;
-	const CREATED = 201;
-	const FORBIDDEN = 403;
-	const INTERNAL_SERVER_ERROR = 500;
-	const MOVED_PERMANENTLY = 301;
-	const NO_CONTENT = 204;
-	const NOT_FOUND = 404;
-	const OK = 200;
-	const SEE_OTHER = 303;
-	const TEMPORARY_REDIRECT = 307;
-	const UNAUTHORIZED = 401;
+	
+	# https://www.playframework.com/documentation/2.4.x/api/java/play/mvc/Results.Status.html
+
+	/** 
+	 * @param integer $status see play.api.mvc.results.Status
+	 * @proto public new(status:Int, content:String)
+	 */
+	public function __construct($status, $content) {
+		
+	}
+	
 	function __toString() { return 'play.mvc.results.Status'; }
 }
