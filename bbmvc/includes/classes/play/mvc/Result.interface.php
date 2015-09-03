@@ -2,6 +2,7 @@
 
 /** 
  * @package play.mvc
+ * @uuid {385949d5-87a8-4612-b209-ac67210f1866}
  */
 interface play_mvc_Result {
     /** 
