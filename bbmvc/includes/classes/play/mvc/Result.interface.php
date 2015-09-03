@@ -1,5 +1,8 @@
 <?php
 
+/** 
+ * @package play.mvc
+ */
 interface play_mvc_Result {
     /** 
      * Extracts the Charset of this Result value.
