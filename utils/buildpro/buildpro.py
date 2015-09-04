@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 #
 # The main idea of this tool is that it can generate tupfiles, makefiles, etc.
