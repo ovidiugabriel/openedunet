@@ -275,7 +275,7 @@ class Dispatcher {
         // BareboneMVC solves this issue with case insensitive elegant pattern matching
         // You just have to register other formats if needded.
 
-        $controller = new $module_classname()
+        $controller = new $module_classname();
         foreach ($this->formats as $format) {
             if (preg_match('/' . $format . '/i', $func_name, $matches)) {
                 $method_name = $matches[1];
