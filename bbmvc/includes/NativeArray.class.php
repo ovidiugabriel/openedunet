@@ -33,27 +33,42 @@ class NativeArray {
     /**
      * Converts Haxe types to PHP native ArrayObject.
      *
-     * @param mixed $var
+     * @param mixed $value
      * @return array
+     * 
      */
-    static public function fromHaxeType($var) {
-        $type = is_object($var) ? get_class($var) : gettype($var);
+    static public function fromHaxeType($value) {
+        $type = is_object($value) ? get_class($value) : gettype($value);
 
         switch ($type) {
             case '_hx_anonymous':
-                $var = new ArrayObject($var);
-            break;
+                return new ArrayObject($value);
 
             case 'haxe_ds_StringMap':
                 // Particular case for StringMap is that member h is needed.
-                $var = new ArrayObject($var->h);
-            break;
-
-            default:
-                # code...
-            break;
+                return new ArrayObject($value->h);
         }
-        return $var;
+        // No transformation needed, return the original value.
+        return $value;
+    }
+
+    /** 
+     * Turns a non-associative array into an associative array. (if it has an even number of segments.)
+     * 
+     * @param array $input
+     * @return array
+     */
+    static public function toAssoc($input) {
+        // Use this function to get the assoc... from
+        $splits = explode('/', $input);
+        $n_splits = count($splits);
+        $dict = array();
+        for ($i = 0; $i < $n_splits; $i+=2) {
+            if (isset( $splits[$i+1] )) {
+                $dict[$splits[$i]] = $splits[$i+1];
+            }
+        }
+        return $dict;
     }
     
     //
