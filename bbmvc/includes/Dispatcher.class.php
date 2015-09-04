@@ -106,6 +106,9 @@ function no_cache() {
 class Dispatcher {
     private $formats = array();
     
+    /** 
+     * @param array $formats the list of regular expression formats used to call the action method
+     */
     public function __construct(array $formats = array()) {
         $this->formats = $formats;
     }
