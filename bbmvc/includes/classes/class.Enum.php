@@ -1,6 +1,9 @@
 <?php
 
-class Enum {
+/** 
+ * @package barebone
+ */
+class barebone_Enum {
     public function values() {
         return Reflect::getReflectionClass($this)->getConstants();
     }
