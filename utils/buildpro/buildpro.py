@@ -123,7 +123,12 @@ def sublime_project():
         indent=4, separators=(',', ': ') ))
 
 
+""" 
+    Unlike .sublime-project files, .sublime-workspace files are not meant to be shared or edited manually. 
+    You should never commit .sublime-workspace files into a source code repository.
+"""
 def sublime_workspace():
+    # So this function is ignoring .sublime-workspace file for your given versioning system
     pass
 
 #
