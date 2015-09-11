@@ -20,6 +20,7 @@ import os
 import subprocess
 import yaml
 import re
+import json
 
 #
 # Executes command via shell and return the complete output as a string
@@ -109,6 +110,18 @@ def proto():
 
     outfd.close()
 
+def sublime_project():
+    # TODO: Work sublime project generator
+    data = {"folders":[]}
+    data["folders"].append({"file_exclude_patterns":[], "name":"", "path":""})
+
+    print(json.dumps(data, sort_keys=True,
+        indent=4, separators=(',', ': ') ))
+
+
+def sublime_workspace():
+    pass
+
 #
 # ---------------------------------------------------------------------------------------------------------
 # End functions
@@ -127,7 +140,15 @@ env = os.environ
 
 if '-proto' == sys.argv[1]:
     proto()
-    exit(0)
+    buildpro_exit(0)
+
+if '-sublime-project' == sys.argv[1]:
+    sublime_project()
+    buildpro_exit(0)
+
+if '-sublime-workspace' == sys.argv[1]:
+    sublime_workspace()
+    buildpro_exit(0)
 
 #
 # Continue for non-proto usage
@@ -251,7 +272,7 @@ else:
 #  print('### Running ' + output + ' ... ###');
 #  print(shell_exec('./' + output))
 
-exit(0)
+buildpro_exit(0)
 
 # Scanning dependencies ...
 
