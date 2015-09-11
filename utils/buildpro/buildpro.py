@@ -110,6 +110,10 @@ def proto():
 
     outfd.close()
 
+""" 
+    https://sublime-text-unofficial-documentation.readthedocs.org/en/latest/file_management/file_management.html\
+    #the-sublime-project-format
+"""
 def sublime_project():
     # TODO: Work sublime project generator
     data = {"folders":[]}
