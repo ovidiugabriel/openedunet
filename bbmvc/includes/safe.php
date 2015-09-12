@@ -109,6 +109,6 @@ if (!function_exists('safe_assert')) {
      */
     function safe_assert($assertion, $description = null) {
         $assertion = (bool) $assertion;
-        assert($description);
+        assert($assertion, $description);
     }
 }
