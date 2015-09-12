@@ -4,7 +4,7 @@
  *                            ClassLoader.class.php
  *                    ------------------------------------
  *            begin     : Apr 10, 2007
- *            copyright : (C) Brehar Mihai-Tudor
+ *            copyright : (C) Brehar Mihai-Tudor,  BMR Soft srl, ICE Control srl
  *            email     : mihai@secure-hosting.ro
  *
  *    $Id$
