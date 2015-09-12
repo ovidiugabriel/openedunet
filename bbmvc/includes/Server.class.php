@@ -8,9 +8,9 @@ class Server {
     /** 
      * Applies HTML encoding to the specified string.
      * 
-     * @proto public HTMLEncode(in:String):String  
+     * @proto public htmlEncode(in:String):String  
      */
-    public function HTMLEncode($in) {}
+    public function htmlEncode($in) {}
 
     /** 
      * Maps the specified relative or virtual path to the corresponding physical directory on the server.
@@ -22,8 +22,8 @@ class Server {
     /**
      * Applies URL encoding rules, including escape characters, to the specified string.
      * 
-     * @proto public URLEncode(in:String):String 
+     * @proto public urlEncode(in:String):String 
      */
-    public function URLEncode($in) {}
+    public function urlEncode($in) {}
 
 }
