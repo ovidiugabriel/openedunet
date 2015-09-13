@@ -64,6 +64,7 @@ class NativeArray {
      *
      * @param mixed $value
      * @return array
+     * @see http://api.haxe.org/php/Lib.html
      * 
      */
     static public function fromHaxeType($value) {
