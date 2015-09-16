@@ -2,7 +2,7 @@
 
 /* ************************************************************************* */
 /*                                                                           */
-/*  Title:       bootstrap.php.php                                           */
+/*  Title:       bootstrap.php                                               */
 /*                                                                           */
 /*  Created on:  12.09.2015 at 09:44:33                                      */
 /*  Email:       ovidiugabriel@gmail.com                                     */
