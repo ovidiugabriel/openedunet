@@ -71,6 +71,10 @@ if (!defined('_VALID_ACCESS')) {
  * @access public
  */
 class ClassLoader {
+    /**
+     * Registers the __autoload function if it exists and the ClassLoader::autoload() 
+     * function as autoload functions. It shall be called from bootstrap.
+     */
     static public function register() {
         if (function_exists('__autoload')) {
             spl_autoload_register('__autoload');
