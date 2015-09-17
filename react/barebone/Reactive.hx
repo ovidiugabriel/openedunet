@@ -10,6 +10,7 @@ package barebone;
 import js.Browser;
 import js.html.Console;
 import js.html.Element;
+import js.html.DOMElement;
 import haxe.ds.StringMap;
 import haxe.extern.Rest;
 
@@ -61,6 +62,10 @@ class Js {
             return defaultValue;
         }
         return untyped __js__('num.toFixed(decimals)');
+    }
+    
+    static public function getObjectByType(type:String):js.html.DOMElement {
+        return untyped __js__('document.querySelector(\'object[type="\' + type + \'"]\')');
     }
 }
 
