@@ -78,9 +78,11 @@ ClassLoader::register();
 // and a folder called php with a file Boot.class.php which basically 
 // registers the autoload function _hx_autoload() using spl_autoload_register()
 //
-// IMPORTANT: If HAXELIB_PHP the PHP runtime for Haxe does not boot.
+// IMPORTANT: If HAXELIB_PHP is not defined, then the PHP runtime for Haxe does not boot.
 // Make sure this is defined in order to use Haxe.
 //
 if (defined('HAXELIB_PHP')) {
     require_once HAXELIB_PHP . '/php/Boot.class.php';
 }
+
+// EOF
