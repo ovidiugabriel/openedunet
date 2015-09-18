@@ -69,6 +69,9 @@ if (!defined('_VALID_ACCESS')) {
 define ('INSTALLER_PATH', '/tools/installer/install.php');
 
 /**
+ * Used to redirect to installer if no profile was found
+ * or if profile found but not configuration was found for defined profile name.
+ * 
  * @internal
  */
 function goto_installer() {
