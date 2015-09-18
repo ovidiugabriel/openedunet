@@ -53,6 +53,21 @@
 /* History (END).                                                            */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
+/*                                                                           */
+/* INCLUDE FILES (DEPENDENCIES)                                              */
+/*                                                                           */
+
+require_once __DIR__ . '/safe.php';
+
+//
+// PHPUnit is a huge, broken implementation of a Unit Test framework.
+// I was unable to run my unit-tests on Windows because PHPUnit depends on
+// PHP_Invoker which is not available on Windows.
+//
+// So I decided to switch to this simple unit test framework that just work.
+// No other fancy shit.
+//
+
 class TestCase {
     /**
      * @param string $class_name
@@ -65,6 +80,15 @@ class TestCase {
                 call_user_func(array($instance, $method));
             }
         }
+    }
+    
+    /** 
+     * @param boolean $assertion
+     * @param string $description
+     * @return boolean
+     */
+    public function assert($assertion, $description = null) {
+        return safe_assert($assertion, $description);
     }
 }
 
