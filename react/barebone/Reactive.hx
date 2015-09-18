@@ -67,6 +67,11 @@ class Js {
     static public function getObjectByType(type:String):js.html.DOMElement {
         return untyped __js__('document.querySelector(\'object[type="\' + type + \'"]\')');
     }
+    
+    static public function setElementSize(element:js.html.DOMElement, width:Int, height:Int):Void {
+        untyped __js__('element.style.width = width + "px"');
+        untyped __js__('element.style.height = height + "px"');
+    }
 }
 
 extern class React {
