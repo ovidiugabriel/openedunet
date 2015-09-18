@@ -48,14 +48,10 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
-/*                                                                           */
+/* 18.09.2015           Added Haxe Boot.class.php                            */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* History (END).                                                            */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-
-/*                                                                           */
-/* INCLUDE FILES (DEPENDENCIES)                                              */
-/*                                                                           */
 
 //
 // Previously used as class_loader.php
@@ -67,6 +63,24 @@ if (!defined('_VALID_ACCESS')) {
     define ('_VALID_ACCESS', 1);
 }
 
+/*                                                                           */
+/* INCLUDE FILES (DEPENDENCIES)                                              */
+/*                                                                           */
+
 require_once 'includes/ClassLoader.class.php';
 
+// Registers Barebone MVC specific autoloading
 ClassLoader::register();
+
+//
+// Usually Haxe generates a main index.php file and alongside a folder named
+// `lib`. This folder contains some *.class.php files some *.interface.php files
+// and a folder called php with a file Boot.class.php which basically 
+// registers the autoload function _hx_autoload() using spl_autoload_register()
+//
+// IMPORTANT: If HAXELIB_PHP the PHP runtime for Haxe does not boot.
+// Make sure this is defined in order to use Haxe.
+//
+if (defined('HAXELIB_PHP')) {
+    require_once HAXELIB_PHP . '/php/Boot.class.php';
+}
