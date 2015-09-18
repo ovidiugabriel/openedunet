@@ -81,8 +81,8 @@ ClassLoader::register();
 // IMPORTANT: If HAXELIB_PHP is not defined, then the PHP runtime for Haxe does not boot.
 // Make sure this is defined in order to use Haxe.
 //
-if (defined('HAXELIB_PHP')) {
-    require_once HAXELIB_PHP . '/php/Boot.class.php';
+if (defined('HAXE_PHP_LIB')) {
+    require_once HAXE_PHP_LIB . '/php/Boot.class.php';
 }
 
 // EOF
