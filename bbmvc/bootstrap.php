@@ -48,6 +48,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 18.09.2015           Added constdef and composer vendor/autoload.php      */
 /* 18.09.2015           Added Haxe Boot.class.php                            */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* History (END).                                                            */
@@ -67,18 +68,25 @@ if (!defined('_VALID_ACCESS')) {
 /* INCLUDE FILES (DEPENDENCIES)                                              */
 /*                                                                           */
 
-require_once 'includes/ClassLoader.class.php';
+require_once __DIR__ . '/includes/constdef.php';
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/includes/ClassLoader.class.php';
+
+// FIXME: Need to move vendor folder in another location??
+if (file_exists($file = __DIR__ . '/../vendor/autoload.php')) {
+    require_once $file;
+}
 
 // Registers Barebone MVC specific autoloading
 ClassLoader::register();
 
 //
-// Usually Haxe generates a main index.php file and alongside a folder named
+// Haxe generates a main index.php file and alongside a folder named
 // `lib`. This folder contains some *.class.php files some *.interface.php files
-// and a folder called php with a file Boot.class.php which basically 
-// registers the autoload function _hx_autoload() using spl_autoload_register()
+// and a folder called `php` with a file Boot.class.php which basically
+// registers the autoload function _hx_autoload() using spl_autoload_register();
 //
-// IMPORTANT: If HAXELIB_PHP is not defined, then the PHP runtime for Haxe does not boot.
+// IMPORTANT: If HAXE_PHP_LIB is not defined, then the PHP runtime for Haxe does not boot.
 // Make sure this is defined in order to use Haxe.
 //
 if (defined('HAXE_PHP_LIB')) {

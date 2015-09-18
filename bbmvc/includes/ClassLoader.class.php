@@ -15,29 +15,29 @@
  * Copyright (c) 2006, BMR Soft srl, ICE Control srl
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without modification, 
+ * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
  *
- * 1. Redistributions of source code must retain the above copyright notice, this 
+ * 1. Redistributions of source code must retain the above copyright notice, this
  * list of conditions and the following disclaimer.
  *
- * 2. Redistributions in binary form must reproduce the above copyright notice, 
- * this list of conditions and the following disclaimer in the documentation 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
  * and/or other materials provided with the distribution.
  *
- * 3. Neither the name of the copyright holder nor the names of its contributors 
- * may be used to endorse or promote products derived from this software without 
+ * 3. Neither the name of the copyright holder nor the names of its contributors
+ * may be used to endorse or promote products derived from this software without
  * specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
- * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
- * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
- * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
- * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
- * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
@@ -47,6 +47,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 18.09.2015           Blocked PHP_Invoker loading                          */
 /* 30.07.2015           Switched to from class.F.php to F.class.php          */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* History (END).                                                            */
@@ -72,7 +73,7 @@ if (!defined('_VALID_ACCESS')) {
  */
 class ClassLoader {
     /**
-     * Registers the __autoload function if it exists and the ClassLoader::autoload() 
+     * Registers the __autoload function if it exists and the ClassLoader::autoload()
      * function as autoload functions. It shall be called from bootstrap.
      */
     static public function register() {
@@ -101,6 +102,10 @@ class ClassLoader {
                     require_once 'Smarty.class.php';
                 }
                 return;
+
+            case 'PHP_Invoker':
+                die('Are you calling PHP_Invoker? Please remove PHPUnit.');
+                break;
 
             default:
                 require_once _DIR_PROJECT . '/includes/classes/class.' . $class_name . '.php';
@@ -232,7 +237,7 @@ class ClassLoader {
     }
 }
 
-/** 
+/**
  * @param string $package
  * @return void
  */
@@ -308,18 +313,18 @@ function require_class($name, $fn = null) {
     return ClassLoader::requireClass($name, $fn);
 }
 
-/** 
+/**
  * @param string $class_name
  * @param callable $fn
  */
 function ns_import($class_name, $fn = null) {
     // There is no reason to have this function as a method in ClassLoader
     // since it is possible to call it as a function from PHP code, and it won't be called from Haxe code.
-    
+
     if (version_compare(PHP_VERSION, '5.3.0') < 0) {
         // Before PHP 5.3.0, so there is no namespace support
         $p = explode('.', $class_name);
-        
+
         // Class is not already loaded and there is a function
         // that creates and alias; The function must be defined in the class package.
         if (!class_exists($p[count($p)-1]) && (null !== $fn )) {

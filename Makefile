@@ -3,6 +3,7 @@
 #
 DOCUMENTOR=phpDocumentor.phar
 PHPUNIT=phpunit
+COMPOSER=composer.phar
 
 none:
 	# nothing to be done
@@ -16,5 +17,8 @@ tup:
 unittest:
 	# Composing Test Suite Using the Filesystem
 	$(SHELL) $(PHPUNIT) --bootstrap bbmvc/bootstrap.php bbmvc/tests
+
+composer-update:
+	$(SHELL) php $(COMPOSER) update
 
 # don't forget to ensure_newline_at_eof_on_save
