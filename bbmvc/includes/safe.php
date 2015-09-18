@@ -105,10 +105,10 @@ if (!function_exists('safe_assert')) {
      * 
      * @param bool $assertion
      * @param string $description
-     * @return void
+     * @return bool
      */
     function safe_assert($assertion, $description = null) {
         $assertion = (bool) $assertion;
-        assert($assertion, $description);
+        return assert($assertion, $description);
     }
 }
