@@ -13,7 +13,7 @@
 /* ************************************************************************* */
 
 /*
- * Copyright (c) 2006, BMR Soft srl, ICE Control srl
+ * Copyright (c) 2015, ICE Control srl
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
