@@ -142,7 +142,19 @@ These rules are not mandatory, they are just advisory and won't be enforced on c
 
 We do not agree [Hungarian Notation](CodingConventions_HungarianNotation.md) (click the link to find out why).
 
-After all, computer programming is about data structures, algorithms, architectures and interfaces and not so much about text formatting and typography.
+Exceptions:
+
+| Prefix | Meaning                   |
+|:-------|:--------------------------|
+| m      | member variable           |
+| g      | global variable           |
+| f      | boolean flag              |
+| k      | enum member               |
+| s      | static variable or member |
+
+**Sublime Text** provides supor for those if you type the prefix without underscore after.
+
+After all, computer programming is about **data structures**, **algorithms**, **architectures** and **interfaces** and not so much about text formatting and typography.
 
 ## Design Principles ##
 
