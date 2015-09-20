@@ -133,17 +133,14 @@ class Security {
      * @param string $type
      * @return string
      */
-    static public function scanPrintEscape($input, $scanFormat, $printFormat = null, $escapeFunction = null, $type = 'text') {
+    static public function scanPrintEscape($input, $scanFormat, $printFormat = null, $escapeFunction = GENERIC_ESCAPE_FUNCTION, $type = 'text') {
         $scanResult = sscanf($input, $scanFormat);
         if (null == $printFormat) {    // If print format not specified
             $printFormat = $scanFormat; // use the same format as for scan
         }
         array_unshift($scanResult, $printFormat);
         $printResult = call_user_func_array('sprintf', $scanResult);
-        if (null != $escapeFunction) {
-            return $escapeFunction($printResult, $type);
-        }
-        return $printResult;
+        return $escapeFunction($printResult, $type);
     }
 
     /**
