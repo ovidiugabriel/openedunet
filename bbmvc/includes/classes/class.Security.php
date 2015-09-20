@@ -43,6 +43,10 @@ if (!defined('_VALID_ACCESS')) {
  */
 class Security {
 
+    static public function scanPrintEscape($input, $scanFormat, $printFormat, $escapeFunction, $type) {
+        
+    }
+
     /**
      *
      * @param string $string
