@@ -11,23 +11,46 @@
  *
  * ************************************************************************* */
 
-/* * *************************************************************************
- *
- *    This program is Free Software; you can redistribute it and/or
- *    modify it under the terms of the GNU General Public License
- *    as published by the Free Software Foundation; either version 2
- *    of the License, or (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *    GNU General Public License for more details.
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 59 Temple Place - Suite 330,
- *    Boston, MA  02111-1307, USA.
- *
- * ************************************************************************* */
+ /*
+  * Copyright (c) 2015, ICE Control srl
+  * All rights reserved.
+  *
+  * Redistribution and use in source and binary forms, with or without modification,
+  * are permitted provided that the following conditions are met:
+  *
+  * 1. Redistributions of source code must retain the above copyright notice, this
+  * list of conditions and the following disclaimer.
+  *
+  * 2. Redistributions in binary form must reproduce the above copyright notice,
+  * this list of conditions and the following disclaimer in the documentation
+  * and/or other materials provided with the distribution.
+  *
+  * 3. Neither the name of the copyright holder nor the names of its contributors
+  * may be used to endorse or promote products derived from this software without
+  * specific prior written permission.
+  *
+  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  */
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* History (Start).                                                          */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*                                                                           */
+/* Date         Name    Reason                                               */
+/* ------------------------------------------------------------------------- */
+/* 20.09.2015           Moved checkVariables() function from Dispatcher.     */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* History (END).                                                            */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 /**
  * @package	barebone
@@ -43,6 +66,45 @@ if (!defined('_VALID_ACCESS')) {
  */
 class Security {
 
+    /**
+     * Performs a security check on the contents of superglobal variables and throws
+     * an exception if suspicious input is found.
+     *
+     * @param ReflectionClass $class a reflection of the Security class instance
+     * @param Security $security an instance of the Security class
+     * @param string $array the name of the superglobal to check: _GET, _POST, _COOKIE
+     * @return void
+     * @throws Exception throws SecurityException if something strange has been found in the input
+     */
+    static public function checkVariables(ReflectionClass $class, Security $security, /* string */ $array) {
+        //$array should be $_GET, $_POST, $_COOKIE
+        global $$array;
+        if (empty($$array)) {
+            return;
+        }
+
+        foreach ($$array as $key => $value) {
+            if (('module' == $key) || ('action' == $key)) {
+                //skipping module and action parameters
+                continue;
+            }
+
+            //the security class should have a method called check_GET_variableName (just an example)
+            $function_name = 'check' . $array . '_' . $key;
+            $method = $class->getMethod($function_name); //if the method does not exist, an exception will be thrown
+            //finally, calling the function
+            $security->$function_name($value);
+        }
+    }
+
+    /** 
+     * @param string $input
+     * @param string $scanFormat
+     * @param string $printFormat
+     * @param callable $escapeFunction
+     * @param string $type
+     * @return string
+     */
     static public function scanPrintEscape($input, $scanFormat, $printFormat = null, $escapeFunction = null, $type = 'text') {
         $scanResult = sscanf($input, $scanFormat);
         if (null == $printFormat) {    // If print format not specified
