@@ -47,6 +47,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 20.09.2015           Compacted isInt(), isNatural()                       */
 /* 20.09.2015           Moved checkVariables() function from Dispatcher.     */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* History (END).                                                            */
@@ -124,11 +125,7 @@ class Security {
      * @return boolean
      */
     protected function isInt($string) {
-        if (ereg("^\-{0,1}[0-9]+$", $string)) {
-            return true;
-        }
-
-        return false;
+        return (bool) ereg("^\-{0,1}[0-9]+$", $string);
     }
 
     /**
@@ -137,11 +134,7 @@ class Security {
      * @return boolean
      */
     protected function isNatural($string) {
-        if (ereg("^[0-9]+$", $string)) {
-            return true;
-        }
-
-        return false;
+        return (bool) ereg("^[0-9]+$", $string);
     }
 
 }
