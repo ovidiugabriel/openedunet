@@ -1,7 +1,7 @@
 <?php
 
 /* * *************************************************************************
- *                               class.SecurityClass.php
+ *                               class.Security.php
  *                    ------------------------------------
  *            begin     : 04.04.2007
  *            copyright : (C) 2007 Ovidiu Farauanu
