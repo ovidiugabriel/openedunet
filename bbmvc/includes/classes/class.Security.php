@@ -4,15 +4,15 @@
  *                               class.Security.php
  *                    ------------------------------------
  *            begin     : 04.04.2007
- *            copyright : (C) 2007 Ovidiu Farauanu
- *            email     : ovidiugabriel@gmail.com
+ *            copyright : (C) 2007 Ovidiu Farauanu, Mihai Brehar
+ *            email     : ovidiugabriel@gmail.com, mihai@secure-hosting.ro
  *
  *    $Id:class.Security.php 262 2007-06-07 18:38:47Z mihai $
  *
  * ************************************************************************* */
 
  /*
-  * Copyright (c) 2015, ICE Control srl
+  * Copyright (c) 2007-2015, BMR Soft srl, ICE Control srl
   * All rights reserved.
   *
   * Redistribution and use in source and binary forms, with or without modification,
@@ -72,7 +72,25 @@ class Security {
     static public function checkVariablesGeneral($value) {
         static $secrules = null;
         if (null == $secrules) {
+            // FIXME: Add a better loader
             // $secrules = require_once 'secrules.php';
+        }
+        
+        foreach($secrules as $key => $rule){
+            if (!$rule['enabled']) { // rule is not enabled
+                continue;
+            }
+
+            if (is_array($value)) {
+                foreach ($value as $v) {
+                    checkVariablesGeneral($v);
+                }
+            } else {
+                if (preg_match($rule['rule'], urldecode($value))) {
+                    throw new Exception("{$key} Attack");
+                    die; // Do not continue past this point.
+                }
+            }
         }
     }
 
