@@ -47,6 +47,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 20.09.2015           Moved checkVariables() to Security class             */
 /* 27.06.2015           Added HaXe StringMap support                         */
 /* 27.06.2015           Added HaXe anonymous structure support               */
 /* 22.06.2015           Replaced dispatcher function with Dispatcher class   */
@@ -164,36 +165,7 @@ class Dispatcher {
         die;
     }
 
-    /**
-     * Performs a security check on the contents of superglobal variables and throws
-     * an exception if suspicious input is found.
-     *
-     * @param ReflectionClass $class a reflection of the Security class instance
-     * @param Security $security an instance of the Security class
-     * @param string $array the name of the superglobal to check: _GET, _POST, _COOKIE
-     * @return void
-     * @throws Exception throws SecurityException if something strange has been found in the input
-     */
-    static public function checkVariables(ReflectionClass $class, Security $security, $array) {
-        //$array should be $_GET, $_POST, $_COOKIE
-        global $$array;
-        if (empty($$array)) {
-            return;
-        }
-
-        foreach ($$array as $key => $value) {
-            if (('module' == $key) || ('action' == $key)) {
-                //skipping module and action parameters
-                continue;
-            }
-
-            //the security class should have a method called check_GET_variableName (just an example)
-            $function_name = 'check' . $array . '_' . $key;
-            $method = $class->getMethod($function_name); //if the method does not exist, an exception will be thrown
-            //finally, calling the function
-            $security->$function_name($value);
-        }
-    }
+    /* Moved checkVariables() to Security class */
 
     /**
      * Creates an URL string using Seo classes specified in a module.
