@@ -66,6 +66,15 @@ if (!defined('_VALID_ACCESS')) {
  * @access public
  */
 class Security {
+    /** 
+     * @param mixed $value
+     */
+    static public function checkVariablesGeneral($value) {
+        static $secrules = null;
+        if (null == $secrules) {
+            // $secrules = require_once 'secrules.php';
+        }
+    }
 
     /**
      * Performs a security check on the contents of superglobal variables and throws
