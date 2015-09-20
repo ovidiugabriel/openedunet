@@ -43,8 +43,17 @@ if (!defined('_VALID_ACCESS')) {
  */
 class Security {
 
-    static public function scanPrintEscape($input, $scanFormat, $printFormat, $escapeFunction, $type) {
-        
+    static public function scanPrintEscape($input, $scanFormat, $printFormat = null, $escapeFunction = null, $type = 'text') {
+        $scanResult = sscanf($input, $scanFormat);
+        if (null == $printFormat) {    // If print format not specified
+            $printFormat = $scanFormat; // use the same format as for scan
+        }
+        array_unshift($scanResult, $printFormat);
+        $printResult = call_user_func_array('sprintf', $scanResult);
+        if (null != $escapeFunction) {
+            return $escapeFunction($printResult, $type);
+        }
+        return $printResult;
     }
 
     /**
