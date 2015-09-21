@@ -33,6 +33,7 @@ class sql_Query {
      * @return void
      */
     public final function bindValue($placeholder, $value) {
+        // TODO: Escape value
         $this->vars[$placeholder] = $value;
     }
     
