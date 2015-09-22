@@ -32,8 +32,8 @@ class sql_Query {
      * @param mixed $value
      * @return void
      */
-    public final function bindValue($placeholder, $value) {
-        // TODO: Escape value
+    public final function bindValue($placeholder, $value, $type = null) {
+        // TODO: Escape value (type is used by escape function)
         $this->vars[$placeholder] = $value;
     }
     
