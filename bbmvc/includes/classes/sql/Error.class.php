@@ -5,7 +5,7 @@
  * Documentation of Java version at: http://doc.qt.digia.com/qtjambi-4.5.2_01/index.html
  * See: Package com.trolltech.qt.sql
  */
-namespace sql;
+declare_namespace('sql');
 
 /** 
  * Database error information 
@@ -13,7 +13,7 @@ namespace sql;
 class Error {
 }
 
-class Error_ErrorType {
+class Error_ErrorType extends barebone_Enum {
   const ConnectionError  = 0;
   const NoError          = 1;
   const StatementError   = 2;
