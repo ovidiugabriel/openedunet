@@ -87,6 +87,33 @@ class Cookie {
      */
     private $Value;
 
+    /** 
+     * @param string $key
+     * @param string $value
+     * @return boolean
+     */
+    static public function set($key, $value) {
+        return true;
+    }
+
+    /**
+     * @param string $key
+     * @param mixed $defaultValue
+     * @param string $type
+     * @return mixed
+     */
+    static public function get($key, $defaultValue, $type = null) {
+
+    }
+
+    /**
+     * @param string $key
+     * @return boolean
+     */
+    static public function exists($key) {
+        
+    }
+
     /**
      * Retrieve the Domain attribute of the cookie.
      *
