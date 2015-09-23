@@ -28,6 +28,10 @@ class sql_Query {
     }
     
     /**
+     * Provides also escaping function.
+     * 
+     * @see https://ellislab.com/codeigniter/user-guide/database/queries.html
+     * 
      * @param string $placeholder
      * @param mixed $value
      * @return void
