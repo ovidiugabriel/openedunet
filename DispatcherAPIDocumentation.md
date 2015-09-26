@@ -189,6 +189,12 @@ The `level` is compatible with the [syslog()](http://php.net/manual/en/function.
 | `LOG_DEBUG`   | `7` |                   |        | debug-level messages |
 |               |     | `E_USER_DEPRECATED` | `16384` | deprecated feature requested |
 
+### `log_var_dump()` ###
+
+```
+log_var_dump(mixed var, string varname)
+```
+
 ### `trace_query()` ###
 
 ```
