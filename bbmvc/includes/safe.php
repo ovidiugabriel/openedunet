@@ -109,6 +109,12 @@ if (!function_exists('safe_assert')) {
      */
     function safe_assert($assertion, $description = null) {
         $assertion = (bool) $assertion;
-        return assert($assertion, $description);
+        // PHP 5.3.29 -> assert() expects exactly 1 parameter
+        // description added in PHP 5.4.8
+        if (version_compare(PHP_VERSION, '5.4.8') >= 0) {
+            return assert($assertion, $description);
+        }
+        // TODO: I think it is better to throw an exception with the description as message?
+        return assert($assertion);
     }
 }
