@@ -73,6 +73,19 @@ class Platform {
         $user = JFactory::getUser();
         return (int) $user->id;
     }
+    
+    /** 
+     * @return object
+     * @proto static public getConfiguration():Dynamic
+     */
+    static public function getConfiguration() {
+        static $config = null;
+        if (null == $config) {
+            // require_once ... 
+            $config = new JConfig();
+        }
+        return $config;
+    }
 }
 
 // EOF
