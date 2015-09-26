@@ -81,7 +81,6 @@ class Platform {
     static public function getConfiguration() {
         static $config = null;
         if (null == $config) {
-            // require_once ... 
             $config = new JConfig();
         }
         return $config;
