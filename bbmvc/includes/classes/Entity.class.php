@@ -56,21 +56,18 @@
 class Entity {
     /** 
      * @param string $type
-     * @param array $args
+     * @param array $args - if list of members not specified, the entire object is sent
      * @return object
      */
     public function asInstanceOf($type, array $args = null) {
-        $reflect = new ReflectionClass($type);
-        $ctor_args =  array();
         if (null != $args) {
+            $reflect = new ReflectionClass($type);
+            $ctor_args =  array();
             foreach ($args as $arg_name) {
                 $ctor_args[] = $this->$arg_name;
             }
-        } else {
-            foreach ($this as $arg_name => $arg_value) {
-                $ctor_args[] = $this->$arg_name;
-            }
+            return $reflect->newInstanceArgs($ctor_args);
         }
-        return $reflect->newInstanceArgs($ctor_args);
+        return new $type($this);
     }
 }
