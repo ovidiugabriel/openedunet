@@ -62,6 +62,7 @@ class Entity {
      * @param string $type
      * @param array $args - if list of members not specified, the entire object is sent
      * @return object
+     * @proto public asInstanceOf(type:String, ?args:Dynamic):Dynamic
      */
     public function asInstanceOf($type, array $args = null) {
         if (null != $args) {
