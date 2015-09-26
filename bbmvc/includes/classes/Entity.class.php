@@ -59,11 +59,17 @@ class Entity {
      * @param array $args
      * @return object
      */
-    public function asInstanceOf($type, array $args) {
+    public function asInstanceOf($type, array $args = null) {
         $reflect = new ReflectionClass($type);
         $ctor_args =  array();
-        foreach ($args as $arg_name) {
-            $ctor_args[] = $this->$arg_name;
+        if (null != $args) {
+            foreach ($args as $arg_name) {
+                $ctor_args[] = $this->$arg_name;
+            }
+        } else {
+            foreach ($this as $arg_name => $arg_value) {
+                $ctor_args[] = $this->$arg_name;
+            }
         }
         return $reflect->newInstanceArgs($ctor_args);
     }
