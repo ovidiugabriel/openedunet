@@ -55,6 +55,10 @@
 
 class Entity {
     /** 
+     * Usually this function is replaced in child class by a function
+     * asInstanceOf(string $type):object which wraps specification on $args
+     * if needed.
+     * 
      * @param string $type
      * @param array $args - if list of members not specified, the entire object is sent
      * @return object
