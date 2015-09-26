@@ -64,6 +64,15 @@ class Platform {
     static public function getFormToken() {
         return JSession::getFormToken();
     }
+    
+    /** 
+     * @return integer
+     * @proto static public getCurrentUserId():Int
+     */
+    static public function getCurrentUserId() {
+        $user = JFactory::getUser();
+        return (int) $user->id;
+    }
 }
 
 // EOF
