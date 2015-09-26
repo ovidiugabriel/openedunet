@@ -85,6 +85,36 @@ class Platform {
         }
         return $config;
     }
+    
+    /** 
+     * @return string
+     * @proto static getMainURL():String
+     */
+    static public function getMainURL() {
+        
+    }
+    
+    /**
+     * @return string
+     * @proto static getCurrentLocation():String
+     */
+    static public function getCurrentLocation() {
+        
+    }
+    
+    /** 
+     * @return array {database: ..., username: ..., password: ..., hostname: ...}
+     * @proto static public getDatabaseConfiguration():Dynamic
+     */
+    static public function getDatabaseConfiguration() {
+        $conf = self::getConfiguration();
+        return array(
+            'database' => $conf->db,
+            'username' => $conf->user,
+            'password' => $conf->password,
+            'hostname' => $conf->host,
+        );
+    }
 }
 
 // EOF
