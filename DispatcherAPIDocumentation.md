@@ -9,14 +9,6 @@ The dispatcher is mainly responsible to
 
 Barebone MVC class naming convention is following the [PHP Framework Interoperability Group](http://www.php-fig.org/) Standard: **[PSR-0 Autoloading Standard](http://www.php-fig.org/psr/psr-0/)**
 
-
-
-&lt;hr /&gt;
-
-
-
-
-
 ## Use Exception Handling ##
 
 **IMPORTANT**: The dispatcher API is designed based on the [UseExceptionsInsteadOfErrorValues](http://c2.com/cgi/wiki?UseExceptionsInsteadOfErrorValues) pattern. Although some users insist having a return value to be checked by the caller instead.
@@ -194,6 +186,11 @@ The `level` is compatible with the [syslog()](http://php.net/manual/en/function.
 ```
 log_var_dump(mixed var, string varname)
 ```
+
+Dumps a variable contents to the log files.
+
+* if the variable is object or array, then the format of **print_r** is used
+* otherwise the format of **var_dump** is used
 
 ### `trace_query()` ###
 
