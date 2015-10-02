@@ -58,9 +58,9 @@ class sql_Query {
     }
     
     /**
-     * @proto public exec(?query:String):Bool
+     * @proto public execute(?query:String):Bool
      */
-    public final function exec($query = null) {
+    public final function execute($query = null) {
         if (null === $query) {
             $query = $this->statement;
         }
