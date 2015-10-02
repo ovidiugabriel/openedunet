@@ -48,6 +48,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 02.10.2015           Replaced assert with exception.                      */
 /* 11.08.2015           Initial revision                                     */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* History (END).                                                            */
@@ -100,21 +101,18 @@ if (!function_exists('safe_count')) {
 if (!function_exists('safe_assert')) {
     /** 
      * For the original assert() function, if the assertion is given as a string 
-     * it will be evaluated as PHP code by assert(). To prevent this, the safe_assert()
-     * version casts the assertion to be always a boolean value.
+     * it will be evaluated as PHP code by assert(). To prevent this, use safe_assert().
+     * This functions throws an UnexpectedValueException when the assertion is false.
      * 
      * @param bool $assertion
      * @param string $description
      * @return bool
+     * @throws UnexpectedValueException
      */
     function safe_assert($assertion, $description = null) {
         $assertion = (bool) $assertion;
-        // PHP 5.3.29 -> assert() expects exactly 1 parameter
-        // description added in PHP 5.4.8
-        if (version_compare(PHP_VERSION, '5.4.8') >= 0) {
-            return assert($assertion, $description);
+        if (!$assertion) {
+            throw new UnexpectedValueException($description);
         }
-        // TODO: I think it is better to throw an exception with the description as message?
-        return assert($assertion);
     }
 }
