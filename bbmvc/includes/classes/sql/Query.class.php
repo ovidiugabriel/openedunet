@@ -18,6 +18,22 @@ class sql_Query {
         }
     }
     
+    /** 
+     * @param string $query
+     * @param array $args
+     * @proto static public escape(query:String, ?args:Array):String
+     */
+    static public function escape($query, $args = null) {
+        if (!is_array($args)) {
+            $args = func_get_args();
+            array_shift($args);
+        }
+        // FIXME: Replace identity with escape function
+        $args = array_map(IDENTITY_FUNCTION, $args);
+        array_unshift($args, $query);
+        return call_user_func_array('sprintf', $args);
+    }
+    
     /**
      * @param string $query
      * @return boolean
