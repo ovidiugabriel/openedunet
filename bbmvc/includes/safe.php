@@ -112,7 +112,27 @@ if (!function_exists('safe_assert')) {
     function safe_assert($assertion, $description = null) {
         $assertion = (bool) $assertion;
         if (!$assertion) {
+            // Throw exception instead of using assert()
+            // since exception backtraces are easier to use for debug.
             throw new UnexpectedValueException($description);
+        }
+    }
+}
+
+if (!function_exists('halt_assert')) {
+    /**
+     * @param bool $assertion
+     * @param string $description
+     * @return void
+     */
+    function halt_assert($assertion, $description = null) {
+        $assertion = (bool) $assertion;
+        try {
+            safe_assert($assertion, $description);
+        } catch (Exception $ex) {
+            log_message(LOG_ERR, $ex->getMessage());
+            log_message(LOG_ERR, $ex->getTraceAsString());
+            exit(1);
         }
     }
 }
