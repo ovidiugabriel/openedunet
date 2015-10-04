@@ -54,6 +54,12 @@ Packages\User\Preferences.sublime-settings
 }
 ```
 
+Other goodies:
+
+Font faces:
+* [Bitstream Vera Sans Mono](http://www.fontsquirrel.com/fonts/Bitstream-Vera-Sans-Mono)
+* [Liberation Mono](http://www.fontsquirrel.com/fonts/Liberation-Mono)
+
 ## PSR Standards ##
 
 #### PSR-0 Autoloading ####
