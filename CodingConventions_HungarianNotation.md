@@ -47,7 +47,7 @@ Usually I remember only the first letters of a variable name, so it is  better u
 
 | **Suffix** | **Variable type** |
 |:-----------|:------------------|
-| _varname_`_String` | <div>For all string types: <code>char*</code>, <code>char[]</code>, <code>std::string</code>, <code>QString</code>, etc</div><div>Disregard the fact that a string is <code>char*</code> because <code>std::string</code> is not a pointer. You cannot say <code>std::string pVarname;</code> or <code>QString psVarname;</code></div><div>By the way, a string is a string, a pointer to string or a pointer to character?</div> <div>If a `char *` is a pointer string, how do you call `char**` ??</div>|
+| _varname_`_String` | <div>For all string types: <code>char*</code>, <code>char[]</code>, <code>std::string</code>, <code>QString</code>, etc</div><div>Disregard the fact that a string is <code>char*</code> because <code>std::string</code> is not a pointer. You cannot say <code>std::string pVarname;</code> or <code>QString psVarname;</code></div><div>By the way, a string is a string, a pointer to string or a pointer to character?</div> <div>If a `char *` is a pointer to a string, how do you call `char**` ??</div>|
 | _varname_`_Integer` | all types of `integer` |
 | _varname_`_Rational` | all types of `float` |
 | _varname_`_Complex` | `complex` |
