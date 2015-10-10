@@ -86,12 +86,22 @@ class Platform {
         return $config;
     }
     
+    /**
+     * @param string $lang
+     * @return array
+     * @proto static public getLanguageOverrides(lang:String):Dynamic
+     */
+    static public function getLanguageOverrides($lang) {
+        
+    }
+    
     /** 
      * @return string
      * @proto static getMainURL():String
      */
     static public function getMainURL() {
-        
+        // TODO: Move it to another class. It has nothing to do with the platform.
+        // It is based on PROTOCOL_SCHEME, HTTP_HOST and SCRIPT_NAME.
     }
     
     /**
@@ -99,7 +109,8 @@ class Platform {
      * @proto static getCurrentLocation():String
      */
     static public function getCurrentLocation() {
-        
+        // TODO: Move it to another class. It has nothing to do with the platform.
+        // It is based on PROTOCOL_SCHEME, HTTP_HOST, REQUEST_URI.
     }
     
     /** 
