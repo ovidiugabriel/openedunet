@@ -59,13 +59,12 @@
 //
 if (!function_exists('identity')) {
     // No need to specify 'Identity' since php function names are case insensitive
-    function identity($x) {
-        return $x;
-    }
+    function identity($x) { return $x; }
 }
 
 /**
  *  When you feel that doing this:
+ *  <code>
  * 
  *      if (defined('CONSTANT_NAME')) {
  *          $val = 'yes';
@@ -73,16 +72,23 @@ if (!function_exists('identity')) {
  *          $val = 'no';
  *      }
  * 
+ * </code>
+ *
  * Has no added value, and you understand that this is nothing but a 
  * basic boolean expression:
- * 
+ * <code>
+ *
  *      $val = defined('CONSTANT_NAME') ? 'yes' : 'no';
- * 
+ *
+ * </code> 
  * But if for some deceptive reason you want to avoid ternary operator, 
  * (or you are not allowed to use it), then just do it this way:
+ * <code> 
+ *
+ *     $val = if_defined('CONSTANT_NAME', 'yes', 'no');
  * 
- *     $val = ifdef('CONSTANT_NAME', 'yes', 'no');
- * 
+ * </code>
+ *
  * @param string $def
  * @param mixed $yes value to be returned or function to be called if constant is defined
  * @param mixed $no value to be returned or function to be called if constant is not defined

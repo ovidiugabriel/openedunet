@@ -15,29 +15,29 @@
  *  Copyright (c) 2006, BMR Soft srl, ICE Control srl
  *  All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without modification, 
+ * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
  *
- * 1. Redistributions of source code must retain the above copyright notice, this 
+ * 1. Redistributions of source code must retain the above copyright notice, this
  * list of conditions and the following disclaimer.
  *
- * 2. Redistributions in binary form must reproduce the above copyright notice, 
- * this list of conditions and the following disclaimer in the documentation 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
  * and/or other materials provided with the distribution.
  *
- * 3. Neither the name of the copyright holder nor the names of its contributors 
- * may be used to endorse or promote products derived from this software without 
+ * 3. Neither the name of the copyright holder nor the names of its contributors
+ * may be used to endorse or promote products derived from this software without
  * specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
- * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
- * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
- * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
- * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
- * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ************************************************************************* */
@@ -48,6 +48,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 16.10.2015           Fixed security issues, added include paths           */
 /* 31.07.2015           Added configurable module and action keys.           */
 /* 30.07.2015           Guarded Smarty usage                                 */
 /* 28.02.2014           Guarded multilanguage support.                       */
@@ -90,14 +91,14 @@ if (defined('_USE_SMARTY') && _USE_SMARTY) {
  * Now the dispatcher stuff comes
  */
 
+$module = filter_input(INPUT_GET, _MODULE_KEY); // eg. Module_SubModule_SubSubModule
 /*
  * no module, redirecting to default module
  */
-if (empty($_GET[_MODULE_KEY])) {
+if (null == $module) {
     redirect(array(_MODULE_KEY => _DEFAULT_MODULE));
 }
-
-$module = $_GET[_MODULE_KEY]; // eg. Module_SubModule_SubSubModule
+        
 //module security check
 if (!@ereg('^[a-zA-Z_0-9]+$', $module)) {
     throw new Exception('Invalid module: Module name contains invalid characters!');
@@ -105,8 +106,9 @@ if (!@ereg('^[a-zA-Z_0-9]+$', $module)) {
 
 //submodules
 $_module_path = str_replace('_', '/', $module);
-$module_classname = explode('_', $module); // eg. module = Module_SubModule_SubSubModule
-$module_classname = $module_classname[count($module_classname) - 1]; // then module_classname = SubSubModule
+$a_module_classname = explode('_', $module); // eg. module = Module_SubModule_SubSubModule
+$module_classname = $a_module_classname[count($a_module_classname) - 1]; // then module_classname = SubSubModule
+
 //module folder check
 if (!is_dir($folder = (_DIR_MODULES . '/' . $_module_path))) {
     throw new Exception('Invalid module: Folder ' . $folder . ' doesn\'t exists!');
@@ -145,11 +147,12 @@ if (defined('_USE_SMARTY') && _USE_SMARTY) {
     $_smarty->assign('_module_classname', $module_classname); // ??
 }
 
+
+
 // next we check the action parameter
-if (empty($_GET[_ACTION_KEY])) {
+$action = filter_input(INPUT_GET, _ACTION_KEY);
+if (null == $action) {
     $action = _DEFAULT_ACTION;
-} else {
-    $action = $_GET[_ACTION_KEY];
 }
 
 //action security check
@@ -161,6 +164,9 @@ if (!@ereg('^[a-zA-Z_]+$', $action)) { // TODO: ereg is deprecated, replace it
 if (@ereg("^_{2}", $action)) { // TODO: ereg is deprecated, replace it
     throw new Exception('Action is a special function. Access denied!');
 }
+
+ClassLoader::addIncludePath(_DIR_PROJECT . '/includes/classes');
+ClassLoader::addIncludePath(_APPS_PATH . '/CdCollection/modules/CdCollection');
 
 // action method exists?
 $method = Reflect::getReflectionMethod($module_classname, $action);

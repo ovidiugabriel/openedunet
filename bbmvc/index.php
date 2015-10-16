@@ -43,6 +43,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 16.10.2015           Including ClassLoader via bootstrap                  */
 /* 17.08.2015           Created working benchmark + dispatcher usage         */
 /* 30.07.2015           Placed ClassLoader class intead of class_loader.php  */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -62,7 +63,7 @@ if (!defined('_VALID_ACCESS')) {
     define('_VALID_ACCESS', 1);
 }
 
-require_once __DIR__ . '/includes/constdef.php';
+require_once __DIR__ . '/bootstrap.php';
 require_once __DIR__ . '/includes/Benchmark.class.php';
 
 // Attach start_microtime value to a benchmark object.
@@ -74,13 +75,6 @@ session_start();
 
 try {
 
-    require_once __DIR__ . '/config.php';
-    if (_DEBUG == _DEBUG_BROWSER) {
-        error_reporting(E_ALL);
-    } else {
-        error_reporting(0);
-    }
-    require_once _DIR_PROJECT . '/includes/ClassLoader.class.php';
     require_once _DIR_PROJECT . '/includes/Dispatcher.class.php';
     Dispatcher::dispatch();
 } catch (Exception $exception) {

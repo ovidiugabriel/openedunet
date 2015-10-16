@@ -48,6 +48,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 16.10.2015           Added safe_empty()                                   */
 /* 02.10.2015           Replaced assert with exception.                      */
 /* 11.08.2015           Initial revision                                     */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -74,65 +75,81 @@
 /* --- PUBLIC OPERATIONS (GLOBAL FUNCTIONS) ---                              */
 /*                                                                           */
 
-if (!function_exists('safe_count')) {
-    /**
-     * For the original count() function, if the parameter is not an array or 
-     * not an object with implemented Countable interface, 1 will be returned. 
-     * There is one exception, if array_or_countable is NULL, 0 will be returned.
-     * 
-     * We find this unfortunate inconsistent. To avoid this behavior, safe_count()
-     * accepts only array argument. You can use is_array() and is_object() to check 
-     * if the value is not an array or an object. If the object is Countable you 
-     * can simply call the Countable::count() method on the object or just cast the object
-     * to array in the call.
-     * 
-     * <code>
-     *      safe_count((array) $object)
-     * </code>
-     * 
-     * @param array $array
-     * @return integer
-     */
-    function safe_count(array $array) { 
-        return (int) count($array); 
+/**
+ * For the original count() function, if the parameter is not an array or 
+ * not an object with implemented Countable interface, 1 will be returned. 
+ * There is one exception, if array_or_countable is NULL, 0 will be returned.
+ * 
+ * We find this unfortunate inconsistent. To avoid this behavior, safe_count()
+ * accepts only array argument. You can use is_array() and is_object() to check 
+ * if the value is not an array or an object. If the object is Countable you 
+ * can simply call the Countable::count() method on the object or just cast the object
+ * to array in the call.
+ * 
+ * <code>
+ *      safe_count((array) $object)
+ * </code>
+ * 
+ * @param array $array
+ * @return integer
+ */
+function safe_count(array $array) { 
+    return (int) count((array) $array); 
+}
+
+/** 
+ * For the original assert() function, if the assertion is given as a string 
+ * it will be evaluated as PHP code by assert(). To prevent this, use safe_assert().
+ * This functions throws an UnexpectedValueException when the assertion is false.
+ * 
+ * @param boolean $assertion
+ * @param string $description
+ * @return bool
+ * @throws UnexpectedValueException
+ */
+function safe_assert($assertion, $description = null) {
+    if (false === (bool) $assertion) {
+        // Throw exception instead of using assert()
+        // since exception backtraces are easier to use for debug.
+        throw new UnexpectedValueException($description);
     }
 }
 
-if (!function_exists('safe_assert')) {
-    /** 
-     * For the original assert() function, if the assertion is given as a string 
-     * it will be evaluated as PHP code by assert(). To prevent this, use safe_assert().
-     * This functions throws an UnexpectedValueException when the assertion is false.
-     * 
-     * @param bool $assertion
-     * @param string $description
-     * @return bool
-     * @throws UnexpectedValueException
-     */
-    function safe_assert($assertion, $description = null) {
-        $assertion = (bool) $assertion;
-        if (!$assertion) {
-            // Throw exception instead of using assert()
-            // since exception backtraces are easier to use for debug.
-            throw new UnexpectedValueException($description);
-        }
+/**
+ * @param boolean $assertion
+ * @param string $description
+ * @return void
+ */
+function halt_assert($assertion, $description = null) {
+    try {
+        safe_assert((bool) $assertion, $description);
+    } catch (Exception $ex) {
+        log_message(LOG_ERR, $ex->getMessage());
+        log_message(LOG_ERR, $ex->getTraceAsString());
+        exit(1);
     }
 }
 
-if (!function_exists('halt_assert')) {
-    /**
-     * @param bool $assertion
-     * @param string $description
-     * @return void
-     */
-    function halt_assert($assertion, $description = null) {
-        $assertion = (bool) $assertion;
-        try {
-            safe_assert($assertion, $description);
-        } catch (Exception $ex) {
-            log_message(LOG_ERR, $ex->getMessage());
-            log_message(LOG_ERR, $ex->getTraceAsString());
-            exit(1);
-        }
-    }
+/**
+ * For the original empty() function, if the input was undefined variable,
+ * null or empty string, the function returned true. Which of course is not correct.
+ * To solve this issuse safe_empty() throws an exception if the parameter is not
+ * and array, so empty is used in the following way:
+ * 
+ * <code>
+ *      $input_is_empty = safe_empty($input);
+ *      // is equivalent with:
+ *      $input_is_empty = (0 === safe_count($input));
+ * </code>
+ * 
+ * You can use isset() to check if a variable is undefined.
+ * Of course  isset() returns false when the variabile is null and is_null() returns
+ * true when the variabile is not set. But we can use the fact that is_null() throws 
+ * when the variabile is undefined, while isset() do not throws.
+ * 
+ * @param array $input
+ * @return boolean
+ */
+function safe_empty(array $input) {
+    return (bool) empty((array) $input);    
 }

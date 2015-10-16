@@ -47,6 +47,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 16.10.2015           Fixed a bug in executeAction()                       */
 /* 20.09.2015           Moved checkVariables() to Security class             */
 /* 27.06.2015           Added HaXe StringMap support                         */
 /* 27.06.2015           Added HaXe anonymous structure support               */
@@ -108,6 +109,10 @@ function no_cache() {
  * @package barebone
  */
 class Dispatcher {
+    /**
+     *
+     * @var array
+     */
     private $formats = array();
     
     /** 
@@ -120,17 +125,17 @@ class Dispatcher {
     /**
      * Sends header to instruct the client to execute a redirect.
      *
-     * @param array|string $params The list of parameters used to build a query string. <br/>
+     * @param array|string $params_list The list of parameters used to build a query string. <br/>
      *      If a string is given then it is used as is. <br/>
      *      Haxe types are supported. <br/>
      * @return void
      * @throws InvalidArgumentException
      *
      */
-    static public function redirect($params) {
+    static public function redirect($params_list) {
         // If HaXe Runtime is loaded and the argument is an anonymous structure
         // it is automatically converted to a native array
-        $params =  NativeArray::fromHaxeType($params);
+        $params =  NativeArray::fromHaxeType($params_list);
 
         $url_params = '';
 
@@ -171,12 +176,12 @@ class Dispatcher {
      * Creates an URL string using Seo classes specified in a module.
      * This functionality is in reverse of what routers do in a web application.
      *
-     * @param array $params the list of parameters. Haxe types are supported.
+     * @param array $params_list the list of parameters. Haxe types are supported.
      * @param boolean $html_entity whether to encode HTML entities
      * @return string the URL using _URL_MAIN as base
      */
-    static public function getSeoUrl($params, $html_entity = false) {
-        $params = NativeArray::fromHaxeType($params);
+    static public function getSeoUrl($params_list, $html_entity = false) {
+        $params = NativeArray::fromHaxeType($params_list);
         assert( is_array($params) || ($params instanceof ArrayAccess) );
 
         if (isset($params['href'])) {
@@ -185,7 +190,6 @@ class Dispatcher {
 
         if (empty($params['module'])) {
             throw new Exception('getSeoUrl - no module');
-            return;
         }
 
         $href = _FILE_MAIN . '?'; // URL to be used if SEO is not enabled.
@@ -222,8 +226,6 @@ class Dispatcher {
         } catch (Exception $e) {
             // no seo_class or method not existing
         }
-
-
         return _URL_MAIN . '/' . $href;
     }
     
@@ -233,8 +235,8 @@ class Dispatcher {
      *
      * If there is no such action, and exception will be thrown.
      *
-     * @param string $module_classname
-     * @param string $func_name
+     * @param string $module_classname the name of the class
+     * @param string $func_name the name of the method
      * @param array $param_arr
      * @return mixed
      * @throws Exception
@@ -249,20 +251,21 @@ class Dispatcher {
 
         // BareboneMVC solves this issue with case insensitive elegant pattern matching
         // You just have to register other formats if needded.
-
         $controller = new $module_classname();
         foreach ($this->formats as $format) {
-            if (preg_match('/' . $format . '/i', $func_name, $matches)) {
-                $method_name = $matches[1];
-                if ( !method_exists($controller, $method_name) ) {
-                    throw new Exception('Method ' . __CLASS__."::$method_name() does not exists.", 1);
-                }
-                return Reflect::invoke($controller, $method_name, $param_arr);
+            $matches = array();
+            if (0 == preg_match('/' . $format . '/i', $func_name, $matches)) {
+                continue;
+            }            
+            $method_name = $matches[1];
+            if (!method_exists($controller, $method_name)) {
+                throw new Exception("Method {$module_classname}::{$method_name}() does not exists.", 1);
             }
+            return Reflect::invoke($controller, $method_name, $param_arr);
         }
-
-        throw new Exception('Method ' . __CLASS__ . "::$func_name() does not exists.", 1);
-
+        // invoke() method throws an exception if method does not exists
+        // so we don't check if method exists prior to this call
+        return Reflect::invoke($controller, $func_name, $param_arr);
     }
 
     static public function dispatch() {

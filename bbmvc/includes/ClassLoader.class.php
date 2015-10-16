@@ -47,6 +47,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 16.10.2015           Added addIncludePath() method                        */
 /* 18.09.2015           Blocked PHP_Invoker loading                          */
 /* 30.07.2015           Switched to from class.F.php to F.class.php          */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -103,12 +104,9 @@ class ClassLoader {
                 }
                 return;
 
-            case 'PHP_Invoker':
-                die('Are you calling PHP_Invoker? Please remove PHPUnit.');
-                break;
 
             default:
-                require_once _DIR_PROJECT . '/includes/classes/class.' . $class_name . '.php';
+                require_once $class_name . '.class.php';
         }
     }
 
@@ -235,6 +233,16 @@ class ClassLoader {
         }
         return $fn($object);
     }
+
+    /**
+     *
+     * @param string $path
+     * @return void
+     */
+    static public function addIncludePath($path) {
+        ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . $path);
+    }
+
 }
 
 /**

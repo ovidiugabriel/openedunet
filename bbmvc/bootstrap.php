@@ -72,6 +72,12 @@ require_once __DIR__ . '/includes/constdef.php';
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/ClassLoader.class.php';
 
+if (_DEBUG == _DEBUG_BROWSER) {
+    error_reporting(E_ALL);
+} else {
+    error_reporting(0);
+}
+
 // FIXME: Need to move vendor folder in another location??
 if (file_exists($file = __DIR__ . '/../vendor/autoload.php')) {
     require_once $file;
