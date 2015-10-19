@@ -224,6 +224,7 @@ class Dispatcher {
                 return _URL_MAIN . '/' . $obj->$action($params); //calling the seo method
             }
         } catch (Exception $e) {
+            log_message(LOG_ERR, $e->getMessage());
             // no seo_class or method not existing
         }
         return _URL_MAIN . '/' . $href;

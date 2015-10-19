@@ -7,22 +7,10 @@
 class Request {
     // Member functions of CRequest class implement the methods of the Request object.
     
-    /** @var string */
-    private $input = null;    
-    
     /** 
-     * Retrieves the bytes that were read by an HTTP POST.
-     * 
-     * @param integer $count
-     * @return array
-     * @proto public binaryRead(count:Int):php.NativeArray
+     * @var string 
      */
-    public function binaryRead($count) {
-        if (null === $this->input) {
-            $this->input = file_get_contents('php://input');
-        }
-        return str_split(substr($this->input, 0, $count));
-    }
+    private $input = null;
     
     /** 
      * Retrieves a cookie value by its name.
@@ -32,19 +20,9 @@ class Request {
      * @proto public getCookie(cookieName:String):php.NativeString
      */
     public function getCookie($cookieName) {
-        return $_COOKIE[$cookieName];
+        return filter_input(INPUT_COOKIE, $cookieName);
     }
-    
-    /**
-     * Retrieves all cookies.
-     * 
-     * @return array - array of cookies
-     * @proto public getCookies():php.NativeArray
-     */
-    public function getCookies() {
-        return $_COOKIE;
-    }
-    
+       
     /** 
      * Retrieves the value of a specified name which was read by POST or GET method. 
      * 
@@ -57,10 +35,11 @@ class Request {
         // If the same parameter is sent in GET and POST arrays, then value of parameter
         // in POST array will overwrite the value received from GET array.
         //
-        if (isset($_GET[$name])) {
-            return $_GET[$name];
+        $result = filter_input(INPUT_GET, $name);
+        if ($result) {
+            return $result;
         }
-        return $_POST[$name];
+        return filter_input(INPUT_POST, $name);
     }
     
     /** 
@@ -72,28 +51,21 @@ class Request {
      */
     public function getForms($name) {
         $forms = array();
-        if (isset($_GET[$name])) {
-            foreach ($_GET[$name] as $value) {
+        
+        $get_data = filter_input(INPUT_GET, $name);
+        if ($get_data) {
+            foreach ($get_data as $value) {
                 $forms[] = $value;
             }
         }
         
-        if (isset($_POST[$name])) {
-            foreach ($_POST[$name] as $value) {
+        $post_data = filter_input(INPUT_POST, $name);
+        if ($post_data) {
+            foreach ($post_data as $value) {
                 $forms[] = $value;
             }
         }
-        return $form;
-    }
-    
-    /** 
-     * Retrieves all pairs of name and value that were read by POST or GET method. 
-     * 
-     * @return array
-     * @proto public getFormNameValue():php.NativeArray
-     */
-    public function getFormNameValue() {
-        return array_merge($_GET, $_POST);
+        return $forms;
     }
     
     /** 
@@ -105,7 +77,21 @@ class Request {
      * @proto public getServerVariable(variableName:String):php.NativeString
      */
     public function getServerVariable($variableName) {
-        return $_SERVER[$variableName];
+        return filter_input(INPUT_SERVER, $variableName);
+    }
+
+    /** 
+     * Retrieves the bytes that were read by an HTTP POST.
+     * 
+     * @param integer $count
+     * @return array
+     * @proto public binaryRead(count:Int):php.NativeArray
+     */
+    public function binaryRead($count) {
+        if (null === $this->input) {
+            $this->input = file_get_contents('php://input');
+        }
+        return str_split(substr($this->input, 0, $count));
     }
     
     /** 

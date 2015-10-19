@@ -69,7 +69,7 @@ class CacheManifest {
      */
     private $fallback       = array();
     
-    public function print() {
+    public function dump() {
         println('CACHE MANIFEST');
         println('# ' . $this->version);
 

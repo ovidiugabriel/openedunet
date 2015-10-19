@@ -54,7 +54,7 @@ class Response {
      * PHP Version is using Expires instead of MaxAge.
      *
      * @param Cookie $cookie
-     * @param boolean $httponly
+     * @param boolean $http_only
      * @return integer
      * @proto public addCookie(cookie:Cookie):Bool
      */
