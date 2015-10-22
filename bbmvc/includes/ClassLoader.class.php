@@ -136,6 +136,13 @@ class ClassLoader {
     }
 
     /**
+     * If you have a Java background:
+     * 
+     * <code>
+     *      Test t = Class.forName("test").newInstance();
+     * </code>
+     * 
+     * 
      * @param string $name
      * @return object
      * @proto static public createInstance(name:String):Dynamic
