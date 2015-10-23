@@ -57,12 +57,21 @@
 
 class Reflect {
     /** 
+     * A specific class loader implementation is not needed because to be passed
+     * as parameter because the Barebone system class loader provides the static method
+     * ClassLoader::addIncludePath() which is based on the native PHP loader.
+     * 
+     * So if you come from a Java background, calling this function is equivalent with:
+     * 
+     * <code>
+     *      Class<Test> c = Class.forName(name);
+     * </code>
+     * 
      * @param string|object $class - Either a string containing the name of the class to reflect, or an object.
-     * @param ClassLoader $loader - class loader from which the class must be loaded
      * @return ReflectionClass
-     * @proto static public getReflectionClass(s_class:Dynamic, ?loader:ClassLoader):php.ReflectionClass
+     * @proto static public getReflectionClass(s_class:Dynamic):php.ReflectionClass
      */
-    static public function getReflectionClass($class, ClassLoader $loader = null) {
+    static public function getReflectionClass($class) {
         static $reflections = array();
         $class_name = self::getClassName($class);
         if (!isset($reflections[$class_name])) {
