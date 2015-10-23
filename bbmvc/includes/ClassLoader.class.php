@@ -364,7 +364,7 @@ function ns_import($class_name, $fn = null) {
         }
     } else {
         // Otherwise will use native namespace.
-        $file = str_replace('.', '/', $class_name) . '.class.php';
+        $file = ClassLoader::getResource($class_name, ClassLoader::RESOURCE_TYPE_CLASS);
         if (file_exists($file)) {
             require_once $file;
         }
