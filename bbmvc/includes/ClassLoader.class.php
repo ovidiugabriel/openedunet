@@ -73,6 +73,23 @@ if (!defined('_VALID_ACCESS')) {
  * @access public
  */
 class ClassLoader {
+    const RESOURCE_TYPE_CLASS = 'class';
+    
+    /**
+     * Finds the resource with the given name. 
+     * 
+     * @param string $name
+     * @param string $type
+     * @proto static public getResource(name:String):String
+     */
+    static public function getResource($name, $type) {
+        $allowed_types = array(self::RESOURCE_TYPE_CLASS);
+        if (!in_array($type, $allowed_types)) {
+            throw new Exception("Type {$type} not allowed");
+        }
+        return str_replace('.', '/', $name) . ".{$type}.php";
+    }
+    
     /**
      * Registers the __autoload function if it exists and the ClassLoader::autoload()
      * function as autoload functions. It shall be called from bootstrap.
