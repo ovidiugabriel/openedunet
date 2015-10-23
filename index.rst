@@ -1,4 +1,4 @@
 
 Welcome to the openedunet wiki!
 
-* `Barebone MVC Features`_
+* `Barebone MVC Features`
