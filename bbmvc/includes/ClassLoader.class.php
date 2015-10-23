@@ -75,15 +75,6 @@ if (!defined('_VALID_ACCESS')) {
 class ClassLoader {
     const RESOURCE_TYPE_CLASS = 'class';
     
-    static public function getInstance() {
-        static $instance = null;
-        if (null == $instance) {
-            $class = __CLASS__;
-            $instance = new $class();
-        }
-        return $instance;
-    }
-    
     /**
      * Finds the resource with the given name. 
      * 
