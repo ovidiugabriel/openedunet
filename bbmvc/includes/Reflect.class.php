@@ -58,10 +58,11 @@
 class Reflect {
     /** 
      * @param string|object $class - Either a string containing the name of the class to reflect, or an object.
+     * @param ClassLoader $loader - class loader from which the class must be loaded
      * @return ReflectionClass
-     * @proto static public getReflectionClass(s_class:Dynamic):php.ReflectionClass
+     * @proto static public getReflectionClass(s_class:Dynamic, ?loader:ClassLoader):php.ReflectionClass
      */
-    static public function getReflectionClass($class) {
+    static public function getReflectionClass($class, ClassLoader $loader = null) {
         static $reflections = array();
         $class_name = self::getClassName($class);
         if (!isset($reflections[$class_name])) {
