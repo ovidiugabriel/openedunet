@@ -47,6 +47,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 25.10.2015           Make use of ClassLoader::getResource()               */
 /* 16.10.2015           Added addIncludePath() method                        */
 /* 18.09.2015           Blocked PHP_Invoker loading                          */
 /* 30.07.2015           Switched to from class.F.php to F.class.php          */
@@ -148,8 +149,7 @@ class ClassLoader {
             throw new InvalidArgumentException('Illegal identifier: ' . $class, 1);
         }
 
-        $path = implode('/', $pieces) . '/' . $class . '.class.php' ;
-        require_once $path;
+        require_once self::getResource($name, 'class');
     }
 
     /**
@@ -159,6 +159,14 @@ class ClassLoader {
      *      Test t = Class.forName("test").newInstance();
      * </code>
      *
+     * 
+     * <code>
+     *      // In the header we do all imports to favor op-code cache
+     *      import('test');
+     * 
+     *      // Inside functions/methods we create instances
+     *      $t = ClassLoader::createInstance('test');
+     * </code>
      *
      * @param string $name
      * @return object

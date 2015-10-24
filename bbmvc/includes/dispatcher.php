@@ -48,6 +48,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 25.10.2015           Using Factory::getDispatcher() - get dispatcher inst */
 /* 16.10.2015           Fixed security issues, added include paths           */
 /* 31.07.2015           Added configurable module and action keys.           */
 /* 30.07.2015           Guarded Smarty usage                                 */
@@ -166,7 +167,7 @@ if (@ereg("^_{2}", $action)) { // TODO: ereg is deprecated, replace it
 }
 
 ClassLoader::addIncludePath(_DIR_PROJECT . '/includes/classes');
-ClassLoader::addIncludePath(_APPS_PATH . '/CdCollection/modules/CdCollection');
+// ClassLoader::addIncludePath(_APPS_PATH . '/CdCollection/modules/CdCollection');
 
 // action method exists?
 $method = Reflect::getReflectionMethod($module_classname, $action);
@@ -199,7 +200,7 @@ if (_SECURITY_ENFORCE) {
 }
 
 // params are ok. calling the requested action
-get_instance('Dispatcher')->executeAction($module_classname, $action);
+Factory::getDispatcher()->executeAction($module_classname, $action);
 
 $elapsed_time = (float) $benchmark->stop();
 
