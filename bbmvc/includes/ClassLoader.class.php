@@ -75,18 +75,9 @@ if (!defined('_VALID_ACCESS')) {
 class ClassLoader {
     const RESOURCE_TYPE_CLASS = 'class';
 
-    static public function getInstance() {
-        static $instance = null;
-        if (null == $instance) {
-            $class = __CLASS__;
-            $instance = new $class();
-        }
-        return $instance;
-    }
-    
     /**
-     * Finds the resource with the given name. 
-     * 
+     * Finds the resource with the given name.
+     *
      * @param string $name
      * @param string $type
      * @proto static public getResource(name:String):String
@@ -98,7 +89,7 @@ class ClassLoader {
         }
         return str_replace('.', '/', $name) . ".{$type}.php";
     }
-    
+
     /**
      * Registers the __autoload function if it exists and the ClassLoader::autoload()
      * function as autoload functions. It shall be called from bootstrap.
@@ -163,12 +154,12 @@ class ClassLoader {
 
     /**
      * If you have a Java background:
-     * 
+     *
      * <code>
      *      Test t = Class.forName("test").newInstance();
      * </code>
-     * 
-     * 
+     *
+     *
      * @param string $name
      * @return object
      * @proto static public createInstance(name:String):Dynamic
