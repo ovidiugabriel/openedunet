@@ -1,6 +1,9 @@
 <?php
 
 class JsonConverter {
+    /** 
+     * @var array
+     */
     private $queue = array();
 
     /**
