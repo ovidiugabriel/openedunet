@@ -101,6 +101,22 @@ class NativeArray {
         return $dict;
     }
     
+    /** 
+     * @param object $object
+     * @return array
+     */
+    static public function fromObject($object) {
+        
+    }
+    
+    /** 
+     * @param array $input
+     * @return object
+     */
+    static public function toObject($input) {
+        
+    }
+    
     //
     // TOPOLOGICAL TRANSFORMATIONS
     //
