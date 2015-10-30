@@ -104,9 +104,9 @@ class Reflect {
      * @param string $method
      * @param array $args
      * @return mixed
-     * @proto static public invoke(object:Dynamic, method:String, args:Array):Dynamic
+     * @proto static public invoke(object:Dynamic, method:String, ?args:Array):Dynamic
      */
-    static public function invoke($object, $method, $args) {
+    static public function invoke($object, $method, array $args = array()) {
         return call_user_func_array(array($object, $method), $args);
     }
     
