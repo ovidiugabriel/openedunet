@@ -30,5 +30,6 @@
 05.09.2014
   - We started to add web runtime support for CGI scripts written in Ch; [Ch: A C/C++ Interpreter for Script Computing](http://www.drdobbs.com/cpp/ch-a-cc-interpreter-for-script-computing/184402054?pgno=1)
 
+  - switched from GPL to BSD license - [Why you should use a BSD license](https://www.freebsd.org/doc/en/articles/bsdl-gpl/article.html)
 
 [PHP 7 Scalar Type Hinting Finally Approved](http://www.phpclasses.org/blog/post/269-PHP-7-Scalar-Type-Hinting-Finally-Approved.html)
