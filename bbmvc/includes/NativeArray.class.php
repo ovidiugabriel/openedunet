@@ -60,10 +60,10 @@
  */
 class NativeArray {
     /**
-     * Converts Haxe types to PHP native ArrayObject.
+     * Converts Haxe types to PHP native object with ArrayAccess interface.
      *
      * @param mixed $value
-     * @return array
+     * @return ArrayAccess
      * @see http://api.haxe.org/php/Lib.html
      * 
      */
@@ -71,19 +71,18 @@ class NativeArray {
         $type = is_object($value) ? get_class($value) : gettype($value);
 
         switch ($type) {
-            case '_hx_anonymous':
-                return new ArrayObject($value);
-
-            case 'haxe_ds_StringMap':
-                // Particular case for StringMap is that member h is needed.
-                return new ArrayObject($value->h);
+            case '_hx_anonymous': return new ArrayObject($value);
+                
+            // Particular case for StringMap is that member h is needed.
+            case 'haxe_ds_StringMap': return new ArrayObject($value->h);
         }
         // No transformation needed, return the original value.
         return $value;
     }
 
     /** 
-     * Turns a non-associative array into an associative array. (if it has an even number of segments.)
+     * Turns a non-associative array into an associative array. 
+     * (if it has an even number of segments.)
      * 
      * @param array $input
      * @return array
@@ -115,6 +114,67 @@ class NativeArray {
      */
     static public function toObject($input) {
         
+    }
+    
+    /**
+     * For the original count() function, if the parameter is not an array or 
+     * not an object with implemented Countable interface, 1 will be returned. 
+     * There is one exception, if array_or_countable is NULL, 0 will be returned.
+     * 
+     * We find this unfortunate inconsistent. To avoid this behavior, NativeArray::count()
+     * accepts only array argument. You can use is_array() and is_object() to check 
+     * if the value is not an array or an object. If the object is Countable you 
+     * can simply call the Countable::count() method on the object or just cast the object
+     * to array in the call.
+     * 
+     * This function cannot be used with Haxe array types as parameter.
+     * Please use NativeArray::size() for this purpose.
+     * 
+     * <code>
+     *      $n = (int) NativeArray::count((array) $object);
+     * </code>
+     * 
+     * @param array $array
+     * @return integer
+     */
+    static public function count(array $array) { 
+        return (int) count((array) $array); 
+    }
+    
+    /**
+     * Returns the number of elements.
+     * 
+     * This function can be used with Haxe array types as parameter.
+     * 
+     * @param type $value
+     * @return type
+     */
+    static public function size($value) {
+        return (int) NativeArray::count( self::fromHaxeType($value) );
+    }
+       
+    /**
+     * For the original empty() function, if the input was undefined variable,
+     * null or empty string, the function returned true. Which of course is not correct.
+     * To solve this issuse NativeArray::isEmpty() throws an exception if the parameter is not
+     * and array, so NativeArray::isEmpty() is used in the following way:
+     * 
+     * <code>
+     *      $input_is_empty = NativeArray::isEmpty($input);
+     *      // is equivalent with:
+     *      $input_is_empty = (0 === NativeArray::count($input));
+     * </code>
+     * 
+     * You can use isset() to check if a variable is undefined (aka not set).
+     * Of course  isset() returns false when the variabile is null and is_null() returns
+     * true when the variabile is not set. But we can use the fact that is_null() throws 
+     * when the variabile is undefined, while isset() do not throws.
+     * 
+     * @param array $input
+     * @return boolean
+     */
+    static public function isEmpty(array $input) {
+        return (bool) empty((array) $input);    
     }
     
     //

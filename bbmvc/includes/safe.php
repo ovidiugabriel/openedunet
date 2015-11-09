@@ -87,14 +87,15 @@
  * to array in the call.
  * 
  * <code>
- *      safe_count((array) $object)
+ *      $n = (int) safe_count((array) $object);
  * </code>
  * 
  * @param array $array
  * @return integer
+ * @deprecated
  */
-function safe_count(array $array) { 
-    return (int) count((array) $array); 
+function safe_count() { 
+    throw new Exception('@deprecated: Use NativeArray::count() instead');
 }
 
 /** 
@@ -149,7 +150,8 @@ function halt_assert($assertion, $description = null) {
  * 
  * @param array $input
  * @return boolean
+ * @deprecated
  */
-function safe_empty(array $input) {
-    return (bool) empty((array) $input);    
+function safe_empty() {
+    throw new Exception('@deprecated: Use NativeArray::isEmpty() instead.');
 }
