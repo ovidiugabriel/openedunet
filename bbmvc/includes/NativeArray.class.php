@@ -47,6 +47,7 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 10.10.2015           Added  count(), size(), isEmpty()                    */
 /* 04.09.2015           Added NativeArray::toAssoc()                         */
 /* 30.07.2015           Added primitive type handling                        */
 /* 27.06.2015           Removed NativeArray::fromAnonymousStruct()           */
