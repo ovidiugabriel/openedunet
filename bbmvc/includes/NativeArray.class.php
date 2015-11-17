@@ -60,6 +60,8 @@
  * @package barebone
  */
 class NativeArray {
+    private $queue = array();
+
     /**
      * Converts Haxe types to PHP native object with ArrayAccess interface.
      *
@@ -100,13 +102,46 @@ class NativeArray {
         }
         return $dict;
     }
+
+    // -------------------------------------------------------------
+
+    /** 
+     * @param ArrayAccess $in
+     * @return void
+     */
+    private function enqueueConvert(/* Traversable */ &$in) {
+        if (is_array($in) || is_object($in)) {
+            foreach ($in as &$item) {
+                $this->queue[] = &$item;
+                $this->enqueueConvert($item);
+            }
+        }
+    }
+
+    /** 
+     * @param object $in
+     * @return void
+     */
+    private function convertObjectToArray(&$in) {
+        $this->queue[] = &$in;
+        $this->enqueueConvert($in);
+
+        foreach ($this->queue as &$item) {
+            if (is_object($item)) {
+                $item = (array) $item;
+            }
+        }
+    }
     
     /** 
      * @param object $object
      * @return array
      */
     static public function fromObject($object) {
-        
+        $nativeArray = new NativeArray();
+        // copy on write, $object is passed as reference
+        $nativeArray->convertObjectToArray($object);
+        return (array) $object;
     }
     
     /** 
