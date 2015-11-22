@@ -272,7 +272,7 @@ class ClassLoader {
      * @return void
      */
     static public function addIncludePath($path) {
-        set_include_path(ini_get('include_path') . PATH_SEPARATOR . $path);
+        set_include_path(get_include_path() . PATH_SEPARATOR . $path);
     }
 
 }
