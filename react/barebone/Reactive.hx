@@ -5,6 +5,9 @@
  *
  *   https://github.com/ovidiugabriel/openedunet/blob/wiki/BareboneJS.md
  */
+// 17.07.2015 - Started to use Matt Baker Reactive.js; written /react/barebone/Reactive.hx 
+// to make reactive JavaScript programming available in HaXe code; 
+ 
 package barebone;
 
 import js.Browser;
