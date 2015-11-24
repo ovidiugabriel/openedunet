@@ -83,6 +83,10 @@ class Js {
     }
 }
 
+/**
+ * Haxe Wrapper for Matt Baker Reactive JS functions.
+ * https://github.com/mattbaker/Reactive.js
+ */
 extern class React {
     public function version():String;
     public function state(initial:Dynamic): React ;
