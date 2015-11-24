@@ -67,10 +67,16 @@ class Js {
         return untyped __js__('num.toFixed(decimals)');
     }
     
+    /** 
+     * Gets the first DOM Element with given type attribute.
+     */
     static public function getObjectByType(type:String):js.html.DOMElement {
         return untyped __js__('document.querySelector(\'object[type="\' + type + \'"]\')');
     }
     
+    /** 
+     * Sets the width and height of a DOM Element using CSS style attributes.
+     */
     static public function setElementSize(element:js.html.DOMElement, width:Int, height:Int):Void {
         untyped __js__('element.style.width = width + "px"');
         untyped __js__('element.style.height = height + "px"');
