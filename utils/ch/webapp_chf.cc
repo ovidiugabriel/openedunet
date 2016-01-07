@@ -1,4 +1,55 @@
 
+
+/* ************************************************************************* */
+/*                                                                           */
+/*  Title:       webapp_chf.php                                              */
+/*                                                                           */
+/*  Created on:  07.01.2016 at 11:53:40                                      */
+/*  Email:       ovidiugabriel@gmail.com                                     */
+/*  Copyright:   (C) 2016 ICE Control srl. All Rights Reserved.              */
+/*                                                                           */
+/*  $Id$                                                                     */
+/*                                                                           */
+/* ************************************************************************* */
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* History (Start).                                                          */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*                                                                           */
+/* Date         Name    Reason                                               */
+/* ------------------------------------------------------------------------- */
+/*                                                                           */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* History (END).                                                            */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/*                                                                           */
+/* INCLUDE FILES (DEPENDENCIES)                                              */
+/*                                                                           */
+
+/*                                                                           */
+/* USER DEFINED INCLUDES                                                     */
+/*                                                                           */
+
+#if !defined(_SCH_)
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <math.h>
+#endif
+
+/*                                                                           */
+/* USER DEFINED CONSTANTS                                                    */
+/*                                                                           */
+
+#if !defined(_SCH_)
+    #define NaN  FP_NAN
+#endif
+
+//
+// MACROS
+//
+
 #define FP_CALLBACK(p)  ((FP) (p))
 
 #define COUNT(x)        ((ssize_t)(sizeof(x)/sizeof((x)[0])))
@@ -10,18 +61,9 @@
 #if defined(_CH_)
     /* Deferred-shape array is created with the syntax of the language */
     #define CREATE_DEFERRED_SHAPE_ARRAY(type, name, num)    type name[0:(num)-1]
-    #define strtok_foreach(token, str, _a, delim)           foreach (token; str; _a; delim)    
- 
-#elif !defined(_SCH_)
-
-    #include <stdio.h>
-    #include <stdlib.h>
-    #include <string.h>
-    #include <math.h>
-
-    #define NaN  FP_NAN
-    
-    /* 
+    #define strtok_foreach(token, str, _a, delim)           foreach (token; str; _a; delim)  
+#else
+   /* 
      * Deferred-shape array is created with dynamic allocation of the operating system.
      * When using this, always use RAII pattern. (http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization)
      */
@@ -29,8 +71,16 @@
     #define strtok_foreach(token, str, _a, delim)
 #endif
 
+/*                                                                           */
+/* TYPES                                                                     */
+/*                                                                           */
+
 typedef void* (*FP) (...);
 typedef void (*ArrayMapCallback)(double* result, string_t* values, int index);
+
+/*                                                                           */
+/* --- PUBLIC OPERATIONS (GLOBAL FUNCTIONS PROTOTYPES) ---                   */
+/*                                                                           */
 
 bool request_scalar(string_t& result, string_t name);
 void parse_str(string_t str, string_t names[], string_t values[]);
@@ -42,10 +92,18 @@ void get_double_values(double* result, string_t* values, int num);
 void array_map(void* result, FP callback, void* values, int count);
 void double_value_array(double* result, string_t* values, int index);
 
+/*                                                                           */
+/* --- GLOBAL VARIABLES ---                                                  */
+/*                                                                           */
+
 CServer     Server;
 CResponse   Response;
 CRequest    Request;
 CCookie     Cookie;
+
+/*                                                                           */
+/* --- PUBLIC OPERATIONS (GLOBAL FUNCTIONS IMPLEMENTATION) ---               */
+/*                                                                           */
 
 bool request_scalar(string_t& result, string_t name)
 {
