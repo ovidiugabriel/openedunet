@@ -24,6 +24,8 @@ class Request {
     }
     
     /** 
+     * Retrieves all cookies.
+     * 
      * @proto public getCookies():php.NativeArray
      */
     public function getCookies() {
