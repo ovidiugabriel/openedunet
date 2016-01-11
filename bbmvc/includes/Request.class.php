@@ -22,6 +22,13 @@ class Request {
     public function getCookie($cookieName) {
         return filter_input(INPUT_COOKIE, $cookieName);
     }
+    
+    /** 
+     * @proto public getCookies():php.NativeArray
+     */
+    public function getCookies() {
+        return $_COOKIE;
+    }
        
     /** 
      * Retrieves the value of a specified name which was read by POST or GET method. 
