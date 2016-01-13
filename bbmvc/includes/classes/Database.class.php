@@ -2,7 +2,7 @@
 
 /* ************************************************************************* */
 /*                                                                           */
-/*  Title:       class.Database.php                                          */
+/*  Title:       Database.class.php                                          */
 /*  Purpose:     Database Class                                              */
 /*                                                                           */
 /*  Created on:  16.07.2013 at 10:44:28                                      */
