@@ -49,6 +49,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 13.01.2016           Fixed open() default params logic                    */
 /* 20.10.2015           Synchronized open source implementation              */
 /* 16.07.2013           Added begin(), commit() and rollback()               */
 /*                          as transaction processing functions              */
@@ -175,7 +176,16 @@ class Database extends mysqli implements IDatabase {
      */
     public function open($username = null, $password = null) {
         if ((null == $username) && (null == $password)) {
-            parent::mysqli(_DB_HOST, _DB_USER, _DB_PASS, _DB_NAME);
+            $username = _DB_USER;
+            $password = _DB_PASS;
+        }
+        
+        if (null == $this->db_host) {
+            $this->db_host = _DB_HOST;
+        }
+        
+        if (null == $this->db_name) {
+            $this->db_name = _DB_NAME;
         }
         parent::mysqli($this->db_host, $username, $password, $this->db_name);
     }
