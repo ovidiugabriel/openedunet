@@ -195,18 +195,45 @@ class Console {
         return $text;
     }
     
-    static public function println($text = '')
-    {
+    static public function println($text = '') {
         echo "$text\n";
     }
     
-    static public function bold($text, $color = '')
-    {
+    static public function bold($text, $color = '') {
         echo self::BOLD . $color . $text . self::RESET;
     }
     
-    static public function underline($text, $color = '')
-    {
+    static public function underline($text, $color = '') {
         echo self::UNDERLINED . $color . $text . self::RESET;
+    }
+    
+    static function css_dump($object) {
+        $type = gettype($object);
+        if ('object' == $type) {
+            $type = get_class($object);
+        }
+        echo $type . " {\n";
+        foreach ($object as $key => $value) {
+            $type = gettype($value);
+
+            echo "    $key: " ;
+
+            // TODO: Add automatic object to array conversion
+
+            if ('array' != $type) {
+                echo $type . '(';
+                echo var_export($value, true);
+                echo ");\n";
+            } else {
+                if (0 == count($value)) {
+                    echo "array()";
+                } else {
+                    echo var_export($value, true);
+                }
+
+                echo ";\n";
+            }
+        } // end-for-each
+        echo "}\n";
     }
 }
