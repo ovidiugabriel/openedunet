@@ -220,11 +220,12 @@ class Database extends mysqli implements IDatabase {
     /**
      *
      * @param string $driver
-     * @param array $config
      * @param type $config_name
+     * @param array $config
      * @return Database
+     * @proto static public factory(driver:String, configName:String, ?config:php.NativeArray):Database
      */
-    static public function factory($driver, array $config = array(), $config_name = 'default') {
+    static public function factory($driver, $config_name = 'default', array $config = null) {
         switch ($driver) {
             /*
             case "mssql_odbc":
@@ -243,11 +244,12 @@ class Database extends mysqli implements IDatabase {
     /**
      * Creates a connection to a mysql database using the given configuration
      *
-     * @param array $config
      * @param string $config_name
+     * @param array $config
      * @return Database
+     * @proto static public getInstance(configName:String, ?config:php.NativeArray):Database
      */
-    static public function getInstance(array $config = null, $config_name = 'default') {
+    static public function getInstance($config_name = 'default', array $config = null) {
         if (!isset(self::$instance[$config_name])) {
             $class = __CLASS__;
             self::$instance[$config_name] = new $class();
