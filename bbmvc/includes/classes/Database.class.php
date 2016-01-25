@@ -233,8 +233,7 @@ class Database extends mysqli implements IDatabase {
                 return MicrosoftSQL::getInstance($config, $config_name);
 */
             case 'mysqli':
-                return Database::getInstance($config, $config_name);
-
+                return Database::getInstance($config_name, $config);
             default:
                 # code...
                 break;
