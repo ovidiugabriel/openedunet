@@ -23,6 +23,6 @@
 
 12.11.2014 - decided to make Barebone MVC framework API available to [Haxe](http://haxe.org/) scripts. So it will be possible to write modules (controllers and models) directly in Haxe with PHP target.
 
-october 2014 - switched from GPL to BSD license - [Why you should use a BSD license](https://www.freebsd.org/doc/en/articles/bsdl-gpl/article.html)
+october 2014 - switched from GPL to BSD license - [Why you should use a BSD license](https://www.freebsd.org/doc/en/articles/bsdl-gpl/article.html). The project is now [Copyfree - Unfetter your ideas](http://copyfree.org/)
 
 [PHP 7 Scalar Type Hinting Finally Approved](http://www.phpclasses.org/blog/post/269-PHP-7-Scalar-Type-Hinting-Finally-Approved.html)
