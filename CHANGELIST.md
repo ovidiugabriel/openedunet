@@ -1,6 +1,8 @@
 
 ### Changelist ###
 
+- after several years, switched from [PHPUnit](https://phpunit.de/) to [SimpleTest](http://www.simpletest.org/)
+
 19.07.2015 - Dropped WAP/WML support since all mobile clients are able to run HTML5 or at least a subset of XHTML 1.0
 
 17.07.2015 - Started to use [Matt Baker Reactive.js](https://github.com/mattbaker/Reactive.js); written /react/barebone/Reactive.hx to make reactive JavaScript programming available in HaXe code;
