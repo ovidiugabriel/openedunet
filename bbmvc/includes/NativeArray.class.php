@@ -210,7 +210,7 @@ class NativeArray {
      * @return boolean
      */
     static public function isEmpty(array $input) {
-        return (bool) empty((array) $input);    
+        return (bool) empty((array) $input);
     }
     
     //

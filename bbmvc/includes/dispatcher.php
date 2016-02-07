@@ -148,8 +148,6 @@ if (defined('_USE_SMARTY') && _USE_SMARTY) {
     $_smarty->assign('_module_classname', $module_classname); // ??
 }
 
-
-
 // next we check the action parameter
 $action = filter_input(INPUT_GET, _ACTION_KEY);
 if (null == $action) {
