@@ -21,4 +21,7 @@ unittest:
 composer-update:
 	$(SHELL) php $(COMPOSER) update
 
+composer-self-update:
+	$(SHELL) php $(COMPOSER) self-update
+
 # don't forget to ensure_newline_at_eof_on_save
