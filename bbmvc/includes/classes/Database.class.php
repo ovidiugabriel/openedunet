@@ -7,14 +7,15 @@
 /*                                                                           */
 /*  Created on:  16.07.2013 at 10:44:28                                      */
 /*  Email:       ovidiugabriel@gmail.com                                     */
-/*  Copyright:   (C) 2013 ICE Control srl. All Rights Reserved.              */
+/*               mihai@secure-hosting.ro                                     */
+/*  Copyright:   (C) 2013-2015 ICE Control srl. All Rights Reserved.         */
 /*                                                                           */
 /*  $Id$                                                                     */
 /*                                                                           */
 /* ************************************************************************* */
 
 /*
- * Copyright (c) 2015, ICE Control srl
+ * Copyright (c) 2007-2015, ICE Control srl, BMR Soft srl. (Brehar Mihai-Tudor)
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -66,8 +67,11 @@ class DuplicateEntryException extends Exception {
  * @access public
  */
 interface IDatabase {
+    /**
+     * Invalid resource.
+     */
     const INVALID_RESOURCE = -1;
-    
+
     /**
      *
      * @param  string $query
@@ -100,23 +104,23 @@ interface IDatabase {
     public function update($table, array $a_values, $where);
 
     /**
-     * 
+     *
      * @param integer $flags
      * @param string $name
      * @return boolean
      */
     public function begin_transaction($flags = 0, $name = null);
-    
+
     /**
-     * 
+     *
      * @param integer $flags
      * @param string $name
      * @return boolean
      */
     public function commit($flags = 0, $name = null);
-    
+
     /**
-     * 
+     *
      * @param integer $flags
      * @param string $name
      * @return boolean
@@ -141,9 +145,9 @@ class Database extends mysqli implements IDatabase {
     private static $res = array();
 
     /**
-     * Fisrt valid index we use resource count from index 1, to avoid problems 
+     * Fisrt valid index we use resource count from index 1, to avoid problems
      * when caller thinks that resource id=0 is an error.
-     * 
+     *
      * @var integer
      */
     private static $res_count = 1;
@@ -187,11 +191,11 @@ class Database extends mysqli implements IDatabase {
             $username = _DB_USER;
             $password = _DB_PASS;
         }
-        
+
         if (null == $this->db_host) {
             $this->db_host = _DB_HOST;
         }
-        
+
         if (null == $this->db_name) {
             $this->db_name = _DB_NAME;
         }
@@ -299,13 +303,13 @@ class Database extends mysqli implements IDatabase {
     }
 
     /**
-     * 
+     *
      * @return array
      */
     public function history() {
         return $this->history;
     }
-    
+
     /**
      * @override
      * @param string $query
@@ -323,7 +327,7 @@ class Database extends mysqli implements IDatabase {
             }
         } elseif (true !== $res) {
             $res_num = (int) self::push_resource($res);
-        } 
+        }
         // default else: $res will be boolean(true) for INSERT and UPDATE queries
 
         if ($this->errno != 0) {
@@ -489,7 +493,7 @@ class Database extends mysqli implements IDatabase {
     public function get() {
         // TODO: Implement
     }
-    
+
     public function delete() {
         // TODO: Implement
     }
