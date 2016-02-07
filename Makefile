@@ -24,4 +24,8 @@ composer-update:
 composer-self-update:
 	$(SHELL) php $(COMPOSER) self-update
 
+composer-install:
+	bash -c 'curl -sS "https://getcomposer.org/installer" | php'
+	# Pipe is not working in Windoze
+
 # don't forget to ensure_newline_at_eof_on_save
