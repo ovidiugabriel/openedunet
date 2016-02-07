@@ -58,10 +58,16 @@
 /* History (END).                                                            */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
+class DuplicateEntryException extends Exception {
+
+}
+
 /**
  * @access public
  */
 interface IDatabase {
+    const INVALID_RESOURCE = -1;
+    
     /**
      *
      * @param  string $query
@@ -135,10 +141,12 @@ class Database extends mysqli implements IDatabase {
     private static $res = array();
 
     /**
-     *
+     * Fisrt valid index we use resource count from index 1, to avoid problems 
+     * when caller thinks that resource id=0 is an error.
+     * 
      * @var integer
      */
-    private static $res_count = 0;
+    private static $res_count = 1;
     // TODO: Remove res_count since you can count number of elements in self::$res
 
     /**
@@ -266,10 +274,10 @@ class Database extends mysqli implements IDatabase {
     }
 
     /**
-     * @param mixed $res
+     * @param  mysqli_result $res
      * @return integer
      */
-    static private function push_resource($res) {
+    static private function push_resource(mysqli_result $res) {
         $res_num = self::$res_count++;
 
         $num_rows = 0;
@@ -291,6 +299,14 @@ class Database extends mysqli implements IDatabase {
     }
 
     /**
+     * 
+     * @return array
+     */
+    public function history() {
+        return $this->history;
+    }
+    
+    /**
      * @override
      * @param string $query
      * @return integer
@@ -300,10 +316,15 @@ class Database extends mysqli implements IDatabase {
         $this->last_query = $query;
 
         $res = parent::query($query);
-        if ((null == $res) && ($this->errno != 0)) {
-            throw new Exception("Mysql Error: $this->error<br />Query: $query", $this->errno);
-        }
-        $res_num = (int) self::push_resource($res);
+        $res_num = self::INVALID_RESOURCE;  // Initialize with an 'Invalid index'.
+        if (false === $res) {
+            if ($this->errno != 0) {
+                throw new Exception("Mysql Error: $this->error<br />Query: $query", $this->errno);
+            }
+        } elseif (true !== $res) {
+            $res_num = (int) self::push_resource($res);
+        } 
+        // default else: $res will be boolean(true) for INSERT and UPDATE queries
 
         if ($this->errno != 0) {
             throw new Exception("Mysql Error: $this->error<br />Query: $query", $this->errno);
@@ -410,8 +431,14 @@ class Database extends mysqli implements IDatabase {
 
         $query = "INSERT INTO $table ($s_fields) VALUES ($s_values)";
 
-        $this->query($query);
-
+        try {
+            $this->query($query);
+        } catch (Exception $ex) {
+            // TODO: Use enum for numeric codes.
+            if (1062 == $ex->getCode()) {
+                throw new DuplicateEntryException($ex->getMessage(), 1062);
+            }
+        }
         return (int) $this->insert_id;
     }
 
