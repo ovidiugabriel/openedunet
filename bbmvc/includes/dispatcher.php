@@ -82,7 +82,8 @@ if (defined('_USE_SMARTY') && _USE_SMARTY) {
         require_once _DIR_PROJECT . '/includes/smarty_extended/' . $plugin['type'] . '.' . $plugin['name'] . '.php';
         // @see http://www.smarty.net/docs/en/api.register.plugin.tpl
         $fn_name = 'smarty_' . $plugin['type'] . '_' . $plugin['name'];
-        $smarty->registerPlugin($plugin['type'], $plugin['name'], $fn_name);
+        $_smarty->registerPlugin($plugin['type'], $plugin['name'], $fn_name);
+        // FIXME: https://github.com/smarty-php/smarty/issues/131
     }
 }
 
@@ -99,7 +100,7 @@ $module = filter_input(INPUT_GET, _MODULE_KEY); // eg. Module_SubModule_SubSubMo
 if (null == $module) {
     redirect(array(_MODULE_KEY => _DEFAULT_MODULE));
 }
-        
+
 //module security check
 if (!@ereg('^[a-zA-Z_0-9]+$', $module)) {
     throw new Exception('Invalid module: Module name contains invalid characters!');
@@ -164,6 +165,7 @@ if (@ereg("^_{2}", $action)) { // TODO: ereg is deprecated, replace it
     throw new Exception('Action is a special function. Access denied!');
 }
 
+ClassLoader::addIncludePath(_DIR_PROJECT . '/includes');
 ClassLoader::addIncludePath(_DIR_PROJECT . '/includes/classes');
 // ClassLoader::addIncludePath(_APPS_PATH . '/CdCollection/modules/CdCollection');
 
@@ -200,10 +202,10 @@ if (_SECURITY_ENFORCE) {
 // params are ok. calling the requested action
 Factory::getDispatcher()->executeAction($module_classname, $action);
 
-$elapsed_time = (float) $benchmark->stop();
+// $elapsed_time = (float) $benchmark->stop();
 
 if (defined('_USE_SMARTY') && _USE_SMARTY) {
-    $_smarty->assign('elapsed_time', $elapsed_time);
+    // $_smarty->assign('elapsed_time', $elapsed_time);
     $_smarty->assign('_action', $action);
     $_smarty->display('index.tpl');
 }

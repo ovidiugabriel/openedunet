@@ -111,21 +111,7 @@ class ClassLoader {
      * @return void
      */
     static public function autoload($class_name) {
-        switch ($class_name) {
-            case 'Smarty':
-                if (is_file($file = (_DIR_LIBRARIES . '/Smarty-' . _SMARTY_VERSION . '/libs/Smarty.class.php'))) {
-                    // smarty is bundled in bbmvc package
-                    require_once $file;
-                } else {
-                    // smarty is not bundled in bbmvc package, maybe it is bundled in php distro
-                    require_once 'Smarty.class.php';
-                }
-                return;
-
-
-            default:
-                require_once $class_name . '.class.php';
-        }
+        require_once $class_name . '.class.php';
     }
 
     /**
@@ -159,11 +145,11 @@ class ClassLoader {
      *      Test t = Class.forName("test").newInstance();
      * </code>
      *
-     * 
+     *
      * <code>
      *      // In the header we do all imports to favor op-code cache
      *      import('test');
-     * 
+     *
      *      // Inside functions/methods we create instances
      *      $t = ClassLoader::createInstance('test');
      * </code>
