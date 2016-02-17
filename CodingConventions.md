@@ -138,8 +138,9 @@ but it is important to keep in mind only one rule: **don't put everything in the
 
 Usually I stick to the same convetions as [Les Orchard](http://blog.lmorchard.com/2013/01/23/naming-conventions).
 
-| Variable | mutable | All lower case, words separated by underscores. |
+|          |         |                                                 |
 |:---------|:--------|:------------------------------------------------|
+| Variable | mutable | All lower case, words separated by underscores. |
 | Constant | immutable | All upper case, words separated by underscores. |
 | Functions/methods | immutable and callable things | Mixed camel case, first letter always lower case. |
 | Structs and classes |  immutable and instantiatable things | Mixed camel case, first letter always upper case. |
