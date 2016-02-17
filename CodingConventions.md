@@ -11,7 +11,7 @@ Packages\User\Preferences.sublime-settings
 
 **Sublime settings are highlighted between { and }**
 
-```
+```javascript
 {
     // Encoding used when saving new files, and files opened with an undefined
     // encoding (e.g., plain ascii files). If a file is opened with a specific
@@ -55,6 +55,7 @@ Packages\User\Preferences.sublime-settings
 ```
 
 Other goodies:
+* http://editorconfig.org
 
 Font faces:
 * [Bitstream Vera Sans Mono](http://www.fontsquirrel.com/fonts/Bitstream-Vera-Sans-Mono)
