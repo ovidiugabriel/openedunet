@@ -107,7 +107,7 @@ We don't stick to PSR-4.5 because we try to avoid static methods as more as poss
 Seven Virtues of a Good Object: 5. His Class Doesn't Have Anything Static
 [Yegor Bugayenko](http://www.yegor256.com/2014/11/20/seven-virtues-of-good-object.html)
 
-```
+```php
     /** 
      * I am using this because it is similar with @staticmethod used in Python.
      * We don't stick to PSR-4.5, because it is more suitable for C++/Java style. 
@@ -115,8 +115,7 @@ Seven Virtues of a Good Object: 5. His Class Doesn't Have Anything Static
      * and JavaScript never had this idea of statics.
      * PSR-4.5. When present, the static declaration MUST come after the visibility declaration.
      */
-    static // << -- this is the place for static keyword
-    public function FunctionName($value='') {
+    static public function FunctionName($value='') {
         # code...
     }
 ```
