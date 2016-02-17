@@ -22,7 +22,7 @@ Hungarian notation doesn't help even for scripting languages. - For modern refle
 
 Don't be fooled  by the fact that type declaration is not mandatory. That doesn't mean that variables do not have a type - it is just encapsulated by its internal variant. This is **a feature of object orientation**.
 
-```
+```php
 $X = "0"; // here X is a string
 $Y = 0;   // here Y is an integer
 $Z = 0.0; // here Z is a float
