@@ -76,6 +76,16 @@ class Request {
         }
         return $forms;
     }
+
+    /** 
+     * Retrieves all pairs of name and value that were read by POST or GET method. 
+     * 
+     * @return array
+     * @proto public getFormNameValue():php.NativeArray
+     */
+    public function getFormNameValue() {
+        return array_merge($_GET, $_POST);
+    }
     
     /** 
      * Retrieves a specified ServerVariable value. 
