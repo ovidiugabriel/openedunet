@@ -182,8 +182,9 @@ class NativeArray {
      * 
      * This function can be used with Haxe array types as parameter.
      * 
-     * @param type $value
-     * @return type
+     * @param array $value
+     * @return integer
+     * @proto static public size(value:Dynamic):Int
      */
     static public function size($value) {
         return (int) NativeArray::count( self::fromHaxeType($value) );
