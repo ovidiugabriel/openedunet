@@ -89,6 +89,7 @@ class NativeArray {
      * 
      * @param array $input
      * @return array
+     * @proto static public toAssoc(input:Dynamic):php.NativeArray
      */
     static public function toAssoc($input) {
         // Use this function to get the assoc... from
