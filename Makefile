@@ -1,5 +1,10 @@
 #
-# If SHELL variable is not set, the current shell is used
+# $SHELL is not working correctly.
+# For example in cygwin I get: "Error: '/bin/bash' not found"
+# or even "/bin/sh: ...: No such file or directory"
+#
+# On Windows, I had the best results using Digital Mars make: /cygdrive/c/dm/bin/make
+# On Linux it worked just fine.
 #
 DOCUMENTOR=phpDocumentor.phar
 PHPUNIT=phpunit
@@ -9,20 +14,20 @@ none:
 	# nothing to be done
 
 docs:
-	$(SHELL) php $(DOCUMENTOR) project:run -d bbmvc -t docs
+	php $(DOCUMENTOR) project:run -d bbmvc -t docs
 
 tup:
-	$(SHELL) tup upd
+	tup upd
 
 unittest:
 	# Composing Test Suite Using the Filesystem
-	$(SHELL) $(PHPUNIT) --bootstrap bbmvc/bootstrap.php bbmvc/tests
+	$(PHPUNIT) --bootstrap bbmvc/bootstrap.php bbmvc/tests
 
 composer-update:
-	$(SHELL) php $(COMPOSER) update
+	php $(COMPOSER) update
 
 composer-self-update:
-	$(SHELL) php $(COMPOSER) self-update
+	php $(COMPOSER) self-update
 
 composer-install:
 	bash -c 'curl -sS "https://getcomposer.org/installer" | php'
