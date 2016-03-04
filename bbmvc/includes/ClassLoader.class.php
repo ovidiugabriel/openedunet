@@ -115,6 +115,17 @@ class ClassLoader {
     }
 
     /**
+     * In Haxe, import is a reserved keyword.
+     *
+     * [_import description]
+     * @return [type] [description]
+     * @proto static public _import(name:String):Void
+     */
+    static public function _import($name) {
+        return self::import($name);
+    }
+
+    /**
      * Part of class loader (not dispatcher).
      * Name respects the format defined by:
      * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
@@ -124,7 +135,7 @@ class ClassLoader {
      * @param string $name
      * @return void
      * @throws InvalidArgumentException
-     * @proto static public import(name:String):Void
+     *
      */
     static public function import($name) {
         $pieces = explode('.', $name);
@@ -135,7 +146,7 @@ class ClassLoader {
             throw new InvalidArgumentException('Illegal identifier: ' . $class, 1);
         }
 
-        require_once self::getResource($name, 'class');
+        return require_once self::getResource($name, 'class');
     }
 
     /**
