@@ -121,12 +121,13 @@ function safe_assert($assertion, $description = null) {
  * @param string $description
  * @return void
  */
-function halt_assert($assertion, $description = null) {
+function halt_assert($assertion, $description = null, $callback = null) {
     try {
         safe_assert((bool) $assertion, $description);
     } catch (Exception $ex) {
-        log_message(LOG_ERR, $ex->getMessage());
-        log_message(LOG_ERR, $ex->getTraceAsString());
+        if ($callback) {
+            call_user_func($callback, $ex);
+        }
         exit(1);
     }
 }
