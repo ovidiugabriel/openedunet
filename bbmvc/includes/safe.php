@@ -94,8 +94,8 @@
  * @return integer
  * @deprecated
  */
-function safe_count() { 
-    throw new Exception('@deprecated: Use NativeArray::count() instead');
+function safe_count(array $array) { 
+    return NativeArray::count($array);
 }
 
 /** 
@@ -152,6 +152,17 @@ function halt_assert($assertion, $description = null) {
  * @return boolean
  * @deprecated
  */
-function safe_empty() {
-    throw new Exception('@deprecated: Use NativeArray::isEmpty() instead.');
+function safe_empty(array $input) {
+    return NativeArray::isEmpty($input);
+}
+
+/**
+ * Peforms intval in a more safe manner.
+ * For example, if value is an array(), then 0 will be returned.
+ * 
+ * @param mixed $value
+ * @return integer
+ */
+function safe_intval($value) {
+    return is_numeric($value) ? intval($value) : 0;
 }
