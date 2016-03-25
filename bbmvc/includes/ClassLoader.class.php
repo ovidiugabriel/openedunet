@@ -75,6 +75,7 @@ if (!defined('_VALID_ACCESS')) {
  */
 class ClassLoader {
     const RESOURCE_TYPE_CLASS = 'class';
+    static private $removed_classes = array();
 
     /**
      * Finds the resource with the given name.
@@ -103,6 +104,20 @@ class ClassLoader {
     }
 
     /**
+     * Put a class name on the list of classes that won't be loaded.
+     * Introduced to mute errors that are caused by libraries trying to use
+     * class_exists() function, that triggers auto-loading with require_once().
+     *
+     * @param  string $class_name
+     * @return void
+     */
+    static public function removeClass($class_name) {
+        if (!in_array($class_name, self::$removed_classes)) {
+            self::$removed_classes[] = $class_name;
+        }
+    }
+
+    /**
      *
      * @see http://php.net/manual/en/function.spl-autoload.php
      * @see http://php.net/manual/en/function.spl-autoload-register.php
@@ -111,6 +126,9 @@ class ClassLoader {
      * @return void
      */
     static public function autoload($class_name) {
+        if (in_array($class_name, self::$removed_classes)) {
+            return;
+        }
         require_once $class_name . '.class.php';
     }
 
