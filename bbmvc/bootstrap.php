@@ -48,6 +48,7 @@
 /*                                                                           */
 /* Date         Name    Reason                                               */
 /* ------------------------------------------------------------------------- */
+/* 25.03.2015           Added Composer manual loading                        */
 /* 18.09.2015           Added constdef and composer vendor/autoload.php      */
 /* 18.09.2015           Added Haxe Boot.class.php                            */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -78,8 +79,15 @@ if (_DEBUG == _DEBUG_BROWSER) {
     error_reporting(0);
 }
 
+//
+// Add PHP Composer autoloader (and manual loading from `vendor` folder also)
+//
+
+$vendor_dir = realpath(__DIR__ . '/../vendor');
+ClassLoader::addIncludePath($vendor_dir);
+
 // FIXME: Need to move vendor folder in another location??
-if (file_exists($file = __DIR__ . '/../vendor/autoload.php')) {
+if (file_exists($file = $vendor_dir . '/autoload.php')) {
     require_once $file;
 }
 
