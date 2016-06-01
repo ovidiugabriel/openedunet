@@ -76,6 +76,8 @@
 /*                                                                           */
 
 /**
+ * Alias of NativeArray::count().
+ * 
  * For the original count() function, if the parameter is not an array or 
  * not an object with implemented Countable interface, 1 will be returned. 
  * There is one exception, if array_or_countable is NULL, 0 will be returned.
