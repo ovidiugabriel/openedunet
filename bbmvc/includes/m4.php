@@ -54,12 +54,21 @@
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 //
+// Provides counterpars of some built-in M4 functions.
+// List of functions: https://www.gnu.org/software/m4/manual/m4.html
+//
+
+//
 // This function is so common that I expect it to be already defined somewhere
 // But if it is not, let's define it here.
 //
 if (!function_exists('identity')) {
     // No need to specify 'Identity' since php function names are case insensitive
     function identity($x) { return $x; }
+}
+
+if (!defined('FUNCTION_IDENTITY')) {
+    define ('FUNCTION_IDENTITY', 'identity');
 }
 
 /**
@@ -85,7 +94,7 @@ if (!function_exists('identity')) {
  * (or you are not allowed to use it), then just do it this way:
  * <code> 
  *
- *     $val = if_defined('CONSTANT_NAME', 'yes', 'no');
+ *     $val = ifdef('CONSTANT_NAME', 'yes', 'no');
  * 
  * </code>
  *
@@ -95,11 +104,11 @@ if (!function_exists('identity')) {
  * @param callable $fn may be used to ensure the type of the return value
  * @return mixed
  */
-function if_defined($def, $yes, $no, $fn = 'identity') {
+function ifdef($def, $yes, $no, $fn = FUNCTION_IDENTITY) {
     if (!is_callable($yes) && !is_callable($no)) {
         return $fn(defined($def) ? $yes : $no);
     }
-    
+
     if (defined($def)) {
         return $yes();
     }
@@ -113,7 +122,7 @@ function if_defined($def, $yes, $no, $fn = 'identity') {
  * @param mixed $neq value to be returned or function to be called if values are not equal
  * @param callabke $fn may be used to ensure the type of the return value
  */
-function if_equals_else($s1, $s2, $eq, $neq, $fn = 'identity') {
+function ifelse($s1, $s2, $eq, $neq, $fn = FUNCTION_IDENTITY) {
     if (!is_callable($eq) && !is_callable($neq)) {
         return $fn(($s1 == $s2) ? $eq : $neq);
     }
