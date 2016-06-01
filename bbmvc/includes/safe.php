@@ -135,6 +135,8 @@ function halt_assert($assertion, $description = null, $callback = null) {
 }
 
 /**
+ * Alias of NativeArray::isEmpty().
+ * 
  * For the original empty() function, if the input was undefined variable,
  * null or empty string, the function returned true. Which of course is not correct.
  * To solve this issuse safe_empty() throws an exception if the parameter is not
