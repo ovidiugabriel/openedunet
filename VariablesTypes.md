@@ -6,8 +6,8 @@ An `array` in PHP is actually an ordered map. A `map` is a type that associates 
 
 Source: http://www.php.net/manual/en/language.types.array.php
 
-| **`list`**       | numerically indexed `array` |
 |:-----------------|:----------------------------|
+| **`list`**       | numerically indexed `array` |
 | **`dictionary`** | associative indexed `array` |
 
 As of PHP 5.4 it is possible to array dereference the result of a function or method call directly. Before it was only possible using a temporary variable.
