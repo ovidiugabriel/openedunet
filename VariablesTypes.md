@@ -37,7 +37,7 @@ The return type of functions shall not be replaced with `variant` when it can be
 
 Tthe `mixed` pseudo-type introduced by the official PHP manual has been replaced in Barebone MVC documentation with `variant` pseudo-type which is used for documentation purposes only. The definition of the `variant` is the following:
 
-```
+```php
 class variant {
     private typeid type;
 
@@ -64,14 +64,14 @@ class variant {
 
 Get the type of a variable. Actually returns the `variant` type name.
 
-```
+```php
 public string variant::gettype() const;
 ```
 
 | **returns** | Returns the string representation of the type property of the variant object |
 |:------------|:-----------------------------------------------------------------------------|
 
-```
+```php
 string gettype(const variant var); // Procedural style
 ```
 
@@ -83,7 +83,7 @@ string gettype(const variant var); // Procedural style
 
 Set the type of a variable
 
-```
+```php
 public bool variant::settype(string type);
 ```
 
@@ -91,7 +91,7 @@ public bool variant::settype(string type);
 |:---------|:----|
 | **return** | ... |
 
-```
+```php
 bool settype(variant var, string type); // Procedural style
 ```
 
@@ -99,7 +99,7 @@ bool settype(variant var, string type); // Procedural style
 
 Get the boolean value of a variable (PHP 5 >= 5.5.0)
 
-```
+```php
 public bool variant::boolval() const;
 bool boolval(const variant var); // Procedural style
 ```
@@ -108,7 +108,7 @@ bool boolval(const variant var); // Procedural style
 
 Get the integer value of a variable
 
-```
+```php
 public int variant::intval() const; 
 int intval(const variant var); // Procedural style
 ```
@@ -117,7 +117,7 @@ int intval(const variant var); // Procedural style
 
 Get string value of a variable
 
-```
+```php
 public string variant::strval() const;
 string strval(const variant var); // Procedural style
 ```
@@ -126,7 +126,7 @@ string strval(const variant var); // Procedural style
 
 Get float value of a variable
 
-```
+```php
 public float variant::floatval() const;
 float floatval(const variant var); // Procedural style
 ```
@@ -135,7 +135,7 @@ float floatval(const variant var); // Procedural style
 ### `is_null()` ###
 Finds whether a variable is `null`. A variant is `null` when its variant type is `nulltype`.
 
-```
+```php
 public bool variant::is_null() const;
 bool is_null(variant var); // Procedural style
 ```
@@ -143,7 +143,7 @@ bool is_null(variant var); // Procedural style
 ### `is_bool()` ###
 Finds out whether a variable is a boolean
 
-```
+```php
 public bool variant::is_bool() const;
 bool is_bool(const variant var); // Procedural style
 ```
@@ -151,7 +151,7 @@ bool is_bool(const variant var); // Procedural style
 ### `is_float()` ###
 Finds whether the type of a variable is float
 
-```
+```php
 public bool variant::is_float() const;
 bool is_float(const variant var); // Procedural style
 ```
@@ -159,7 +159,7 @@ bool is_float(const variant var); // Procedural style
 ### `is_int()` ###
 Find whether the type of a variable is integer
 
-```
+```php
 public bool variant::is_int() const;
 bool is_int(const variant var); // Procedural style
 ```
@@ -167,34 +167,35 @@ bool is_int(const variant var); // Procedural style
 ### `is_numeric()` ###
 Finds whether a variable is a number or a numeric string
 
-```
+```php
 public bool variant::is_numeric() const;
 bool is_numeric(const variant var);
 ```
 
 ### `is_string()` ###
 Find whether the type of a variable is string
-```
+
+```php
 public bool variant::is_string() const;
 bool is_string(const variant var);
 ```
 ### `is_object()` ###
 Finds whether a variable is an object
 
-```
+```php
 public bool variant::is_object() const;
 bool is_object(const variant var);
 ```
 ### `is_array()` ###
 Finds whether a variable is an array
-```
+```php
 public bool variant::is_array() const;
 bool is_array(const variant var);
 ```
 
 ### `get_class()` ###
 Returns the name of the class of an object
-```
+```php
 public string get_class() const;  
 string get_class(const variant var);
 ```
