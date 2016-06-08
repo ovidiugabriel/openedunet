@@ -169,7 +169,7 @@ Finds whether a variable is a number or a numeric string
 
 ```php
 public bool variant::is_numeric() const;
-bool is_numeric(const variant var);
+bool is_numeric(const variant var); // Procedural style
 ```
 
 ### `is_string()` ###
@@ -177,25 +177,25 @@ Find whether the type of a variable is string
 
 ```php
 public bool variant::is_string() const;
-bool is_string(const variant var);
+bool is_string(const variant var); // Procedural style
 ```
 ### `is_object()` ###
 Finds whether a variable is an object
 
 ```php
 public bool variant::is_object() const;
-bool is_object(const variant var);
+bool is_object(const variant var); // Procedural style
 ```
 ### `is_array()` ###
 Finds whether a variable is an array
 ```php
 public bool variant::is_array() const;
-bool is_array(const variant var);
+bool is_array(const variant var); // Procedural style
 ```
 
 ### `get_class()` ###
 Returns the name of the class of an object
 ```php
 public string get_class() const;  
-string get_class(const variant var);
+string get_class(const variant var); // Procedural style
 ```
