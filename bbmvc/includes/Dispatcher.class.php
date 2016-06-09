@@ -4,7 +4,8 @@
  *                            Dispatcher.class.php
  *                    ------------------------------------
  *            begin     : Oct 30, 2006
- *            copyright : (C) Brehar Mihai-Tudor,  BMR Soft srl, ICE Control srl
+ *            copyright : (C) Brehar Mihai-Tudor,  BMR Soft srl
+ *            copyright : (C) 2007-2016 Ovidiu Farauanu, ICE Control srl
  *            email     : mihai@secure-hosting.ro
  *
  *    $Id$
@@ -12,7 +13,7 @@
  * **************************************************************************/
 
  /*
-  * Copyright (c) 2006-2015, BMR Soft srl, ICE Control srl
+  * Copyright (c) 2006-2016, BMR Soft srl, ICE Control srl
   * All rights reserved.
   *
   * Redistribution and use in source and binary forms, with or without modification,
@@ -267,6 +268,27 @@ class Dispatcher {
         // invoke() method throws an exception if method does not exists
         // so we don't check if method exists prior to this call
         return Reflect::invoke($controller, $func_name, $param_arr);
+    }
+    
+    /** 
+     * Triggers an event by dispatching arguments to 
+     * all observers that handle the event and returning their return values.
+     * 
+     * @param string $event - the name of the event
+     * @param array $args - argument to be passed to the event handler
+     */
+    public function trigger($event, array $args = null) {
+        
+    }
+    
+    /** 
+     * Registers an event handler to the event dispatcher.
+     * 
+     * @param string $event - the name of the event
+     * @param callable $handler - handler to be called with arguments given by trigger call
+     */
+    public function register($event, $handler) {
+        
     }
 
     static public function dispatch() {
