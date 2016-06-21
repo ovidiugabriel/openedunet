@@ -16,6 +16,15 @@ A beautiful yet efficient language.
 * automatic memoization
 * literals inlining; macro inlining; AST- macro (template) based metaprogramming
 
+```
+main: int -> char const*[] -> int = (argc, argv) -> 0
+```
+
+```c++
+int main(int argc, char const *argv[]) { return 0; }
+```
+
+
 ###### Delayed Assignment Operator
 
 ```
