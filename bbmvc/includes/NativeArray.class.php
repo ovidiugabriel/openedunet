@@ -83,6 +83,29 @@ class NativeArray {
         return $value;
     }
 
+    /** 
+     * @param callable $callback
+     * @param array $array
+     * @param array|string $args
+     * @return array
+     */
+    static public function map($callback, array $array, $args = null) {
+        $result = array();
+        if (null !== $args) {
+            if (!is_array($args)) {
+                $args = array($args);
+            }
+        } else {
+            $args = array();
+        }
+
+        foreach ($array as $elem) {
+            $params = array_merge(array($elem), $args);
+            $result[] = call_user_func_array($callback, $params);
+        }
+        return $result;
+    }
+
     /**
      * Turns a non-associative array into an associative array.
      * (if it has an even number of segments.)
