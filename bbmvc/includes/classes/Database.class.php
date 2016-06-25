@@ -72,6 +72,8 @@ interface IDatabase {
      */
     const INVALID_RESOURCE = -1;
 
+    const DEFAULT_CONFIG = 'default';
+
     /**
      *
      * @param  string $query
@@ -174,7 +176,9 @@ class Database extends mysqli implements IDatabase {
      */
     private $db_name = '';
 
-    /** @var int */
+    /** 
+     * @var int 
+     */
     private $db_port = 3306;
     
     /**
@@ -219,6 +223,7 @@ class Database extends mysqli implements IDatabase {
      *
      * @param string $name
      * @return void
+     * @proto public setDatabaseName(name:String):Void
      */
     public function setDatabaseName($name) {
         $this->db_name = $name;
@@ -228,6 +233,7 @@ class Database extends mysqli implements IDatabase {
      *
      * @param string $hostname
      * @return void
+     * @proto public setHostName(hostName:String):Void
      */
     public function setHostName($hostname) {
         $this->db_host = $hostname;
@@ -259,7 +265,7 @@ class Database extends mysqli implements IDatabase {
      * @return Database
      * @proto static public factory(driver:String, ?configName:String, ?config:php.NativeArray):Database
      */
-    static public function factory($driver, $config_name = 'default', array $config = null) {
+    static public function factory($driver, $config_name = self::DEFAULT_CONFIG, array $config = null) {
         switch ($driver) {
             /*
             case "mssql_odbc":
@@ -282,19 +288,22 @@ class Database extends mysqli implements IDatabase {
      * @return Database
      * @proto static public getInstance(?configName:String, ?config:php.NativeArray):Database
      */
-    static public function getInstance($config_name = 'default', array $config = null) {
+    static public function getInstance($config_name = self::DEFAULT_CONFIG, array $config = null) {
         if (!isset(self::$instance[$config_name])) {
             $class = __CLASS__;
             $db = new $class();
             self::$instance[$config_name] = $db;
 
             if (null != $config) {
+                // configuration specified as parameter
                 // direct assignment shall be faster than function call
                 $db->db_host = $config['hostname'];
                 $db->db_name = $config['database'];
                 $db->db_port = (int) $config['port'];
                 $db->open($config['username'], $config['password']);
             } else {
+                // This will handle the default configuration
+                // inside open() function.
                 $db->open();
             }
         }
