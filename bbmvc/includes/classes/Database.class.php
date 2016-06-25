@@ -187,12 +187,6 @@ class Database extends mysqli implements IDatabase {
     private $db_port = 3306;
     
     /**
-     *
-     * @var string
-     */
-    public $last_query = '';
-
-    /**
      * Singleton. Private constructor.
      */
     private function __construct() {}
@@ -338,7 +332,7 @@ class Database extends mysqli implements IDatabase {
      * @return string
      */
     public function last_query() {
-        return $this->last_query;
+        return $this->history[count((array) $this->history)-1];
     }
 
     /**
@@ -356,7 +350,6 @@ class Database extends mysqli implements IDatabase {
      */
     public function query($query) {
         $this->history[] = $query;
-        $this->last_query = $query;
 
         $res = parent::query($query);
         $res_num = self::INVALID_RESOURCE;  // Initialize with an 'Invalid index'.
@@ -389,7 +382,6 @@ class Database extends mysqli implements IDatabase {
      */
     public function real_query($query) {
         $this->history[] = $query;
-        $this->last_query = $query;
 
         parent::real_query($query);
 
