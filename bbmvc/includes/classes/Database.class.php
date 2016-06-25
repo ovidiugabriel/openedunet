@@ -285,15 +285,17 @@ class Database extends mysqli implements IDatabase {
     static public function getInstance($config_name = 'default', array $config = null) {
         if (!isset(self::$instance[$config_name])) {
             $class = __CLASS__;
-            self::$instance[$config_name] = new $class();
+            $db = new $class();
+            self::$instance[$config_name] = $db;
 
             if (null != $config) {
                 // direct assignment shall be faster than function call
-                self::$instance[$config_name]->db_host = $config['hostname'];
-                self::$instance[$config_name]->db_name = $config['database'];
-                self::$instance[$config_name]->open($config['username'], $config['password']);
+                $db->db_host = $config['hostname'];
+                $db->db_name = $config['database'];
+                $db->db_port = (int) $config['port'];
+                $db->open($config['username'], $config['password']);
             } else {
-                self::$instance[$config_name]->open();
+                $db->open();
             }
         }
 
