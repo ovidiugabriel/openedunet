@@ -174,6 +174,9 @@ class Database extends mysqli implements IDatabase {
      */
     private $db_name = '';
 
+    /** @var int */
+    private $db_port = 3306;
+    
     /**
      *
      * @var string
@@ -209,7 +212,7 @@ class Database extends mysqli implements IDatabase {
             $this->db_name = _DB_NAME;
         }
 
-        return $this->real_connect($this->db_host, $username, $password, $this->db_name /*[, int $port ] */);
+        return $this->real_connect($this->db_host, $username, $password, $this->db_name, $this->db_port);
     }
 
     /**
@@ -230,6 +233,15 @@ class Database extends mysqli implements IDatabase {
         $this->db_host = $hostname;
     }
 
+    /**
+     * @param int $port
+     * @return void
+     * @proto public setPort(port:Int):Void
+     */
+    public function setPort($port) {
+        $this->db_port = (int) $port;
+    }
+    
     /*
     public function __destruct() {
         foreach (self::$res as $resource) {
