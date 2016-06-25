@@ -132,6 +132,10 @@ interface IDatabase {
  * @access public
  */
 class Database extends mysqli implements IDatabase {
+    //
+    // Full documentation for the parent class
+    // -- http://php.net/manual/en/class.mysqli.php
+    //
 
     /**
      * @var Database
@@ -182,9 +186,14 @@ class Database extends mysqli implements IDatabase {
     private function __construct() {}
 
     /**
-     *
+     * If one of the following: username OR password OR hostname OR database name
+     * is not set on the object, then global constants are used:
+     * _DB_USER, _DB_PASS, _DB_HOST, _DB_NAME.
+     * 
      * @param string $username
      * @param string $password
+     * @return bool
+     * @proto public open(?username:String, ?password:String):Bool
      */
     public function open($username = null, $password = null) {
         if ((null == $username) && (null == $password)) {
@@ -199,7 +208,8 @@ class Database extends mysqli implements IDatabase {
         if (null == $this->db_name) {
             $this->db_name = _DB_NAME;
         }
-        parent::mysqli($this->db_host, $username, $password, $this->db_name);
+
+        return $this->real_connect($this->db_host, $username, $password, $this->db_name /*[, int $port ] */);
     }
 
     /**
@@ -235,7 +245,7 @@ class Database extends mysqli implements IDatabase {
      * @param type $config_name
      * @param array $config
      * @return Database
-     * @proto static public factory(driver:String, configName:String, ?config:php.NativeArray):Database
+     * @proto static public factory(driver:String, ?configName:String, ?config:php.NativeArray):Database
      */
     static public function factory($driver, $config_name = 'default', array $config = null) {
         switch ($driver) {
@@ -258,7 +268,7 @@ class Database extends mysqli implements IDatabase {
      * @param string $config_name
      * @param array $config
      * @return Database
-     * @proto static public getInstance(configName:String, ?config:php.NativeArray):Database
+     * @proto static public getInstance(?configName:String, ?config:php.NativeArray):Database
      */
     static public function getInstance($config_name = 'default', array $config = null) {
         if (!isset(self::$instance[$config_name])) {
@@ -266,8 +276,9 @@ class Database extends mysqli implements IDatabase {
             self::$instance[$config_name] = new $class();
 
             if (null != $config) {
-                self::$instance[$config_name]->setHostName($config['hostname']);
-                self::$instance[$config_name]->setDatabaseName($config['database']);
+                // direct assignment shall be faster than function call
+                self::$instance[$config_name]->db_host = $config['hostname'];
+                self::$instance[$config_name]->db_name = $config['database'];
                 self::$instance[$config_name]->open($config['username'], $config['password']);
             } else {
                 self::$instance[$config_name]->open();
