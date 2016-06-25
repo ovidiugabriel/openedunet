@@ -106,10 +106,15 @@ interface IDatabase {
     public function update($table, array $a_values, $where);
 
     /**
-     *
+     * We mainly used begin() instead, but begin_transaction()
+     * is here for compatibility with mysqli::begin_transaction
+     * 
+     * @see http://php.net/manual/en/mysqli.begin-transaction.php
+     * 
      * @param integer $flags
      * @param string $name
      * @return boolean
+     * @proto public begin_transaction(flags:Int, name:String):Bool
      */
     public function begin_transaction($flags = 0, $name = null);
 
