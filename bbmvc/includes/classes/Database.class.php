@@ -463,10 +463,10 @@ class Database extends mysqli implements IDatabase {
         $fields = '';
         $values = '';
 
-        // FIXME: Ensure proper escaping of $value, filter $field.
         foreach ($a_values as $field => $value) {
             $fields .= "`{$field}`, ";
-            $values .= "'" . addslashes($value) . "', ";
+            // TODO: Better use  mysqli_stmt::bind_param() and mysqli::prepare()
+            $values .= "'" . addslashes( $this->escape_string($value) ) . "', ";
         }
 
         $s_fields = substr($fields, 0, strlen($fields) - 2);
@@ -489,7 +489,8 @@ class Database extends mysqli implements IDatabase {
      *
      * @param string $table
      * @param array $a_values
-     * @param mixed $where
+     * @param mixed $where - can be string or dictionary
+     * @param mixed $where_val - optional where value
      * @return integer
      */
     public function update($table, array $a_values, $where, $where_val = null) {
@@ -497,19 +498,20 @@ class Database extends mysqli implements IDatabase {
          * $a_values is an array. Check the "insert" function above for more details.
          */
 
-        $fields = '';
+        $fields_Array = array();
 
-        foreach ($a_values as $field => $value){
-            $fields .= "`{$field}` = '" . addslashes($value) . "', ";
+        foreach ($a_values as $field => $value) {
+            // TODO: Better use  mysqli_stmt::bind_param() and mysqli::prepare()
+            $fields_Array[] = "`{$field}` = '" . addslashes( $this->escape_string($value) ) . "'";
         }
 
-        $s_fields = substr($fields, 0, strlen($fields) - 2);
+        $fields_String = implode(', ', $fields_Array);
 
         if (null == $where_val) {
-            $query = "UPDATE $table SET $s_fields $where";
+            $query = "UPDATE $table SET $fields_String $where";
         } else {
-            // FIXME: Ensure escaping of $where_val by type
-            $query = "UPDATE $table SET $s_fields WHERE `$where` = '$where_val' ";
+            // TODO: Better use  mysqli_stmt::bind_param() and mysqli::prepare()
+            $query = "UPDATE $table SET $fields_String WHERE `$where` = '" . addslashes($this->escape_string($where_val)) . "' ";
         }
 
         $this->query($query);
