@@ -293,6 +293,9 @@ class Database extends mysqli implements IDatabase {
             $db = new $class();
             self::$instance[$config_name] = $db;
 
+            // TODO: get the configuration based on $config_name when $config is not specified.
+            // Only if this one is not found, use constant based default configuration (in open() function)
+
             if (null != $config) {
                 // configuration specified as parameter
                 // direct assignment shall be faster than function call
