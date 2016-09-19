@@ -20,6 +20,15 @@ import haxe.extern.Rest;
 @:expose('barebone')
 class Js {
 
+    static var TYPE_STRING     = 'string';
+    static var TYPE_NUMBER     = 'number';
+    static var TYPE_BOOLEAN    = 'boolean';
+    static var TYPE_OBJECT     = 'object';
+    static var TYPE_FUNCTION   = 'function';
+    static var TYPE_NULL       = 'null';
+    static var TYPE_UNDEFINED  = 'undefined';
+    static var TYPE_ARRAY      = 'Array';
+
     private function new() {}
 
     /**
@@ -58,6 +67,7 @@ class Js {
         Gets the type of a given value.
         
         Possible values:
+            - "boolean" (for true or false values)
             - "numeric" (for integer and floating point numbers)
             - "string" (for character strings)
             - "null" (for null references)
