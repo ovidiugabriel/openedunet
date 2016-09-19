@@ -54,6 +54,28 @@ class Js {
         return element.textContent;
     }
 
+    /** 
+        Gets the type of a given value.
+        
+        Possible values:
+            - "numeric" (for integer and floating point numbers)
+            - "string" (for character strings)
+            - "null" (for null references)
+            - "undefined" (for symbols that are not declared yet)
+            - "object" (for objects created without using a specific constructor, anonymous objects, dictionaries)
+            - "Array" (for arrays)
+            - other values for object created using a specific constructor, the constructor name is returned
+     **/
+    static public function getType(value:Dynamic):String {
+        if ('object' == untyped __typeof__('value')) {
+            if (untyped __strict_eq__(null, value)) {
+                return 'null';
+            }
+            return untyped __js__('value.__proto__.constructor.name');
+        }
+        return untyped __typeof__('value');
+    }
+
     /**
      * Automatically detects if value is not a number (integer or float) and
      * returns the defaultValue in that case.
