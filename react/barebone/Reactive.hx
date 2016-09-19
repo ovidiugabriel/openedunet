@@ -71,9 +71,17 @@ class Js {
             if (untyped __strict_eq__(null, value)) {
                 return 'null';
             }
-            return untyped __js__('value.__proto__.constructor.name');
+            return Js.getClass(value);
         }
         return untyped __typeof__('value');
+    }
+    
+    /** 
+        Returns the constructor name if case that object is created using a specified constructor.
+        Otherwise will return "object".
+     **/
+    static public function getClass(value:Dynamic):String {
+        return untyped __js__('value.__proto__.constructor.name');
     }
 
     /**
