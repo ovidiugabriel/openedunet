@@ -139,8 +139,8 @@ class ClassLoader {
      * @return [type] [description]
      * @proto static public _import(name:String):Void
      */
-    static public function _import($name) {
-        return self::import($name);
+    static public function _import($name, $fn = null) {
+        return self::import($name, $fn);
     }
 
     /**
@@ -155,7 +155,7 @@ class ClassLoader {
      * @throws InvalidArgumentException
      *
      */
-    static public function import($name) {
+    static public function import($name, $fn = null) {
         $pieces = explode('.', $name);
         $class = array_pop($pieces);
 
@@ -164,7 +164,10 @@ class ClassLoader {
             throw new InvalidArgumentException('Illegal identifier: ' . $class, 1);
         }
 
-        return require_once self::getResource($name, 'class');
+        require_once self::getResource($name, self::RESOURCE_TYPE_CLASS);
+        if (null !== $fn) {
+            $fn();
+        }
     }
 
     /**
@@ -309,10 +312,11 @@ function declare_namespace($package) {
  * Alias of ClassLoader::import()
  *
  * @param string $name
+ * @param callback $fn
  * @return void
  */
-function import($name) {
-    ClassLoader::import($name);
+function import($name, $fn = null) {
+    ClassLoader::import($name, $fn);
 }
 
 /**
@@ -366,32 +370,6 @@ function require_object($name, $fn = null) {
  */
 function require_class($name, $fn = null) {
     return ClassLoader::requireClass($name, $fn);
-}
-
-/**
- * @param string $class_name
- * @param callable $fn
- */
-function ns_import($class_name, $fn = null) {
-    // There is no reason to have this function as a method in ClassLoader
-    // since it is possible to call it as a function from PHP code, and it won't be called from Haxe code.
-
-    if (version_compare(PHP_VERSION, '5.3.0') < 0) {
-        // Before PHP 5.3.0, so there is no namespace support
-        $p = explode('.', $class_name);
-
-        // Class is not already loaded and there is a function
-        // that creates and alias; The function must be defined in the class package.
-        if (!class_exists($p[count($p)-1]) && (null !== $fn )) {
-            $fn();
-        }
-    } else {
-        // Otherwise will use native namespace.
-        $file = ClassLoader::getResource($class_name, ClassLoader::RESOURCE_TYPE_CLASS);
-        if (file_exists($file)) {
-            require_once $file;
-        }
-    }
 }
 
 // EOF
