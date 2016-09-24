@@ -5,50 +5,22 @@ package play.mvc;
  * @see https://www.playframework.com/documentation/2.5.x/api/java/play/mvc/Results.html
  */
 class Results {
-    static public function badRequest():StatusHeader;
-    // Generates a 400 Bad Request result.
-
-    static public function badRequest(byte[] content):Result;
-    //Generates a 400 Bad Request result.
-
-    static public function badRequest(play.twirl.api.Content content):Result;
-    // Generates a 400 Bad Request result.
-
-    static public function badRequest(play.twirl.api.Content content, java.lang.String charset):Result;
-    // Generates a 400 Bad Request result.
-
-    static public function badRequest(java.io.File content):Result;
-    // Generates a 400 Bad Request result.
-
-    static public function badRequest(java.io.File content, boolean inline):Result;
-    // Generates a 400 Bad Request result.
-
-    static public function badRequest(java.io.File content, java.lang.String filename):Result;
-    // Generates a 400 Bad Request result.
-
-    static public function badRequest(java.io.InputStream content):Result;
-    // Generates a 400 Bad Request result.
-
-    static public function badRequest(java.io.InputStream content, long contentLength):Result;
-    // Generates a 400 Bad Request result.
-
-    static public function badRequest(com.fasterxml.jackson.databind.JsonNode content):Result;
-    // Generates a 400 Bad Request result.
-
-    static public function badRequest(com.fasterxml.jackson.databind.JsonNode content, com.fasterxml.jackson.core.JsonEncoding encoding):Result;
-    // Generates a 400 Bad Request result.
-
-    static public function badRequest(com.fasterxml.jackson.databind.JsonNode content, java.lang.String charset):Result;
-    // Generates a 400 Bad Request result.
-
-    static public function badRequest(Results.Chunks<?> chunks):Result;
-    // Deprecated. 
-    // Use badRequest() with StatusHeader.chunked(akka.stream.javadsl.Source) instead.
-
-    static public function badRequest(java.lang.String content):Result;
-    // Generates a 400 Bad Request result.
-
-    // Generates a 400 Bad Request result.
+    /**
+        Generates a 400 Bad Request result.
+     **/
+    @:overload(function():StatusHeader{})
+    @:overload(function(content:haxe.io.Bytes):Result{})
+    @:overload(function(content:Content):Result{})
+    @:overload(function(content:Content, charset:String):Result{})
+    @:overload(function(content:File):Result{})
+    @:overload(function(content:File, inline:Bool):Result{})
+    @:overload(function(content:File, filename:String):Result{})
+    @:overload(function(content:InputStream):Result{})
+    @:overload(function(content:InputStream, contentLength:Int):Result{})
+    @:overload(function(content:JsonNode):Result{})
+    @:overload(function(content:JsonNode, encoding:JsonEncoding):Result{})
+    @:overload(function(content:JsonNode, charset:String):Result{})
+    @:overload(function(content:String):Result{})
     static public function badRequest(content:String, charset:String):Result {
         #if java
         #end
