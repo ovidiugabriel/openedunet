@@ -26,103 +26,53 @@ class Results {
         #end
     }
 
-    static public function created():StatusHeader;
-    // Generates a 201 Created result.
+    /**
+        Generates a 201 Created result.
+     **/
+    @:overload(function():StatusHeader{})
+    @:overload(function(content:haxe.io.Bytes):Result{})
+    @:overload(function(content:Content):Result{})
+    @:overload(function(content:Content, charset:String):Result{})
+    @:overload(function(content:File):Result{})
+    @:overload(function(content:File, isInline:Bool):Result{})
+    @:overload(function(content:File, filename:String):Result{})
+    @:overload(function(content:InputStream):Result{})
+    @:overload(function(content:InputStream, contentLength:Int):Result{})
+    @:overload(function(content:JsonNode):Result{})
+    @:overload(function(content:JsonNode, encoding:JsonEncoding):Result{})
+    @:overload(function(content:JsonNode, charset:String):Result{})
+    @:overload(function(content:String):Result{})
+    static public function created(content:String, charset:String):Result {
+        #if java
+        #end
+    }
 
-    static public function created(byte[] content):Result;
-    // Generates a 201 Created result.
-
-    static public function created(play.twirl.api.Content content):Result;
-    // Generates a 201 Created result.
-
-    static public function created(play.twirl.api.Content content, java.lang.String charset):Result;
-    // Generates a 201 Created result.
-
-    static public function created(java.io.File content):Result;
-    // Generates a 201 Created result.
-
-    static public function created(java.io.File content, boolean inline):Result;
-    // Generates a 201 Created result.
-
-    static public function created(java.io.File content, java.lang.String filename):Result;
-    // Generates a 201 Created result.
-
-    static public function created(java.io.InputStream content):Result;
-    // Generates a 201 Created result.
-
-    static public function created(java.io.InputStream content, long contentLength):Result;
-    // Generates a 201 Created result.
-
-    static public function created(com.fasterxml.jackson.databind.JsonNode content):Result;
-    // Generates a 201 Created result.
-
-    static public function created(com.fasterxml.jackson.databind.JsonNode content, com.fasterxml.jackson.core.JsonEncoding encoding):Result;
-    // Generates a 201 Created result.
-
-    static public function created(com.fasterxml.jackson.databind.JsonNode content, java.lang.String charset):Result;
-    // Generates a 201 Created result.
-
-    static public function created(Results.Chunks<?> chunks):Result;
-    // Deprecated. 
-    // Use created() with StatusHeader.chunked(akka.stream.javadsl.Source) instead.
-
-    static public function  	created(java.lang.String content):Result;
-    // Generates a 201 Created result.
-
-    static public function  	created(java.lang.String content, java.lang.String charset):Result;
-    // Generates a 201 Created result.
-
+    /**
+        Generates a 403 Forbidden result.
+     **/
     static public function forbidden():StatusHeader;
-    // Generates a 403 Forbidden result.
-    
     static public function forbidden(byte[] content):Result;
-    // Generates a 403 Forbidden result.
-
     static public function forbidden(play.twirl.api.Content content):Result;
-    // Generates a 403 Forbidden result.
-
     static public function forbidden(play.twirl.api.Content content, java.lang.String charset):Result;
-    //Generates a 403 Forbidden result.
-    
     static public function forbidden(java.io.File content):Result;
-    // Generates a 403 Forbidden result.
-
     static public function forbidden(java.io.File content, boolean inline):Result;
-    // Generates a 403 Forbidden result.
-
     static public function forbidden(java.io.File content, java.lang.String filename):Result;
-    // Generates a 403 Forbidden result.
-
     static public function forbidden(java.io.InputStream content):Result;
-    // Generates a 403 Forbidden result.
-
     static public function forbidden(java.io.InputStream content, long contentLength):Result;
-    // Generates a 403 Forbidden result.
-
     static public function forbidden(com.fasterxml.jackson.databind.JsonNode content):Result;
-    // Generates a 403 Forbidden result.
-
-    static public function   	forbidden(com.fasterxml.jackson.databind.JsonNode content, com.fasterxml.jackson.core.JsonEncoding encoding):Result;
-    // Generates a 403 Forbidden result.
-    
-    static public function  	forbidden(com.fasterxml.jackson.databind.JsonNode content, java.lang.String charset):Result;
-    // Generates a 403 Forbidden result.
-    
-    static public function forbidden(Results.Chunks<?> chunks):Result;
-    // Deprecated. 
-    // Use forbidden() with StatusHeader.chunked(akka.stream.javadsl.Source) instead.
-
+    static public function forbidden(com.fasterxml.jackson.databind.JsonNode content, com.fasterxml.jackson.core.JsonEncoding encoding):Result;
+    static public function forbidden(com.fasterxml.jackson.databind.JsonNode content, java.lang.String charset):Result;
     static public function forbidden(java.lang.String content):Result;
-    // Generates a 403 Forbidden result.
-
-    static public function forbidden(java.lang.String content, java.lang.String charset):Result;
-    // Generates a 403 Forbidden result.
+    static public function forbidden(java.lang.String content, java.lang.String charset):Result {
+        #if java
+        #end
+    }
 
     static public function found(Call call):Result;
     // Generates a 302 Found result.
 
-    static public function found(java.lang.String url):Result;
-    // Generates a 302 Found result.
+    static public function found(java.lang.String url):Result {
+    }
 
     static public function 	internalServerError():StatusHeader;
     // Generates a 500 Internal Server Error result.
@@ -167,17 +117,20 @@ class Results {
     static public function internalServerError(java.lang.String content):Result;
     // Generates a 500 Internal Server Error result.
 
-    static public function internalServerError(java.lang.String content, java.lang.String charset):Result;
-    // Generates a 500 Internal Server Error result.
+    static public function internalServerError(java.lang.String content, java.lang.String charset):Result {
+    }
 
     static public function movedPermanently(Call call):Result;
     // Generates a 301 Moved Permanently result.
 
-    static public function movedPermanently(java.lang.String url):Result;
-    // Generates a 301 Moved Permanently result.
+    static public function movedPermanently(java.lang.String url):Result {
+        #if java
+        #end
+    }
 
-    static public function noContent():StatusHeader;
     // Generates a 204 No Content result.
+    static public function noContent():StatusHeader {}
+    
 
     static public function notFound():StatusHeader;
     // Generates a 404 Not Found result.
@@ -222,8 +175,11 @@ class Results {
     static public function notFound(content:String):Result;
     // Generates a 404 Not Found result.
     
-    static public function notFound(java.lang.String content, java.lang.String charset):Result;
-    // Generates a 404 Not Found result.
+    static public function notFound(java.lang.String content, java.lang.String charset):Result {
+        #if java
+        #end
+    }
+    
 
     static public function ok():StatusHeader;
     // Generates a 200 OK result.
@@ -268,8 +224,10 @@ class Results {
     static public function ok(content:String):Result;
     // Generates a 200 OK result.
 
-    static public function ok(content:String, charset:String):Result;
-    // Generates a 200 OK result.
+    static public function ok(content:String, charset:String):Result {
+        #if java
+        #end
+    }
     
     static public function paymentRequired():StatusHeader;
     // Generates a 402 Payment Required result.
@@ -314,27 +272,36 @@ class Results {
     static public function 	paymentRequired(content:String):Result;
     // Generates a 402 Payment Required result.
 
-    static public function 	paymentRequired(content:String, charset:String):Result;
-    // Generates a 402 Payment Required result.
+    static public function 	paymentRequired(content:String, charset:String):Result {
+        #if java
+        #end
+    }
 
     static public function 	permanentRedirect(Call call):Result;
     // Generates a 308 Permanent Redirect result.
 
-    static public function 	permanentRedirect(url:String):Result;
-    // Generates a 308 Permanent Redirect result.
+    static public function 	permanentRedirect(url:String):Result {
+        #if java
+        #end        
+    }
 
     static public function 	redirect(Call call):Result;
     // Generates a 303 See Other result.
 
-    static public function 	redirect(url:String):Result;
-    // Generates a 303 See Other result.
+    static public function 	redirect(url:String):Result {
+    }
 
     static public function 	seeOther(Call call):Result;
     // Generates a 303 See Other result.
 
-    static public function 	seeOther(url:String):Result;
-    // Generates a 303 See Other result.
+    static public function 	seeOther(url:String):Result {
+        #if java
+        #end        
+    }
 
+    /**
+        Generates a simple result.
+     **/
     static public function 	status(status:Int):StatusHeader;
     // Generates a simple result.
 
@@ -378,17 +345,20 @@ class Results {
     static public function status(status:Int, content:String):Result;
     // Generates a simple result.
     
-    /**
-        Generates a simple result.
-     **/
-    static public function status(status:Int, content:String, charset:String):Result;
+
+    static public function status(status:Int, content:String, charset:String):Result {
+        #if java
+        #end        
+    }
     
     
     static public function temporaryRedirect(Call call):Result;
     // Generates a 307 Temporary Redirect result.
 
-    static public function temporaryRedirect(java.lang.String url):Result;
-    // Generates a 307 Temporary Redirect result.
+    static public function temporaryRedirect(java.lang.String url):Result {
+        #if java
+        #end        
+    }
 
     static public function unauthorized():StatusHeader;
     // Generates a 401 Unauthorized result.
@@ -434,6 +404,9 @@ class Results {
     static public function unauthorized(java.lang.String content):Result;
 
     // Generates a 401 Unauthorized result.
-    static public function unauthorized(java.lang.String content, java.lang.String charset):Result;
+    static public function unauthorized(java.lang.String content, java.lang.String charset):Result {
+        #if java
+        #end
+    }
     
 }
