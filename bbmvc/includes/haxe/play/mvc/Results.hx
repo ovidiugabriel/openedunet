@@ -10,18 +10,13 @@ class Results {
      **/
     @:overload(function():StatusHeader{})
     @:overload(function(content:haxe.io.Bytes):Result{})
-    @:overload(function(content:Content):Result{})
-    @:overload(function(content:Content, charset:String):Result{})
-    @:overload(function(content:File):Result{})
-    @:overload(function(content:File, isInline:Bool):Result{})
+    @:overload(function(content:Content, ?charset:String):Result{})
+    @:overload(function(content:File, ?isInline:Bool):Result{})
     @:overload(function(content:File, filename:String):Result{})
-    @:overload(function(content:InputStream):Result{})
-    @:overload(function(content:InputStream, contentLength:Int):Result{})
-    @:overload(function(content:JsonNode):Result{})
-    @:overload(function(content:JsonNode, encoding:JsonEncoding):Result{})
+    @:overload(function(content:InputStream, ?contentLength:Int):Result{})
+    @:overload(function(content:JsonNode, ?encoding:JsonEncoding):Result{})
     @:overload(function(content:JsonNode, charset:String):Result{})
-    @:overload(function(content:String):Result{})
-    static public function badRequest(content:String, charset:String):Result {
+    static public function badRequest(content:String, ?charset:String):Result {
         #if java
         #end
     }
@@ -31,18 +26,13 @@ class Results {
      **/
     @:overload(function():StatusHeader{})
     @:overload(function(content:haxe.io.Bytes):Result{})
-    @:overload(function(content:Content):Result{})
-    @:overload(function(content:Content, charset:String):Result{})
-    @:overload(function(content:File):Result{})
-    @:overload(function(content:File, isInline:Bool):Result{})
+    @:overload(function(content:Content, ?charset:String):Result{})
+    @:overload(function(content:File, ?isInline:Bool):Result{})
     @:overload(function(content:File, filename:String):Result{})
-    @:overload(function(content:InputStream):Result{})
-    @:overload(function(content:InputStream, contentLength:Int):Result{})
-    @:overload(function(content:JsonNode):Result{})
-    @:overload(function(content:JsonNode, encoding:JsonEncoding):Result{})
+    @:overload(function(content:InputStream, ?contentLength:Int):Result{})
+    @:overload(function(content:JsonNode, ?encoding:JsonEncoding):Result{})
     @:overload(function(content:JsonNode, charset:String):Result{})
-    @:overload(function(content:String):Result{})
-    static public function created(content:String, charset:String):Result {
+    static public function created(content:String, ?charset:String):Result {
         #if java
         #end
     }
@@ -50,20 +40,16 @@ class Results {
     /**
         Generates a 403 Forbidden result.
      **/
-    static public function forbidden():StatusHeader;
-    static public function forbidden(byte[] content):Result;
-    static public function forbidden(play.twirl.api.Content content):Result;
-    static public function forbidden(play.twirl.api.Content content, java.lang.String charset):Result;
-    static public function forbidden(java.io.File content):Result;
-    static public function forbidden(java.io.File content, boolean inline):Result;
-    static public function forbidden(java.io.File content, java.lang.String filename):Result;
-    static public function forbidden(java.io.InputStream content):Result;
-    static public function forbidden(java.io.InputStream content, long contentLength):Result;
-    static public function forbidden(com.fasterxml.jackson.databind.JsonNode content):Result;
-    static public function forbidden(com.fasterxml.jackson.databind.JsonNode content, com.fasterxml.jackson.core.JsonEncoding encoding):Result;
-    static public function forbidden(com.fasterxml.jackson.databind.JsonNode content, java.lang.String charset):Result;
-    static public function forbidden(java.lang.String content):Result;
-    static public function forbidden(java.lang.String content, java.lang.String charset):Result {
+    @:overload(function():StatusHeader{})
+    @:overload(function(content:haxe.io.Bytes):Result{})
+    @:overload(function(content:Content, ?charset:String):Result{})
+    @:overload(function(content:File, ?isInline:Bool):Result{})
+    @:overload(function(content:File, filename:String):Result{})
+    @:overload(function(content:InputStream):Result{})
+    @:overload(function(content:InputStream, contentLength:Int):Result{})
+    @:overload(function(content:JsonNode, ?encoding:JsonEncoding):Result{})
+    @:overload(function(content:JsonNode, charset:String):Result{})
+    static public function forbidden(content:String, ?charset:String):Result {
         #if java
         #end
     }
@@ -71,27 +57,27 @@ class Results {
     /**
         Generates a 302 Found result.
      **/
-    static public function found(Call call):Result;
-    static public function found(java.lang.String url):Result {
+    @:overload(function(call:Call):Result{})
+    static public function found(url:String):Result {
     }
 
     /** 
         Generates a 500 Internal Server Error result.
      **/
     static public function internalServerError():StatusHeader;
-    static public function internalServerError(byte[] content):Result;
-    static public function internalServerError(play.twirl.api.Content content):Result;
-    static public function internalServerError(play.twirl.api.Content content, java.lang.String charset):Result;
-    static public function internalServerError(java.io.File content):Result;
-    static public function internalServerError(java.io.File content, boolean inline):Result;
-    static public function internalServerError(java.io.File content, java.lang.String filename):Result;
-    static public function internalServerError(java.io.InputStream content):Result;
-    static public function internalServerError(java.io.InputStream content, long contentLength):Result;
-    static public function internalServerError(com.fasterxml.jackson.databind.JsonNode content):Result;
-    static public function internalServerError(com.fasterxml.jackson.databind.JsonNode content, com.fasterxml.jackson.core.JsonEncoding encoding):Result;
-    static public function internalServerError(com.fasterxml.jackson.databind.JsonNode content, java.lang.String charset):Result;   
-    static public function internalServerError(java.lang.String content):Result;
-    static public function internalServerError(java.lang.String content, java.lang.String charset):Result {
+    static public function internalServerError(content:haxe.io.Bytes):Result;
+    static public function internalServerError(content:Content):Result;
+    static public function internalServerError(content:Content, charset:String):Result;
+    static public function internalServerError(content:File):Result;
+    static public function internalServerError(content:File, isInline:Bool):Result;
+    static public function internalServerError(content:File, filename:String):Result;
+    static public function internalServerError(content:InputStream):Result;
+    static public function internalServerError(content:InputStream, contentLength:Int):Result;
+    static public function internalServerError(content:JsonNode):Result;
+    static public function internalServerError(content:JsonNode, encoding:JsonEncoding):Result;
+    static public function internalServerError(content:JsonNode, charset:String):Result;   
+    static public function internalServerError(content:String):Result;
+    static public function internalServerError(content:String, charset:String):Result {
         #if java
         #end
     }
@@ -125,11 +111,11 @@ class Results {
     static public function notFound(java.io.File content, java.lang.String filename):Result;
     static public function notFound(java.io.InputStream content):Result;
     static public function notFound(java.io.InputStream content, long contentLength):Result;
-    static public function notFound(com.fasterxml.jackson.databind.JsonNode content):Result;
-    static public function notFound(com.fasterxml.jackson.databind.JsonNode content, com.fasterxml.jackson.core.JsonEncoding encoding):Result;
-    static public function notFound(com.fasterxml.jackson.databind.JsonNode content, java.lang.String charset):Result;
+    static public function notFound(JsonNode content):Result;
+    static public function notFound(JsonNode content, JsonEncoding encoding):Result;
+    static public function notFound(JsonNode content,String charset):Result;
     static public function notFound(content:String):Result;   
-    static public function notFound(java.lang.String content, java.lang.String charset):Result {
+    static public function notFound(String content, String charset):Result {
         #if java
         #end
     }
@@ -139,16 +125,16 @@ class Results {
      **/
     static public function ok():StatusHeader;
     static public function ok(byte[] content):Result;
-    static public function ok(play.twirl.api.Content content):Result;
-    static public function ok(play.twirl.api.Content content, java.lang.String charset):Result;
-    static public function ok(java.io.File content):Result;
-    static public function ok(java.io.File content, boolean inline):Result;
-    static public function ok(java.io.File content, java.lang.String filename):Result;
-    static public function ok(java.io.InputStream content):Result;
-    static public function ok(java.io.InputStream content, long contentLength):Result;
-    static public function ok(com.fasterxml.jackson.databind.JsonNode content):Result;
-    static public function ok(com.fasterxml.jackson.databind.JsonNode content, com.fasterxml.jackson.core.JsonEncoding encoding):Result;
-    static public function ok(com.fasterxml.jackson.databind.JsonNode content, java.lang.String charset):Result;   
+    static public function ok(Content content):Result;
+    static public function ok(Content content, String charset):Result;
+    static public function ok(File content):Result;
+    static public function ok(File content, boolean inline):Result;
+    static public function ok(File content, java.lang.String filename):Result;
+    static public function ok(InputStream content):Result;
+    static public function ok(InputStream content, long contentLength):Result;
+    static public function ok(JsonNode content):Result;
+    static public function ok(JsonNode content, JsonEncoding encoding):Result;
+    static public function ok(JsonNode content, String charset):Result;   
     static public function ok(content:String):Result;
     static public function ok(content:String, charset:String):Result {
         #if java
@@ -160,16 +146,16 @@ class Results {
      **/
     static public function paymentRequired():StatusHeader;
     static public function paymentRequired(byte[] content):Result;
-    static public function paymentRequired(play.twirl.api.Content content):Result;
-    static public function paymentRequired(play.twirl.api.Content content, java.lang.String charset):Result;
-    static public function paymentRequired(java.io.File content):Result;
-    static public function 	paymentRequired(java.io.File content, boolean inline):Result;
-    static public function 	paymentRequired(java.io.File content, java.lang.String filename):Result;
-    static public function 	paymentRequired(java.io.InputStream content):Result;
-    static public function 	paymentRequired(java.io.InputStream content, long contentLength):Result;
-    static public function 	paymentRequired(com.fasterxml.jackson.databind.JsonNode content):Result;
-    static public function 	paymentRequired(com.fasterxml.jackson.databind.JsonNode content, com.fasterxml.jackson.core.JsonEncoding encoding):Result;
-    static public function 	paymentRequired(com.fasterxml.jackson.databind.JsonNode content, charset:String):Result;   
+    static public function paymentRequired(Content content):Result;
+    static public function paymentRequired(Content content, String charset):Result;
+    static public function paymentRequired(File content):Result;
+    static public function 	paymentRequired(File content, boolean inline):Result;
+    static public function 	paymentRequired(File content, String filename):Result;
+    static public function 	paymentRequired(InputStream content):Result;
+    static public function 	paymentRequired(InputStream content, long contentLength):Result;
+    static public function 	paymentRequired(JsonNode content):Result;
+    static public function 	paymentRequired(JsonNode content, JsonEncoding encoding):Result;
+    static public function 	paymentRequired(JsonNode content, charset:String):Result;   
     static public function 	paymentRequired(content:String):Result;
     static public function 	paymentRequired(content:String, charset:String):Result {
         #if java
@@ -208,17 +194,17 @@ class Results {
      **/
     static public function status(status:Int):StatusHeader;
     static public function status(status:Int, byte[] content):Result;
-    static public function status(status:Int, akka.util.ByteString content):Result;
-    static public function status(status:Int, play.twirl.api.Content content):Result;
-    static public function status(status:Int, play.twirl.api.Content content, java.lang.String charset):Result;
-    static public function status(status:Int, java.io.File content):Result;
-    static public function status(status:Int, java.io.File content, boolean inline):Result;
-    static public function status(status:Int, java.io.File content, java.lang.String fileName):Result;
-    static public function status(status:Int, java.io.InputStream content):Result;
-    static public function status(status:Int, java.io.InputStream content, long contentLength):Result;
-    static public function status(status:Int, com.fasterxml.jackson.databind.JsonNode content):Result;
-    static public function status(status:Int, com.fasterxml.jackson.databind.JsonNode content, com.fasterxml.jackson.core.JsonEncoding encoding):Result;
-    static public function status(status:Int, com.fasterxml.jackson.databind.JsonNode content, java.lang.String charset):Result;
+    static public function status(status:Int, ByteString content):Result;
+    static public function status(status:Int, Content content):Result;
+    static public function status(status:Int, Content content,String charset):Result;
+    static public function status(status:Int, File content):Result;
+    static public function status(status:Int, File content, boolean inline):Result;
+    static public function status(status:Int, File content, String fileName):Result;
+    static public function status(status:Int, InputStream content):Result;
+    static public function status(status:Int, InputStream content, long contentLength):Result;
+    static public function status(status:Int, JsonNode content):Result;
+    static public function status(status:Int, JsonNode content, JsonEncoding encoding):Result;
+    static public function status(status:Int, JsonNode content, String charset):Result;
     static public function status(status:Int, content:String):Result;
     static public function status(status:Int, content:String, charset:String):Result {
         #if java
@@ -229,7 +215,7 @@ class Results {
         Generates a 307 Temporary Redirect result.
      **/
     static public function temporaryRedirect(Call call):Result;
-    static public function temporaryRedirect(java.lang.String url):Result {
+    static public function temporaryRedirect(String url):Result {
         #if java
         #end        
     }
@@ -238,19 +224,19 @@ class Results {
         Generates a 401 Unauthorized result.
      **/
     static public function unauthorized():StatusHeader;
-    static public function unauthorized(byte[] content):Result;
-    static public function unauthorized(play.twirl.api.Content content):Result;
-    static public function unauthorized(play.twirl.api.Content content, java.lang.String charset):Result;
-    static public function unauthorized(java.io.File content):Result;
-    static public function unauthorized(java.io.File content, boolean inline):Result;
-    static public function unauthorized(java.io.File content, java.lang.String filename):Result;
-    static public function unauthorized(java.io.InputStream content):Result;
-    static public function unauthorized(java.io.InputStream content, long contentLength):Result;
-    static public function unauthorized(com.fasterxml.jackson.databind.JsonNode content):Result;
-    static public function unauthorized(com.fasterxml.jackson.databind.JsonNode content, com.fasterxml.jackson.core.JsonEncoding encoding):Result;
-    static public function unauthorized(com.fasterxml.jackson.databind.JsonNode content, java.lang.String charset):Result;
-    static public function unauthorized(java.lang.String content):Result;
-    static public function unauthorized(java.lang.String content, java.lang.String charset):Result {
+    static public function unauthorized(content:haxe.io.Bytes):Result;
+    static public function unauthorized(Content content):Result;
+    static public function unauthorized(Content content,String charset):Result;
+    static public function unauthorized(File content):Result;
+    static public function unauthorized(File content, boolean isInline):Result;
+    static public function unauthorized(File content, String filename):Result;
+    static public function unauthorized(InputStream content):Result;
+    static public function unauthorized(InputStream content, long contentLength):Result;
+    static public function unauthorized(JsonNode content):Result;
+    static public function unauthorized(JsonNode content, JsonEncoding encoding):Result;
+    static public function unauthorized(JsonNode content, String charset):Result;
+    static public function unauthorized(String content):Result;
+    static public function unauthorized(String content, String charset):Result {
         #if java
         #end
     }
