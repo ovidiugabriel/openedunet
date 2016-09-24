@@ -13,7 +13,7 @@ class Results {
     @:overload(function(content:Content):Result{})
     @:overload(function(content:Content, charset:String):Result{})
     @:overload(function(content:File):Result{})
-    @:overload(function(content:File, inline:Bool):Result{})
+    @:overload(function(content:File, isInline:Bool):Result{})
     @:overload(function(content:File, filename:String):Result{})
     @:overload(function(content:InputStream):Result{})
     @:overload(function(content:InputStream, contentLength:Int):Result{})
