@@ -5,7 +5,7 @@ import play.api.mvc.ResponseHeader;
 
 /* public */ class Result /* extends Object */ {
     /**
-        Create a result from a Scala ResponseHeader and a body.    
+        Create a result from a ResponseHeader and a body.    
      **/
     @:overload(function(status:Int){})
     @:overload(function(status:Int, body:HttpEntity){})
