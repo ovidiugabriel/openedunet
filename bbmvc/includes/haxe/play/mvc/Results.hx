@@ -129,20 +129,15 @@ class Results {
     /**
         Generates a 402 Payment Required result.
      **/
-    static public function paymentRequired():StatusHeader;
-    static public function paymentRequired(byte[] content):Result;
-    static public function paymentRequired(Content content):Result;
-    static public function paymentRequired(Content content, String charset):Result;
-    static public function paymentRequired(File content):Result;
-    static public function 	paymentRequired(File content, boolean inline):Result;
-    static public function 	paymentRequired(File content, String filename):Result;
-    static public function 	paymentRequired(InputStream content):Result;
-    static public function 	paymentRequired(InputStream content, long contentLength):Result;
-    static public function 	paymentRequired(JsonNode content):Result;
-    static public function 	paymentRequired(JsonNode content, JsonEncoding encoding):Result;
-    static public function 	paymentRequired(JsonNode content, charset:String):Result;   
-    static public function 	paymentRequired(content:String):Result;
-    static public function 	paymentRequired(content:String, charset:String):Result {
+    @:overload(function():StatusHeader{})
+    @:overload(function(content:haxe.io.Bytes):Result{})
+    @:overload(function(content:Content, ?charset:String):Result{})
+    @:overload(function(content:File, ?isInline:Bool):Result{})
+    @:overload(function(content:File, filename:String):Result{})
+    @:overload(function(content:InputStream, ?contentLength:Int):Result{})
+    @:overload(function(content:JsonNode, ?encoding:JsonEncoding):Result{})
+    @:overload(function(content:JsonNode, charset:String):Result{})
+    static public function paymentRequired(content:String, ?charset:String):Result {
         #if java
         #end
     }
@@ -150,8 +145,8 @@ class Results {
     /**
         Generates a 308 Permanent Redirect result.
      **/
-    static public function 	permanentRedirect(Call call):Result;
-    static public function 	permanentRedirect(url:String):Result {
+    @:overload(function(call:Call):Result{})
+    static public function permanentRedirect(url:String):Result {
         #if java
         #end        
     }
@@ -159,8 +154,8 @@ class Results {
     /**
         Generates a 303 See Other result.
      **/
-    static public function 	redirect(Call call):Result;
-    static public function 	redirect(url:String):Result {
+    @:overload(function(call:Call):Result{})
+    static public function redirect(url:String):Result {
         #if java
         #end        
     }
