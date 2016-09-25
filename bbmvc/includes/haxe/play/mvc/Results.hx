@@ -65,17 +65,13 @@ class Results {
      **/
     @:overload(function():StatusHeader{})
     @:overload(function(content:haxe.io.Bytes):Result{})
-    @:overload(function(content:Content):Result{})
-    @:overload(function(content:Content, charset:String):Result{})
-    @:overload(function(content:File):Result{})
-    @:overload(function(content:File, isInline:Bool):Result{})
+    @:overload(function(content:Content, ?charset:String):Result{})
+    @:overload(function(content:File, ?isInline:Bool):Result{})
     @:overload(function(content:File, filename:String):Result{})
-    @:overload(function(content:InputStream):Result{})
-    @:overload(function(content:InputStream, contentLength:Int):Result{})
-    @:overload(function(content:JsonNode):Result{})
-    @:overload(function(content:JsonNode, encoding:JsonEncoding):Result{})
+    @:overload(function(content:InputStream, ?contentLength:Int):Result{})
+    @:overload(function(content:JsonNode, ?encoding:JsonEncoding):Result{})
     @:overload(function(content:JsonNode, charset:String):Result{})
-    @:overload(function internalServerError(content:String):Result{})
+    @:overload(function(content:String):Result{})
     static public function internalServerError(content:String, charset:String):Result {
         #if java
         #end
