@@ -4,9 +4,6 @@ package play.mvc;
 import play.api.mvc.ResponseHeader;
 
 /* public */ class Result /* extends Object */ {
-    /**
-        Create a result from a ResponseHeader and a body.    
-     **/
     @:overload(function(status:Int){})
     @:overload(function(status:Int, body:HttpEntity){})
     @:overload(function(status:Int, headers:StringMap){}) 
