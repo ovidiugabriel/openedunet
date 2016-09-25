@@ -189,8 +189,8 @@ class Results {
     /**
         Generates a 307 Temporary Redirect result.
      **/
-    @:overload(function(Call call):Result{})
-    static public function temporaryRedirect(String url):Result {
+    @:overload(function(call:Call):Result{})
+    static public function temporaryRedirect(url:String):Result {
         #if java
         #end        
     }
@@ -198,20 +198,16 @@ class Results {
     /**
         Generates a 401 Unauthorized result.
      **/
-    static public function unauthorized():StatusHeader;
-    static public function unauthorized(content:haxe.io.Bytes):Result;
-    static public function unauthorized(Content content):Result;
-    static public function unauthorized(Content content,String charset):Result;
-    static public function unauthorized(File content):Result;
-    static public function unauthorized(File content, boolean isInline):Result;
-    static public function unauthorized(File content, String filename):Result;
-    static public function unauthorized(InputStream content):Result;
-    static public function unauthorized(InputStream content, long contentLength):Result;
-    static public function unauthorized(JsonNode content):Result;
-    static public function unauthorized(JsonNode content, JsonEncoding encoding):Result;
-    static public function unauthorized(JsonNode content, String charset):Result;
-    static public function unauthorized(String content):Result;
-    static public function unauthorized(String content, String charset):Result {
+    @:overload(function():StatusHeader{})
+    @:overload(function(content:haxe.io.Bytes):Result{})
+    @:overload(function(content:Content):Result{})
+    @:overload(function(content:Content, charset:String):Result{})
+    @:overload(function(content:File, ?isInline:Bool):Result{})
+    @:overload(function(content:File, filename:String):Result{})
+    @:overload(function(content:InputStream, ?contentLength:Int):Result{})
+    @:overload(function(content:JsonNode, ?encoding:JsonEncoding):Result{})
+    @:overload(function(content:JsonNode, charset:String):Result{})
+    static public function unauthorized(content:String, ?charset:String):Result {
         #if java
         #end
     }
