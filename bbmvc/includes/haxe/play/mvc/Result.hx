@@ -1,17 +1,19 @@
 
 package play.mvc;
 
+import play.api.mvc.ResponseHeader;
+
 /* public */ class Result /* extends Object */ {
-    Result(int status)
-    // Create a result with no entity.
-    Result(int status, HttpEntity body)
-    // Create a result.
-    Result(int status, java.util.Map<java.lang.String,java.lang.String> headers)
-    // Create a result with no body.
-    Result(int status, java.util.Map<java.lang.String,java.lang.String> headers, HttpEntity body)
-    // Create a result.
-    Result(int status, java.util.Optional<java.lang.String> reasonPhrase, java.util.Map<java.lang.String,java.lang.String> headers, HttpEntity body)
-    // Create a result.
-    Result(play.api.mvc.ResponseHeader header, HttpEntity body)
-    // Create a result from a Scala ResponseHeader and a body.
+    /**
+        Create a result from a Scala ResponseHeader and a body.    
+     **/
+    @:overload(function(status:Int){})
+    @:overload(function(status:Int, body:HttpEntity){})
+    @:overload(function(status:Int, headers:StringMap){}) 
+    @:overload(function(status:Int, headers:StringMap, body:HttpEntity){})
+    @:overload(function(status:Int, reasonPhrase:String, headers:StringMap, body:HttpEntity){})
+    public function new (header:ResponseHeader, body:HttpEntity) {
+        #if java
+        #end
+    }
 }
