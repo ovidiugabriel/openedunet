@@ -8,3 +8,6 @@ extern class Action<T> extends Results {
     // abstract java.util.concurrent.CompletionStage<Result> 	call(Http.Context ctx)
     public function call(ctx:Dynamic):Dynamic;
 }
+
+class Action_Simple {
+}
