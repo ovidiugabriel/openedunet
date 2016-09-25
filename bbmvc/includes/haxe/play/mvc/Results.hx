@@ -113,20 +113,15 @@ class Results {
     /**
         Generates a 200 OK result.
      **/
-    static public function ok():StatusHeader;
-    static public function ok(byte[] content):Result;
-    static public function ok(Content content):Result;
-    static public function ok(Content content, String charset):Result;
-    static public function ok(File content):Result;
-    static public function ok(File content, boolean inline):Result;
-    static public function ok(File content, java.lang.String filename):Result;
-    static public function ok(InputStream content):Result;
-    static public function ok(InputStream content, long contentLength):Result;
-    static public function ok(JsonNode content):Result;
-    static public function ok(JsonNode content, JsonEncoding encoding):Result;
-    static public function ok(JsonNode content, String charset):Result;   
-    static public function ok(content:String):Result;
-    static public function ok(content:String, charset:String):Result {
+    @:overload(function():StatusHeader{})
+    @:overload(function(content:haxe.io.Bytes):Result{})
+    @:overload(function(content:Content, ?charset:String):Result{})
+    @:overload(function(content:File, ?isInline:Bool):Result{})
+    @:overload(function(content:File, filename:String):Result{})
+    @:overload(function(content:InputStream, ?contentLength:Int):Result{})
+    @:overload(function(content:JsonNode, ?encoding:JsonEncoding):Result{})
+    @:overload(function(content:JsonNode, charset:String):Result{})
+    static public function ok(content:String, ?charset:String):Result {
         #if java
         #end
     }
