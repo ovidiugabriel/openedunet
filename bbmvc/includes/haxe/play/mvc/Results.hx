@@ -45,8 +45,7 @@ class Results {
     @:overload(function(content:Content, ?charset:String):Result{})
     @:overload(function(content:File, ?isInline:Bool):Result{})
     @:overload(function(content:File, filename:String):Result{})
-    @:overload(function(content:InputStream):Result{})
-    @:overload(function(content:InputStream, contentLength:Int):Result{})
+    @:overload(function(content:InputStream, ?contentLength:Int):Result{})
     @:overload(function(content:JsonNode, ?encoding:JsonEncoding):Result{})
     @:overload(function(content:JsonNode, charset:String):Result{})
     static public function forbidden(content:String, ?charset:String):Result {
