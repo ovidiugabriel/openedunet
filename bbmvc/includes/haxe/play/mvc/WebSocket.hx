@@ -1,5 +1,5 @@
 
 package play.mvc;
 
-class WebSocket {
+/* public abstract */ class WebSocket /* extends Object */ {
 }
