@@ -1,4 +1,5 @@
+
 package play.mvc;
 
-extern class Controller {
+class Controller {
 }
