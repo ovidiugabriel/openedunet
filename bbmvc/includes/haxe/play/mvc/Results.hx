@@ -163,8 +163,8 @@ class Results {
     /**
         Generates a 303 See Other result.
      **/
-    static public function 	seeOther(Call call):Result;
-    static public function 	seeOther(url:String):Result {
+    @:overload(function(call:Call):Result{})
+    static public function seeOther(url:String):Result {
         #if java
         #end        
     }
@@ -172,21 +172,16 @@ class Results {
     /**
         Generates a simple result.
      **/
-    static public function status(status:Int):StatusHeader;
-    static public function status(status:Int, byte[] content):Result;
-    static public function status(status:Int, ByteString content):Result;
-    static public function status(status:Int, Content content):Result;
-    static public function status(status:Int, Content content,String charset):Result;
-    static public function status(status:Int, File content):Result;
-    static public function status(status:Int, File content, boolean inline):Result;
-    static public function status(status:Int, File content, String fileName):Result;
-    static public function status(status:Int, InputStream content):Result;
-    static public function status(status:Int, InputStream content, long contentLength):Result;
-    static public function status(status:Int, JsonNode content):Result;
-    static public function status(status:Int, JsonNode content, JsonEncoding encoding):Result;
-    static public function status(status:Int, JsonNode content, String charset):Result;
-    static public function status(status:Int, content:String):Result;
-    static public function status(status:Int, content:String, charset:String):Result {
+    @:overload(function(status:Int):StatusHeader{})
+    @:overload(function(status:Int, content:haxe.io.Bytes):Result{})
+    @:overload(function(status:Int, content:ByteString):Result{})
+    @:overload(function(status:Int, content:Content, ?charset:String):Result{})
+    @:overload(function(status:Int, content:File, ?isInline:Bool):Result{})
+    @:overload(function(status:Int, content:File, fileName:String):Result{})
+    @:overload(function(status:Int, content:InputStream, ?contentLength:Int):Result{})
+    @:overload(function(status:Int, content:JsonNode, ?encoding:JsonEncoding):Result{})
+    @:overload(function(status:Int, content:JsonNode, charset:String):Result{})
+    static public function status(status:Int, content:String, ?charset:String):Result {
         #if java
         #end        
     }
@@ -194,7 +189,7 @@ class Results {
     /**
         Generates a 307 Temporary Redirect result.
      **/
-    static public function temporaryRedirect(Call call):Result;
+    @:overload(function(Call call):Result{})
     static public function temporaryRedirect(String url):Result {
         #if java
         #end        
