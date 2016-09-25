@@ -63,19 +63,19 @@ class Results {
     /** 
         Generates a 500 Internal Server Error result.
      **/
-    static public function internalServerError():StatusHeader;
-    static public function internalServerError(content:haxe.io.Bytes):Result;
-    static public function internalServerError(content:Content):Result;
-    static public function internalServerError(content:Content, charset:String):Result;
-    static public function internalServerError(content:File):Result;
-    static public function internalServerError(content:File, isInline:Bool):Result;
-    static public function internalServerError(content:File, filename:String):Result;
-    static public function internalServerError(content:InputStream):Result;
-    static public function internalServerError(content:InputStream, contentLength:Int):Result;
-    static public function internalServerError(content:JsonNode):Result;
-    static public function internalServerError(content:JsonNode, encoding:JsonEncoding):Result;
-    static public function internalServerError(content:JsonNode, charset:String):Result;   
-    static public function internalServerError(content:String):Result;
+    @:overload(function():StatusHeader{})
+    @:overload(function(content:haxe.io.Bytes):Result{})
+    @:overload(function(content:Content):Result{})
+    @:overload(function(content:Content, charset:String):Result{})
+    @:overload(function(content:File):Result{})
+    @:overload(function(content:File, isInline:Bool):Result{})
+    @:overload(function(content:File, filename:String):Result{})
+    @:overload(function(content:InputStream):Result{})
+    @:overload(function(content:InputStream, contentLength:Int):Result{})
+    @:overload(function(content:JsonNode):Result{})
+    @:overload(function(content:JsonNode, encoding:JsonEncoding):Result{})
+    @:overload(function(content:JsonNode, charset:String):Result{})
+    @:overload(function internalServerError(content:String):Result{})
     static public function internalServerError(content:String, charset:String):Result {
         #if java
         #end
