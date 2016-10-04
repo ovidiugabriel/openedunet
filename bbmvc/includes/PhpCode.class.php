@@ -1,23 +1,34 @@
 <?php
 
 class PhpCode {
-    /**
-     * @var string
+    /** 
+     * @var SplFileObject
      */
-    private $php_code;
+    private $file;
+
+    private function __construct() {}
     
     /** 
-     * @param string $php_code
+     * @param string $code
+     * @param string $filepath
+     * @return PhpCode
      */
-    public function __construct($php_code) {
-        $this->php_code = $php_code;
+    static public function fromString($code, $filepath) {
+        if (file_put_contents($filepath, $code)) {
+            $php_code = new PhpCode();
+            $php_code->file = new SplFileObject($filepath);
+            return $php_code;
+        }
+        return null;
     }
-    
+       
     /** 
-     * @return void
+     * @return string
      */
-    public function evaluate() {
-        eval( trim(substr($this->php_code, 5)) );
+    public function __toString() {
+        ob_start();
+        $this->file->fpassthru();
+        return ob_get_clean();
     }
     
     /** 
@@ -25,9 +36,15 @@ class PhpCode {
      * @return PhpCode
      */
     static public function fromFile(SplFileObject $file) {
-        ob_start();
-        $file->fpassthru();
-        $code = ob_get_clean();
-        return new PhpCode($code);
+        $php_code = new PhpCode();
+        $php_code->file = $file;
+        return $php_code;
+    }
+    
+    /** 
+     * @return void
+     */
+    public function evaluate() {
+        require $this->file->getPathname();
     }
 }
