@@ -45,10 +45,8 @@ function for_each($a, $callback, $forelse = null) {
             $it = new Iteration($i, $n);
             $callback($it, $a[$i]);
         }   
-    } else {
-        if (null != $forelse) {
-            $forelse();
-        }
+    } elseif (null != $forelse) {
+	$forelse();
     }
     return $it;
 }
