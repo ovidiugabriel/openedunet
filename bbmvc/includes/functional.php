@@ -28,3 +28,20 @@ function foldl($lst, $callback){
 function foldr($lst, $callback){
 	return array_reduce(array_reverse(from_pharen_vector($lst)), $callback);
 }
+
+function for_each($a, $callback, $forelse = null) {
+    $a = from_pharen_vector($a);
+    $n = count($a);
+    $it = new Iteration(0, $n);
+    for ($i = 0; $i < $n; $i++) {
+        $it = new Iteration($i, $n);
+        $callback($it, $a[$i]);
+    }
+    if (0 == $i) {
+        if (null != $forelse) {
+            $forelse();
+        }
+    }
+    return $it;
+}
+
