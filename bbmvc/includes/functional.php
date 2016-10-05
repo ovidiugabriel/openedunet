@@ -40,13 +40,12 @@ function for_each($a, $callback, $forelse = null) {
     $n = count($a);
     $it = new Iteration(0, $n);
     
-    if ($n > 0) {
-        for ($i = 0; $i < $n; $i++) {
-            $it = new Iteration($i, $n);
-            $callback($it, $a[$i]);
-        }   
-    } elseif (null != $forelse) {
-	$forelse();
+	for ($i = 0; $i < $n; $i++) {
+    	$it = new Iteration($i, $n);
+    	$callback($it, $a[$i]);
+	}   
+    if ((0 == $i) && (null != $forelse)) {
+		$forelse();
     }
     return $it;
 }
