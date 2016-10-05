@@ -29,15 +29,23 @@ function foldr($lst, $callback){
 	return array_reduce(array_reverse(from_pharen_vector($lst)), $callback);
 }
 
+/** 
+ * @param object|array $a
+ * @param callable $callback
+ * @param callable $forelse
+ * @return Iteration
+ */
 function for_each($a, $callback, $forelse = null) {
     $a = from_pharen_vector($a);
     $n = count($a);
     $it = new Iteration(0, $n);
-    for ($i = 0; $i < $n; $i++) {
-        $it = new Iteration($i, $n);
-        $callback($it, $a[$i]);
-    }
-    if (0 == $i) {
+    
+    if ($n > 0) {
+        for ($i = 0; $i < $n; $i++) {
+            $it = new Iteration($i, $n);
+            $callback($it, $a[$i]);
+        }   
+    } else {
         if (null != $forelse) {
             $forelse();
         }
