@@ -34,6 +34,9 @@ class Js {
     /**
         Advantage: Automatically detects if .val() or .text() method shall be
         called depending on the node type;
+
+        If the element with given id does not exists, an exception will be thrown.
+        When nothrow=true, the error is masked.
      **/
     static public function setValue( id : String, value : Dynamic, ?nothrow : Bool ) : Void {
         var element:Element = Browser.document.getElementById(id);
