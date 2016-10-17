@@ -32,12 +32,16 @@ class Js {
     private function new() {}
 
     /**
-     * Advantage: Automatically detects if .val() or .text() method shall be
-     * called depending on the node type;
-     */
-    static public function setValue(id:String, value:Dynamic):Void {
+        Advantage: Automatically detects if .val() or .text() method shall be
+        called depending on the node type;
+     **/
+    static public function setValue( id : String, value : Dynamic, ?nothrow : Bool ) : Void {
         var element:Element = Browser.document.getElementById(id);
-        if (null !=  untyped __js__('element.value')) {
+
+        if ((null !=  untyped __js__('element.value')) || 
+            ('undefined' == untyped __typeof__(nothrow)) || 
+            (false == nothrow)) 
+        {
             untyped __js__('element.value = value');
         } else {
             element.textContent = value;
