@@ -134,8 +134,8 @@ class Js {
         Golden Timestamp Logger usually works only on Firebug, but in Chrome this method will be needed.
     **/
     static public function timeStamp( message : String ) : Void {
-        var pad:Int -> String -> String = function(n:Int, val:String) { 
-            return StringTools.lpad(val, '0', 2); 
+        var pad:Int -> String -> String = function( n : Int, val : String ) { 
+            return StringTools.lpad(val, '0', n); 
         }
         var date:Date = Date.now();
         var ms = untyped __js__('(new Date()).getMilliseconds()');
