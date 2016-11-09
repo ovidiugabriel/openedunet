@@ -1,3 +1,5 @@
 {
+    // Sublime will generate "shell_cmd": "php" by default, 
+    // but that simply does not work
     "cmd": ["php", "$file"]
 }
