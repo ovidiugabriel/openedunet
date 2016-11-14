@@ -152,6 +152,15 @@ class Js {
     static public function functionExists( name : String ) : Bool {
         return 'function' == untyped __js__('typeof window[name]');
     }
+ 
+    /** 
+        Throws an exception if the function already exists.
+     **/
+    static public function functionExistsThrow(name:String):Void {
+        if ('function' == untyped __js__('typeof window[name]')) {
+           	untyped __js__('throw "Cannot redeclare "+name+"(). Function already exists."');
+        }
+    }
 }
 
 /**
