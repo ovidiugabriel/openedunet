@@ -134,7 +134,7 @@ class Js {
         Golden Timestamp Logger usually works only on Firebug, but in Chrome this method will be needed.
     **/
     static public function timeStamp( message : String ) : Void {
-        var pad:Int -> String -> String = function( n : Int, val : String ) { 
+        var pad : Int -> String -> String = function( n : Int, val : String ) { 
             return StringTools.lpad(val, '0', n); 
         }
         var date:Date = Date.now();
@@ -144,6 +144,13 @@ class Js {
             + ':' + pad(2, Std.string(date.getSeconds())) 
             + '.' + pad(3, ms);
         untyped __js__("console.log('%c' + timestamp + ' %c' + message, 'color: #B8860B', '')");        
+    }
+ 
+    /** 
+        Check if function exists.
+     **/
+    static public function functionExists( name : String ) : Bool {
+        return 'function' == untyped __js__('typeof window[name]');
     }
 }
 
