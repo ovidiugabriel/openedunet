@@ -1,3 +1,6 @@
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://www.paypal.me/ovidiugabriel)
+
+
 # openedunet
 Automatically exported from `code.google.com/p/openedunet`
 
