@@ -250,4 +250,30 @@ class Console {
         
         echo implode("\n", $lines) . "\n}\n";
     }
+
+    /**
+     * Runs your own main function using console parameters.
+     * Parameters are collected using  InputReader::getSplFixedArray()
+     *
+     * Example:
+     *      exit((int) Console::run());
+     *
+     * @param callable $main
+     * @param string $arg0
+     *
+     */
+    static public function run(/* callable */ $main = 'main', /* string */ $arg0 = null) {
+
+        if (!is_callable($main)) {
+            throw new Exception("$main() is not a callable function", 1);
+        }
+
+        if (null === $arg0) {
+            $arg0 = basename(__FILE__);
+        }
+
+        $args = InputReader::getSplFixedArray()->toArray();
+        array_unshift($args, $arg0);
+        return (int) call_user_func($main, count($args),  $args);
+    }
 }
