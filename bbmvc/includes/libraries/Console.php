@@ -88,12 +88,8 @@ class Console {
     /// CSS> background-color: yellow;
     const YELLOW_B      = "\033[43m";
     
-    static public function cssProperties($css)
-    {
-        $text = '';
-        if (isset($css['color'])) {
-            // Reference: http://en.wikipedia.org/wiki/Web_colors
-            $color_map = array(
+    static private function getColorMap() {
+        return array(
                 'black'            => self::BLACK   ,
                 '#000000'          => self::BLACK   ,
                 'rgb(0,0,0)'       => self::BLACK   ,
@@ -126,14 +122,10 @@ class Console {
                 '#FFFF00'          => self::YELLOW  ,
                 'rgb(255,255,0)'   => self::YELLOW  ,
             );
-            $css_color = str_replace(' ', '',  strtolower($css['color']) );
-            if (isset( $color_map[$css_color] )) {
-                $text .= $color_map[$css_color];    
-            }
-        }
-        
-        if (isset($css['background-color'])) {
-            $bgcolor_map = array(
+    }
+    
+    static private function getBgColorMap() {
+         return array(
                 'black'            => self::BLACK_B   ,
                 '#000000'          => self::BLACK_B   ,
                 'rgb(0,0,0)'       => self::BLACK_B   ,
@@ -166,6 +158,22 @@ class Console {
                 '#FFFF00'          => self::YELLOW_B  ,
                 'rgb(255,255,0)'   => self::YELLOW_B  ,
             );
+    }
+    
+    static public function cssProperties($css)
+    {
+        $text = '';
+        if (isset($css['color'])) {
+            // Reference: http://en.wikipedia.org/wiki/Web_colors
+            static $color_map = self::getColorMap();
+            $css_color = str_replace(' ', '',  strtolower($css['color']) );
+            if (isset( $color_map[$css_color] )) {
+                $text .= $color_map[$css_color];    
+            }
+        }
+        
+        if (isset($css['background-color'])) {
+            static $bgcolor_map = self::getBgColorMap();
             
             $css_background = str_replace(' ', '', strtolower($css['background-color']) );
             if (isset( $bgcolor_map[$css_background] )) {
