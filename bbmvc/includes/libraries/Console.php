@@ -215,33 +215,39 @@ class Console {
         echo self::UNDERLINED . $color . $text . self::RESET;
     }
     
-    static function css_dump($object) {
+    /**
+     * Dumps a variable as QML structure.
+     *
+     * @see https://en.wikipedia.org/wiki/QML
+     */
+    static function dumpAsQML($object) {
         $type = gettype($object);
         if ('object' == $type) {
             $type = get_class($object);
         }
         echo $type . " {\n";
+        $lines = array();
         foreach ($object as $key => $value) {
             $type = gettype($value);
 
-            echo "    $key: " ;
+            $line = "    $key: " ;
 
             // TODO: Add automatic object to array conversion
 
             if ('array' != $type) {
-                echo $type . '(';
-                echo var_export($value, true);
-                echo ");\n";
+                $line .= $type . '(';
+                $line .= var_export($value, true);
+                $line .= ")";
             } else {
                 if (0 == count($value)) {
-                    echo "array()";
+                    $line .= "array()";
                 } else {
-                    echo var_export($value, true);
+                    $line .= var_export($value, true);
                 }
-
-                echo ";\n";
             }
+            $lines[] = $line;
         } // end-for-each
-        echo "}\n";
+        
+        echo implode("\n", $lines) . "\n}\n";
     }
 }
