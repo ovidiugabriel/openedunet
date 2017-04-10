@@ -1,6 +1,6 @@
 <?php
 
-// Take a look on ServerParams class
+// Take a look on InputReader class
 class Environment {
     /** 
      * @return boolean
