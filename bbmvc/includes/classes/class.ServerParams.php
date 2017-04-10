@@ -1,5 +1,7 @@
 <?php
 
+// DEPRECATED: Will be replaced by InputReader class ...
+
 //
 // dict = Map<String, String>
 // list = Array<String>
