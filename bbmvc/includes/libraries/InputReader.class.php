@@ -31,16 +31,13 @@ class InputReader {
         return SplFixedArray::fromArray($result);
     }  
   
-   /**
+    /**
      * Lets you turn a SplFixedArray into an ArrayObject.
      *
      * @param SplFixedArray $args
      * @return ArrayObject
      */
     static public function toAssoc(SplFixedArray $args) {
-        $result = new ArrayObject();
-        throw new Exception("Not implemented yet", 1);
-
-        return $result;
+        return NativeArray::toAssoc($args->toArray());
     }
 }
