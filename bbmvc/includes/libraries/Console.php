@@ -160,6 +160,9 @@ class Console {
             );
     }
     
+    /**
+     * Creates a console style sequence based on a CSS definition
+     */
     static public function cssProperties($css)
     {
         $text = '';
@@ -203,8 +206,8 @@ class Console {
         return $text;
     }
     
-    static public function println($text = '') {
-        echo "$text\n";
+    static public function println($text = '', $style = '') {
+        echo $style . $text . self::RESET . "\n";
     }
     
     static public function bold($text, $color = '') {
