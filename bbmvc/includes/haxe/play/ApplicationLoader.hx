@@ -3,8 +3,9 @@
 
 @:final
 class ApplicationLoader_Context {
+    @:overload(function(environment:Environment, initialSettings:Map<String, Dynamic> ):ApplicationLoader_Context{})
     public function create(environment:Environment):ApplicationLoader_Context {}
-    // create(Environment environment, java.util.Map<java.lang.String,java.lang.Object> initialSettings)
+
     public function environment():Environment {}
     public function initialConfiguration():Configuration {}
     public function underlying():play.api.ApplicationLoader_Context {}
