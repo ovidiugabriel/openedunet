@@ -3,11 +3,7 @@ package play.mvc;
 
 import play.api.mvc.ResponseHeader;
 
-/** 
- * @access public
- * @extends object
- */
-class Result /* extends Object */ {
+class Result  {
     @:overload(function(status:Int){})
     @:overload(function(status:Int, body:HttpEntity){})
     @:overload(function(status:Int, headers:StringMap){}) 
