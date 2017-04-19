@@ -3,6 +3,9 @@ package play.mvc;
 
 import play.api.mvc.ResponseHeader;
 
+/** 
+ * @see https://www.playframework.com/documentation/2.5.x/api/java/play/mvc/Result.html
+ */
 class Result  {
     @:overload(function(status:Int){})
     @:overload(function(status:Int, body:HttpEntity){})
