@@ -2,7 +2,7 @@
 package play.mvc.bodyparser;
 
 // A body parser that first buffers
-class BufferingBodyParser<A> {
+class BufferingBodyParser<A> extends MaxLengthBodyParser<A> {
     private function new(maxLength:Int64, errorHandler:HttpErrorHandler, errorMessage:String) {}
     private function new(httpConfiguration:HttpConfiguration, errorHandler:HttpErrorHandler, errorMessage:String) {}
 
