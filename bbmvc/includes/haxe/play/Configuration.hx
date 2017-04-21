@@ -36,7 +36,7 @@ class Configuration {
     public function getObject(key:String, ?defaultObject:Dynamic):Dynamic {}
     public function getObjectList(key:String, ?defaultList:List<Map<String, Dynamic>>):List<Map<String, Dynamic>>{}
     public function getString(key:String, ?defaultString:String):String{}
-  	public function getStringList(key:String, ?defaultList:java.util.List<java.lang.String>):List<String>{}
+    public function getStringList(key:String, ?defaultList:java.util.List<java.lang.String>):List<String>{}
     public function getWrappedConfiguration() :Configuration{}
     public function keys():Set<String>{}
     static public function load( env:Environment):Configuration{}
