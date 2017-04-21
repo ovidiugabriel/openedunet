@@ -45,5 +45,5 @@ class Configuration {
     static public function root():Configuration{}
     public function subKeys():Set<String>{}
     public function underlying():Config{}
-    public withFallback(fallback:Configuration):Configuration{}
+    public function withFallback(fallback:Configuration):Configuration{}
 }
