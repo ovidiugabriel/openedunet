@@ -9,14 +9,6 @@ interface BodyParser<A> {
 
 package play.mvc.bodyparser;
 
-// Guess the body content by checking the Content-Type header.
-class AnyContent {
-    public function new( errorHandler:HttpErrorHandler,  httpConfiguration:HttpConfiguration) {}
-    public function apply(request:RequestHeader):Accumulator<ByteString, Either<Result,Object>>{}
-}
-
-package play.mvc.bodyparser;
-
 // A body parser that first buffers
 class BufferingBodyParser<A> {
     private function new(maxLength:Int64, errorHandler:HttpErrorHandler, errorMessage:String) {}
