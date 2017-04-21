@@ -1,13 +1,13 @@
 
 package play.mvc;
 
-extern class Action<T> extends Results {
+class Action<T> extends Results {
     var configuration:T;
-    private function new(); /* abstract class */
+    private function new() {} /* abstract class */
 
-    // abstract java.util.concurrent.CompletionStage<Result> 	call(Http.Context ctx)
-    public function call(ctx:Dynamic):Dynamic;
+    // abstract java.util.concurrent.CompletionStage<Result> call( ctx)
+    public function call(ctx:Http_Context):CompletionStage<Result> {}
 }
 
-class Action_Simple {
+class Action_Simple extends Action<Void> {
 }
