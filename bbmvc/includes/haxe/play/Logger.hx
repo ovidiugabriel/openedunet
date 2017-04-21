@@ -1,8 +1,8 @@
 
+// See https://www.playframework.com/documentation/2.5.x/api/java/play/Logger.html
+
 class Logger {
     public function new() {}
-    static public 
-    static public 
     
     @:overload(function (String message:String):Void{})
     @:overload(function (message:String, .. args):Void{})
