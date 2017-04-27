@@ -1,10 +1,11 @@
 
 package php;
 
-extern class ArrayObject implements IteratorAggregate 
-    implements ArrayAccess 
-    implements Serializable 
-    implements Countable 
+extern class ArrayObject 
+    implements php.IteratorAggregate  // alread exists in http://api.haxe.org/php/IteratorAggregate.html 
+    implements php.ArrayAccess        // defined by us, may differ from http://api.haxe.org/ArrayAccess.html
+    implements php.Serializable       // defined by us
+    implements php.Countable          // defined by s
 {
     public function new(?input : Dynamic, ?flags : Int, ?iteratorClass : String);   
     public function append ( value : Dynamic ):Void;
