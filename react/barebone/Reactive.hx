@@ -92,20 +92,19 @@ class Js {
         return switch (untyped __typeof__(value)) {
             case 'object':
                 if (untyped __strict_eq__(null, value)) {
-                	'null';
-				} else {
-					untyped __js__('value.__proto__.constructor.name');
-				}
-            case 'undefined':
-				if (key != null && untyped __js__('key in object')) {
-                	'undefined';
-            	} else {
-                	'';    
+                    'null';
+                } else {
+                    untyped __js__('value.__proto__.constructor.name');
                 }
-            	
+            case 'undefined':
+                if (key != null && untyped __js__('key in object')) {
+                    'undefined';
+                } else {
+                    '';    
+                }
             default: untyped __typeof__(value);
         };
-	}
+    }
     
     /** 
         Returns the constructor name if case that object is created using a specified constructor.
