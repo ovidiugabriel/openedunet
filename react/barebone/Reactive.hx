@@ -28,6 +28,7 @@ class Js {
     static var TYPE_NULL       = 'null';
     static var TYPE_UNDEFINED  = 'undefined';
     static var TYPE_ARRAY      = 'Array';
+    static var TYPE_NOT_SET    = '';
 
     private function new() {}
 
@@ -83,14 +84,26 @@ class Js {
             - "Array" (for arrays)
             - other values for object created using a specific constructor, the constructor name is returned
      **/
-    static public function getType( value : Dynamic ) : String {
-        if ('object' == untyped __typeof__('value')) {
+    @:overload(function( value : Dynamic ) : String {})
+    static public function getType( object : Dynamic, ?key : String ) : String {
+        // handle overload
+        var value = (key != null) ? untyped __js__('object[key]') : object;        
+
+        if ('object' == untyped __typeof__(value)) {
             if (untyped __strict_eq__(null, value)) {
                 return 'null';
             }
-            return Js.getClass(value);
+            return untyped __js__('value.__proto__.constructor.name');
         }
-        return untyped __typeof__('value');
+        
+        // handle undefined
+        if ((key != null) && ('undefined' == untyped __typeof__(value))) {
+            if (untyped __js__('key in object')) {
+                return 'undefined';
+            }
+            return '';
+        }
+        return untyped __typeof__(value);
     }
     
     /** 
