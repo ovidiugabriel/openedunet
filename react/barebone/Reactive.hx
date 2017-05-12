@@ -89,22 +89,23 @@ class Js {
         // handle overload
         var value = (key != null) ? untyped __js__('object[key]') : object;        
 
-        if ('object' == untyped __typeof__(value)) {
-            if (untyped __strict_eq__(null, value)) {
-                return 'null';
-            }
-            return untyped __js__('value.__proto__.constructor.name');
-        }
-        
-        // handle undefined
-        if ((key != null) && ('undefined' == untyped __typeof__(value))) {
-            if (untyped __js__('key in object')) {
-                return 'undefined';
-            }
-            return '';
-        }
-        return untyped __typeof__(value);
-    }
+        return switch (untyped __typeof__(value)) {
+            case 'object':
+                if (untyped __strict_eq__(null, value)) {
+                	'null';
+				} else {
+					untyped __js__('value.__proto__.constructor.name');
+				}
+            case 'undefined':
+				if (key != null && untyped __js__('key in object')) {
+                	'undefined';
+            	} else {
+                	'';    
+                }
+            	
+            default: untyped __typeof__(value);
+        };
+	}
     
     /** 
         Returns the constructor name if case that object is created using a specified constructor.
