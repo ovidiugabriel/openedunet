@@ -12,6 +12,11 @@ abstract GUID(String) {
     public var Data3(get, never):Int;
     public var Data4(get, never):Array<Int>;  
     
+    /** 
+     * Stores the GUID value. 
+     * Usually this is the single operation we use, except GUID.create()
+     * that's why no need to parse the string.
+     */
     @:extern
     inline public function new(value : String) {
         this = value;
@@ -22,7 +27,7 @@ abstract GUID(String) {
      */
     @:extern
     inline public function get_Data1():Int {
-        return Std.parseInt('0x' + this.split('-')[0]);
+        return hexInt(this.split('-')[0]);
     }
     
     /**
@@ -30,7 +35,7 @@ abstract GUID(String) {
      */
     @:extern
     inline public function get_Data2():Int {
-        return Std.parseInt('0x' + this.split('-')[1]);
+        return hexInt(this.split('-')[1]);
     }
     
     /**
@@ -38,7 +43,7 @@ abstract GUID(String) {
      */
     @:extern
     inline public function get_Data3():Int {
-        return Std.parseInt('0x' + this.split('-')[2]);
+        return hexInt(this.split('-')[2]);
     }
     
     /**
@@ -50,14 +55,46 @@ abstract GUID(String) {
     inline public function get_Data4():Array<Int> {
         var result = new Array<Int>();
     
-        var lp = this.split('-')[3];
+        var d = this.split('-');
         for (i in 0...2) {
-            result[i] = Std.parseInt('0x' + lp.substr(i*2, 2));
+            result[i] = hexInt(d[3].substr(i*2, 2));
         }
 
-        var rest = this.split('-')[4];
         for (i in 0...6) {
-            result[i] = Std.parseInt('0x' + rest.substr(i*2, 2));
+            result[i+2] = hexInt(d[4].substr(i*2, 2));
+        }        
+        return result;
+    }
+    
+    @:extern
+    inline static private function hexInt(value:String):Int {
+        return Std.parseInt('0x' + value);
+    }
+        
+    @:exern
+    inline public function toByteArray():Array<Int> {
+        var result = new Array<Int>();     
+
+        // the first 4 bytes of the GUID.
+        var d = this.split('-');
+        result[0] = hexInt(d[0].substr(0, 2));
+        result[1] = hexInt(d[0].substr(2, 2));
+        result[2] = hexInt(d[0].substr(4, 2));
+        result[3] = hexInt(d[0].substr(6, 2));
+
+        // the first group of 2 bytes of the GUID
+        result[4] = hexInt(d[1].substr(0, 2));
+        result[5] = hexInt(d[1].substr(2, 2));
+        
+        // the second group of 2 bytes of the GUID
+
+        result[6] = hexInt(d[2].substr(0, 2));
+        result[7] = hexInt(d[2].substr(2, 2));
+
+        var i:Int = 7;
+        for (val in cast(this, GUID).Data4) {
+            result[i] = val;
+            i++;
         }
         return result;
     }
@@ -80,6 +117,7 @@ abstract GUID(String) {
                  + charid.substr(16, 4) + '-'
                  + charid.substr(20, 12));
     }
+    
     
     /** 
      * Checks if the given object is a valid GUID.
