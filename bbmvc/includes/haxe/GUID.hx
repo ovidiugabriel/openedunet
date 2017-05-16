@@ -57,10 +57,8 @@ abstract GUID(String) {
 
         var rest = this.split('-')[4];
 
-        var i:Int = 0;
-        while (i < 6) {
+        for (i in 0...6) {
             result[i] = Std.parseInt('0x' + rest.substr(i*2, 2));
-            i++;
         }
         return result;
     }
