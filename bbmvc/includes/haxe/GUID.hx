@@ -62,4 +62,13 @@ abstract GUID(String) {
         }
         return result;
     }
+    
+    static public function createGuid(braces:Bool = false):GUID {
+    }
+    
+    static public function isGuid(guid:String):Bool {
+    }
+    
+    static public function isGuidOrNull(guid:Null<String>):Bool {
+    }
 }
