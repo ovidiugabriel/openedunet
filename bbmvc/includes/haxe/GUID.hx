@@ -22,7 +22,7 @@ abstract GUID(String) {
      * Returns the first 8 hexadecimal digits of the GUID.
      */
     @:extern
-    inline public function get_Data1():haxe.Int32 {
+    inline public function get_Data1():Int {
         return Std.parseInt('0x' + this.split('-')[0]);
     }
     
@@ -30,7 +30,7 @@ abstract GUID(String) {
      * Returns the first group of 4 hexadecimal digits.
      */
     @:extern
-    inline public function get_Data2():haxe.Int32 {
+    inline public function get_Data2():Int {
         return Std.parseInt('0x' + this.split('-')[1]);
     }
     
@@ -38,7 +38,7 @@ abstract GUID(String) {
      * Returns the second group of 4 hexadecimal digits.
      */
     @:extern
-    inline public function get_Data3():haxe.Int32 {
+    inline public function get_Data3():Int {
         return Std.parseInt('0x' + this.split('-')[2]);
     }
     
