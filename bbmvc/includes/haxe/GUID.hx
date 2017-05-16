@@ -1,4 +1,3 @@
-
 /** 
  * Example: "4cebcee1-76cb-47d5-8e4e-2c216d432606"
  *  
@@ -63,12 +62,48 @@ abstract GUID(String) {
         return result;
     }
     
-    static public function createGuid(braces:Bool = false):GUID {
+    /** 
+     * If you want to use curly braces, append them yourself.
+     */
+    static public function create():GUID {
+        var charid:String;
+        
+        #if php
+        untyped __php__('mt_srand((double)microtime()*10000)'); //optional for php 4.2.0 and up.
+        charid = untyped __php__('strtoupper(md5(uniqid(rand(), true)))');
+        #end
+
+        var uuid = charid.substr(0, 8) + '-'
+                 + charid.substr(8, 4) + '-'
+                 + charid.substr(12, 4) + '-'
+                 + charid.substr(16, 4) + '-'
+                 + charid.substr(20, 12);
+
+        return new GUID(uuid);
     }
     
-    static public function isGuid(guid:String):Bool {
+    @:overload(function (id:GUID):Bool{})
+    static public function isGuid(id:String):Bool {
+    
+        function hex_digits(n) {
+            return '[0-9A-Fa-f]{' + Std.string(n) + '}';
+        }
+        var idFormat = hex_digits(8) + '-'
+            + hex_digits(4) + '-'
+            + hex_digits(4) + '-'
+            + hex_digits(4) + '-'
+            + hex_digits(12);
+        
+        #if php        
+        return 0 != (untyped __call__('preg_match', '/^' + idFormat + '$/' , id));
+        #end
     }
     
-    static public function isGuidOrNull(guid:Null<String>):Bool {
+    @:overload(function (id:Null<GUID>):Bool{})
+    static public function isGuidOrNull(id:Null<String>):Bool {
+        #if php
+        return untyped __php__("null === $id") || isGuid(id);
+        #end
     }
 }
+
