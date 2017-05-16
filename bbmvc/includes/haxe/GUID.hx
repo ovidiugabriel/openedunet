@@ -63,6 +63,7 @@ abstract GUID(String) {
     }
     
     /** 
+     * Creates a new instance of GUID structure.
      * If you want to use curly braces, append them yourself.
      */
     static public function create():GUID {
@@ -80,8 +81,13 @@ abstract GUID(String) {
                  + charid.substr(20, 12));
     }
     
+    /** 
+     * Checks if the given object is a valid GUID.
+     * If null provided, it is not considered a valid GUID. 
+     * When you need to include null values also, please use GUID.isValidOrNull()
+     */
     @:overload(function (id:GUID):Bool{})
-    static public function isGuid(id:String):Bool {
+    static public function isValid(id:String):Bool {
     
         function hex_digits(n) {
             return '[0-9A-Fa-f]{' + Std.string(n) + '}';
@@ -97,10 +103,13 @@ abstract GUID(String) {
         #end
     }
     
+    /**
+     * Checks if the given object is null or is a valid GUID.
+     */
     @:overload(function (id:Null<GUID>):Bool{})
-    static public function isGuidOrNull(id:Null<String>):Bool {
+    static public function isValidOrNull(id:Null<String>):Bool {
         #if php
-        return untyped __php__("null === $id") || GUID.isGuid(id);
+        return untyped __php__("null === $id") || GUID.isValid(id);
         #end
     }
 }
