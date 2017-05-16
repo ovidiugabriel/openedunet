@@ -1,22 +1,67 @@
 
 /** 
- * See: https://msdn.microsoft.com/en-us/library/windows/desktop/aa373931(v=vs.85).aspx
+ * Example: "4cebcee1-76cb-47d5-8e4e-2c216d432606"
+ *  
+ *  Data1: 0x4cebcee1
+ *  Data2: 0x76cb
+ *  Data3: 0x47d5
+ *  Data4: [0x8e, 0x4e, 0x2c, 0x21, 0x6d, 0x43, 0x26, 0x06]
  */
 abstract GUID(String) {
-    public var Data1(get, default):haxe.Int32;          // DWORD
-    public var Data2(get, default):haxe.Int32;          // WORD
-    public var Data3(get, default):haxe.Int32;          // WORD
-    public var Data4(get, default):haxe.io.UInt8Array;  // BYTE[8]
+    public var Data1(get, never):Int;
+    public var Data2(get, never):Int;
+    public var Data3(get, never):Int;
+    public var Data4(get, never):Array<Int>;  
     
-    public function get_Data1():haxe.Int32 {
+    @:extern
+    inline public function new(value : String) {
+        this = value;
     }
     
-    public function get_Data2():haxe.Int32 {
+    /**
+     * Returns the first 8 hexadecimal digits of the GUID.
+     */
+    @:extern
+    inline public function get_Data1():haxe.Int32 {
+        return Std.parseInt('0x' + this.split('-')[0]);
     }
     
-    public function get_Data3():haxe.Int32 {
+    /**
+     * Returns the first group of 4 hexadecimal digits.
+     */
+    @:extern
+    inline public function get_Data2():haxe.Int32 {
+        return Std.parseInt('0x' + this.split('-')[1]);
     }
     
-    public function get_Data4():haxe.io.UInt8Array {
+    /**
+     * Returns the second group of 4 hexadecimal digits.
+     */
+    @:extern
+    inline public function get_Data3():haxe.Int32 {
+        return Std.parseInt('0x' + this.split('-')[2]);
+    }
+    
+    /**
+     * Array of 8 bytes. 
+     * The first 2 bytes contain the third group of 4 hexadecimal digits. 
+     * The remaining 6 bytes contain the final 12 hexadecimal digits.
+     */
+    @:extern
+    inline public function get_Data4():Array<Int> {
+        var result = new Array<Int>();
+    
+        var lp = this.split('-')[3];
+        result[0] = Std.parseInt('0x' + lp.substr(0, 2));
+        result[1] = Std.parseInt('0x' + lp.substr(2, 2));
+
+        var rest = this.split('-')[4];
+
+        var i:Int = 0;
+        while (i < 6) {
+            result[i] = Std.parseInt('0x' + rest.substr(i*2, 2));
+            i++;
+        }
+        return result;
     }
 }
