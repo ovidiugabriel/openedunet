@@ -73,13 +73,11 @@ abstract GUID(String) {
         charid = untyped __php__('strtoupper(md5(uniqid(rand(), true)))');
         #end
 
-        var uuid = charid.substr(0, 8) + '-'
+        return new GUID(charid.substr(0, 8) + '-'
                  + charid.substr(8, 4) + '-'
                  + charid.substr(12, 4) + '-'
                  + charid.substr(16, 4) + '-'
-                 + charid.substr(20, 12);
-
-        return new GUID(uuid);
+                 + charid.substr(20, 12));
     }
     
     @:overload(function (id:GUID):Bool{})
