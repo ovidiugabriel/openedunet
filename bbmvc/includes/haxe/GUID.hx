@@ -102,8 +102,7 @@ abstract GUID(String) {
     @:overload(function (id:Null<GUID>):Bool{})
     static public function isGuidOrNull(id:Null<String>):Bool {
         #if php
-        return untyped __php__("null === $id") || isGuid(id);
+        return untyped __php__("null === $id") || GUID.isGuid(id);
         #end
     }
 }
-
