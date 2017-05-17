@@ -3,6 +3,8 @@
 //      HAXE_STD_PATH=/opt/haxe/std haxe -main GuidTestMain GUID -php phpoutput
 //
 
+import haxe.crypto.Md5;
+
 /** 
  * Example: "4cebcee1-76cb-47d5-8e4e-2c216d432606"
  *  
@@ -152,12 +154,14 @@ abstract GUID(String) {
      * If you want to use curly braces, append them yourself.
      */
     static public function create():GUID {
-        var charid:String;
+        var uniqueId:String;
         
         #if php
         untyped __php__('mt_srand((double)microtime()*10000)'); //optional for php 4.2.0 and up.
-        charid = untyped __php__('strtoupper(md5(uniqid(rand(), true)))');
+        uniqueId = untyped __php__('uniqid(rand(), true)');
         #end
+        
+        var charid = Md5.encode(uniqueId).toUpperCase();        
         var uuid = charid.substr(0, 8) + '-'
                  + charid.substr(8, 4) + '-'
                  + charid.substr(12, 4) + '-'
@@ -193,9 +197,11 @@ abstract GUID(String) {
      * Checks if the given object is null or is a valid GUID.
      */
     @:overload(function (id:Null<GUID>):Bool{})
-    static public function isValidOrNull(id:Null<String>):Bool {
-        #if php
-        return untyped __php__("(null === $id)") || GUID.isValid(id);
-        #end
+    static public function isValidOrNull(id:Null<String>):Bool {    
+        //
+        // In case of PHP target
+        // Haxe automatically generates triple-equal operator for comparison with null
+        //
+        return null == id || GUID.isValid(id);
     }
 }
