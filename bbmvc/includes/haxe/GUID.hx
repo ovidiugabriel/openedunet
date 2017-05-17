@@ -167,7 +167,7 @@ abstract GUID(String) {
     }
     
     @:extern
-    inline private static function hex_digits(n) {
+    inline private static function hexDigits(n) {
         return '[0-9A-Fa-f]{' + Std.string(n) + '}';
     }
     
@@ -178,11 +178,11 @@ abstract GUID(String) {
      */
     @:overload(function (id:GUID):Bool{})
     static public function isValid(id:String):Bool { 
-        var idFormat = hex_digits(8) + '-'
-            + hex_digits(4) + '-'
-            + hex_digits(4) + '-'
-            + hex_digits(4) + '-'
-            + hex_digits(12);
+        var idFormat = hexDigits(8) + '-'
+            + hexDigits(4) + '-'
+            + hexDigits(4) + '-'
+            + hexDigits(4) + '-'
+            + hexDigits(12);
         
         #if php        
         return 0 != (untyped __call__('preg_match', '/^' + idFormat + '$/' , id));
