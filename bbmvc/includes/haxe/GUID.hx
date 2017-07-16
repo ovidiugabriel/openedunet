@@ -180,17 +180,16 @@ abstract GUID(String) {
      * If null provided, it is not considered a valid GUID. 
      * When you need to include null values also, please use GUID.isValidOrNull()
      */
-    @:overload(function (id:GUID):Bool{})
-    static public function isValid(id:String):Bool { 
+    @:overload(function (id: GUID): Bool{})
+    static public function isValid(id: String): Bool {
         var idFormat = hexDigits(8) + '-'
             + hexDigits(4) + '-'
             + hexDigits(4) + '-'
             + hexDigits(4) + '-'
             + hexDigits(12);
         
-        #if php        
-        return 0 != (untyped __call__('preg_match', '/^' + idFormat + '$/' , id));
-        #end
+        var regex = new EReg("^" + idFormat + "$");
+        return regex.match(id);
     }
     
     /**
