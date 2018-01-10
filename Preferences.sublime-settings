@@ -1,5 +1,7 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Twilight.tmTheme",
+//	"color_scheme": "Packages/Color Scheme - Default/Twilight.tmTheme",
+//	"theme": "Numix Dark.sublime-theme",		
+
 	"default_encoding": "UTF-8",
 	"default_line_ending": "unix",
 	"detect_indentation": false,
@@ -19,7 +21,7 @@
 	],
 	"show_encoding": true,
 	"tab_size": 4,
-	"theme": "Numix Dark.sublime-theme",
+
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
