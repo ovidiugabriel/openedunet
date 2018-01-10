@@ -1,27 +1,19 @@
 {
-//	"color_scheme": "Packages/Color Scheme - Default/Twilight.tmTheme",
-//	"theme": "Numix Dark.sublime-theme",		
+//    "color_scheme": "Packages/Boxy Theme/schemes/Boxy Nova.tmTheme",
+//    "theme": "Adaptive.sublime-theme",
 
-	"default_encoding": "UTF-8",
-	"default_line_ending": "unix",
-	"detect_indentation": false,
-	"draw_white_space": "all",
-	"ensure_newline_at_eof_on_save": true,
-	"font_face": "Bitstream Vera Sans Mono",
-	"font_options": "subpixel_antialias",
-	"font_size": 9,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
-	"rulers":
-	[
-		80,
-		120
-	],
-	"show_encoding": true,
-	"tab_size": 4,
-
-	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true
+    "default_encoding": "UTF-8",
+    "default_line_ending": "unix",
+    "detect_indentation": false,
+    "draw_white_space": "all",
+    "ensure_newline_at_eof_on_save": true,
+    "font_face": "Bitstream Vera Sans Mono",
+    "font_options": "subpixel_antialias",
+    "font_size": 9,
+    "ignored_packages": ["Vintage"],
+    "rulers": [80, 120],
+    "show_encoding": true,
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true
 }
