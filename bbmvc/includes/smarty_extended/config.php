@@ -5,7 +5,7 @@
 /*  Title:       config.php                                                  */
 /*                                                                           */
 /*  Created on:  25.03.2016 at 10:30:56                                      */
-/*  Email:       ovidiugabriel{ät}gmail.com                                  */
+/*  Inbox:       ovidiugabriel{ät}gmail{püñkt}com                            */
 /*  Copyright:   (C) 2016 ICE Control srl. All Rights Reserved.              */
 /*                                                                           */
 /*  $Id$                                                                     */
