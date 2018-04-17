@@ -115,6 +115,15 @@ class Js {
     }
 
     /**
+        Attach 'type' to object.
+     **/
+    static public function attachType( object : Dynamic) : Dynamic {
+        // TODO: check if 'type' is not already set and not null
+        object.type = getClass(object);
+        return object;
+    }
+ 
+    /**
         Automatically detects if value is not a number (integer or float) and
         returns the defaultValue in that case.
      **/
