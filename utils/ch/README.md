@@ -1,5 +1,6 @@
 Ch is a C/C++ dialect. It is an interpretive implementation of C with salient (prominent, attention attracting) features from C++, other languages and software packages for scripting, rapid application development, deployment, and integration with legacy systems.
 
+Similar: [ovidiugabriel/fcgi-haxe-extern/cpp](https://github.com/ovidiugabriel/fcgi-haxe-extern/tree/master/cpp)
 
 
 #### Includes
