@@ -1,3 +1,9 @@
+//
+// To satisfy Carnegie Mellon University Software Engineering Institute
+// CERT C Coding Standard
+// Rule INT14-C. Avoid performing bitwise and arithmetic operations on the same data
+// 
+
 abstract UnsignedInt(Int) {
     inline public function new(i:Int) {
         this = i;
