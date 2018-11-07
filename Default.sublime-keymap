@@ -1,0 +1,3 @@
+[
+    {"keys": ["shift+insert"], "command": "terminal_view_paste", "context": [{"key": "setting.terminal_view"}]},
+]
