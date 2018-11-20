@@ -265,13 +265,31 @@ class Lo {
 
     /**
         This method is like _.difference except that it accepts comparator which i
-        s invoked to compare elements of array to values. The order and references 
-        of result values are determined by the first array. The comparator is 
+        s invoked to compare elements of array to values. The order and references
+        of result values are determined by the first array. The comparator is
         invoked with two arguments: (arrVal, othVal).
 
         Note: Unlike _.pullAllWith, this method returns a new array.
+
+        Arguments
+
+            array (Array): The array to inspect.
+            [values] (...Array): The values to exclude.
+            [comparator] (Function): The comparator invoked per element.
+
+        Returns
+
+            (Array): Returns the new array of filtered values.
     **/
-    public static function differenceWith(array: ArrayType, ?values: ArrayType, ?comparator : Comparator): ArrayType;
+    public static function differenceWith(array : ArrayType, ?comparator : Comparator) : ArrayType {
+        #if js
+            var params: ArrayType = array.copy();
+            if (null != comparator) {
+                params.push(comparator);
+            }
+            return apply(lo().differenceWith, params);
+        #end
+    }
 
     /**
         Creates a slice of array with n elements dropped from the beginning.
