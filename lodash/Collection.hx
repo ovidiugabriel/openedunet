@@ -1,0 +1,6 @@
+
+package lodash;
+
+class Collection {
+    
+}
