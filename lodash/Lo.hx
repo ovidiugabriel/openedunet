@@ -25,6 +25,7 @@ class Lo {
     static public var Boolean(get, never) : Bool;
     static public var undefined(get, never) : Dynamic;
     static public var arguments(get, never) : Dynamic;
+    static public var values(get, never) : Dynamic;
 
     /**
         [static] get_Boolean()
@@ -54,6 +55,15 @@ class Lo {
         #end
     }
 
+    /**
+        [static] values()
+     **/
+    static inline public function get_values() : ArrayType {
+        #if js
+        return lo().values;
+        #end
+    }    
+    
     /** 
         Creates an array of elements split into groups the length of size. 
         If array can't be split evenly, the final chunk will be the remaining elements.
