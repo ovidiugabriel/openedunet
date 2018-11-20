@@ -132,6 +132,20 @@ class Lo {
         #end
     }
 
+    /**
+        Converts value to an array.
+
+        Arguments
+            value (*): The value to convert.
+        Returns
+            (Array): Returns the converted array.
+    **/
+    public static function toArray(value : Dynamic) : ArrayType {
+        #if js
+        return lo().toArray(value);
+        #end
+    }    
+    
     /** 
         Creates an array of elements split into groups the length of size. 
         If array can't be split evenly, the final chunk will be the remaining elements.
