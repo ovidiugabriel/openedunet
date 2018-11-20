@@ -210,14 +210,27 @@ class Lo {
     }
 
     /**
-        Creates an array of array values not included in the other given arrays 
-        using SameValueZero for equality comparisons. 
+        Creates an array of array values not included in the other given arrays
+        using SameValueZero for equality comparisons.
 
         The order and references of result values are determined by the first array.
 
         Unlike _.pullAll, this method returns a new array.
+
+        Arguments
+
+            array - The array to inspect.
+            values - The values to exclude.
+
+        Returns
+
+            (Array): Returns the new array of filtered values.
     **/
-    public static function difference(array: ArrayType, values: Rest<ArrayType>): ArrayType;
+    public static function difference(array : ArrayType) : ArrayType {
+        #if js
+            return apply(lo().difference, array);
+        #end
+    }
 
     /**
         This method is like _.difference except that it accepts iteratee which is 
