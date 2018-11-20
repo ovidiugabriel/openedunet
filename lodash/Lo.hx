@@ -156,11 +156,28 @@ class Lo {
         #end
     }
 
-    /** 
-        Creates an array of elements split into groups the length of size. 
+    // -------------------------------------------------------------------------
+    // Array
+    // -------------------------------------------------------------------------
+
+    /**
+        Creates an array of elements split into groups the length of size.
         If array can't be split evenly, the final chunk will be the remaining elements.
+
+        Arguments
+
+            array - The array to process.
+            size - The length of each chunk
+
+        Returns
+
+            Returns the new array of chunks.
     **/
-    public static function chunk(array: ArrayType, ?size: Int = 1): ArrayType;
+    public static function chunk(array : ArrayType, ?size : Int = 1) : ArrayType {
+        #if js
+            return lo().chunk(array, size);
+        #end
+    }
 
     /** 
         Creates an array with all falsey values removed. 
