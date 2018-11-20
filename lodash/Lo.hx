@@ -112,6 +112,15 @@ class Lo {
     static inline public function arr(array : Array<Dynamic>) : Array<Dynamic> {
         return array;
     }
+
+    /**
+        [static] newEmptyArray()
+    **/
+    static public function newEmptyArray(?length: Int): Array<Dynamic> {
+        #if js
+            return untyped __js__('new Array(length)');
+        #end
+    }    
     
     /** 
         Creates an array of elements split into groups the length of size. 
