@@ -15,12 +15,6 @@ typedef Iteratee   = Dynamic -> Dynamic;
 typedef Comparator = Dynamic -> Dynamic -> Int; //  (arrVal, othVal)
 typedef Predicate  = Dynamic -> Bool;
 
-class Main {
-    public static function main() {
-        Lo.chunk([1, 2, 3], 1);
-    }
-}
-
 class Lo {
     static public var Boolean(get, never) : Bool;
     static public var undefined(get, never) : Dynamic;
@@ -32,7 +26,7 @@ class Lo {
         [static] get_Boolean()
     **/
     @:extern
-    static inline public function get_Boolean(): Bool {
+    static inline public function get_Boolean() : Bool {
         return untyped __js__('Boolean');
     }
 
@@ -116,7 +110,7 @@ class Lo {
     /**
         [static] newEmptyArray()
     **/
-    static public function newEmptyArray(?length: Int): Array<Dynamic> {
+    static public function newEmptyArray(?length : Int) : Array<Dynamic> {
         #if js
             return untyped __js__('new Array(length)');
         #end
@@ -126,7 +120,7 @@ class Lo {
         Returns the lodash JavaScript reference.
         Can be used as 'placeholder' to curried functions (partial applications).
     **/
-    public static function lo(): Dynamic {
+    public static function lo() : Dynamic {
         #if js
             return untyped __js__('_');
         #end
