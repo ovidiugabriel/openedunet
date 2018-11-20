@@ -91,6 +91,15 @@ class Lo {
         return lo().memoize;
         #end
     }
+
+    /**
+        [static] prototype()
+    **/
+    static public function prototype(type: Dynamic, method: String) {
+        #if js
+        return untyped __js__('type.prototype[method]');
+        #end
+    }
     
     /** 
         Creates an array of elements split into groups the length of size. 
