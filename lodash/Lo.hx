@@ -193,8 +193,21 @@ class Lo {
 
     /**
         Creates a new array concatenating array with any additional arrays and/or values.
+
+        Arguments
+
+            array (Array): The array to concatenate.
+            [values] (...*): The values to concatenate.
+
+        Returns
+
+            (Array): Returns the new concatenated array.
     **/
-    public static function concat(array: ArrayType, values: Rest<ArrayType>): ArrayType;
+    public static function concat(array : ArrayType) : ArrayType {
+        #if js
+            return apply(lo().concat, array);
+        #end
+    }
 
     /**
         Creates an array of array values not included in the other given arrays 
