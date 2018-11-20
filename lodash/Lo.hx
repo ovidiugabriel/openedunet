@@ -26,6 +26,7 @@ class Lo {
     static public var undefined(get, never) : Dynamic;
     static public var arguments(get, never) : Dynamic;
     static public var values(get, never) : Dynamic;
+    static public var memoize(get, never) : Dynamic;
 
     /**
         [static] get_Boolean()
