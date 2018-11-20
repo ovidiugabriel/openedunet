@@ -144,8 +144,18 @@ class Lo {
         #if js
         return lo().toArray(value);
         #end
-    }    
-    
+    }
+
+    /**
+        Makes use of variable list of parameters feature available in JavaScript
+        that is not available in HaXe
+    */
+    private static function apply(func : Dynamic, params : Dynamic) : Dynamic {
+        #if js
+            return untyped __js__('func.apply(null, params)');
+        #end
+    }
+
     /** 
         Creates an array of elements split into groups the length of size. 
         If array can't be split evenly, the final chunk will be the remaining elements.
