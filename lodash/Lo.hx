@@ -95,10 +95,22 @@ class Lo {
     /**
         [static] prototype()
     **/
-    static public function prototype(type: Dynamic, method: String) {
+    static public function prototype(type : Dynamic, method : String) : Dynamic {
         #if js
         return untyped __js__('type.prototype[method]');
         #end
+    }
+    
+    /**
+        [static] arr()
+
+        Forces cast to Array<Dynamic>.
+        In other words, to be used each time you see the message:
+        Arrays of mixed types are only allowed if the type is forced to Array<Dynamic>
+    **/
+    @:extern
+    static inline public function arr(array : Array<Dynamic>) : Array<Dynamic> {
+        return array;
     }
     
     /** 
