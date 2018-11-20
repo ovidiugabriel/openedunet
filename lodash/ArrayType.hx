@@ -7,35 +7,35 @@ abstract ArrayType(Array<Dynamic>) {
         [static] fromIntArray()
     **/
     @:from
-    static public function fromIntArray(value: Array<Dynamic>): ArrayType {
+    static public function fromIntArray(value : Array<Dynamic>) : ArrayType {
         return new ArrayType(value);
     }
 
     /**
         new()
     **/
-    public function new(value: Array<Dynamic>) {
+    public function new(value : Array<Dynamic>) {
         this = value;
     }
 
     /**
         copy()
     **/
-    public function copy(): ArrayType {
+    public function copy() : ArrayType {
         return this.copy();
     }
 
     /**
         push()
     **/
-    public function push(element: Dynamic): Int {
+    public function push(element : Dynamic) : Int {
         return this.push(element);
     }
 
     /**
         length()
     **/
-    public function length(): Int {
+    public function length() : Int {
         return this.length;
     }
 
@@ -43,7 +43,7 @@ abstract ArrayType(Array<Dynamic>) {
         toArray()
     **/
     @:to
-    public function toArray(): Array<Dynamic> {
+    public function toArray() : Array<Dynamic> {
         return this;
     }
 }
