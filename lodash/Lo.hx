@@ -179,11 +179,23 @@ class Lo {
         #end
     }
 
-    /** 
-        Creates an array with all falsey values removed. 
+    /**
+        Creates an array with all falsey values removed.
         The values false, null, 0, "", undefined, and NaN are falsey.
+
+        Arguments
+
+            array: The array to compact.
+
+        Returns
+
+            Returns the new array of filtered values.
     **/
-    public static function compact(array: ArrayType): ArrayType;
+    public static function compact(array : ArrayType) : ArrayType {
+        #if js
+            return lo().compact(array);
+        #end
+    }
 
     /**
         Creates a new array concatenating array with any additional arrays and/or values.
