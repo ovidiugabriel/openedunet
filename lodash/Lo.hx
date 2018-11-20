@@ -233,15 +233,35 @@ class Lo {
     }
 
     /**
-        This method is like _.difference except that it accepts iteratee which is 
-        invoked for each element of array and values to generate the criterion by 
-        which they're compared. 
-        The order and references of result values are determined by the first array. 
+        This method is like _.difference except that it accepts iteratee which is
+        invoked for each element of array and values to generate the criterion by
+        which they're compared.
+        The order and references of result values are determined by the first array.
         The iteratee is invoked with one argument: (value).
 
         Note: Unlike _.pullAllBy, this method returns a new array.
+
+        Arguments
+
+            array - The array to inspect.
+            values - The values to exclude.
+            iteratee - The iteratee invoked per element.
+
+        Returns
+
+            (Array): Returns the new array of filtered values.
+
     **/
-    public static function differenceBy(array: ArrayType, ?values: ArrayType, ?iteratee : Iteratee): ArrayType;
+    @:overload(function (array : ArrayType, iteratee : String) : ArrayType{})
+    public static function differenceBy(array : ArrayType, ?iteratee : Iteratee) : ArrayType {
+        #if js
+            var params: ArrayType = array.copy();
+            if (null != iteratee) {
+                params.push(iteratee);
+            }
+            return apply(lo().differenceBy, params);
+        #end
+    }
 
     /**
         This method is like _.difference except that it accepts comparator which i
