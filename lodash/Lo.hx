@@ -120,8 +120,18 @@ class Lo {
         #if js
             return untyped __js__('new Array(length)');
         #end
-    }    
-    
+    }
+
+    /**
+        Returns the lodash JavaScript reference.
+        Can be used as 'placeholder' to curried functions (partial applications).
+    **/
+    public static function lo(): Dynamic {
+        #if js
+            return untyped __js__('_');
+        #end
+    }
+
     /** 
         Creates an array of elements split into groups the length of size. 
         If array can't be split evenly, the final chunk will be the remaining elements.
