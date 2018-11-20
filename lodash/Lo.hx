@@ -23,6 +23,7 @@ class Main {
 
 class Lo {
     static public var Boolean(get, never) : Bool;
+    static public var undefined(get, never) : Dynamic;
 
     /**
         [static] get_Boolean()
@@ -30,6 +31,16 @@ class Lo {
     @:extern
     static inline public function get_Boolean(): Bool {
         return untyped __js__('Boolean');
+    }
+
+    /**
+        [static] undefined()
+    **/
+    @:extern
+    static inline public function get_undefined() : Dynamic {
+        #if js
+        return untyped __js__('undefined');
+        #end
     }
 
     /** 
