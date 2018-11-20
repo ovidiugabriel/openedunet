@@ -21,7 +21,17 @@ class Main {
     }
 }
 
-extern class Lo {
+class Lo {
+    static public var Boolean(get, never) : Bool;
+
+    /**
+        [static] get_Boolean()
+    **/
+    @:extern
+    static inline public function get_Boolean(): Bool {
+        return untyped __js__('Boolean');
+    }
+
     /** 
         Creates an array of elements split into groups the length of size. 
         If array can't be split evenly, the final chunk will be the remaining elements.
