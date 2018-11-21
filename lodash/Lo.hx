@@ -624,8 +624,21 @@ class Lo {
 
     /**
         Converts all elements in array into a string separated by separator.
+
+        Arguments
+
+            array (Array): The array to convert.
+            [separator=','] (string): The element separator.
+
+        Returns
+
+            (string): Returns the joined string.
     **/
-    public static function join(array: ArrayType, ?separator: String =','): String;
+    public static function join(array : ArrayType, ?separator : String =',') : String {
+        #if js
+            return lo().join(array, separator);
+        #end
+    }
 
     /**
         Gets the last element of array.
