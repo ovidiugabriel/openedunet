@@ -1004,10 +1004,22 @@ class Lo {
     }
 
     /**
-        This method is like _.uniq except that it's designed and optimized for 
+        This method is like _.uniq except that it's designed and optimized for
         sorted arrays.
+
+        Arguments
+
+            array (Array): The array to inspect.
+
+        Returns
+
+            (Array): Returns the new duplicate free array.
     **/
-    public static function sortedUniq(array: ArrayType): ArrayType;
+    public static function sortedUniq(array: ArrayType): ArrayType {
+        #if js
+            return lo().sortedUniq(array);
+        #end
+    }
 
     /**
         This method is like _.uniqBy except that it's designed and optimized for 
