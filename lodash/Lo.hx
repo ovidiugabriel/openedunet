@@ -922,8 +922,21 @@ class Lo {
         This method is like _.indexOf except that it performs a binary search on a sorted array.
 
         Returns the index of the matched value, else -1.
+
+        Arguments
+
+            array (Array): The array to inspect.
+            value (*): The value to search for.
+
+        Returns
+
+            (number): Returns the index of the matched value, else -1.
     **/
-    public static function sortedIndexOf(array: ArrayType, value: Variant): Int;
+    public static function sortedIndexOf(array : ArrayType, value : Dynamic) : Int {
+        #if js
+            return lo().sortedIndexOf(array, value);
+        #end
+    }
 
     /**
         This method is like _.sortedIndex except that it returns the highest index 
