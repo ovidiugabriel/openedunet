@@ -454,8 +454,21 @@ class Lo {
 
     /**
         Flattens array a single level deep.
+
+        Arguments
+
+            array (Array): The array to flatten.
+
+        Returns
+
+            (Array): Returns the new flattened array.
     **/
-    public static function flatten(array: ArrayType): ArrayType;
+    public static function flatten(array : ArrayType) : ArrayType {
+        #if js
+            return lo().flatten(array);
+        #end
+    }
+
 
     /**
         Recursively flattens array.
