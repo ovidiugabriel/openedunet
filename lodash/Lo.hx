@@ -678,11 +678,25 @@ class Lo {
     }
 
     /**
-        Gets the element at index n of array. If n is negative, the nth element from the end is returned.
+        Gets the element at index n of array. If n is negative, the nth element
+        from the end is returned.
 
         Returns the nth element of array.
+
+        Arguments
+
+            array (Array): The array to query.
+            [n=0] (number): The index of the element to return.
+
+        Returns
+
+            (*): Returns the nth element of array.
     **/
-    public static function nth(array: ArrayType, ?n: Int = 0): Variant;
+    public static function nth(array : ArrayType, ?n : Int = 0) : Dynamic {
+        #if js
+            return lo().nth(array, n);
+        #end
+    }
 
     /**
         Removes all given values from array using SameValueZero for equality comparisons.
