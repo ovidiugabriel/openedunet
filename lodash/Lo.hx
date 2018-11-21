@@ -1022,10 +1022,23 @@ class Lo {
     }
 
     /**
-        This method is like _.uniqBy except that it's designed and optimized for 
+        This method is like _.uniqBy except that it's designed and optimized for
         sorted arrays.
+
+        Arguments
+
+            array (Array): The array to inspect.
+            [iteratee] (Function): The iteratee invoked per element.
+
+        Returns
+
+            (Array): Returns the new duplicate free array
     **/
-    public static function sortedUniqBy(array: ArrayType, ?iteratee: Iteratee): ArrayType;
+    public static function sortedUniqBy(array: ArrayType, ?iteratee: Iteratee): ArrayType {
+        #if js
+            return lo().sortedUniqBy(array, iteratee);
+        #end
+    }
 
     /**
         Gets all but the first element of array.
