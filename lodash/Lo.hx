@@ -561,11 +561,23 @@ class Lo {
     }
 
     /**
-        Creates an array of unique values that are included in all given arrays 
-        using SameValueZero for equality comparisons. 
+        Creates an array of unique values that are included in all given arrays
+        using SameValueZero for equality comparisons.
         The order and references of result values are determined by the first array.
+
+        Arguments
+
+            [arrays] (...Array): The arrays to inspect.
+
+        Returns
+
+            (Array): Returns the new array of intersecting values.
     **/
-    public static function intersection(arrays: Rest<ArrayType>): ArrayType;
+    public static function intersection(arrays : Array<ArrayType>) : ArrayType {
+        #if js
+            return apply(lo().intersection, arrays);
+        #end
+    }
 
     /**
         This method is like _.intersection except that it accepts iteratee which 
