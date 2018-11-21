@@ -772,13 +772,28 @@ class Lo {
     }
 
     /**
-        This method is like _.pullAll except that it accepts comparator which is 
-        invoked to compare elements of array to values. The comparator is invoked 
+        This method is like _.pullAll except that it accepts comparator which is
+        invoked to compare elements of array to values. The comparator is invoked
         with two arguments: (arrVal, othVal).
 
         Note: Unlike _.differenceWith, this method mutates array.
+
+
+        Arguments
+
+            array (Array): The array to modify.
+            values (Array): The values to remove.
+            [comparator] (Function): The comparator invoked per element.
+
+        Returns
+
+            (Array): Returns array.
     **/
-    public static function pullAllWith(array: ArrayType, values: ArrayType, ?comparator: Comparator): ArrayType;
+    public static function pullAllWith(array : ArrayType, values : ArrayType, ?comparator : Comparator) : ArrayType {
+        #if js
+            return lo().pullAllWith(array, values, comparator);
+        #end
+    }
 
     /**
         Removes elements from array corresponding to indexes and returns an array of removed elements.
