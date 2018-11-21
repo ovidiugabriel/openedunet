@@ -939,12 +939,25 @@ class Lo {
     }
 
     /**
-        This method is like _.sortedIndex except that it returns the highest index 
+        This method is like _.sortedIndex except that it returns the highest index
         at which value should be inserted into array in order to maintain its sort order.
 
         Returns the index at which value should be inserted into array.
+
+        Arguments
+
+            array (Array): The sorted array to inspect.
+            value (*): The value to evaluate.
+
+        Returns
+
+            (number): Returns the index at which value should be inserted into array.
     **/
-    public static function sortedLastIndex(array: ArrayType, value: Variant): Int;
+    public static function sortedLastIndex(array : ArrayType, value : Dynamic) : Int {
+        #if js
+            return lo().sortedLastIndex(array, value);
+        #end
+    }
 
     /**
         This method is like _.sortedLastIndex except that it accepts iteratee 
