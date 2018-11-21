@@ -413,10 +413,25 @@ class Lo {
     }
 
     /**
-        This method is like _.findIndex except that it iterates over elements of 
+        This method is like _.findIndex except that it iterates over elements of
         collection from right to left.
+
+        Arguments
+
+            array (Array): The array to inspect.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+            [fromIndex=array.length-1] (number): The index to search from.
+
+        Returns
+
+            (number): Returns the index of the found element, else -1.
     **/
-    public static function findLastIndex(array: ArrayType, ?predicate: Predicate, ?fromIndex: Int): ArrayType;
+    @:overload(function (array: ArrayType, ?predicate: Dynamic, ?fromIndex: Int): ArrayType {})
+    public static function findLastIndex(array : ArrayType, ?predicate : Predicate, ?fromIndex : Int) : ArrayType {
+        #if js
+            return lo().findLastIndex(array, predicate, fromIndex);
+        #end
+    }
 
     /**
         Gets the first element of array.
