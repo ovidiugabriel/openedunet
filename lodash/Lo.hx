@@ -858,10 +858,24 @@ class Lo {
         #end
     }
 
-    /** 
-        Creates a slice of array from start up to, but not including, end. 
+    /**
+        Creates a slice of array from start up to, but not including, end.
+
+        Arguments
+
+            array (Array): The array to slice.
+            [start=0] (number): The start position.
+            [end=array.length] (number): The end position.
+
+        Returns
+
+            (Array): Returns the slice of array.
      **/
-    public static function slice(array: ArrayType, ?start: Int =0, ?end: Int): ArrayType;
+    public static function slice(array : ArrayType, ?start : Int = 0, ?end : Int) : ArrayType {
+        #if js
+            return lo().slice(array, start, end);
+        #end
+    }
 
     /**
         Uses a binary search to determine the lowest index at which value should 
