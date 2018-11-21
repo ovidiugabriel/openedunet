@@ -960,13 +960,28 @@ class Lo {
     }
 
     /**
-        This method is like _.sortedLastIndex except that it accepts iteratee 
-        which is invoked for value and each element of array to compute their 
+        This method is like _.sortedLastIndex except that it accepts iteratee
+        which is invoked for value and each element of array to compute their
         sort ranking. The iteratee is invoked with one argument: (value).
 
         Returns the index at which value should be inserted into array.
+
+        Arguments
+
+            array (Array): The sorted array to inspect.
+            value (*): The value to evaluate.
+            [iteratee=_.identity] (Function): The iteratee invoked per element.
+
+        Returns
+
+            (number): Returns the index at which value should be inserted into array.
     **/
-    public static function sortedLastIndexBy(array: ArrayType, value: Variant, ?iteratee: Iteratee): Int;
+    @:overload(function (array: ArrayType, value: Dynamic, ?iteratee: Dynamic): Int {})
+    public static function sortedLastIndexBy(array : ArrayType, value : Dynamic, ?iteratee : Iteratee) : Int {
+        #if js
+            return lo().sortedLastIndexBy(array, value, iteratee);
+        #end
+    }
 
     /**
         This method is like _.lastIndexOf except that it performs a binary search on a sorted array.
