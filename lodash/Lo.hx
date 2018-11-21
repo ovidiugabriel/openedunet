@@ -392,10 +392,25 @@ class Lo {
     }
 
     /**
-        This method is like _.find except that it returns the index of the first 
+        This method is like _.find except that it returns the index of the first
         element predicate returns truthy for instead of the element itself.
+
+        Arguments
+
+            array (Array): The array to inspect.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+            [fromIndex=0] (number): The index to search from.
+
+        Returns
+
+            (number): Returns the index of the found element, else -1.
     **/
-    public static function findIndex(array: ArrayType, ?predicate: Predicate, ?fromIndex: Int = 0): ArrayType;
+    @:overload(function (array: ArrayType, ?predicate: Dynamic, ?fromIndex: Int = 0): ArrayType {})
+    public static function findIndex(array : ArrayType, ?predicate : Predicate, ?fromIndex : Int = 0) : ArrayType {
+        #if js
+            return lo().findIndex(array, predicate, fromIndex);
+        #end
+    }
 
     /**
         This method is like _.findIndex except that it iterates over elements of 
