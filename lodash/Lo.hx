@@ -699,12 +699,33 @@ class Lo {
     }
 
     /**
-        Removes all given values from array using SameValueZero for equality comparisons.
+        Removes all given values from array using SameValueZero for equality
+        comparisons.
 
-        Note: Unlike _.without, this method mutates array. Use _.remove to remove 
+        Note: Unlike _.without, this method mutates array. Use _.remove to remove
         elements from an array by predicate.
+
+        Arguments
+
+            array (Array): The array to modify.
+            [values] (...*): The values to remove.
+
+        Returns
+
+            (Array): Returns array.
     **/
-    public static function pull(array: ArrayType, ?values: ArrayType): ArrayType;
+    public static function pull(array : ArrayType, ?values : Array<Dynamic>) : ArrayType {
+        #if js
+            var params = new Array<Dynamic>();
+            params.push(array);
+            if (null != values) {
+                for (v in values) {
+                    params.push(v);
+                }
+            }
+            return apply(lo().pull, params);
+        #end
+    }
 
     /**
         This method is like _.pull except that it accepts an array of values to remove.
