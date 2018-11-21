@@ -839,12 +839,25 @@ class Lo {
     }
 
     /**
-        Reverses array so that the first element becomes the last, the second 
+        Reverses array so that the first element becomes the last, the second
         element becomes the second to last, and so on.
 
         Note: This method mutates array and is based on Array#reverse.
+
+        Arguments
+
+            array (Array): The array to modify.
+
+        Returns
+
+            (Array): Returns array.
     **/
-    public static function reverse(array: ArrayType): ArrayType;
+    public static function reverse(array : ArrayType) : ArrayType {
+        #if js
+            return lo().reverse(array);
+        #end
+    }
+
     /** 
         Creates a slice of array from start up to, but not including, end. 
      **/
