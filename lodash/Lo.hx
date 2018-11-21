@@ -801,8 +801,21 @@ class Lo {
         Note: Unlike _.at, this method mutates array.
 
         Returns the new array of removed elements.
+
+        Arguments
+
+            array (Array): The array to modify.
+            [indexes] (...(number|number[])): The indexes of elements to remove.
+
+        Returns
+
+            (Array): Returns the new array of removed elements.
     **/
-    public static function pullAt(array: ArrayType, indexes: Array<Int>): ArrayType;
+    public static function pullAt(array : ArrayType, indexes : Array<Int>) : ArrayType {
+        #if js
+            return lo().pullAt(array, indexes);
+        #end
+    }
 
     /**
         Removes all elements from array that predicate returns truthy for and 
