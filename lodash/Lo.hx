@@ -505,9 +505,22 @@ class Lo {
     }
 
     /**
-        The inverse of _.toPairs; this method returns an object composed from key-value pairs.
+        The inverse of _.toPairs; this method returns an object composed from
+        key-value pairs.
+
+        Arguments
+
+            pairs (Array): The key-value pairs.
+
+        Returns
+
+            (Object): Returns the new object.
     **/
-    public static function fromPairs(pairs: Array<ArrayType>): StringMap<Variant>;
+    public static function fromPairs(pairs : Array<ArrayType>) : StringMap<Dynamic> {
+        #if js
+            return lo().fromPairs(pairs);
+        #end
+    }
 
     /**
         Gets the index at which the first occurrence of value is found in array 
