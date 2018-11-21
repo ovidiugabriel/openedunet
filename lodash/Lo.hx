@@ -731,8 +731,21 @@ class Lo {
         This method is like _.pull except that it accepts an array of values to remove.
 
         Note: Unlike _.difference, this method mutates array.
+
+        Arguments
+
+            array (Array): The array to modify.
+            values (Array): The values to remove.
+
+        Returns
+
+            (Array): Returns array.
     **/
-    public static function pullAll(array: ArrayType, ?values: ArrayType): ArrayType;
+    public static function pullAll(array : ArrayType, ?values : ArrayType) : ArrayType {
+        #if js
+            return lo().pullAll(array, values);
+        #end
+    }
 
     /**
         This method is like _.pullAll except that it accepts iteratee which is 
