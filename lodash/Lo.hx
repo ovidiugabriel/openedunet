@@ -369,12 +369,27 @@ class Lo {
         #end
     }
 
-    /** 
+    /**
         Fills elements of array with value from start up to, but not including, end.
 
         Note: This method mutates array.
+
+        Arguments
+
+            array (Array): The array to fill.
+            value (*): The value to fill array with.
+            [start=0] (number): The start position.
+            [end=array.length] (number): The end position.
+
+        Returns
+
+            (Array): Returns array.
     **/
-    public static function fill(array: ArrayType, value:Variant, ?start: Int = 0, ?end: Int): ArrayType;
+    public static function fill(array : ArrayType, value :Dynamic, ?start : Int = 0, ?end : Int) : ArrayType {
+        #if js
+            return lo().fill(array, value, start, end);
+        #end
+    }
 
     /**
         This method is like _.find except that it returns the index of the first 
