@@ -748,13 +748,28 @@ class Lo {
     }
 
     /**
-        This method is like _.pullAll except that it accepts iteratee which is 
-        invoked for each element of array and values to generate the criterion by 
+        This method is like _.pullAll except that it accepts iteratee which is
+        invoked for each element of array and values to generate the criterion by
         which they're compared. The iteratee is invoked with one argument: (value).
 
         Note: Unlike _.differenceBy, this method mutates array.
+
+        Arguments
+
+            array (Array): The array to modify.
+            values (Array): The values to remove.
+            [iteratee=_.identity] (Function): The iteratee invoked per element.
+
+        Returns
+
+            (Array): Returns array.
     **/
-    public static function pullAllBy(array: ArrayType, values: ArrayType, ?iteratee: Iteratee): ArrayType;
+    @:overload(function (array: ArrayType, values: ArrayType, ?iteratee: Dynamic): ArrayType {})
+    public static function pullAllBy(array : ArrayType, values : ArrayType, ?iteratee : Iteratee) : ArrayType {
+        #if js
+            return lo().pullAllBy(array, values, iteratee);
+        #end
+    }
 
     /**
         This method is like _.pullAll except that it accepts comparator which is 
