@@ -658,10 +658,24 @@ class Lo {
     }
 
     /**
-        This method is like _.indexOf except that it iterates over elements of 
+        This method is like _.indexOf except that it iterates over elements of
         array from right to left.
+
+        Arguments
+
+            array (Array): The array to inspect.
+            value (*): The value to search for.
+            [fromIndex=array.length-1] (number): The index to search from.
+
+        Returns
+
+            (number): Returns the index of the matched value, else -1.
     **/
-    public static function lastIndexOf(array: ArrayType, value: Variant, ?fromIndex: Int): Int;
+    public static function lastIndexOf(array : ArrayType, value : Dynamic, ?fromIndex : Int) : Int {
+        #if js
+            return lo().lastIndexOf(array, value, fromIndex);
+        #end
+    }
 
     /**
         Gets the element at index n of array. If n is negative, the nth element from the end is returned.
