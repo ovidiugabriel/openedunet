@@ -435,8 +435,22 @@ class Lo {
 
     /**
         Gets the first element of array.
+
+        Aliases: _.first
+
+        Arguments
+
+            array (Array): The array to query.
+
+        Returns
+
+            (*): Returns the first element of array.
     **/
-    public static function head(array: ArrayType): ArrayType;
+    public static function head(array: ArrayType): ArrayType {
+        #if js
+            return lo().head(array);
+        #end
+    }
 
     /**
         Flattens array a single level deep.
