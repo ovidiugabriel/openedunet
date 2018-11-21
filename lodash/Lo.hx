@@ -580,13 +580,22 @@ class Lo {
     }
 
     /**
-        This method is like _.intersection except that it accepts iteratee which 
-        is invoked for each element of each arrays to generate the criterion by 
-        which they're compared. The order and references of result values are 
-        determined by the first array. 
+        This method is like _.intersection except that it accepts iteratee which
+        is invoked for each element of each arrays to generate the criterion by
+        which they're compared. The order and references of result values are
+        determined by the first array.
         The iteratee is invoked with one argument: (value).
     **/
-    public static function intersectionBy(arrays: Array<ArrayType>, ?iteratee: Iteratee): ArrayType;
+    @:overload(function (arrays : Array<ArrayType>, ?iteratee : Dynamic): ArrayType {})
+    public static function intersectionBy(arrays : Array<ArrayType>, ?iteratee : Iteratee) : ArrayType {
+        #if js
+            var params : Array<Dynamic> = arrays.copy();
+            if (null != iteratee) {
+                params.push(iteratee);
+            }
+            return apply(lo().intersectionBy, params);
+        #end
+    }
 
     /**
         This method is like _.intersection except that it accepts comparator 
