@@ -598,12 +598,29 @@ class Lo {
     }
 
     /**
-        This method is like _.intersection except that it accepts comparator 
+        This method is like _.intersection except that it accepts comparator
         which is invoked to compare elements of arrays. The order and references
-        of result values are determined by the first array. The comparator is 
+        of result values are determined by the first array. The comparator is
         invoked with two arguments: (arrVal, othVal).
+
+        Arguments
+
+            [arrays] (...Array): The arrays to inspect.
+            [iteratee=_.identity] (Function): The iteratee invoked per element.
+
+        Returns
+
+            (Array): Returns the new array of intersecting values.
     **/
-    public static function intersectionWith(arrays: Array<ArrayType>, ?comparator: Comparator): ArrayType;
+    public static function intersectionWith(arrays: Array<Dynamic>, ?comparator: Comparator): ArrayType {
+        #if js
+            var params : Array<Dynamic> = arrays.copy();
+            if (null != comparator) {
+                params.push(comparator);
+            }
+            return apply(lo().intersectionWith, params);
+        #end
+    }
 
     /**
         Converts all elements in array into a string separated by separator.
