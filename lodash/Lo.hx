@@ -818,12 +818,25 @@ class Lo {
     }
 
     /**
-        Removes all elements from array that predicate returns truthy for and 
+        Removes all elements from array that predicate returns truthy for and
         returns an array of the removed elements. The predicate is invoked with three arguments: (value, index, array).
 
         Note: Unlike _.filter, this method mutates array. Use _.pull to pull elements from an array by value.
+
+        Arguments
+
+            array (Array): The array to modify.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+            (Array): Returns the new array of removed elements
     **/
-    public static function remove(array: ArrayType, ?predicate: Predicate): ArrayType;
+    public static function remove(array : ArrayType, ?predicate : Predicate) : ArrayType {
+        #if js
+            return lo().remove(array, predicate);
+        #end
+    }
 
     /**
         Reverses array so that the first element becomes the last, the second 
