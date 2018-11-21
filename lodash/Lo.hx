@@ -349,11 +349,25 @@ class Lo {
     }
 
     /**
-        Creates a slice of array excluding elements dropped from the beginning. 
-        Elements are dropped until predicate returns falsey. The predicate is 
+        Creates a slice of array excluding elements dropped from the beginning.
+        Elements are dropped until predicate returns falsey. The predicate is
         invoked with three arguments: (value, index, array).
+
+        Arguments
+
+            array (Array): The array to query.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+        (Array): Returns the slice of array.
     **/
-    public static function dropWhile(array: ArrayType, ?predicate: Predicate): ArrayType;
+    @:overload(function (array : ArrayType, ?predicate : Dynamic) : ArrayType{})
+    public static function dropWhile(array : ArrayType, ?predicate : Predicate): ArrayType {
+        #if js
+            return lo().dropWhile(array, predicate);
+        #end
+    }
 
     /** 
         Fills elements of array with value from start up to, but not including, end.
