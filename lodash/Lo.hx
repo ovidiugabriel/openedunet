@@ -878,10 +878,24 @@ class Lo {
     }
 
     /**
-        Uses a binary search to determine the lowest index at which value should 
+        Uses a binary search to determine the lowest index at which value should
         be inserted into array in order to maintain its sort order.
+
+        Arguments
+
+            array (Array): The sorted array to inspect.
+            value (*): The value to evaluate.
+
+        Returns
+
+            (number): Returns the index at which value should be inserted into array.
     **/
-    public static function sortedIndex(array: ArrayType, value: Variant): Int;
+    public static function sortedIndex(array : ArrayType, value : Dynamic) : Int {
+        #if js
+            return lo().sortedIndex(array, value);
+        #end
+    }
+
     /**
         This method is like _.sortedIndex except that it accepts iteratee which 
         is invoked for value and each element of array to compute their sort ranking. 
