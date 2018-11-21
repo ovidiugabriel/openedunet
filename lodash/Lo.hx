@@ -642,8 +642,20 @@ class Lo {
 
     /**
         Gets the last element of array.
+
+        Arguments
+
+            array (Array): The array to query.
+
+        Returns
+
+            (*): Returns the last element of array.
     **/
-    public static function last(array: ArrayType):Variant;
+    public static function last(array : ArrayType) : Dynamic {
+        #if js
+            return lo().last(array);
+        #end
+    }
 
     /**
         This method is like _.indexOf except that it iterates over elements of 
