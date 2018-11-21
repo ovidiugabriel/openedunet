@@ -469,11 +469,22 @@ class Lo {
         #end
     }
 
-
     /**
         Recursively flattens array.
+
+        Arguments
+
+            array (Array): The array to flatten.
+
+        Returns
+
+            (Array): Returns the new flattened array.
     **/
-    public static function flattenDeep(array: ArrayType): ArrayType;
+    public static function flattenDeep(array : ArrayType) : ArrayType {
+        #if js
+            return lo().flattenDeep(array);
+        #end
+    }
 
     /**
         Recursively flatten array up to depth times.
