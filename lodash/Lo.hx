@@ -488,8 +488,21 @@ class Lo {
 
     /**
         Recursively flatten array up to depth times.
+
+        Arguments
+
+            array (Array): The array to flatten.
+            [depth=1] (number): The maximum recursion depth.
+
+        Returns
+
+            (Array): Returns the new flattened array.
     **/
-    public static function flattenDepth(array: ArrayType, ?depth: Int = 1): ArrayType;
+    public static function flattenDepth(array : ArrayType, ?depth : Int = 1) : ArrayType {
+        #if js
+            return lo().flattenDepth(array, depth);
+        #end
+    }
 
     /**
         The inverse of _.toPairs; this method returns an object composed from key-value pairs.
