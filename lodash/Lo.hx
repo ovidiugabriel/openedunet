@@ -545,8 +545,20 @@ class Lo {
 
     /**
         Gets all but the last element of array.
+
+        Arguments
+
+            array (Array): The array to query.
+
+        Returns
+
+            (Array): Returns the slice of array.
     **/
-    public static function initial(array: ArrayType): ArrayType;
+    public static function initial(array : ArrayType) : ArrayType {
+        #if js
+            return lo().initial(array);
+        #end
+    }
 
     /**
         Creates an array of unique values that are included in all given arrays 
