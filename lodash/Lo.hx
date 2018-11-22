@@ -1517,4 +1517,101 @@ class Lo {
             return lo().countBy(collection, iteratee);
         #end
     }
+    
+    /**
+        Iterates over elements of collection and invokes iteratee for each element.
+        The iteratee is invoked with three arguments: (value, index|key, collection).
+        Iteratee functions may exit iteration early by explicitly returning false.
+
+        Note: As with other "Collections" methods, objects with a "length" property
+        are iterated like arrays. To avoid this behavior use _.forIn or _.forOwn
+        for object iteration.
+
+        Aliases: _.each
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [iteratee=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+            (*): Returns collection.
+    **/
+    public static function forEach(collection: Collection, ?iteratee: Dynamic): Collection {
+        #if js
+            return lo().forEach(collection, iteratee);
+        #end
+    }
+    /**
+        This method is like _.forEach except that it iterates over elements of
+        collection from right to left.
+
+        Aliases: _.eachRight
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [iteratee=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+            (*): Returns collection.
+    **/
+    public static function forEachRight(collection: Collection, ?iteratee: Dynamic -> Void): Collection {
+        #if js
+            return lo().forEachRight(collection, iteratee);
+        #end
+    }
+
+    /**
+        Checks if predicate returns truthy for all elements of collection. Iteration
+        is stopped once predicate returns falsey. The predicate is invoked with
+        three arguments: (value, index|key, collection).
+
+        Note: This method returns true for empty collections because everything
+        is true of elements of empty collections.
+
+        Returns true if all elements pass the predicate check, else false.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+            (boolean): Returns true if all elements pass the predicate check, else false.
+    **/
+    @:overload(function (collection: Collection, ?predicate: Dynamic): Bool{})
+    public static function every(collection: Collection, ?predicate: Predicate): Bool {
+        #if js
+            return lo().every(collection, predicate);
+        #end
+    }
+
+    /**
+        Iterates over elements of collection, returning an array of all elements
+        predicate returns truthy for. The predicate is invoked with three arguments:
+        (value, index|key, collection).
+
+        Note: Unlike _.remove, this method returns a new array.
+
+        Returns the new filtered array.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+            (Array): Returns the new filtered array.
+    **/
+    @:overload(function (collection: Collection, ?predicate: Dynamic): ArrayType{})
+    public static function filter(collection: Collection, ?predicate: Predicate): ArrayType {
+        #if js
+            return lo().filter(collection, predicate);
+        #end
+    }
 }
