@@ -1059,8 +1059,21 @@ class Lo {
 
     /**
         Creates a slice of array with n elements taken from the beginning.
+
+        Arguments
+
+            array (Array): The array to query.
+            [n=1] (number): The number of elements to take.
+
+        Returns
+
+            (Array): Returns the slice of array.
     **/
-    public static function take(array: ArrayType, ?n: Int =1): ArrayType;
+    public static function take(array: ArrayType, ?n: Int =1): ArrayType {
+        #if js
+            return lo().take(array, n);
+        #end
+    }
 
     /**
         Creates a slice of array with n elements taken from the end.
