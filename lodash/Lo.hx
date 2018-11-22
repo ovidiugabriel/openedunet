@@ -1138,24 +1138,71 @@ class Lo {
     /**
         Creates an array of unique values, in order, from all given arrays using
         SameValueZero for equality comparisons.
+
+        Arguments
+
+            [arrays] (...Array): The arrays to inspect.
+
+        Returns
+
+            (Array): Returns the new array of combined values.
     **/
-    public static function union(arrays: Array<ArrayType>): ArrayType;
+    public static function union(arrays: Array<Dynamic>): ArrayType {
+        #if js
+            return apply(lo().union, arrays);
+        #end
+    }
 
     /**
-        This method is like _.union except that it accepts iteratee which is 
-        invoked for each element of each arrays to generate the criterion by which 
-        uniqueness is computed. Result values are chosen from the first array in 
+        This method is like _.union except that it accepts iteratee which is
+        invoked for each element of each arrays to generate the criterion by which
+        uniqueness is computed. Result values are chosen from the first array in
         which the value occurs. The iteratee is invoked with one argument: (value).
+
+        Arguments
+
+            [arrays] (...Array): The arrays to inspect.
+            [iteratee=_.identity] (Function): The iteratee invoked per element.
+
+        Returns
+
+            (Array): Returns the new array of combined values.
     **/
-    public static function unionBy(arrays: Array<ArrayType>, ?iteratee: Iteratee): ArrayType;
+    @:overload(function (arrays: Array<Dynamic>, ?iteratee: Dynamic): ArrayType {})
+    public static function unionBy(arrays: Array<Dynamic>, ?iteratee: Iteratee): ArrayType {
+        #if js
+            var params = arrays.copy();
+            if (null != iteratee) {
+                params.push(iteratee);
+            }
+            return apply(lo().unionBy, params);
+        #end
+    }
 
     /**
-        This method is like _.union except that it accepts comparator which is 
-        invoked to compare elements of arrays. Result values are chosen from the 
-        first array in which the value occurs. The comparator is invoked with 
+        This method is like _.union except that it accepts comparator which is
+        invoked to compare elements of arrays. Result values are chosen from the
+        first array in which the value occurs. The comparator is invoked with
         two arguments: (arrVal, othVal).
+
+        Arguments
+
+            [arrays] (...Array): The arrays to inspect.
+            [comparator] (Function): The comparator invoked per element.
+
+        Returns
+
+            (Array): Returns the new array of combined values.
     **/
-    public static function unionWith(arrays: Array<ArrayType>, ?comparator: Comparator): ArrayType;
+    public static function unionWith(arrays: Array<Dynamic>, ?comparator: Comparator): ArrayType {
+        #if js
+            var params = arrays.copy();
+            if (null != comparator) {
+                params.push(comparator);
+            }
+            return apply(lo().unionWith, params);
+        #end
+    }
 
     /**
         Creates a duplicate-free version of an array, using SameValueZero for 
