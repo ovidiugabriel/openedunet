@@ -2007,4 +2007,90 @@ class Lo {
             return lo().sampleSize(collection, n);
         #end
     }
+
+    /**
+        shuffle()
+
+        Creates an array of shuffled values, using a version of the Fisher-Yates shuffle.
+
+        Arguments
+
+            collection (Array|Object): The collection to shuffle.
+
+        Returns
+
+            (Array): Returns the new shuffled array.
+    **/
+    public static function shuffle(collection: Collection): Array<Dynamic> {
+        #if js
+            return lo().shuffle(collection);
+        #end
+    }
+
+    /**
+        size()
+
+        Gets the size of collection by returning its length for array-like values 
+        or the number of own enumerable string keyed properties for objects.
+
+        Arguments
+
+            collection (Array|Object|string): The collection to inspect.
+
+        Returns
+
+            (number): Returns the collection size.
+    **/
+    public static function size(collection: Collection): Int {
+        #if js
+            return lo().size(collection);
+        #end
+    }
+
+    /**
+        some()
+
+        Checks if predicate returns truthy for any element of collection. Iteration is stopped once predicate returns truthy. The predicate is invoked with three arguments: (value, index|key, collection).
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+            (boolean): Returns true if any element passes the predicate check, else false.
+
+    **/
+    @:overload(function (collection: Collection, ?predicate: Dynamic): Bool {})
+    public static function some(collection: Collection, ?predicate: Predicate): Bool {
+        #if js
+            return lo().some(collection, predicate);
+        #end
+    }
+
+
+    /**
+        sortBy()
+
+        Creates an array of elements, sorted in ascending order by the results
+        of running each element in a collection thru each iteratee. This method
+        performs a stable sort, that is, it preserves the original sort order of
+        equal elements. The iteratees are invoked with one argument: (value).
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [iteratees=[_.identity]] (...(Function|Function[])): The iteratees to sort by.
+
+        Returns
+
+            (Array): Returns the new sorted array.
+    **/
+    @:overload(function (collection: Collection, ?iteratees: Array<Dynamic>): ArrayType {})
+    public static function sortBy(collection: Collection, ?iteratees: Array<Iteratee>): ArrayType {
+        #if js
+            return lo().sortBy(collection, iteratees);
+        #end
+    }
 }
