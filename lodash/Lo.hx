@@ -1272,13 +1272,25 @@ class Lo {
     }
 
     /**
-        This method is like _.zip except that it accepts an array of grouped 
-        elements and creates an array regrouping the elements to their pre-zip 
+        This method is like _.zip except that it accepts an array of grouped
+        elements and creates an array regrouping the elements to their pre-zip
         configuration.
 
         Returns the new array of regrouped elements.
+
+        Arguments
+
+            array (Array): The array of grouped elements to process.
+
+        Returns
+
+            (Array): Returns the new array of regrouped elements.
     **/
-    public static function unzip(array: ArrayType): ArrayType;
+    public static function unzip(array: ArrayType): ArrayType {
+        #if js
+            return lo().unzip(array);
+        #end
+    }
 
     /**
         This method is like _.unzip except that it accepts iteratee to specify 
