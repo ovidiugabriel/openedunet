@@ -1077,22 +1077,63 @@ class Lo {
 
     /**
         Creates a slice of array with n elements taken from the end.
+
+        Arguments
+
+            array (Array): The array to query.
+            [n=1] (number): The number of elements to take.
+
+        Returns
+
+            (Array): Returns the slice of array.
     **/
-    public static function takeRight(array: ArrayType, ?n: Int = 1): ArrayType;
+    public static function takeRight(array: ArrayType, ?n: Int = 1): ArrayType {
+        #if js
+            return lo().takeRight(array, n);
+        #end
+    }
 
     /**
-        Creates a slice of array with elements taken from the end. Elements are 
-        taken until predicate returns falsey. The predicate is invoked with three 
+        Creates a slice of array with elements taken from the end. Elements are
+        taken until predicate returns falsey. The predicate is invoked with three
         arguments: (value, index, array).
+
+        Arguments
+
+            array (Array): The array to query.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+            (Array): Returns the slice of array.
     **/
-    public static function takeRightWhile(array: ArrayType, ?predicate: Predicate): ArrayType;
+    @:overload(function (array: ArrayType, ?predicate: Dynamic): ArrayType {})
+    public static function takeRightWhile(array: ArrayType, ?predicate: Predicate): ArrayType {
+        #if js
+            return lo().takeRightWhile(array, predicate);
+        #end
+    }
 
     /**
-        Creates a slice of array with elements taken from the beginning. 
-        Elements are taken until predicate returns falsey. The predicate is 
+        Creates a slice of array with elements taken from the beginning.
+        Elements are taken until predicate returns falsey. The predicate is
         invoked with three arguments: (value, index, array).
+
+        Arguments
+
+            array (Array): The array to query.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+            (Array): Returns the slice of array.
     **/
-    public static function takeWhile(array: ArrayType, ?predicate: Predicate): ArrayType;
+    @:overload(function (array: ArrayType, ?predicate: Dynamic): ArrayType {})
+    public static function takeWhile(array : ArrayType, ?predicate : Predicate) : ArrayType {
+        #if js
+            return lo().takeWhile(array, predicate);
+        #end
+    }
 
     /**
         Creates an array of unique values, in order, from all given arrays using
