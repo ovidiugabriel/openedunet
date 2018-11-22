@@ -1293,73 +1293,201 @@ class Lo {
     }
 
     /**
-        This method is like _.unzip except that it accepts iteratee to specify 
-        how regrouped values should be combined. The iteratee is invoked with the 
+        This method is like _.unzip except that it accepts iteratee to specify
+        how regrouped values should be combined. The iteratee is invoked with the
         elements of each group: (...group).
 
         Returns the new array of regrouped elements.
+
+        Arguments
+
+            array (Array): The array of grouped elements to process.
+            [iteratee=_.identity] (Function): The function to combine regrouped values.
+
+        Returns
+
+            (Array): Returns the new array of regrouped elements.
     **/
-    public static function unzipWith(array: ArrayType, ?iteratee: Iteratee): ArrayType;
+    public static function unzipWith(array: ArrayType, ?iteratee: Dynamic): ArrayType {
+        #if js
+            return lo().unzipWith(array, iteratee);
+        #end
+    }
 
     /**
         Creates an array excluding all given values using SameValueZero for equality comparisons.
 
          Returns the new array of filtered values.
+
+        Arguments
+
+            array (Array): The array to inspect.
+            [values] (...*): The values to exclude.
+
+        Returns
+
+            (Array): Returns the new array of filtered values.
     **/
-    public static function without(array: ArrayType, values: ArrayType): ArrayType;
+    public static function without(values: ArrayType): ArrayType {
+        #if js
+            return apply(lo().without, values);
+        #end
+    }
 
     /**
-        Creates an array of unique values that is the symmetric difference of the 
-        given arrays. The order of result values is determined by the order they 
+        Creates an array of unique values that is the symmetric difference of the
+        given arrays. The order of result values is determined by the order they
         occur in the arrays.
 
         Returns the new array of filtered values.
+
+        Arguments
+
+            [arrays] (...Array): The arrays to inspect.
+
+        Returns
+
+            (Array): Returns the new array of filtered values.
+
     **/
-    public static function xor(arrays: Array<ArrayType>): ArrayType;
+    public static function xor(arrays: Array<ArrayType>): ArrayType {
+        #if js
+            return apply(lo().xor, arrays);
+        #end
+    }
 
     /**
 
-        This method is like _.xor except that it accepts iteratee which is invoked 
-        for each element of each arrays to generate the criterion by which by which 
-        they're compared. The order of result values is determined by the order 
+        This method is like _.xor except that it accepts iteratee which is invoked
+        for each element of each arrays to generate the criterion by which by which
+        they're compared. The order of result values is determined by the order
         they occur in the arrays. The iteratee is invoked with one argument: (value).
 
         Returns the new array of filtered values.
+
+        Arguments
+
+            [arrays] (...Array): The arrays to inspect.
+            [iteratee=_.identity] (Function): The iteratee invoked per element.
+
+        Returns
+
+            (Array): Returns the new array of filtered values.
     **/
-    public static function xorBy(arrays: Array<ArrayType>, ?iteratee: Iteratee): ArrayType;
+    public static function xorBy(arrays: Array<Dynamic>, ?iteratee: Dynamic): ArrayType {
+        #if js
+            var params = arrays.copy();
+            if (null != iteratee) {
+                params.push(iteratee);
+            }
+            return apply(lo().xorBy, params);
+        #end
+    }
 
     /**
-        This method is like _.xor except that it accepts comparator which is 
-        invoked to compare elements of arrays. The order of result values is 
-        determined by the order they occur in the arrays. The comparator is 
+        This method is like _.xor except that it accepts comparator which is
+        invoked to compare elements of arrays. The order of result values is
+        determined by the order they occur in the arrays. The comparator is
         invoked with two arguments: (arrVal, othVal).
+
+        Arguments
+
+            [arrays] (...Array): The arrays to inspect.
+            [comparator] (Function): The comparator invoked per element.
+
+        Returns
+
+            (Array): Returns the new array of filtered values.
     **/
-    public static function xorWith(arrays: Array<ArrayType>, ?comparator: Comparator): ArrayType;
+    public static function xorWith(arrays: Array<Dynamic>, ?comparator: Comparator): ArrayType {
+        #if js
+            var params = arrays.copy();
+            if (null != comparator) {
+                params.push(comparator);
+            }
+            return apply(lo().xorWith, params);
+        #end
+    }
 
     /**
-        Creates an array of grouped elements, the first of which contains the 
-        first elements of the given arrays, the second of which contains the 
+        Creates an array of grouped elements, the first of which contains the
+        first elements of the given arrays, the second of which contains the
         second elements of the given arrays, and so on.
+
+        Arguments
+
+            [arrays] (...Array): The arrays to process.
+
+        Returns
+
+            (Array): Returns the new array of grouped elements.
     **/
-    public static function zip(arrays: Array<ArrayType>): ArrayType;
+    public static function zip(arrays: Array<ArrayType>): ArrayType {
+        #if js
+            return apply(lo().zip, arrays);
+        #end
+    }
 
     /**
-        This method is like _.fromPairs except that it accepts two arrays, one of 
+        This method is like _.fromPairs except that it accepts two arrays, one of
         property identifiers and one of corresponding values.
+
+        Arguments
+
+            [props=[]] (Array): The property identifiers.
+            [values=[]] (Array): The property values.
+
+        Returns
+
+            (Object): Returns the new object.
     **/
-    public static function zipObject(props: ArrayType, values: ArrayType): Variant;
+    public static function zipObject(props: ArrayType, values: ArrayType): Dynamic {
+        #if js
+            return lo().zipObject(props, values);
+        #end
+    }
 
     /**
         This method is like _.zipObject except that it supports property paths.
 
         Returns the new object.
+
+        Arguments
+
+            [props=[]] (Array): The property identifiers.
+            [values=[]] (Array): The property values.
+
+        Returns
+
+            (Object): Returns the new object.
     **/
-    public static function zipObjectDeep(props: ArrayType, values: ArrayType): Variant;
+    public static function zipObjectDeep(props: ArrayType, values: ArrayType): Dynamic {
+        #if js
+            return lo().zipObjectDeep(props, values);
+        #end
+    }
 
     /**
-        This method is like _.zip except that it accepts iteratee to specify how 
-        grouped values should be combined. The iteratee is invoked with the elements 
+        This method is like _.zip except that it accepts iteratee to specify how
+        grouped values should be combined. The iteratee is invoked with the elements
         of each group: (...group).
+
+        Arguments
+
+            [arrays] (...Array): The arrays to process.
+            [iteratee=_.identity] (Function): The function to combine grouped values.
+
+        Returns
+
+            (Array): Returns the new array of grouped elements.
     **/
-    public static function zipWith(arrays: Array<ArrayType>, ?iteratee: Iteratee): ArrayType;
+    public static function zipWith(arrays: Array<ArrayType>, ?iteratee: Dynamic): ArrayType {
+        #if js
+            var params = arrays.copy();
+            if (null != iteratee) {
+                params.push(iteratee);
+            }
+            return apply(lo().zipWith, params);
+        #end
+    }
 }
