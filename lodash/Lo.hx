@@ -1614,4 +1614,397 @@ class Lo {
             return lo().filter(collection, predicate);
         #end
     }
+    
+    /**
+        Iterates over elements of collection, returning the first element predicate
+        returns truthy for. The predicate is invoked with three arguments:
+        (value, index|key, collection).
+
+        Returns the matched element, else undefined.
+
+        Arguments
+
+            collection (Array|Object): The collection to inspect.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+            [fromIndex=0] (number): The index to search from.
+
+        Returns
+
+            (*): Returns the matched element, else undefined.
+    **/
+    @:overload(function (collection: Collection, ?predicate: Dynamic, ?fromIndex: Int = 0): Dynamic {})
+    public static function find(collection: Collection, ?predicate: Predicate, ?fromIndex: Int = 0): Dynamic {
+        #if js
+            return lo().find(collection, predicate, fromIndex);
+        #end
+    }
+
+    /**
+        This method is like _.find except that it iterates over elements of
+        collection from right to left.
+
+        Returns the matched element, else undefined.
+
+        Arguments
+
+            collection (Array|Object): The collection to inspect.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+            [fromIndex=collection.length-1] (number): The index to search from.
+
+        Returns
+
+            (*): Returns the matched element, else undefined.
+    **/
+    public static function findLast(collection: Collection, ?predicate: Predicate, ?fromIndex : Int): Dynamic {
+        #if js
+            return lo().findLast(collection, predicate, fromIndex);
+        #end
+    }
+
+    /**
+        Creates a flattened array of values by running each element in collection
+        thru iteratee and flattening the mapped results. The iteratee is invoked
+        with three arguments: (value, index|key, collection).
+
+        Returns the new flattened array.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [iteratee=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+            (Array): Returns the new flattened array.
+    **/
+    public static function flatMap(collection: Collection, ?iteratee: Iteratee): ArrayType {
+        #if js
+            return lo().flatMap(collection, iteratee);
+        #end
+    }
+
+    /**
+        This method is like _.flatMap except that it recursively flattens the mapped results.
+
+        Returns the new flattened array.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [iteratee=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+            (Array): Returns the new flattened array.
+    **/
+    public static function flatMapDeep(collection: Collection, ?iteratee: Iteratee): ArrayType {
+        #if js
+            return lo().flatMapDeep(collection, iteratee);
+        #end
+    }
+
+    /**
+        This method is like _.flatMap except that it recursively flattens the mapped results up to depth times.
+
+        Returns the new flattened array.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [iteratee=_.identity] (Function): The function invoked per iteration.
+            [depth=1] (number): The maximum recursion depth.
+
+        Returns
+
+            (Array): Returns the new flattened array
+    **/
+    public static function flatMapDepth(collection: Collection, ?iteratee: Iteratee, ?depth: Int = 1): ArrayType {
+        #if js
+            return lo().flatMapDepth(collection, iteratee, depth);
+        #end
+    }
+
+    /**
+        Creates an object composed of keys generated from the results of running
+        each element of collection thru iteratee. The order of grouped values is
+        determined by the order they occur in collection. The corresponding value
+        of each key is an array of elements responsible for generating the key.
+        The iteratee is invoked with one argument: (value).
+
+        Returns the composed aggregate object.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [iteratee=_.identity] (Function): The iteratee to transform keys.
+
+        Returns
+
+            (Object): Returns the composed aggregate object.
+    **/
+    @:overload(function (collection: Collection, ?iteratee: Dynamic): Dynamic {})
+    public static function groupBy(collection: Collection, ?iteratee: Iteratee): Dynamic {
+        #if js
+            return lo().groupBy(collection, iteratee);
+        #end
+    }
+
+    /**
+        Checks if value is in collection. If collection is a string, it's checked for a substring of value, otherwise
+        SameValueZero is used for equality comparisons. If fromIndex is negative, it's used as the offset from the end
+        of collection.
+
+        Returns true if value is found, else false.
+
+        Arguments
+
+            collection (Array|Object|string): The collection to inspect.
+            value (*): The value to search for.
+            [fromIndex=0] (number): The index to search from.
+
+        Returns
+
+            (boolean): Returns true if value is found, else false.
+    **/
+    public static function includes(collection: Collection, value: Dynamic, ?fromIndex: Int = 0): Bool {
+        #if js
+            return lo().includes(collection, value, fromIndex);
+        #end
+    }
+
+    /**
+        Invokes the method at path of each element in collection, returning an array
+        of the results of each invoked method. Any additional arguments are provided
+        to each invoked method. If path is a function, it's invoked for, and this
+        bound to, each element in collection.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            path (Array|Function|string): The path of the method to invoke or the function invoked per iteration.
+            [args] (...*): The arguments to invoke each method with.
+
+        Returns
+
+            (Array): Returns the array of results.
+    **/
+    @:overload(function (collection: Collection, path: Dynamic, ?args: Dynamic): ArrayType {})
+    public static function invokeMap(collection: Collection, path: Dynamic, ?args: Array<Dynamic>): ArrayType {
+        #if js
+            return lo().invokeMap(collection, path, args);
+        #end
+    }
+
+    /**
+        Creates an object composed of keys generated from the results of running
+        each element of collection thru iteratee. The corresponding value of each
+        key is the last element responsible for generating the key. The iteratee
+        is invoked with one argument: (value).
+
+        Returns the composed aggregate object.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            path (Array|Function|string): The path of the method to invoke or the function invoked per iteration.
+            [args] (...*): The arguments to invoke each method with.
+
+        Returns
+
+            (Array): Returns the array of results.
+    **/
+    @:overload(function (collection: Collection, ?iteratee: Dynamic): Dynamic {})
+    public static function keyBy(collection: Collection, ?iteratee: Iteratee): Dynamic {
+        #if js
+            return lo().keyBy(collection, iteratee);
+        #end
+    }
+
+    /**
+        Creates an array of values by running each element in collection thru iteratee.
+        The iteratee is invoked with three arguments: (value, index|key, collection).
+
+        Many lodash methods are guarded to work as iteratees for methods like _.every,
+        _.filter, _.map, _.mapValues, _.reject, and _.some.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            path (Array|Function|string): The path of the method to invoke or the function invoked per iteration.
+            [args] (...*): The arguments to invoke each method with.
+
+        Returns
+
+            (Array): Returns the array of results.
+     **/
+    @:overload(function(collection: Collection, ?iteratees: Dynamic): ArrayType {})
+    public static function map(collection: Collection, ?iteratees: Iteratee): ArrayType {
+        #if js
+            return lo().map(collection, iteratees);
+        #end
+    }
+
+    /**
+        collection (Array|Object): The collection to iterate over.
+        [iteratees=[_.identity]] (Array[]|Function[]|Object[]|string[]): The iteratees to sort by.
+        [orders] (string[]): The sort orders of iteratees.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [iteratees=[_.identity]] (Array[]|Function[]|Object[]|string[]): The iteratees to sort by.
+            [orders] (string[]): The sort orders of iteratees.
+
+        Returns
+
+            (Array): Returns the new sorted array.
+    **/
+    public static function orderBy(collection: Collection, ?iteratees: Array<String>, ?orders: Array<String>) {
+        #if js
+            return lo().orderBy(collection, iteratees, orders);
+        #end
+    }
+
+    /**
+        partition()
+
+        Creates an array of elements split into two groups, the first of which
+        contains elements predicate returns truthy for, the second of which
+        contains elements predicate returns falsey for. The predicate is invoked
+        with one argument: (value).
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+            (Array): Returns the array of grouped elements.
+    **/
+    @:overload(function (collection: Collection, ?predicate: Dynamic): ArrayType {})
+    public static function partition(collection: Collection, ?predicate: Predicate): ArrayType {
+        #if js
+            return lo().partition(collection, predicate);
+        #end
+    }
+
+    /**
+        reduce()
+
+        Reduces collection to a value which is the accumulated result of running
+        each element in collection thru iteratee, where each successive invocation
+        is supplied the return value of the previous. If accumulator is not given,
+        the first element of collection is used as the initial value. The iteratee
+        is invoked with four arguments:
+        (accumulator, value, index|key, collection).
+
+        Many lodash methods are guarded to work as iteratees for methods like
+        _.reduce, _.reduceRight, and _.transform.
+
+        The guarded methods are:
+        assign, defaults, defaultsDeep, includes, merge, orderBy, and sortBy
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [iteratee=_.identity] (Function): The function invoked per iteration.
+            [accumulator] (*): The initial value.
+
+        Returns
+
+            (*): Returns the accumulated value.
+
+    **/
+    @:overload(function (collection: Collection, ?iteratee: Dynamic, ?accumulator: Dynamic): Dynamic {})
+    public static function reduce(collection: Collection, ?iteratee: Iteratee, ?accumulator: Dynamic): Dynamic {
+        #if js
+            return lo().reduce(collection, iteratee, accumulator);
+        #end
+    }
+
+    /**
+        reduceRight()
+
+        This method is like _.reduce except that it iterates over elements of
+        collection from right to left.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [iteratee=_.identity] (Function): The function invoked per iteration.
+            [accumulator] (*): The initial value.
+
+        Returns
+
+            (*): Returns the accumulated value.
+    **/
+    @:overload(function (collection: Collection, ?iteratee: Dynamic, ?accumulator: Dynamic): Dynamic {})
+    public static function reduceRight(collection: Collection, ?iteratee: Iteratee, ?accumulator: Dynamic): Dynamic {
+        #if js
+            return lo().reduceRight(collection, iteratee, accumulator);
+        #end
+    }
+
+    /**
+        reject()
+
+
+        The opposite of _.filter; this method returns the elements of collection
+        that predicate does not return truthy for.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [predicate=_.identity] (Function): The function invoked per iteration.
+
+        Returns
+
+            (Array): Returns the new filtered array.
+    **/
+    @:overload(function (collection: Collection, ?predicate: Dynamic): ArrayType {})
+    public static function reject(collection: Collection, ?predicate: Predicate): ArrayType {
+        #if js
+            return lo().reject(collection, predicate);
+        #end
+    }
+
+    /**
+        sample()
+
+        Gets a random element from collection.
+
+        Arguments
+
+            collection (Array|Object): The collection to sample.
+
+        Returns
+
+            (*): Returns the random element.
+    **/
+    public static function sample(collection: Collection): Dynamic {
+        #if js
+            return lo().sample(collection);
+        #end
+    }
+
+    /**
+        sampleSize()
+
+        Gets n random elements at unique keys from collection up to the size of collection.
+
+        Arguments
+
+            collection (Array|Object): The collection to sample.
+            [n=1] (number): The number of elements to sample.
+
+        Returns
+
+            (Array): Returns the random elements.
+    **/
+    public static function sampleSize(collection: Collection, ?n: Int = 1): Array<Dynamic> {
+        #if js
+            return lo().sampleSize(collection, n);
+        #end
+    }
 }
