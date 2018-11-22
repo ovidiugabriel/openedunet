@@ -2050,7 +2050,9 @@ class Lo {
     /**
         some()
 
-        Checks if predicate returns truthy for any element of collection. Iteration is stopped once predicate returns truthy. The predicate is invoked with three arguments: (value, index|key, collection).
+        Checks if predicate returns truthy for any element of collection. 
+        Iteration is stopped once predicate returns truthy. 
+        The predicate is invoked with three arguments: (value, index|key, collection).
 
         Arguments
 
