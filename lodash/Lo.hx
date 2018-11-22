@@ -1042,8 +1042,20 @@ class Lo {
 
     /**
         Gets all but the first element of array.
+
+        Arguments
+
+            array (Array): The array to query.
+
+        Returns
+
+            (Array): Returns the slice of array.
     **/
-    public static function tail(array: ArrayType): ArrayType;
+    public static function tail(array: ArrayType): ArrayType {
+        #if js
+            return lo().tail(array);
+        #end
+    }
 
     /**
         Creates a slice of array with n elements taken from the beginning.
