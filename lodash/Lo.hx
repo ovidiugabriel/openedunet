@@ -1490,4 +1490,31 @@ class Lo {
             return apply(lo().zipWith, params);
         #end
     }
+
+    // -------------------------------------------------------------------------
+    // Collection
+    // -------------------------------------------------------------------------
+
+    /**
+        Creates an object composed of keys generated from the results of running
+        each element of collection thru iteratee. The corresponding value of each
+        key is the number of times the key was returned by iteratee. The iteratee
+        is invoked with one argument: (value).
+
+        Returns the composed aggregate object.
+
+        Arguments
+
+            collection (Array|Object): The collection to iterate over.
+            [iteratee=_.identity] (Function): The iteratee to transform keys.
+
+        Returns
+
+            (Object): Returns the composed aggregate object.
+    **/
+    public static function countBy(collection: Collection, ?iteratee: Dynamic): Dynamic {
+        #if js
+            return lo().countBy(collection, iteratee);
+        #end
+    }
 }
