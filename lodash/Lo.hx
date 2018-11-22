@@ -1205,32 +1205,71 @@ class Lo {
     }
 
     /**
-        Creates a duplicate-free version of an array, using SameValueZero for 
-        equality comparisons, in which only the first occurrence of each element 
-        is kept. The order of result values is determined by the order they occur 
+        Creates a duplicate-free version of an array, using SameValueZero for
+        equality comparisons, in which only the first occurrence of each element
+        is kept. The order of result values is determined by the order they occur
         in the array.
+
+        Arguments
+
+            array (Array): The array to inspect.
+
+        Returns
+
+            (Array): Returns the new duplicate free array.
     **/
-    public static function uniq(array: ArrayType): ArrayType;
+    public static function uniq(array: ArrayType): ArrayType {
+        #if js
+            return lo().uniq(array);
+        #end
+    }
 
     /**
-        This method is like _.uniq except that it accepts iteratee which is invoked 
-        for each element in array to generate the criterion by which uniqueness 
-        is computed. The order of result values is determined by the order they 
+        This method is like _.uniq except that it accepts iteratee which is invoked
+        for each element in array to generate the criterion by which uniqueness
+        is computed. The order of result values is determined by the order they
         occur in the array. The iteratee is invoked with one argument: (value).
 
         Returns the new duplicate free array.
+
+        Arguments
+
+            array (Array): The array to inspect.
+            [iteratee=_.identity] (Function): The iteratee invoked per element.
+
+        Returns
+
+            (Array): Returns the new duplicate free array.
     **/
-    public static function uniqBy(array: ArrayType, ?iteratee: Iteratee): ArrayType;
+    @:overload(function (array: ArrayType, ?iteratee: Dynamic): ArrayType {})
+    public static function uniqBy(array: ArrayType, ?iteratee: Iteratee): ArrayType {
+        #if js
+            return lo().uniqBy(array, iteratee);
+        #end
+    }
 
     /**
-        This method is like _.uniq except that it accepts comparator which is 
-        invoked to compare elements of array. The order of result values is 
-        determined by the order they occur in the array.The comparator is invoked 
+        This method is like _.uniq except that it accepts comparator which is
+        invoked to compare elements of array. The order of result values is
+        determined by the order they occur in the array.The comparator is invoked
         with two arguments: (arrVal, othVal).
 
         Returns the new duplicate free array.
+
+        Arguments
+
+            array (Array): The array to inspect.
+            [comparator] (Function): The comparator invoked per element.
+
+        Returns
+
+            (Array): Returns the new duplicate free array.
     **/
-    public static function uniqWith(array: ArrayType, ?comparator:Comparator): ArrayType;
+    public static function uniqWith(array: ArrayType, ?comparator:Comparator): ArrayType {
+        #if js
+            return lo().uniqWith(array, comparator);
+        #end
+    }
 
     /**
         This method is like _.zip except that it accepts an array of grouped 
