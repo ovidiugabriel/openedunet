@@ -124,10 +124,201 @@ abstract ArrayType(Array<Dynamic>) {
         return Lo.flattenDepth(this, depth);
     }
     
-    /*
-    FIXME: Incompatible signature
-    public function fromPairs(pairs : Array<ArrayType>) : StringMap<Dynamic> {    
+    public function fromPairs() : StringMap<Dynamic> {    
+        return Lo.fromPairs(this);
     }
-    */
+
+    public function indexOf(value : Dynamic, ?fromIndex : Int = 0) : Int {
+        return Lo.indexOf(this, value, fromIndex);
+    }
+
+    public function initial() : ArrayType {
+        return Lo.initial(this);
+    }
+    
+    public static function intersection() : ArrayType {
+        return Lo.intersection(this);
+    }
+    
+    @:overload(function (?iteratee : Dynamic) : ArrayType {})
+    public static function intersectionBy(?iteratee : Iteratee) : ArrayType {
+        return Lo.intersectionBy(this, iteratee);
+    }
+
+    public function intersectionWith(?comparator : Comparator) : ArrayType {
+        return Lo.intersectionWith(this, comparator);
+    }
+    
+    public function join(?separator : String =',') : String {
+        return Lo.join(this);
+    }
+    
+    public function last() : Dynamic {
+        return Lo.last(this);
+    }
+    
+    public function lastIndexOf(value : Dynamic, ?fromIndex : Int) : Int {
+        return Lo.lastIndexOf(this, value, fromIndex);
+    }
+
+    public function nth(?n : Int = 0) : Dynamic {
+        return Lo.nth(this, n);
+    }
+    
+    public function pull(?values : Array<Dynamic>) : ArrayType {
+        return Lo.pull(this, values);
+    }
+    
+    public function pullAll(?values : ArrayType) : ArrayType {
+        return Lo.pullAll(values);
+    }
+    
+    @:overload(function (values : ArrayType, ?iteratee : Dynamic) : ArrayType {})
+    public function pullAllBy(values : ArrayType, ?iteratee : Iteratee) : ArrayType {
+        return Lo.pullAllBy(this, values, iteratee);
+    }
+    
+    public function pullAllWith(values : ArrayType, ?comparator : Comparator) : ArrayType {
+        return Lo.pullAllWith(this, values, comparator);
+    }
+    
+    public function pullAt(array : ArrayType, indexes : Array<Int>) : ArrayType {
+        return Lo.pullAt(this, indexes);
+    }
+    
+    public function remove(?predicate: Predicate): ArrayType {
+        return Lo.remove(this, predicate);
+    }
+    
+    public function reverse() : ArrayType {
+        return Lo.reverse(this);
+    }
+    
+    public function slice(?start : Int = 0, ?end : Int) : ArrayType {
+        return Lo.slice(this, start, end);
+    }
+    
+    public function sortedIndex(value : Dynamic) : Int {
+        return Lo.sortedIndex(this, value);
+    }
+    
+    @:overload(function (value : Dynamic, ?iteratee : Dynamic) : Int {})
+    public function sortedIndexBy(value : Dynamic, ?iteratee : Iteratee) : Int {
+        return Lo.sortedIndexBy(this, value, iteratee);
+    }
+    
+    public function sortedIndexOf(value : Dynamic) : Int {
+        return Lo.sortedIndexOf(this, value);
+    }
+    
+    public function sortedLastIndex(value: Dynamic): Int {
+        return Lo.sortedLastIndex(this, value);
+    }
+    
+    @:overload(function (value : Dynamic, ?iteratee: Dynamic) : Int {})
+    public function sortedLastIndexBy(value : Dynamic, ?iteratee : Iteratee) : Int {
+        return Lo.sortedLastIndexBy(this, value, iteratee);
+    }
+    
+    public function sortedLastIndexOf(value : Dynamic) : Int {
+        return Lo.sortedLastIndexOf(this, value);
+    }
+    
+    public function sortedUniq() : ArrayType {
+        return Lo.sortedUniq(this);
+    }
+    
+    public function sortedUniqBy(?iteratee : Iteratee) : ArrayType {
+        return Lo.sortedUniqBy(this, iteratee);
+    }
+    
+    public function tail() : ArrayType {
+        return Lo.tail(this);
+    }
+    
+    public function take(?n : Int = 1) : ArrayType {
+        return Lo.take(this, n);
+    }
+
+    public function takeRight(?n : Int = 1) : ArrayType {
+        return Lo.takeRight(this, n);
+    }
+    
+    @:overload(function (?predicate : Dynamic) : ArrayType {})
+    public function takeRightWhile(?predicate : Predicate) : ArrayType {
+        return Lo.takeRightWhile(this, predicate);
+    }
+    
+    @:overload(function (?predicate: Dynamic): ArrayType {})
+    public function takeWhile(?predicate : Predicate) : ArrayType {
+        return Lo.takeWhile(this, predicate);
+    }
+    
+    public function union() : ArrayType {
+        return Lo.union(this);
+    }
+    
+    @:overload(function (?iteratee: Dynamic) : ArrayType {})
+    public function unionBy(?iteratee: Iteratee) : ArrayType {
+        return Lo.unionBy(this, iteratee);
+    }
+    
+    public function unionWith(?comparator: Comparator): ArrayType {
+        return Lo.unionWith(this, comparator);
+    }
+    
+    public function uniq(): ArrayType {
+        return Lo.uniq(this);
+    }
+    
+    @:overload(function (?iteratee : Dynamic) : ArrayType {})
+    public function uniqBy(?iteratee : Iteratee) : ArrayType {
+        return Lo.uniqBy(this, iteratee);
+    }
+    
+    public function uniqWith(?comparator : Comparator) : ArrayType {
+        return Lo.uniqWith(this, comparator);
+    }
+    
+    public function unzip() : ArrayType {
+        return Lo.unzip(this);
+    }
+    
+    public function unzipWith(?iteratee : Dynamic) : ArrayType {
+        return Lo.unzipWith(this, iteratee);
+    }
+    
+    public function without() : ArrayType {
+        return Lo.without(this);
+    }
+    
+    public function xor() : ArrayType {
+        return Lo.xor(this);
+    }
+    
+    public function xorBy(?iteratee : Dynamic) : ArrayType {
+        return Lo.xorBy(this, iteratee);
+    }
+    
+    public function xorWith(?comparator : Comparator) : ArrayType {
+        return Lo.xorWith(this, comparator);
+    }
+    
+    public function zip() : ArrayType {
+        return Lo.zip(this);
+    }
+    /*
+    public function zipObject(props: ArrayType, values: ArrayType): Dynamic {
+    }
+*/
+  
+    /*
+    public function zipObjectDeep(props: ArrayType, values: ArrayType): Dynamic {
+    }
+*/
+    
+    public function zipWith(?iteratee : Dynamic) : ArrayType {
+        return Lo.zipWith(this, iteratee);
+    }
 
 } // end-class
