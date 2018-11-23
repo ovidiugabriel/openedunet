@@ -2095,4 +2095,33 @@ class Lo {
             return lo().sortBy(collection, iteratees);
         #end
     }
-}
+
+    // -------------------------------------------------------------------------
+    // Function
+    // -------------------------------------------------------------------------
+
+    /**
+        The opposite of _.before; this method creates a function that invokes
+        func once it's called n or more times.
+
+        n (number): The number of calls before func is invoked.
+        func (Function): The function to restrict.
+
+        Returns the new restricted function.
+
+        Arguments
+
+            n (number): The number of calls before func is invoked.
+            func (Function): The function to restrict.
+
+        Returns
+
+            (Function): Returns the new restricted function.
+    **/
+    public static function after(n : Int, func : Dynamic) : Function {
+        #if js
+            return lo().after(n, func);
+        #end
+    }
+    
+} // end-class
