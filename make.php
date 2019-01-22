@@ -1,6 +1,8 @@
 #!/usr/bin/php
 <?php
 
+// TODO: move this to `buildpro`
+
 exit((int) main($argc, $argv));
 
 /**
