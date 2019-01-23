@@ -1,4 +1,8 @@
 
+/* 
+ * Haxe bindings for QUnit (https://qunitjs.com/)
+ */
+
 package qunit;
 
 extern class QUnit {
