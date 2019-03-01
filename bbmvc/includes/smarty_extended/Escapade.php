@@ -111,3 +111,15 @@ class Escapade {
     }
 
 }
+
+// Vars as functions
+// Can be used as a tag (without calling parentheses)
+$smarty->registerPlugin('function', 'h', Escapade::getFunction('h'));
+$smarty->registerPlugin('function', 'tod', Escapade::getFunction('tod'));
+
+// functions
+// Can be used as a tag (without calling parentheses)
+$smarty->registerPlugin('function', 'esp', Escapade::getFunction('esp'));
+$smarty->registerPlugin('function', 'dbopen', Escapade::getFunction('dbopen'));
+$smarty->registerPlugin('function', 'stop', Escapade::getFunction('stop'));
+$smarty->registerPlugin('function', 'recordcount', Escapade::getFunction('recordcount'));
