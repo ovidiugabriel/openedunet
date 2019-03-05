@@ -1,5 +1,8 @@
 <?php
 
+// TODO: Move this to
+// https://github.com/ovidiugabriel/dwtengine/blob/master/smarty-cli/smarty
+
 class Escapade {
     private $esp_params;
 
