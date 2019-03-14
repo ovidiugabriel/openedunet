@@ -1,7 +1,24 @@
 
 package lodash;
 
-class Collection {
+abstract Collection(Dynamic) {
+    @:overload(function (value: Dynamic): Collection {})
+    public function new(value: Array<Dynamic>) {
+        this = value;
+    }
+
+    @:from
+    static public function fromFloatArray(value: Array<Dynamic>): Collection {
+        return new Collection(value);
+    }
+
+    @:from
+    static public function fromDynamic(value: Dynamic): Collection {
+        return new Collection(value);
+    }
+    
+    // ------------------------------------------------------------------------
+    
     public function countBy(?iteratee : Dynamic) : Dynamic {
         return Lo.countBy(this, iteratee);
     }
