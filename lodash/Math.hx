@@ -1,6 +1,0 @@
-
-package lodash;
-
-class Math {
-    
-}
