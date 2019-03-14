@@ -1,6 +1,6 @@
 
 package lodash;
 
-class Number {
+abstract Number(Float) {
 
 }
