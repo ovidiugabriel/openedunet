@@ -2123,5 +2123,465 @@ class Lo {
             return lo().after(n, func);
         #end
     }
+
     
+    /**
+        Creates a function that invokes func, with up to n arguments, ignoring
+        any additional arguments.
+
+        Arguments
+
+            func (Function): The function to cap arguments for.
+            [n=func.length] (number): The arity cap.
+
+        Returns
+
+            (Function): Returns the new capped function.
+
+    **/
+    public static function ary(func: Dynamic, ?n: Int = 0): Function {
+        #if js
+            return lo().ary(func, n);
+        #end
+    }
+
+    /**
+        Creates a function that invokes func, with the this binding and arguments
+        of the created function, while it's called less than n times. Subsequent
+        calls to the created function return the result of the last func invocation.
+
+        Arguments
+
+            n (number): The number of calls at which func is no longer invoked.
+            func (Function): The function to restrict.
+
+        Returns
+
+            (Function): Returns the new restricted function.
+    **/
+    public static function before(n: Int, func: Dynamic): Function {
+        #if js
+            return lo().before(n, func);
+        #end
+    }
+
+    /**
+        Creates a function that invokes func with the this binding of thisArg
+        and partials prepended to the arguments it receives.
+
+        The _.bind.placeholder value, which defaults to _ in monolithic builds,
+        may be used as a placeholder for partially applied arguments.
+
+        Note: Unlike native Function#bind, this method doesn't set the "length"
+        property of bound functions.
+
+        Arguments
+
+            func (Function): The function to bind.
+            thisArg (*): The this binding of func.
+            [partials] (...*): The arguments to be partially applied.
+
+        Returns
+
+            (Function): Returns the new bound function.
+    **/
+    @:overload(function (func: Dynamic, ?thisArg: Dynamic, ?partials: Array<Dynamic>): Function {})
+    public static function bind(func: Function, ?thisArg: Dynamic, ?partials: Array<Dynamic>): Function {
+        //
+        // Because closures are static functions, null is passed as object
+        // and thisArg is passed as first argument to function
+        //
+        #if js
+            var params: Array<Dynamic> = [func, null, thisArg];
+            return apply(lo().bind, params.concat(partials));
+        #end
+    }
+
+    /**
+        bindKey()
+
+        Creates a function that invokes the method at object[key] with partials
+        prepended to the arguments it receives.
+
+        This method differs from _.bind by allowing bound functions to reference
+        methods that may be redefined or don't yet exist. See Peter Michaux's
+        article for more details.
+
+        The _.bindKey.placeholder value, which defaults to _ in monolithic builds,
+        may be used as a placeholder for partially applied arguments.
+    **/
+    public static function bindKey(object: Dynamic, key: String, ?partials: Array<Dynamic>): Function {
+        //
+        // Because closures are static functions,
+        // and object is passed as first argument to function (third in the params array)
+        //
+        #if js
+            var params: Array<Dynamic> = [object, key, object];
+            return apply(lo().bindKey, params.concat(partials));
+        #end
+    }
+
+    /**
+        Creates a function that accepts arguments of func and either invokes func
+        returning its result, if at least arity number of arguments have been
+        provided, or returns a function that accepts the remaining func arguments,
+        and so on. The arity of func may be specified if func.length is not
+        sufficient.
+
+        The _.curry.placeholder value, which defaults to _ in monolithic builds,
+        may be used as a placeholder for provided arguments.
+
+        Note: This method doesn't set the "length" property of curried functions.
+
+        Arguments
+
+            func (Function): The function to curry.
+            [arity=func.length] (number): The arity of func.
+
+        Returns
+
+            (Function): Returns the new curried function.
+    **/
+    public static function curry(func: Dynamic, ?arity: Int): Function {
+        #if js
+            return lo().curry(func, arity);
+        #end
+    }
+
+    /**
+        This method is like _.curry except that arguments are applied to func in
+        the manner of _.partialRight instead of _.partial.
+
+        The _.curryRight.placeholder value, which defaults to _ in monolithic
+        builds, may be used as a placeholder for provided arguments.
+
+        Note: This method doesn't set the "length" property of curried functions.
+
+        Arguments
+
+            func (Function): The function to curry.
+            [arity=func.length] (number): The arity of func.
+
+        Returns
+
+            (Function): Returns the new curried function.
+    **/
+    public static function curryRight(func: Dynamic, ?arity: Int): Function {
+        #if js
+            return lo().curryRight(func, arity);
+        #end
+    }
+
+    /**
+        Creates a debounced function that delays invoking func until after wait
+        milliseconds have elapsed since the last time the debounced function was
+        invoked. The debounced function comes with a cancel method to cancel
+        delayed func invocations and a flush method to immediately invoke them.
+        Provide options to indicate whether func should be invoked on the leading
+        and/or trailing edge of the wait timeout. The func is invoked with the
+        last arguments provided to the debounced function. Subsequent calls to
+        the debounced function return the result of the last func invocation.
+
+        Note: If leading and trailing options are true, func is invoked on the
+        trailing edge of the timeout only if the debounced function is invoked
+        more than once during the wait timeout.
+
+        If wait is 0 and leading is false, func invocation is deferred until to
+        the next tick, similar to setTimeout with a timeout of 0.
+
+        See David Corbacho's article for details over the differences between
+        _.debounce and _.throttle.
+
+        Arguments
+
+            func (Function): The function to debounce.
+            [wait=0] (number): The number of milliseconds to delay.
+            [options={}] (Object): The options object.
+            [options.leading=false] (boolean): Specify invoking on the leading edge of the timeout.
+            [options.maxWait] (number): The maximum time func is allowed to be delayed before it's invoked.
+            [options.trailing=true] (boolean): Specify invoking on the trailing edge of the timeout.
+
+        Returns
+
+            (Function): Returns the new debounced function.
+    **/
+    public static function debounce(func: Dynamic, ?wait: Int, ?options: Dynamic): Function {
+        #if js
+            return lo().debounce(func, wait, options);
+        #end
+    }
+
+    /**
+        Defers invoking the func until the current call stack has cleared. Any
+        additional arguments are provided to func when it's invoked.
+
+        Arguments
+
+            func (Function): The function to defer.
+            [args] (...*): The arguments to invoke func with.
+
+        Returns
+
+            (number): Returns the timer id.
+    **/
+    public static function defer(func: Function, args: Array<Dynamic>): Int {
+        #if js
+            var params = [func];
+            return apply(lo().defer, params.concat(args));
+        #end
+    }
+
+    /**
+        Invokes func after wait milliseconds.
+        Any additional arguments are provided to func when it's invoked.
+
+        Arguments
+            func (Function): The function to delay.
+            wait (number): The number of milliseconds to delay invocation.
+            [args] (...*): The arguments to invoke func with.
+
+        Returns
+            (number): Returns the timer id.
+    **/
+    public static function delay(func: Function, wait: Int, ?args: Array<Dynamic>): Int {
+        #if js
+            var params = [func, wait];
+            if (null != args) {
+                params = params.concat(args);
+            }
+            return apply(lo().delay, params);
+        #end
+    }
+
+    /**
+        Creates a function that invokes func with arguments reversed.
+
+        Arguments
+            func (Function): The function to flip arguments for.
+
+        Returns
+            (Function): Returns the new flipped function.
+     **/
+    public static function flip(func : Function) : Function {
+        #if js
+            return lo().flip(func);
+        #end
+    }
+
+    /** 
+        Creates a function that negates the result of the predicate func. The 
+        func predicate is invoked with the this binding and arguments of the 
+        created function.
+
+        Arguments
+
+            predicate (Function): The predicate to negate.
+
+        Returns
+
+            (Function): Returns the new negated function.
+
+    **/
+    public static function negate(predicate : Function) : Function {
+        #if js
+            return lo().negate(predicate);
+        #end
+    }
+
+    /**
+        Creates a function that is restricted to invoking func once. Repeat 
+        calls to the function return the value of the first invocation. The func 
+        is invoked with the this binding and arguments of the created function.
+
+        Arguments
+
+            func (Function): The function to restrict.
+
+        Returns
+
+            (Function): Returns the new restricted function.
+    **/
+    public static function once(func: Function) : Function {
+        #if js
+            return lo().once(func);
+        #end
+    }
+
+    /**
+        Creates a function that invokes func with its arguments transformed.
+
+        Arguments
+
+            func (Function): The function to wrap.
+            [transforms=[_.identity]] (...(Function|Function[])): The argument transforms.
+
+        Returns
+
+            (Function): Returns the new function.
+    **/
+    public static function overArgs(func : Function, ?transforms : Array<Function>)  {
+        #if js
+            return lo().overArgs(func, transforms);
+        #end
+    }
+
+    /**
+        Creates a function that invokes func with partials prepended to the 
+        arguments it receives. This method is like _.bind except it does not alter 
+        the this binding.
+
+        The _.partial.placeholder value, which defaults to _ in monolithic builds, 
+        may be used as a placeholder for partially applied arguments.
+
+
+        Arguments
+
+            func (Function): The function to partially apply arguments to.
+            [partials] (...*): The arguments to be partially applied.
+
+        Returns
+
+            (Function): Returns the new partially applied function.
+    **/
+    public static function partial(func: Function, ?partials : ArrayType) {
+        #if js
+            var params = [func];
+            if (null != partials) {
+                params = params.concat(partials);
+            }
+            return apply(lo().partial, params);
+        #end
+    }
+
+    /**
+        This method is like _.partial except that partially applied arguments 
+        are appended to the arguments it receives.
+
+        The _.partialRight.placeholder value, which defaults to _ in monolithic 
+        builds, may be used as a placeholder for partially applied arguments.
+
+        Note: This method doesn't set the "length" property of partially applied functions.
+
+        Arguments
+
+            func (Function): The function to partially apply arguments to.
+            [partials] (...*): The arguments to be partially applied.
+
+        Returns
+
+            (Function): Returns the new partially applied function.
+    **/
+    public static function partialRight(func: Function, ?partials : Array<Dynamic>) {
+        #if js
+            var params : Array<Dynamic> = [func];
+            if (null != partials) {
+                params = params.concat(partials);
+            }
+            return apply(lo().partialRight, params);
+        #end
+    }
+
+    /**
+        Creates a function that invokes func with arguments arranged according to 
+        the specified indexes where the argument value at the first index is provided 
+        as the first argument, the argument value at the second index is provided as 
+        the second argument, and so on.
+
+        Arguments
+
+            func (Function): The function to rearrange arguments for.
+            indexes (...(number|number[])): The arranged argument indexes.
+
+        Returns
+
+            (Function): Returns the new function.
+    **/
+    public static function rearg(func : Function, indexes : Array<Dynamic>) {
+        #if js
+            return lo().rearg(func, indexes);
+        #end
+    }
+
+    // public static function rest(func: Function, [start=func.length-1]) {
+
+        // }
+
+    /**
+        Creates a function that invokes func with the this binding of the create
+        function and an array of arguments much like Function#apply.
+
+        Note: This method is based on the spread operator.
+
+        Arguments
+
+            func (Function): The function to spread arguments over.
+            [start=0] (number): The start position of the spread.
+
+        Returns
+
+            (Function): Returns the new function.
+     **/
+//    public static function spread(func: Function, ?start: Int = 0) {
+
+// }
+
+    /**
+        Creates a throttled function that only invokes func at most once per
+        every wait milliseconds. The throttled function comes with a cancel
+        method to cancel delayed func invocations and a flush method to
+        immediately invoke them. Provide options to indicate whether func should
+        be invoked on the leading and/or trailing edge of the wait timeout. The
+        func is invoked with the last arguments provided to the throttled function.
+        Subsequent calls to the throttled function return the result of the last
+        func invocation.
+
+        Note: If leading and trailing options are true, func is invoked on the
+        trailing edge of the timeout only if the throttled function is invoked
+        more than once during the wait timeout.
+
+        If wait is 0 and leading is false, func invocation is deferred until to
+        the next tick, similar to setTimeout with a timeout of 0.
+
+        Arguments
+
+            func (Function): The function to throttle.
+            [wait=0] (number): The number of milliseconds to throttle invocations to.
+            [options={}] (Object): The options object.
+            [options.leading=true] (boolean): Specify invoking on the leading edge of the timeout.
+            [options.trailing=true] (boolean): Specify invoking on the trailing edge of the timeout.
+
+        Returns
+
+        (Function): Returns the new throttled function.
+
+
+    **/
+//    public static function throttle(func: Function, ?wait: Int = 0, options: Dynamic);
+
+    /**
+        Creates a function that accepts up to one argument, ignoring any
+        additional arguments.
+
+        Returns the new capped function.
+    **/
+//    public static function unary(func: Function): Function;
+
+    /**
+        Creates a function that provides value to wrapper as its first argument.
+        Any additional arguments provided to the function are appended to those
+        provided to the wrapper. The wrapper is invoked with the this binding of
+        the created function.
+
+        Returns the new function.
+    **/
+//    public static function wrap(value: Dynamic, ?wrapper: Function): Function;
+
+
+    //
+    // Lang
+    //
+    public static function isEqual(value: Dynamic, other: Dynamic): Bool {
+        return lo().isEqual(value, other);
+    }
+
 } // end-class
