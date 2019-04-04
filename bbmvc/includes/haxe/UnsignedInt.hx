@@ -10,32 +10,32 @@ abstract UnsignedInt(Int) {
     }
 
     @:op(A & B)
-    inline public function and(rvalue : Int) : UnsignedInt {
+    inline public function bitwiseAnd(rvalue : Int) : UnsignedInt {
         return new UnsignedInt(this & rvalue);
     }
 
     @:op(A | B)
-    inline public function or(rvalue : Int) : UnsignedInt {
+    inline public function bitwiseOr(rvalue : Int) : UnsignedInt {
         return new UnsignedInt(this | rvalue);
     }
 
     @:op(A ^ B)
-    inline public function xor(rvalue : Int) : UnsignedInt {
+    inline public function bitwiseXor(rvalue : Int) : UnsignedInt {
         return new UnsignedInt(this ^ rvalue);
     }
 
     @:op(~A)
-    inline public function not() : UnsignedInt {
+    inline public function bitwiseNot() : UnsignedInt {
         return new UnsignedInt(~this);
     }
 
     @:op(A << B)
-    inline public function shl(rvalue : Int) : UnsignedInt {
+    inline public function shiftLeft(rvalue : Int) : UnsignedInt {
         return new UnsignedInt(this << rvalue);
     }
 
     @:op(A >> B)
-    inline public function shr(rvalue : Int) : UnsignedInt {
+    inline public function shiftRight(rvalue : Int) : UnsignedInt {
         return new UnsignedInt(this >> rvalue);
     }
 
