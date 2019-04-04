@@ -16,22 +16,22 @@ abstract SignedInt(Int) {
     }
 
     @:op(A - B)
-    inline public function sub(rvalue : Int) : SignedInt {
+    inline public function substract(rvalue : Int) : SignedInt {
         return new SignedInt(this - rvalue);
     }
 
     @:op(A * B)
-    inline public function mul(rvalue : Int) : SignedInt {
+    inline public function multiply(rvalue : Int) : SignedInt {
         return new SignedInt(this * rvalue);
     }
 
     @:op(A / B)
-    inline public function div(rvalue : Int) : SignedInt {
+    inline public function divide(rvalue : Int) : SignedInt {
         return new SignedInt(Std.int(this / rvalue));
     }
 
     @:op(A % B)
-    inline public function mod(rvalue : Int) : SignedInt {
+    inline public function modulo(rvalue : Int) : SignedInt {
         return new SignedInt(this % rvalue);
     }
 
