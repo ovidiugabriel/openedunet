@@ -1,0 +1,5 @@
+
+package fourish;
+
+class SQLSchemaTranslation {
+}
