@@ -6,6 +6,9 @@
     "draw_white_space": "all",
     "ensure_newline_at_eof_on_save": true,
     "font_face": "Bitstream Vera Sans Mono",
+    /* 
+        "Liberation Mono" - for increased readability
+    */
     "font_options": "subpixel_antialias",
     "font_size": 9,
     "ignored_packages": ["Vintage"],
