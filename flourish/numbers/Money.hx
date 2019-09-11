@@ -1,5 +1,5 @@
 
-package flourish.numstr;
+package flourish.numbers;
 
 class Money {
     public function new() {}
