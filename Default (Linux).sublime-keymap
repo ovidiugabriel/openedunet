@@ -1,3 +1,4 @@
 [
-    { "keys": ["ctrl+shift+f2"], "command": "toggle_bookmark" }
+    {"keys": ["ctrl+shift+f2"], "command": "toggle_bookmark"},
+    {"keys": ["ctrl+alt+f2"], "command": "clear_bookmarks"},
 ]
