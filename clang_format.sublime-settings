@@ -1,0 +1,6 @@
+{
+    "binary": "clang-format.exe",
+    "format_on_save": true,
+    "style": "File",
+    "languages": ["C", "C++", "C++11", "Objective-C", "Objective-C++"]
+}
