@@ -34,7 +34,7 @@ x := 0
 This is basically automatic [thunking](http://en.wikipedia.org/wiki/Thunk). You can achieve the same thing by doing:
 
 ```
-x() := 0
+x := -> 0
 ```
 If you are coming from JavaScript (or Python) you maybe know that a function is a type of value which is assigned to a variable, and that's why a function can be redefined at any given time.
 
@@ -60,7 +60,7 @@ In functional paradigm we have [memoization](http://en.wikipedia.org/wiki/Memoiz
 That is, for example a given function `mul2`:
 
 ```
-mul2(a, b) := a * b
+mul2 := (a, b) -> a * b
 ```
 will be automatically memoized (using the `defaultCache`) as:
 
@@ -91,7 +91,7 @@ The identity function is used as a keyword: **id**
 And it is defined as:
 
 ```
-id(x) := x
+id := (x) -> x
 ```
 
 ###### Rule Based Transformations
