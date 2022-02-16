@@ -4,7 +4,7 @@
     {"keys": ["alt+left"], "command": "jump_back"},
     {"keys": ["alt+right"], "command": "jump_forward"},
     {"keys": ["ctrl+t"], "command": "toggle_side_bar"},
-    {"keys": ["ctrl+i"], "command": "switch_file", "args": {"extensions": ["cpp", "cxx", "cc", "c", "hpp", "hxx", "hh", "h", "ipp", "inl", "m", "mm", "aspx", "aspx.cs", "js", "jsx", "css", "php", "html"]}},
+    {"keys": ["ctrl+i"], "command": "switch_file", "args": {"extensions": ["cpp", "cxx", "cc", "c", "hpp", "hxx", "hh", "h", "dfm", "ipp", "inl", "m", "mm", "aspx", "aspx.cs", "js", "jsx", "css", "php", "html"]}},
     {"keys": ["ctrl+k"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"}},
     {"keys": ["ctrl+shift+x"], "command": "swap_case"},
     {"keys": ["ctrl+'"], "command": "unquote"},
