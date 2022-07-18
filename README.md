@@ -16,12 +16,12 @@ This page is also hosting the current version of [Barebone MVC]() Framework.
 
 Official project website is: [http://www.openedunet.org/]([http://www.openedunet.org/)
 
-### Trunk Checkout ###
+### Clone mater branch ###
 
 If you plan to make changes, use this command to check out the code as yourself using HTTPS:
 
 ```
-svn checkout https://github.com/ovidiugabriel/openedunet/trunk
+git clone https://github.com/ovidiugabriel/openedunet.git
 ```
 
 When prompted, enter your github user and password.
