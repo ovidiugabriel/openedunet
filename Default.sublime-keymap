@@ -8,5 +8,6 @@
     {"keys": ["ctrl+k"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"}},
     {"keys": ["ctrl+shift+x"], "command": "swap_case"},
     {"keys": ["ctrl+'"], "command": "unquote"},
-    {"keys": ["ctrl+alt+p"], "command": "prompt_select_workspace"}
+    {"keys": ["ctrl+alt+p"], "command": "prompt_select_workspace"},
+    {"keys": ["ctrl+shift+p"], "command": "extended_switcher", "args": {"list_mode": "window"}}
 ]
