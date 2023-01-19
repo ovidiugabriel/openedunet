@@ -44,21 +44,6 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-/* History (Start).                                                          */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*                                                                           */
-/* Date         Name    Reason                                               */
-/* ------------------------------------------------------------------------- */
-/* 13.01.2016           Fixed open() default params logic                    */
-/* 20.10.2015           Synchronized open source implementation              */
-/* 16.07.2013           Added begin(), commit() and rollback()               */
-/*                          as transaction processing functions              */
-/*                      Capitals in update()                                 */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/* History (END).                                                            */
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-
 class DuplicateEntryException extends Exception {
 
 }
@@ -153,7 +138,7 @@ class Database extends mysqli implements IDatabase {
      *
      * @var array
      */
-    private static $res = array();
+    private static $res = [];
 
     /**
      * Fisrt valid index we use resource count from index 1, to avoid problems
@@ -167,7 +152,7 @@ class Database extends mysqli implements IDatabase {
     /**
      * @var array
      */
-    private $history = array();
+    private $history = [];
 
     /**
      *
