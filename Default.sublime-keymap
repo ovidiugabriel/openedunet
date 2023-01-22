@@ -12,5 +12,6 @@
     {"keys": ["ctrl+shift+x"], "command": "swap_case"},
     {"keys": ["ctrl+'"], "command": "unquote"},
     {"keys": ["ctrl+alt+p"], "command": "prompt_select_workspace"},
-    {"keys": ["ctrl+shift+p"], "command": "extended_switcher", "args": {"list_mode": "window"}}
+    {"keys": ["ctrl+shift+p"], "command": "extended_switcher", "args": {"list_mode": "window"}},
+    {"keys": ["ctrl+shift+j"], "command": "reveal_in_side_bar" }
 ]
